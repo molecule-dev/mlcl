@@ -13,6 +13,7 @@ oclif.manifest.json
 /templates/apps/*/locales.json.br
 /templates/apps/*/tree.json.br
 /templates/apps/*/.npmignore
+/templates/apps/*/.mlcl-tree-npmignore.tmp
 
 # testing
 coverage

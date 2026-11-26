@@ -16,7 +16,9 @@
 
 import { existsSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs'
 import { mkdir, writeFile } from 'node:fs/promises'
-import { basename, dirname, join } from 'node:path'
+import { dirname, join } from 'node:path'
+
+import { validateTemplatePaths } from './template-tree.js'
 
 /** The file names npm leaves out of every package. */
 export const UNPACKED_DOTFILES: readonly string[] = ['.gitignore', '.npmrc']
@@ -130,8 +132,36 @@ export function cleanTemplateDotfiles(templatesDir: string): number {
 function restorable(rel: string): boolean {
   const parts = rel.split('/')
   if (parts.some((part) => part === '' || part === '.' || part === '..')) return false
-  if (!UNPACKED_DOTFILES.includes(basename(rel))) return false
+  if (!UNPACKED_DOTFILES.includes(parts[parts.length - 1])) return false
   return rel === '.gitignore' || (parts.length > 1 && COPIED_DIRECTORIES.includes(parts[0]))
+}
+
+/**
+ * Validate the same dotfiles in the publish gate and when scaffolding.
+ *
+ * @param bytes - The dotfile manifest's bytes.
+ * @param file - Where the manifest came from, for errors.
+ * @returns The restorable dot files and their contents.
+ */
+export function decodeTemplateDotfiles(bytes: Buffer, file: string): Record<string, string> {
+  const manifest = JSON.parse(bytes.toString('utf8')) as DotfilesManifest
+  if (
+    manifest?.schema !== 1 ||
+    !manifest.files ||
+    typeof manifest.files !== 'object' ||
+    Array.isArray(manifest.files)
+  )
+    throw new Error(`${file} is not a template dot-file manifest`)
+  const entries = Object.entries(manifest.files)
+  for (const [rel, content] of entries) {
+    if (!restorable(rel) || typeof content !== 'string')
+      throw new Error(`${file} lists ${rel}, which is not a template dot file`)
+  }
+  validateTemplatePaths(
+    entries.map(([rel]) => rel),
+    file,
+  )
+  return manifest.files
 }
 
 /**
@@ -148,13 +178,9 @@ export async function restoreTemplateDotfiles(
 ): Promise<string[]> {
   const file = join(templateDir, TEMPLATE_DOTFILES_MANIFEST)
   if (!existsSync(file)) return []
-  const manifest = JSON.parse(readFileSync(file, 'utf8')) as DotfilesManifest
-  if (manifest?.schema !== 1 || !manifest.files || typeof manifest.files !== 'object')
-    throw new Error(`${file} is not a template dot-file manifest`)
+  const files = decodeTemplateDotfiles(readFileSync(file), file)
   const restored: string[] = []
-  for (const [rel, content] of Object.entries(manifest.files)) {
-    if (!restorable(rel) || typeof content !== 'string')
-      throw new Error(`${file} lists ${rel}, which is not a template dot file`)
+  for (const [rel, content] of Object.entries(files)) {
     const dst = join(destDir, ...rel.split('/'))
     if (existsSync(dst)) continue
     await mkdir(dirname(dst), { recursive: true })

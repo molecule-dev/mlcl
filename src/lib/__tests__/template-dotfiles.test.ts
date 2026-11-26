@@ -176,4 +176,17 @@ describe('template dot files through npm packing', () => {
     }
     expect(existsSync(join(root as string, 'escape'))).toBe(false)
   })
+
+  it('validates all nested dotfile paths before restoring any files', async () => {
+    const { templateDir } = await makePackage()
+    const dest = join(root as string, 'project')
+    await writeFile(
+      join(templateDir, TEMPLATE_DOTFILES_MANIFEST),
+      JSON.stringify({ schema: 1, files: { '.gitignore': ROOT_IGNORE, 'app/CON/.npmrc': NPMRC } }),
+    )
+    await expect(restoreTemplateDotfiles(templateDir, dest)).rejects.toThrow(
+      'invalid template file',
+    )
+    expect(existsSync(dest)).toBe(false)
+  })
 })

@@ -209,9 +209,12 @@ if (!pack) {
 const files = pack.files.map((f) => f.path)
 // A folder's prepack builds dist. Loading before npm pack would break a fresh
 // checkout's prepublishOnly hook, which runs BEFORE npm's own prepack hook.
+const { decodeTemplateDotfiles, TEMPLATE_DOTFILES_MANIFEST } =
+  await import('../dist/lib/template-dotfiles.js')
 const { decodeTemplateLocales, TEMPLATE_LOCALES_ARCHIVE } =
   await import('../dist/lib/template-locales.js')
-const { decodeTemplateTree, TEMPLATE_TREE_ARCHIVE } = await import('../dist/lib/template-tree.js')
+const { decodeTemplateTree, TEMPLATE_TREE_ARCHIVE, TEMPLATE_TREE_KEPT } =
+  await import('../dist/lib/template-tree.js')
 const { templatePackageIssues } = await import('../dist/lib/template-package.js')
 /** @param {string} p - A shipped path, or one inside a template tree manifest. @param {string} where - Where it was found. */
 function structuralIssues(p, where) {
@@ -243,116 +246,36 @@ if (!realpathSync(contentRoot).startsWith(`${realpathSync(scratch)}${sep}`))
   throw new Error('packed package root escapes the extraction directory')
 requiredFiles(contentRoot)
 
-// Each flagship ships as one tree manifest (src/lib/template-tree.ts); every check below reads the
-// files in it as a scaffold sees them.
-/** @type {Map<string, Buffer>} */
-const treeFiles = new Map()
-/** @type {Record<string, string[]>} */
-const trees = {}
-for (const p of files) {
-  const slug = /^templates\/apps\/([^/]+)\/[^/]+$/.exec(p)?.[1]
-  if (!slug || !p.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`)) continue
-  try {
-    const entries = decodeTemplateTree(readFileSync(join(contentRoot, p)), p)
-    trees[slug] = Object.keys(entries)
-    for (const [rel, { data }] of Object.entries(entries)) {
-      const path = `templates/apps/${slug}/${rel}`
-      structural = structuralIssues(path, p) && structural
-      treeFiles.set(path, data)
-    }
-  } catch (error) {
-    fail(
-      `cannot inspect template tree ${p}: ${error instanceof Error ? error.message : String(error)}`,
-    )
-    structural = false
-  }
+const archiveRoot = realpathSync(contentRoot)
+/** @param {string} path - Relative path in the extracted tarball. */
+function packedPath(path) {
+  const file = join(contentRoot, path)
+  if (!realpathSync(file).startsWith(`${archiveRoot}${sep}`))
+    throw new Error('packed file escapes the archive')
+  return file
 }
-for (const issue of templatePackageIssues(pack, trees)) fail(issue)
-if (structural)
-  ok(
-    `${files.length} files (${treeFiles.size} more in ${Object.keys(trees).length} template trees), no internal/machine paths (${(pack.unpackedSize / 1e6).toFixed(1)} MB unpacked)`,
-  )
 
-/** A shipped file's bytes: from a template tree, else from the extracted package. @param {string} p - Its path. */
-const shippedBytes = (p) => treeFiles.get(p) ?? readFileSync(join(contentRoot, p))
-
-// npm never packs .gitignore or .npmrc; each flagship carries them in the
-// dotfiles.json prepack writes (src/lib/template-dotfiles.ts). Without it,
-// `mlcl create --template` scaffolds a project whose .env* secrets git tracks.
-const shipped = new Set([...files, ...treeFiles.keys()])
-const flagships = [...shipped]
-  .map((p) => /^templates\/apps\/([^/]+)\/app\/package\.json$/.exec(p)?.[1])
-  .filter(Boolean)
-const withoutDotfiles = flagships.filter(
-  (app) => !shipped.has(`templates/apps/${app}/dotfiles.json`),
-)
-if (withoutDotfiles.length)
-  fail(
-    `flagships without dotfiles.json (prepack did not record their .gitignore): ${withoutDotfiles.join(', ')}`,
-  )
-else if (flagships.length) ok(`${flagships.length} flagships carry dotfiles.json`)
-const badManifests = []
-for (const app of flagships.filter((a) => !withoutDotfiles.includes(a))) {
-  try {
-    const manifest = JSON.parse(
-      shippedBytes(`templates/apps/${app}/dotfiles.json`).toString('utf8'),
-    )
-    if (typeof manifest.files?.['.gitignore'] !== 'string')
-      badManifests.push(`${app} (no root .gitignore)`)
-  } catch (error) {
-    badManifests.push(`${app} (${error instanceof Error ? error.message : String(error)})`)
-  }
+const templateIndex = 'templates/apps/registry.json'
+let registered = []
+try {
+  const { templates } = JSON.parse(readFileSync(packedPath(templateIndex), 'utf8'))
+  if (!templates || typeof templates !== 'object' || Array.isArray(templates))
+    throw new Error('expected a templates object')
+  registered = Object.keys(templates)
+  if (registered.some((slug) => !/^[\w-]+$/.test(slug))) throw new Error('invalid template slug')
+} catch (error) {
+  fail(`cannot inspect packed template index ${templateIndex}: ${error.message}`)
 }
-if (badManifests.length) fail(`packed dotfiles.json unusable: ${badManifests.join(', ')}`)
 
 // ── 3. content sweep of shipped files ────────────────────────────────────────
 console.log('content sweep:')
 let scanned = 0
 let contentClean = true
-/** Scan one ordinary file or decompressed template at a time, not the whole fleet in RAM. */
-function* shippedTexts() {
-  for (const p of [
-    ...files.filter((f) => !f.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`)),
-    ...treeFiles.keys(),
-  ]) {
-    if (p.endsWith(`/${TEMPLATE_LOCALES_ARCHIVE}`)) {
-      try {
-        const locales = decodeTemplateLocales(shippedBytes(p), p)
-        for (const [rel, text] of Object.entries(locales)) {
-          const path = `${p.slice(0, -TEMPLATE_LOCALES_ARCHIVE.length)}app/src/locales/${rel}`
-          if (FORBIDDEN_TARBALL_PATHS.some((re) => re.test(path)) || isForbiddenEnvFile(path))
-            throw new Error(`compressed locale contains internal path: ${path}`)
-          yield [path, Buffer.from(text).toString('latin1')]
-        }
-      } catch (error) {
-        fail(`cannot inspect packed locales ${p}: ${error.message}`)
-        contentClean = false
-      }
-      continue
-    }
-    if (BINARY_EXT.has(extname(p).toLowerCase())) continue
-    const inTree = treeFiles.get(p)
-    if (inTree) {
-      if (inTree.length <= 3_000_000) yield [p, inTree.toString('latin1')]
-      continue
-    }
-    let content
-    try {
-      const file = join(contentRoot, p)
-      if (!realpathSync(file).startsWith(`${realpathSync(contentRoot)}${sep}`))
-        throw new Error('packed file escapes the archive')
-      const st = statSync(file)
-      if (!st.isFile() || st.size > 3_000_000) continue
-      content = readFileSync(file, 'latin1')
-    } catch (_error) {
-      fail(`cannot inspect packed file: ${p}`)
-      contentClean = false
-      continue
-    }
-    yield [p, content]
-  }
-}
-for (const [p, content] of shippedTexts()) {
+let treeFileCount = 0
+let dotfileCount = 0
+
+/** @param {string} p - Shipped path. @param {string} content - Shipped text. */
+function scanText(p, content) {
   scanned += 1
   const reasons = []
   if (MACHINE_PATH.test(content)) reasons.push('personal home path')
@@ -381,6 +304,91 @@ for (const [p, content] of shippedTexts()) {
     contentClean = false
   }
 }
+/** @param {string} path - Shipped path. @param {Buffer} data - Shipped bytes. */
+function scanBytes(path, data) {
+  if (path.endsWith(`/${TEMPLATE_LOCALES_ARCHIVE}`)) {
+    try {
+      const locales = decodeTemplateLocales(data, path)
+      for (const [rel, text] of Object.entries(locales)) {
+        const p = `${path.slice(0, -TEMPLATE_LOCALES_ARCHIVE.length)}app/src/locales/${rel}`
+        structural = structuralIssues(p, path) && structural
+        scanText(p, Buffer.from(text).toString('latin1'))
+      }
+    } catch (error) {
+      fail(`cannot inspect packed locales ${path}: ${error.message}`)
+      contentClean = false
+    }
+  } else if (data.length <= 3_000_000 && !BINARY_EXT.has(extname(path).toLowerCase())) {
+    scanText(path, data.toString('latin1'))
+  }
+}
+
+/** @type {Record<string, string[]>} */
+const trees = Object.create(null)
+const outer = new Set(files)
+for (const p of files) {
+  const slug = /^templates\/apps\/([^/]+)\/[^/]+$/.exec(p)?.[1]
+  if (slug && p.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`)) {
+    // Keep only paths from each decoded tree after its content sweep.
+    try {
+      const entries = decodeTemplateTree(readFileSync(packedPath(p)), p)
+      trees[slug] = Object.keys(entries)
+      const root = `templates/apps/${slug}/`
+      for (const [rel, { data }] of Object.entries(entries)) {
+        const path = root + rel
+        treeFileCount++
+        structural = structuralIssues(path, p) && structural
+        scanBytes(path, data)
+      }
+      // Listing and selection read the physical copies, while scaffolding reads the tree.
+      for (const file of TEMPLATE_TREE_KEPT) {
+        if (!outer.has(root + file)) continue
+        const packed = readFileSync(packedPath(root + file))
+        if (!entries[file]?.data.equals(packed))
+          fail(`flagship ${slug} has different copies of ${file}`)
+      }
+      if (Object.hasOwn(entries, 'app/package.json')) {
+        const dotfileManifest = entries[TEMPLATE_DOTFILES_MANIFEST]
+        if (!dotfileManifest) {
+          fail(`flagship ${slug} without dotfiles.json (prepack did not record its .gitignore)`)
+        } else {
+          try {
+            const dotfiles = decodeTemplateDotfiles(
+              dotfileManifest.data,
+              root + TEMPLATE_DOTFILES_MANIFEST,
+            )
+            if (!Object.hasOwn(dotfiles, '.gitignore')) throw new Error('no root .gitignore')
+            dotfileCount++
+          } catch (error) {
+            fail(`packed dotfiles.json unusable: ${slug} (${error.message})`)
+          }
+        }
+      }
+    } catch (error) {
+      fail(`cannot inspect template tree ${p}: ${error.message}`)
+      structural = false
+    }
+  } else if (
+    p.endsWith(`/${TEMPLATE_LOCALES_ARCHIVE}`) ||
+    !BINARY_EXT.has(extname(p).toLowerCase())
+  ) {
+    try {
+      const file = packedPath(p)
+      const st = statSync(file)
+      if (st.isFile() && (st.size <= 3_000_000 || p.endsWith(`/${TEMPLATE_LOCALES_ARCHIVE}`)))
+        scanBytes(p, readFileSync(file))
+    } catch (error) {
+      fail(`cannot inspect packed file: ${p} (${error.message})`)
+      contentClean = false
+    }
+  }
+}
+for (const issue of templatePackageIssues(pack, trees, registered)) fail(issue)
+if (structural)
+  ok(
+    `${files.length} files (${treeFileCount} more in ${Object.keys(trees).length} template trees), no internal/machine paths (${(pack.unpackedSize / 1e6).toFixed(1)} MB unpacked)`,
+  )
+if (dotfileCount) ok(`${dotfileCount} flagships carry dotfiles.json`)
 if (contentClean) ok(`${scanned} text files clean`)
 
 // ── 4. history root ──────────────────────────────────────────────────────────

@@ -9,6 +9,9 @@ import { brotliCompressSync } from 'node:zlib'
 import ts from 'typescript'
 import { afterEach, describe, expect, it } from 'vitest'
 
+import { singlePackResult } from '../npm-pack-json.js'
+import { decodeTemplateTree } from '../template-tree.js'
+
 const ROOT = path.resolve(import.meta.dirname, '../../..')
 const GATE = path.join(ROOT, 'scripts/prepublish-verify.mjs')
 const scratch = tmpdir()
@@ -31,7 +34,15 @@ function fixture(oldHistory = false): {
   fs.mkdirSync(path.join(dir, 'bin'))
   fs.mkdirSync(path.join(dir, 'dist'))
   fs.mkdirSync(path.join(dir, 'build-inputs'))
-  for (const file of ['template-locales', 'template-package', 'template-tree']) {
+  fs.mkdirSync(path.join(dir, 'templates/apps'), { recursive: true })
+  fs.writeFileSync(path.join(dir, 'templates/apps/registry.json'), '{"templates":{}}')
+  for (const file of [
+    'npm-pack-json',
+    'template-dotfiles',
+    'template-locales',
+    'template-package',
+    'template-tree',
+  ]) {
     const source = fs.readFileSync(path.join(ROOT, 'src/lib', `${file}.ts`), 'utf8')
     fs.writeFileSync(
       path.join(dir, 'build-inputs', `${file}.js`),
@@ -64,7 +75,7 @@ if (hook === 'postpack') fs.rmSync('oclif.manifest.json');
       name: 'mlcl',
       version: '0.0.0',
       type: 'module',
-      files: ['bin', 'dist', 'oclif.manifest.json'],
+      files: ['bin', 'dist', 'oclif.manifest.json', 'templates'],
       scripts: {
         prepack: 'node hooks.cjs prepack',
         postpack: 'node hooks.cjs postpack',
@@ -119,6 +130,86 @@ function pack(f: ReturnType<typeof fixture>, env: NodeJS.ProcessEnv = {}): strin
 
 function verify(f: ReturnType<typeof fixture>, tarball: string): SpawnSyncReturns<string> {
   return f.run([process.execPath, 'scripts/prepublish-verify.mjs', '--tarball', tarball])
+}
+
+function listedTemplate(f: ReturnType<typeof fixture>, slug: string): string {
+  fs.writeFileSync(
+    path.join(f.dir, 'templates/apps/registry.json'),
+    JSON.stringify({ templates: { [slug]: { label: 'Fixture' } } }),
+  )
+  const dir = path.join(f.dir, 'templates/apps', slug)
+  fs.mkdirSync(dir)
+  fs.writeFileSync(path.join(dir, 'template.json'), '{"label":"Fixture"}')
+  fs.writeFileSync(path.join(dir, 'CATALOG.md'), '# Fixture\n')
+  for (const filename of ['eslint.config.js.tpl', 'prefer-generated-resource-clients.mjs']) {
+    const shared = path.join(f.dir, 'templates/shared')
+    fs.mkdirSync(shared, { recursive: true })
+    fs.writeFileSync(path.join(shared, filename), 'export default []\n')
+  }
+  return dir
+}
+
+function writeListedTree(dir: string, files: Record<string, string>): void {
+  fs.writeFileSync(
+    path.join(dir, 'tree.json.br'),
+    brotliCompressSync(
+      Buffer.from(
+        JSON.stringify({
+          schema: 1,
+          files: Object.fromEntries(
+            Object.entries(files).map(([rel, text]) => [rel, { mode: 0o644, text }]),
+          ),
+        }),
+      ),
+    ),
+  )
+}
+
+const listingFiles = { 'template.json': '{"label":"Fixture"}', 'CATALOG.md': '# Fixture\n' }
+const appFiles = {
+  ...listingFiles,
+  'app/package.json': '{"name":"fixture-app"}',
+  'dotfiles.json': '{"schema":1,"files":{".gitignore":".env*"}}',
+}
+
+/** Run the production template-tree scripts from inside npm's own lifecycle. */
+function hookTemplatePacking(f: ReturnType<typeof fixture>, hideNpmFromPath = false): void {
+  fs.copyFileSync(
+    path.join(ROOT, 'scripts/template-trees.mjs'),
+    path.join(f.dir, 'scripts/template-trees.mjs'),
+  )
+  const file = path.join(f.dir, 'package.json')
+  const manifest = JSON.parse(fs.readFileSync(file, 'utf8'))
+  if (hideNpmFromPath) {
+    fs.writeFileSync(
+      path.join(f.dir, 'no-npm-on-path.mjs'),
+      "process.env.PATH = import.meta.dirname + '/empty-bin'\n" +
+        "await import('./scripts/template-trees.mjs')\n",
+    )
+  }
+  const entry = hideNpmFromPath ? 'no-npm-on-path.mjs' : 'scripts/template-trees.mjs'
+  manifest.scripts.prepack += ` && node ${entry} pack`
+  manifest.scripts.postpack = `node scripts/template-trees.mjs clean && ${manifest.scripts.postpack}`
+  fs.writeFileSync(file, JSON.stringify(manifest))
+}
+
+function writeTemplateApp(dir: string): void {
+  for (const [rel, data] of Object.entries(appFiles)) {
+    const file = path.join(dir, rel)
+    fs.mkdirSync(path.dirname(file), { recursive: true })
+    fs.writeFileSync(file, data)
+  }
+}
+
+function unpackedTree(
+  f: ReturnType<typeof fixture>,
+  tgz: string,
+): ReturnType<typeof decodeTemplateTree> {
+  const unpacked = path.join(f.dir, 'unpacked')
+  fs.mkdirSync(unpacked)
+  expect(f.run(['tar', '-xzf', tgz, '-C', unpacked]).status).toBe(0)
+  const archive = path.join(unpacked, 'package/templates/apps/fixture/tree.json.br')
+  return decodeTemplateTree(fs.readFileSync(archive), archive)
 }
 
 describe('the exact prepared npm tarball', () => {
@@ -250,6 +341,110 @@ describe('the exact prepared npm tarball', () => {
   it('retains the history guard', () => {
     const f = fixture(true)
     expect(verify(f, pack(f)).status).not.toBe(0)
+  })
+
+  it.each([true, false])(
+    'blocks a registered template without a tree (metadata present: %s)',
+    (kept) => {
+      const f = fixture()
+      const dir = listedTemplate(f, 'fixture')
+      if (!kept) fs.rmSync(dir, { recursive: true })
+      const checked = verify(f, pack(f))
+      expect(checked.status).toBe(1)
+      expect(checked.stderr).toContain('flagship fixture missing tree.json.br')
+    },
+  )
+
+  it('blocks a tree missing the shipped app workspace and checks the packaged index', () => {
+    const f = fixture()
+    const dir = listedTemplate(f, 'fixture')
+    writeListedTree(dir, listingFiles)
+    const missing = verify(f, pack(f))
+    expect(missing.status).toBe(1)
+    expect(missing.stderr).toContain('flagship fixture tree missing app/package.json')
+
+    writeListedTree(dir, appFiles)
+    const valid = verify(f, pack(f))
+    expect(valid.status, valid.stderr).toBe(0)
+    fs.rmSync(path.join(f.dir, 'templates/apps/registry.json'))
+    const noIndex = verify(f, pack(f))
+    expect(noIndex.status).toBe(1)
+    expect(noIndex.stderr).toContain('cannot inspect packed template index')
+  })
+
+  it('sweeps the physical listing when the inner file has the same path', () => {
+    const f = fixture()
+    const dir = listedTemplate(f, 'fixture')
+    writeListedTree(dir, appFiles)
+    fs.writeFileSync(path.join(dir, 'CATALOG.md'), '# Fixture\n\n/home/z/private\n')
+    const checked = verify(f, pack(f))
+    expect(checked.status).toBe(1)
+    expect(checked.stderr).toContain('templates/apps/fixture/CATALOG.md: personal home path')
+    expect(checked.stderr).toContain('flagship fixture has different copies of CATALOG.md')
+  })
+
+  it('checks the dotfile manifest schema the scaffold requires', () => {
+    const f = fixture()
+    const dir = listedTemplate(f, 'fixture')
+    writeListedTree(dir, {
+      ...appFiles,
+      'dotfiles.json': '{"schema":2,"files":{".gitignore":".env*"}}',
+    })
+    const checked = verify(f, pack(f))
+    expect(checked.status).toBe(1)
+    expect(checked.stderr).toContain('packed dotfiles.json unusable: fixture')
+  })
+
+  it('checks every path in a nested dotfiles manifest against the scaffold rules', () => {
+    const f = fixture()
+    const dir = listedTemplate(f, 'fixture')
+    writeListedTree(dir, {
+      ...appFiles,
+      'dotfiles.json': '{"schema":1,"files":{".gitignore":".env*","app/readme.txt":"unexpected"}}',
+    })
+    const checked = verify(f, pack(f))
+    expect(checked.status).toBe(1)
+    expect(checked.stderr).toContain('app/readme.txt, which is not a template dot file')
+  })
+
+  it('uses the running npm executable for the nested pack during prepack', () => {
+    const f = fixture()
+    writeTemplateApp(listedTemplate(f, 'fixture'))
+    hookTemplatePacking(f, true)
+    const tgz = pack(f)
+    expect(unpackedTree(f, tgz)).toHaveProperty('app/package.json')
+    expect(verify(f, tgz).status).toBe(0)
+  })
+
+  it('retains the modes in npm’s original tarball', () => {
+    const f = fixture()
+    const dir = listedTemplate(f, 'fixture')
+    writeTemplateApp(dir)
+    const rel = 'app/run.sh'
+    fs.writeFileSync(path.join(dir, rel), '#!/bin/sh\n', { mode: 0o555 })
+    const raw = f.run(['npm', 'pack', '--dry-run', '--json', '--ignore-scripts'])
+    expect(raw.status, raw.stderr).toBe(0)
+    const file = singlePackResult(raw.stdout).files.find((f) => f.path.endsWith(`/${rel}`))
+    expect(file).toMatchObject({ mode: 0o755 })
+    hookTemplatePacking(f)
+    expect(unpackedTree(f, pack(f))[rel].mode).toBe(0o755)
+  })
+
+  it('cleans a partial generated ignore left by an interrupted prepack and repacks', () => {
+    const f = fixture()
+    const dir = listedTemplate(f, 'fixture')
+    writeTemplateApp(dir)
+    hookTemplatePacking(f)
+    fs.writeFileSync(path.join(dir, 'tree.json.br'), 'partial archive')
+    fs.writeFileSync(
+      path.join(dir, '.npmignore'),
+      '# Written by prepack (src/lib/template-tree.ts)',
+    )
+    fs.writeFileSync(path.join(dir, '.mlcl-tree-npmignore.tmp'), 'partial pending ignore')
+    const tgz = pack(f)
+    expect(unpackedTree(f, tgz)).not.toHaveProperty('.mlcl-tree-npmignore.tmp')
+    expect(fs.readdirSync(dir)).toEqual(['CATALOG.md', 'app', 'dotfiles.json', 'template.json'])
+    expect(verify(f, tgz).status).toBe(0)
   })
 
   it.each(['archive', 'folder'])(

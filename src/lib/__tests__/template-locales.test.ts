@@ -83,10 +83,7 @@ function packTrees(dir: string): void {
     cwd: dir,
     encoding: 'utf8',
   })
-  packTemplateTrees(
-    dir,
-    singlePackResult(raw).files.map((file) => file.path),
-  )
+  packTemplateTrees(dir, singlePackResult(raw).files)
 }
 
 /** The paths in each packed flagship's tree manifest, by slug. */
@@ -266,6 +263,7 @@ describe('offline npm template locales', () => {
     'C:/ui.ts',
     'fr//ui.ts',
     'en/ui.ts',
+    'EN/ui.ts',
   ])('refuses escaping or English archive path %s before writing', async (rel) => {
     const f = fixture()
     writeFileSync(
@@ -278,6 +276,21 @@ describe('offline npm template locales', () => {
     )
     await expect(restoreTemplateLocales(f.app, join(f.dir, 'project'))).rejects.toThrow(
       'invalid template locale',
+    )
+    expect(existsSync(join(f.dir, 'project'))).toBe(false)
+  })
+
+  it('refuses case-colliding locale files before writing', async () => {
+    const f = fixture()
+    write(
+      f.app,
+      TEMPLATE_LOCALES_ARCHIVE,
+      brotliCompressSync(
+        Buffer.from(JSON.stringify({ schema: 1, files: { 'fr/UI.ts': 'a', 'fr/ui.ts': 'b' } })),
+      ),
+    )
+    await expect(restoreTemplateLocales(f.app, join(f.dir, 'project'))).rejects.toThrow(
+      'conflicting template path',
     )
     expect(existsSync(join(f.dir, 'project'))).toBe(false)
   })

@@ -14,6 +14,8 @@ import { mkdir, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { brotliCompressSync, brotliDecompressSync, constants } from 'node:zlib'
 
+import { validateTemplatePaths } from './template-tree.js'
+
 export const TEMPLATE_LOCALES_ARCHIVE = 'locales.json.br'
 const LOCALES = 'app/src/locales'
 
@@ -23,7 +25,7 @@ function localePath(rel: string): boolean {
   return (
     parts.length >= 2 &&
     /^[a-zA-Z0-9_-]+$/.test(parts[0]) &&
-    parts[0] !== 'en' &&
+    parts[0].toLowerCase() !== 'en' &&
     parts.every((p) => p !== '' && p !== '.' && p !== '..' && !/[\\:\0]/.test(p))
   )
 }
@@ -124,10 +126,15 @@ export function decodeTemplateLocales(bytes: Buffer, file: string): Record<strin
     Array.isArray(manifest.files)
   )
     throw new Error(`${file} is not a template locale manifest`)
-  for (const [rel, content] of Object.entries(manifest.files)) {
+  const entries = Object.entries(manifest.files)
+  for (const [rel, content] of entries) {
     if (!localePath(rel) || typeof content !== 'string')
       throw new Error(`${file} lists an invalid template locale: ${rel}`)
   }
+  validateTemplatePaths(
+    entries.map(([rel]) => rel),
+    file,
+  )
   return manifest.files as Record<string, string>
 }
 

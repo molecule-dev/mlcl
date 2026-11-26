@@ -46,11 +46,13 @@ const WORKSPACE_ESLINT_COPY =
  *
  * @param pack - npm's pack manifest.
  * @param trees - Each packed flagship's manifest paths, by slug (decodeTemplateTree).
+ * @param registered - Template slugs advertised by the packaged template index.
  * @returns The issues found.
  */
 export function templatePackageIssues(
   pack: TemplatePackManifest,
   trees: Record<string, readonly string[]> = {},
+  registered: readonly string[] = [],
 ): string[] {
   const issues: string[] = []
   for (const [label, actual, limit] of [
@@ -69,13 +71,22 @@ export function templatePackageIssues(
     issues.push(
       `${loose.length} flagship files shipped outside their ${TEMPLATE_TREE_ARCHIVE} (npm unpacks each one on install; prepack's template-trees step writes the manifest), first: ${loose[0][0]}`,
     )
-  for (const { path } of pack.files) {
+  const outer = new Set(pack.files.map(({ path }) => path))
+  for (const path of outer) {
     const slug = /^templates\/apps\/([^/]+)\/[^/]+$/.exec(path)?.[1]
-    if (slug && path.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`) && !trees[slug])
+    if (slug && path.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`) && !Object.hasOwn(trees, slug))
       issues.push(`template tree manifest not inspected: ${path}`)
   }
+  for (const slug of registered) {
+    const root = `templates/apps/${slug}/`
+    for (const file of [...TEMPLATE_TREE_KEPT, TEMPLATE_TREE_ARCHIVE]) {
+      if (!outer.has(root + file)) issues.push(`flagship ${slug} missing ${file}`)
+    }
+    if (Object.hasOwn(trees, slug) && !trees[slug].includes('app/package.json'))
+      issues.push(`flagship ${slug} tree missing app/package.json`)
+  }
   const shipped = new Set([
-    ...pack.files.map((f) => f.path).filter((p) => !p.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`)),
+    ...[...outer].filter((p) => !p.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`)),
     ...Object.entries(trees).flatMap(([slug, rels]) =>
       rels.map((rel) => `templates/apps/${slug}/${rel}`),
     ),

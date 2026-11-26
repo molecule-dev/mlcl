@@ -1,7 +1,7 @@
 /** One package's entry in `npm pack --json` output. */
 export interface NpmPackResult {
   filename: string
-  files: Array<{ path: string; size: number }>
+  files: Array<{ path: string; size: number; mode: number }>
   size: number
   unpackedSize: number
 }

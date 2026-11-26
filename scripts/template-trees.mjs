@@ -16,13 +16,15 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const mode = process.argv[2]
 if (mode === 'pack') {
   cleanTemplateTrees(root)
-  const raw = execFileSync('npm', ['pack', '--dry-run', '--json', '--ignore-scripts'], {
-    cwd: root,
-    encoding: 'utf8',
-    maxBuffer: 1 << 28,
-  })
-  const shipped = singlePackResult(raw).files.map((file) => file.path)
-  console.log('template trees:', packTemplateTrees(root, shipped))
+  const npmCli = process.env.npm_config_user_agent?.startsWith('npm/')
+    ? process.env.npm_execpath
+    : undefined
+  const raw = execFileSync(
+    npmCli ? process.execPath : 'npm',
+    [...(npmCli ? [npmCli] : []), 'pack', '.', '--dry-run', '--json', '--ignore-scripts'],
+    { cwd: root, encoding: 'utf8', maxBuffer: 1 << 28 },
+  )
+  console.log('template trees:', packTemplateTrees(root, singlePackResult(raw).files))
 } else if (mode === 'clean')
   console.log('template tree manifests removed:', cleanTemplateTrees(root))
 else {
