@@ -23,6 +23,7 @@ import { readCreatePackages } from '../lib/create-packages.js'
 import { withHeartbeat } from '../lib/create-progress.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT, isDdlCompatibilityFailure } from '../lib/ddl-exit.js'
+import { defaultProviderEntries } from '../lib/default-provider.js'
 import { providerTemplateVars } from '../lib/feature-files.js'
 import {
   buildAppFeatureMenu,
@@ -984,12 +985,6 @@ export default class Create extends Command {
     const fontFramework = framework ? loadAppFrameworks()[framework] : undefined
     const fontAssetMode =
       fontFramework?.vitePlugin && !fontFramework.htmlTemplate ? 'module' : 'copy'
-    // Generate font HTML (local @font-face styles or CDN links) from package metadata
-    const fontResult = framework
-      ? generateFontHtml(selectedPackageNames, allPackages, fontAssetMode)
-      : { html: '', fontFiles: [] }
-    const fontLinks = fontResult.html
-
     // Derive named bond providers from selected packages using registry metadata
     // Groups by bondWiring.bondCategory (e.g. oauth → OAUTH_PROVIDERS, payments → PAYMENTS_PROVIDERS)
     const extraVars: Record<string, string> = {}
@@ -1026,11 +1021,7 @@ export default class Create extends Command {
     log(`Feature-bundled packages auto-resolved: ${bundledPackages.join(', ') || '(none)'}`)
     selectedPackageNames.push(...bundledPackages)
 
-    const defaultProviders = resolveDefaultProviders(selectedPackageNames, allPackages)
-    log(`Default providers auto-resolved: ${defaultProviders.join(', ') || '(none)'}`)
-    selectedPackageNames.push(...defaultProviders)
-
-    // Theme preset resolution: swap default theme provider + add classMap provider
+    // Theme presets name providers explicitly, so apply them before selecting defaults.
     const themePresets = loadThemePresets()
     const themeName = flags.theme
     if (themeName) {
@@ -1042,27 +1033,8 @@ export default class Create extends Command {
         )
       }
 
-      // Find and replace the default theme provider with the preset's provider
-      const defaultThemeProvider = allPackages.find(
-        (p) => p.molecule?.category === 'theme' && p.molecule?.type === 'core',
-      )?.molecule?.defaultProvider
-      if (defaultThemeProvider) {
-        const idx = selectedPackageNames.indexOf(defaultThemeProvider)
-        if (idx !== -1) selectedPackageNames.splice(idx, 1)
-      }
       selectedPackageNames.push(preset.themeProvider)
-
-      // If preset specifies a classMap provider, swap the default UI provider too
-      if (preset.classMapProvider) {
-        const defaultUiProvider = allPackages.find(
-          (p) => p.molecule?.category === 'ui' && p.molecule?.type === 'core',
-        )?.molecule?.defaultProvider
-        if (defaultUiProvider) {
-          const idx = selectedPackageNames.indexOf(defaultUiProvider)
-          if (idx !== -1) selectedPackageNames.splice(idx, 1)
-        }
-        selectedPackageNames.push(preset.classMapProvider)
-      }
+      if (preset.classMapProvider) selectedPackageNames.push(preset.classMapProvider)
 
       log(
         `Theme preset "${themeName}": ${preset.themeProvider}${preset.classMapProvider ? ` + ${preset.classMapProvider}` : ''}`,
@@ -1094,26 +1066,33 @@ export default class Create extends Command {
     if (workerPackage && !selectedPackageNames.includes(workerPackage)) {
       selectedPackageNames.push(workerPackage)
     }
-    // The peers, and the packages only a feature's pages use (the plan page's package with
-    // payments, the OAuth buttons' auth-ui package), until neither adds one. The scaffold writes a
+    // The peers, template packages and defaults can all introduce more required packages.
+    // Exhaust the required graph before choosing a provider. The scaffold writes a
     // feature's pages for every package it is handed, peers included: the default bonds bundle
     // peers on the payments providers, so its stack gets the plan page and the settings panel,
     // and their packages must come with it. A feature's packages can bring peers in turn. Same
     // derivation as the app templates and the API router.
+    const defaultProviders: string[] = []
     for (;;) {
       const transitivePeers = resolveTransitivePeers(selectedPackageNames, allPackages)
       log(`Transitive peer companions auto-resolved: ${transitivePeers.join(', ') || '(none)'}`)
       selectedPackageNames.push(...transitivePeers)
-      if (!framework) break
-      const featurePackages = featureTemplatePackages(
-        join(getTemplatesDir(), 'app'),
-        framework,
-        deriveOptionalFeatures(selectedPackageNames, allPackages),
-      ).filter((name) => !selectedPackageNames.includes(name))
-      log(`Feature template packages: ${featurePackages.join(', ') || '(none)'}`)
-      if (featurePackages.length === 0) break
-      selectedPackageNames.push(...featurePackages)
+      if (framework) {
+        const featurePackages = featureTemplatePackages(
+          join(getTemplatesDir(), 'app'),
+          framework,
+          deriveOptionalFeatures(selectedPackageNames, allPackages),
+        ).filter((name) => !selectedPackageNames.includes(name))
+        log(`Feature template packages: ${featurePackages.join(', ') || '(none)'}`)
+        selectedPackageNames.push(...featurePackages)
+        if (featurePackages.length > 0) continue
+      }
+      const providers = resolveDefaultProviders(selectedPackageNames, allPackages, framework)
+      if (providers.length === 0) break
+      selectedPackageNames.push(...providers)
+      defaultProviders.push(...providers)
     }
+    log(`Default providers auto-resolved: ${defaultProviders.join(', ') || '(none)'}`)
     // Second pass for a static site: a transitive peer may have re-added an
     // excluded family. Runs BEFORE locale resolution so no orphan locale bond
     // is added for a package that is not there.
@@ -1130,6 +1109,11 @@ export default class Create extends Command {
     selectedPackageNames.push(...localePackages)
     const uniquePackages = [...new Set(selectedPackageNames)]
     log(`Total unique packages: ${uniquePackages.length}`)
+
+    const fontResult = framework
+      ? generateFontHtml(uniquePackages, allPackages, fontAssetMode, framework)
+      : { html: '', fontFiles: [] }
+    const fontLinks = fontResult.html
 
     // The exact version this scaffold is pinning for every selected package
     // (`addPackages` writes `getMoleculeVersion`). Computed ONCE and handed to
@@ -1464,6 +1448,8 @@ export default class Create extends Command {
 
     // Dev tooling (stack `tooling`) goes into each workspace's devDependencies.
     const byStack = packagesByStack(uniquePackages)
+    const providerEntries = defaultProviderEntries(allPackages)
+    const scopedDefaults = defaultProviders.filter((name) => providerEntries.get(name)?.framework)
     if (isFullStack) {
       const { api: apiPkgs, app: appPkgs, tooling: toolingPkgs } = byStack
       const apiPath = join(projectPath, 'api')
@@ -1472,8 +1458,10 @@ export default class Create extends Command {
       log(`App packages (${appPkgs.length}): ${appPkgs.join(', ')}`)
 
       spinner?.start(t('commands.create.spinners.addingPackages'))
-      if (apiPkgs.length > 0) await addPackages(apiPath, apiPkgs)
-      if (appPkgs.length > 0) await addPackages(appPath, appPkgs)
+      if (apiPkgs.length > 0)
+        await addPackages(apiPath, apiPkgs, undefined, 'dependencies', scopedDefaults)
+      if (appPkgs.length > 0)
+        await addPackages(appPath, appPkgs, undefined, 'dependencies', scopedDefaults)
       if (toolingPkgs.length > 0) {
         await addPackages(apiPath, toolingPkgs, undefined, 'devDependencies')
         await addPackages(appPath, toolingPkgs, undefined, 'devDependencies')
@@ -1496,6 +1484,9 @@ export default class Create extends Command {
       await addPackages(
         workspacePath,
         uniquePackages.filter((name) => !byStack.tooling.includes(name)),
+        undefined,
+        'dependencies',
+        scopedDefaults,
       )
       if (byStack.tooling.length > 0)
         await addPackages(workspacePath, byStack.tooling, undefined, 'devDependencies')

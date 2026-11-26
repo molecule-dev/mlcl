@@ -137,18 +137,37 @@ describe('theme bond file for a framework provider', () => {
     },
   })
 
-  it("takes the default provider's form: the bond's own config, no applyToDocument", async () => {
-    const code = await generateBondSetupCode(
-      themeProvider('@molecule/app-theme-nativewind', 'react-native'),
-      'app-theme-nativewind',
-      '@molecule/app-theme',
-      '/tmp/none',
-    )
-    expect(code).toContain('export const themeProvider = createNativeWindThemeProvider({')
-    expect(code).toContain('themes: [lightTheme, darkTheme],')
-    expect(code).toContain("persistKey: 'molecule-theme',")
-    expect(code).not.toContain('applyToDocument')
-  })
+  it.each(['react-native', 'react-native-web'])(
+    'uses default theme customization only for the matching renderer (%s)',
+    async (framework) => {
+      const projectPath = await mkdtemp(join(tmpdir(), 'mlcl-rn-theme-provider-'))
+      try {
+        await writeFile(
+          join(projectPath, 'package.json'),
+          JSON.stringify({ molecule: { framework } }),
+        )
+        mkdirSync(join(projectPath, 'src'))
+        await writeFile(
+          join(projectPath, 'src', 'theme.css'),
+          ':root { --mol-color-primary: #147ac8; }',
+        )
+        const code = await generateBondSetupCode(
+          themeProvider('@molecule/app-theme-nativewind', 'react-native'),
+          'app-theme-nativewind',
+          '@molecule/app-theme',
+          projectPath,
+        )
+        expect(code).toContain('export const themeProvider = createNativeWindThemeProvider({')
+        const lightTheme = framework === 'react-native' ? 'defaultLightTheme' : 'lightTheme'
+        expect(code).toContain(`themes: [${lightTheme}, darkTheme],`)
+        expect(code.includes("primary: '#147ac8'")).toBe(framework === 'react-native')
+        expect(code).toContain("persistKey: 'molecule-theme',")
+        expect(code).not.toContain('applyToDocument')
+      } finally {
+        await rm(projectPath, { recursive: true, force: true })
+      }
+    },
+  )
 
   it('keeps a preset provider (no framework, not the default) as it was', async () => {
     const code = await generateBondSetupCode(

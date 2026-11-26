@@ -29,6 +29,7 @@ import { deriveOptionalFeatures, featureTemplatePackages } from '../lib/optional
 import { installCommand } from '../lib/package-search.js'
 import {
   missingMoleculePeers,
+  type MoleculePeerManifest,
   moleculesToInject,
   serviceWorkerPackageFor,
 } from '../lib/peer-closure.js'
@@ -44,8 +45,7 @@ import { getTemplatesDir } from '../lib/scaffold.js'
 import { scaffoldOnlyNames } from '../lib/scaffold-only.js'
 import { createSpinner } from '../lib/spinner.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
-import { describeWebOnlyChains, rendersOnReactNative, webOnlyChains } from '../lib/web-only.js'
-import { projectFramework, toSearchEntry } from './search.js'
+import { describeWebOnlyChains, rendererFramework, webOnlyChains } from '../lib/web-only.js'
 
 /** One package named on the command line, after a rename is followed. */
 interface AddRequest {
@@ -166,7 +166,7 @@ export default class Add extends Command {
     if (named.length === 0 && !flags.capability) this.error(t('commands.add.errors.missingName'))
 
     p.intro(chalk.bgCyan(` ${t('commands.add.labels.intro')} `))
-    if (flags.capability) named.unshift(this.capabilityPackage(flags.capability))
+    if (flags.capability) named.unshift(this.capabilityPackage(flags.capability, named))
     // A bundle only the scaffolds choose installs every provider it wires: refuse it before
     // anything is written. Only the names given here; a feature's own packages are added below.
     const resolved = named.map((argument) => {
@@ -287,24 +287,35 @@ export default class Add extends Command {
    * and framework. When the words do not decide, it lists the candidates and exits 1, having
    * written nothing.
    */
-  private capabilityPackage(query: string): string {
+  private capabilityPackage(query: string, requested: readonly string[]): string {
     const root = process.cwd()
     const fullStack =
       existsSync(join(root, 'api', 'package.json')) && existsSync(join(root, 'app', 'package.json'))
-    const manifest = existsSync(join(root, 'package.json'))
-      ? JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'))
+    const manifestPath = join(root, ...(fullStack ? ['app'] : []), 'package.json')
+    const manifest: MoleculePeerManifest = existsSync(manifestPath)
+      ? JSON.parse(readFileSync(manifestPath, 'utf8'))
       : {}
-    const resolved = resolveCapability(loadRegistry().map(toSearchEntry), query, {
-      stack: fullStack ? undefined : manifestStack(manifest),
-      framework: projectFramework(root),
-      appFrameworks: loadAppFrameworks(),
-      declared: [
-        ...manifestNames(root),
-        ...(fullStack
-          ? [...manifestNames(join(root, 'api')), ...manifestNames(join(root, 'app'))]
-          : []),
-      ],
+    const registry = getRawRegistry()
+    const requestedNames = requested.map((argument) => {
+      const { name, requestedVersion } = parseAddArgument(argument)
+      return requestedVersion ? name : (registry.packages[name]?.replacedBy ?? name)
     })
+    const resolved = resolveCapability(
+      Object.entries(registry.packages).map(([name, entry]) => ({ name, ...entry })),
+      query,
+      {
+        stack: fullStack ? undefined : manifestStack(manifest),
+        framework: rendererFramework(manifest),
+        appFrameworks: loadAppFrameworks(),
+        declared: [
+          ...manifestNames(root),
+          ...(fullStack
+            ? [...manifestNames(join(root, 'api')), ...manifestNames(join(root, 'app'))]
+            : []),
+          ...requestedNames,
+        ],
+      },
+    )
     if ('name' in resolved) {
       p.log.info(
         t('commands.add.messages.capabilityResolved', {
@@ -388,7 +399,9 @@ export default class Add extends Command {
 
     // A package that renders only in a browser, or one that requires it as a peer, cannot render in a
     // React Native project: refuse it before anything is written, naming the chain.
-    if (rendersOnReactNative(JSON.parse(readFileSync(packageJsonPath, 'utf-8')))) {
+    const packageJson: MoleculePeerManifest = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
+    const framework = rendererFramework(packageJson)
+    if (framework === 'react-native') {
       const refused = webOnlyChains(names, new Map(loadRegistry().map((pkg) => [pkg.name, pkg])))
       if (refused.length > 0) {
         p.cancel(t('commands.add.errors.webOnly', { list: describeWebOnlyChains(refused) }))
@@ -400,7 +413,6 @@ export default class Add extends Command {
     spinner.start(t('commands.add.spinners.adding', { name: label }))
 
     try {
-      const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
       const manifestBefore = JSON.stringify(packageJson)
 
       // Resolve the exact version to pin. A registered `@molecule/*` package
@@ -475,7 +487,7 @@ export default class Add extends Command {
       }
 
       // Dev tooling (stack `tooling`) is a devDependency without `--dev`.
-      const depKeyOf = (stack: AddRequest['stack']): string =>
+      const depKeyOf = (stack: AddRequest['stack']): 'dependencies' | 'devDependencies' =>
         flags.dev || stack === 'tooling' ? 'devDependencies' : 'dependencies'
       const added = new Map<string, string[]>()
       for (const { name, stack } of requests) {
@@ -504,10 +516,11 @@ export default class Add extends Command {
       // peers, so a provider added alone left its core out of `node_modules` and the
       // first import of it failed. Closed over BOTH dependency maps so a peer that is
       // already declared anywhere is never declared twice.
-      const peers = missingMoleculePeers([
-        ...Object.keys(packageJson.dependencies ?? {}),
-        ...Object.keys(packageJson.devDependencies ?? {}),
-      ])
+      const peers = missingMoleculePeers(
+        Object.keys({ ...packageJson.dependencies, ...packageJson.devDependencies }),
+        undefined,
+        framework,
+      )
       for (const peer of peers) packageJson[peerKey][peer] = getMoleculeVersion(peer)
       if (worker && workerAdded) peers.unshift(worker)
 

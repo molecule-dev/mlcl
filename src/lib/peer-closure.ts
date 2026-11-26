@@ -17,17 +17,18 @@
  * @module
  */
 
+import { defaultProviderEntries, defaultProviderFor } from './default-provider.js'
 import { resolveLocalePackages } from './features.js'
 import { getMoleculeVersion, loadRegistry, requirePackageByRole } from './registry.js'
 import type { InferredPackage } from './schema.js'
+import { rendererFramework, type RendererManifest } from './web-only.js'
 
 /**
  * The `@molecule/*` packages a dependency set is missing from its registry
  * `moleculePeers` + `defaultProvider` + companion-locale closure.
  *
- * A core's default provider counts only when nothing in the set already
- * implements that core (same rule as `resolveDefaultProviders` in `./features.ts`):
- * an app on SQLite must not also get Postgres.
+ * A scoped default is eligible on its own renderer, and any existing provider for the core
+ * suppresses an automatic choice.
  *
  * Each package's companion locale bonds count too (`resolveLocalePackages`, the
  * rule `mlcl create` selects them by): `mlcl inject` plans the locale bond of
@@ -39,66 +40,43 @@ import type { InferredPackage } from './schema.js'
  *
  * @param names - The declared dependency names (non-`@molecule` names are ignored).
  * @param registryPackages - The registry by name; read from `registry.json` when omitted.
+ * @param framework - The renderer of the manifest being closed, if known.
  * @returns The missing package names, in discovery order.
  */
 export function missingMoleculePeers(
   names: Iterable<string>,
-  registryPackages: Map<string, InferredPackage> = new Map(loadRegistry().map((p) => [p.name, p])),
+  registryPackages: ReadonlyMap<string, InferredPackage> = new Map(
+    loadRegistry().map((p) => [p.name, p]),
+  ),
+  framework?: string,
 ): string[] {
   const have = new Set([...names].filter((d) => d.startsWith('@molecule/')))
+  const queue = [...have]
   const missing: string[] = []
-  closePeers([...have], have, missing, registryPackages)
-  // A locale bond added here may bring peers of its own, and a peer added for it
-  // a locale bond: repeat until neither adds anything.
-  for (;;) {
-    const locales = resolveLocalePackages([...have], [...registryPackages.values()]).filter(
-      (name) => !have.has(name),
-    )
-    if (locales.length === 0) return missing
-    for (const name of locales) {
-      have.add(name)
-      missing.push(name)
-    }
-    closePeers(locales, have, missing, registryPackages)
+  const packages = [...registryPackages.values()]
+  const entries = defaultProviderEntries(packages)
+  const add = (name: string): void => {
+    if (have.has(name) || !registryPackages.has(name)) return
+    have.add(name)
+    queue.push(name)
+    missing.push(name)
   }
-}
 
-/**
- * Adds the `moleculePeers` + `defaultProvider` closure of `queue` to `have` and `missing`.
- *
- * @param queue - The packages whose closure to walk; consumed.
- * @param have - Every package the set holds so far; grows.
- * @param missing - The packages the walk added, in discovery order; grows.
- * @param registryPackages - The registry by name.
- */
-function closePeers(
-  queue: string[],
-  have: Set<string>,
-  missing: string[],
-  registryPackages: Map<string, InferredPackage>,
-): void {
-  while (queue.length > 0) {
-    const name = queue.shift()!
-    const entry = registryPackages.get(name)
-    if (!entry) continue
-    // A core's default bond only when nothing in the manifest already provides
-    // its category: an app on SQLite also got Postgres, and its bond index then
-    // wired both database providers (X1 run sol-m08 read that as a broken
-    // scaffold and rewrote every migration).
-    const provided = [...have].some((n) => {
-      const m = registryPackages.get(n)?.molecule
-      return m?.implements === name && m.type !== 'framework'
-    })
-    const next = [
-      ...(entry.molecule?.moleculePeers ?? []),
-      ...(entry.molecule?.defaultProvider && !provided ? [entry.molecule.defaultProvider] : []),
-    ]
-    for (const peer of next) {
-      if (have.has(peer) || !registryPackages.has(peer)) continue
-      have.add(peer)
-      queue.push(peer)
-      missing.push(peer)
+  let visited = 0
+  for (;;) {
+    // Close the required graph first so a provider reached by a deeper peer can suppress a default.
+    for (; visited < queue.length; visited++) {
+      for (const peer of registryPackages.get(queue[visited])?.molecule?.moleculePeers ?? [])
+        add(peer)
     }
+    for (const locale of resolveLocalePackages(queue, packages)) add(locale)
+    if (visited < queue.length) continue
+
+    for (let index = 0; index < visited; index++) {
+      const provider = defaultProviderFor(queue[index], entries, have, framework)
+      if (provider) add(provider)
+    }
+    if (visited === queue.length) return missing
   }
 }
 
@@ -160,9 +138,7 @@ export function moleculesToInject(
 }
 
 /** A `package.json`, as far as the closure reads and writes it. */
-export interface MoleculePeerManifest {
-  dependencies?: Record<string, string>
-  devDependencies?: Record<string, string>
+export interface MoleculePeerManifest extends RendererManifest {
   [field: string]: unknown
 }
 
@@ -172,13 +148,18 @@ export interface MoleculePeerManifest {
  * declared in either dependency map is never declared again.
  *
  * @param manifest - The parsed `package.json`; changed in place.
+ * @param registryPackages - The registry by name, when already loaded by the caller.
  * @returns The names added (empty when the manifest was already closed).
  */
-export function closeMoleculePeers(manifest: MoleculePeerManifest): string[] {
-  const missing = missingMoleculePeers([
-    ...Object.keys(manifest.dependencies ?? {}),
-    ...Object.keys(manifest.devDependencies ?? {}),
-  ])
+export function closeMoleculePeers(
+  manifest: MoleculePeerManifest,
+  registryPackages?: ReadonlyMap<string, InferredPackage>,
+): string[] {
+  const missing = missingMoleculePeers(
+    Object.keys({ ...manifest.dependencies, ...manifest.devDependencies }),
+    registryPackages,
+    rendererFramework(manifest),
+  )
   if (missing.length === 0) return []
   const deps = { ...manifest.dependencies }
   for (const name of missing) deps[name] = getMoleculeVersion(name)

@@ -802,6 +802,7 @@ export const InferredPackage = z.object({
 
   // Package metadata from centralized registry
   molecule: MoleculeMetadata.optional().describe('Package metadata from registry.json'),
+  frameworkInferred: z.boolean().optional().describe('The registry entry declares no framework'),
 
   // Paths
   path: z.string().describe('Absolute path to package'),

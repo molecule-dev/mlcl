@@ -54,6 +54,7 @@ import {
   stampCapabilityBondHeaders,
   stampCapabilitySourceHeaders,
 } from './capability-map.js'
+import { defaultProviderEntries, defaultProviderFor } from './default-provider.js'
 import { filterEnvSecrets, renderEnvSecretLines, resolveDatabaseUrlValue } from './env-file.js'
 import { isExactVersion } from './exact-version.js'
 import { collectSecrets } from './features.js'
@@ -72,7 +73,11 @@ import {
   deriveOptionalFeatures,
   FEATURE_TEMPLATES_DIR,
 } from './optional-features.js'
-import { missingMoleculePeers } from './peer-closure.js'
+import {
+  closeMoleculePeers,
+  missingMoleculePeers,
+  type MoleculePeerManifest,
+} from './peer-closure.js'
 import {
   appEntryModule,
   detectAppFramework,
@@ -2872,9 +2877,8 @@ export async function ensureE2EFiles(appPath: string): Promise<void> {
  * Add the full registry `moleculePeers` + `defaultProvider` closure of each
  * manifest's `@molecule/*` dependencies as DIRECT pinned dependencies.
  *
- * `defaultProvider` is part of the closure because cores lazily import their
- * default bond at runtime (e.g. `api-rate-limit` falls back to
- * `api-rate-limit-memory`) — a peers-only closure still crashed on that edge.
+ * Scoped defaults follow each manifest's renderer, and either dependency map can declare the
+ * provider that satisfies a core.
  * Versions come from the registry `moleculeVersions` map (exact pins).
  * Unknown names (not in the registry) are skipped defensively.
  *
@@ -2890,21 +2894,16 @@ export async function ensureMoleculePeerClosure(
   for (const rel of ['package.json', join('api', 'package.json'), join('app', 'package.json')]) {
     const manifestPath = join(destDir, rel)
     if (!existsSync(manifestPath)) continue
-    let manifest: { dependencies?: Record<string, string> }
+    let manifest: MoleculePeerManifest
     try {
-      manifest = JSON.parse(await readFile(manifestPath, 'utf-8')) as typeof manifest
+      manifest = JSON.parse(await readFile(manifestPath, 'utf-8'))
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err)
       mlclDebug(`[scaffold] peer-closure skipped for ${rel}: ${msg}`)
       continue
     }
-    const deps = manifest.dependencies ?? {}
-    const missing = missingMoleculePeers(Object.keys(deps), registryPackages)
+    const missing = closeMoleculePeers(manifest, registryPackages)
     if (missing.length === 0) continue
-    for (const name of missing) deps[name] = getMoleculeVersion(name)
-    manifest.dependencies = Object.fromEntries(
-      Object.entries(deps).sort(([a], [b]) => a.localeCompare(b)),
-    )
     await writeGuarded(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
     added[rel] = missing.sort()
   }
@@ -5621,12 +5620,14 @@ const ICON_GATE_CSS = `      /* mol:icon-gate — icons stay invisible from FIRS
  * @param selectedPackageNames - Selected font providers.
  * @param allPackages - Available package metadata.
  * @param fontAssetMode - Explicit module assets or legacy public copying.
+ * @param framework - The project's renderer, if known.
  * @returns Font markup and any required public font copies.
  */
 export function generateFontHtml(
   selectedPackageNames: string[],
   allPackages: InferredPackage[],
   fontAssetMode: 'copy' | 'module' = 'copy',
+  framework?: string,
 ): { html: string; fontFiles: FontFileToCopy[] } {
   if (fontAssetMode !== 'copy' && fontAssetMode !== 'module') {
     throw new Error('Font asset mode must be copy or module')
@@ -5644,8 +5645,14 @@ export function generateFontHtml(
     const fontCore = allPackages.find(
       (p) => p.molecule?.category === 'fonts' && p.molecule?.type === 'core',
     )
-    if (fontCore?.molecule?.defaultProvider) {
-      const defaultProv = fontProviders.find((p) => p.name === fontCore.molecule!.defaultProvider)
+    if (fontCore) {
+      const provider = defaultProviderFor(
+        fontCore.name,
+        defaultProviderEntries(allPackages),
+        selectedPackageNames,
+        framework,
+      )
+      const defaultProv = fontProviders.find((p) => p.name === provider)
       if (defaultProv) selectedFontProviders = [defaultProv]
     }
   }
@@ -6635,12 +6642,15 @@ export function getTemplateRequiredPackages(
  * @param packages - Package names.
  * @param versionOverrides - Versions that replace the registry pin.
  * @param section - The manifest section the packages go into.
+ * @param scopedDefaults - The automatically selected providers whose vendor peers must be
+ * declared before the first install.
  */
 export async function addPackages(
   projectPath: string,
   packages: string[],
   versionOverrides?: Record<string, string>,
   section: 'dependencies' | 'devDependencies' = 'dependencies',
+  scopedDefaults: readonly string[] = [],
 ): Promise<void> {
   const packageJsonPath = join(projectPath, 'package.json')
   const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
@@ -6655,6 +6665,11 @@ export async function addPackages(
       .sort()
       .map((key) => [key, entries[key]]),
   )
+  const providers = scopedDefaults.filter((name) => packages.includes(name))
+  if (providers.length > 0) {
+    const { declareInjectedThirdParty } = await import('./injected-third-party.js')
+    declareInjectedThirdParty(packageJson, providers)
+  }
 
   // Guarded like every other in-place rewrite in this module: this manifest
   // already exists (create wrote it moments earlier), and a write that fails

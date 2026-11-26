@@ -11,6 +11,8 @@
  * @module
  */
 
+import { packageFramework } from './package-search.js'
+import { loadAppFrameworks } from './registry.js'
 import type { InferredPackage } from './schema.js'
 
 /** A requested package that needs a web-only one: the required-peer chain to it, and why. */
@@ -29,18 +31,28 @@ export interface RendererManifest {
 }
 
 /**
- * Whether a project renders with React Native. `mlcl create` writes the project's framework as
- * `molecule.framework`, and that decides: `react-native` renders on a device, and
- * `react-native-web` and every other framework render in a browser. A project mlcl did not create
- * renders with React Native when it depends on `react-native`.
+ * The project's renderer. Scaffolds record it as `molecule.framework`, including browser projects
+ * that use another framework's UI bindings. For an existing app, look at its direct dependencies.
  *
  * @param manifest - The project's `package.json`.
- * @returns Whether the project renders with React Native.
+ * @returns The renderer key, or undefined when the manifest does not identify one.
  */
-export function rendersOnReactNative(manifest: RendererManifest): boolean {
+export function rendererFramework(manifest: RendererManifest): string | undefined {
   const framework = manifest.molecule?.framework
-  if (typeof framework === 'string' && framework) return framework === 'react-native'
-  return 'react-native' in { ...manifest.dependencies, ...manifest.devDependencies }
+  if (typeof framework === 'string' && framework) return framework
+
+  const deps = { ...manifest.dependencies, ...manifest.devDependencies }
+  if ('react-native' in deps) return 'react-native'
+  if ('react-native-web' in deps) return 'react-native-web'
+
+  const inferred = packageFramework({ runtimeDependencies: Object.keys(deps) }, loadAppFrameworks())
+  // A shared dependency such as Expo does not establish a device target by itself.
+  return inferred === 'react-native' ? undefined : inferred
+}
+
+/** Whether the manifest identifies a device renderer. */
+export function rendersOnReactNative(manifest: RendererManifest): boolean {
+  return rendererFramework(manifest) === 'react-native'
 }
 
 /**

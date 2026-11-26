@@ -20,6 +20,7 @@
  * @module
  */
 
+import { defaultProviderFor } from './default-provider.js'
 import {
   type AppFrameworkInstalls,
   type SearchHit,
@@ -167,12 +168,14 @@ export function resolveCapability(
 
   const [iface] = namedInterfaces
   const declared = new Set(context.declared ?? [])
-  const wired = [...declared].find((name) => byName.get(name)?.implements === iface.name)
+  const wired = [...declared].find((name) => {
+    const entry = byName.get(name)
+    return entry?.implements === iface.name && entry.type !== 'framework'
+  })
   if (wired) return { name: iface.name, because: `the project's ${wired} provides it` }
-  // The declared default is the interface's own choice, whether or not the words match it.
-  const fallback = iface.defaultProvider ? byName.get(iface.defaultProvider) : undefined
-  if (fallback && !fallback.replacedBy)
-    return { name: iface.name, because: `its default provider ${fallback.name} comes with it` }
+  const fallback = defaultProviderFor(iface.name, byName, declared, context.framework)
+  if (fallback && !byName.get(fallback)?.replacedBy)
+    return { name: iface.name, because: `its default provider ${fallback} comes with it` }
   const providers = entries
     .filter((entry) => entry.type === 'provider' && entry.implements === iface.name)
     .map((entry) => entry.name)

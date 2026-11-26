@@ -103,6 +103,7 @@ import {
   renderCapabilityBondHeader,
   renderPackageDeclarationsComment,
 } from './capability-map.js'
+import { defaultProviderEntries, defaultProviderFor } from './default-provider.js'
 import { isExactVersion } from './exact-version.js'
 import { routerWithAddedFeatures, routerWithFeatures } from './feature-routers.js'
 import { formatGeneratedSource, sortImportStatements } from './format.js'
@@ -133,6 +134,7 @@ import {
   readPackageVersion,
   resolveSetupSqlSources,
 } from './setup-sql.js'
+import { rendererFramework, type RendererManifest } from './web-only.js'
 
 // =============================================================================
 // API Framework Configuration
@@ -218,13 +220,20 @@ export function getProjectApiFramework(projectPath: string): string {
  * @returns The registry app-framework key, or undefined when the manifest names none.
  */
 export function getProjectAppFramework(projectPath: string): string | undefined {
+  const framework = readRendererManifest(projectPath).molecule?.framework
+  return typeof framework === 'string' && framework ? framework : undefined
+}
+
+/** The project manifest fields that identify the renderer and its declared packages. */
+function readRendererManifest(projectPath: string): RendererManifest {
   try {
-    const pkg = JSON.parse(readFileSync(join(projectPath, 'package.json'), 'utf-8'))
-    const framework = pkg.molecule?.framework
-    return typeof framework === 'string' && framework ? framework : undefined
+    const manifest: RendererManifest | null = JSON.parse(
+      readFileSync(join(projectPath, 'package.json'), 'utf-8'),
+    )
+    return manifest ?? {}
   } catch (_error) {
-    // package.json absent or unparseable — the caller falls back to the platform default
-    return undefined
+    // No readable manifest establishes a renderer or a declared provider.
+    return {}
   }
 }
 
@@ -2537,15 +2546,16 @@ function generateAppThemeBondSetup(
 
   if (!hasCreateFn || !createFn) return null
 
-  // Check if this is the default provider or a theme preset.
-  // Preset providers ship curated themes — use them as-is (no color overrides).
-  // The default provider exports generic themes that benefit from customization,
-  // and so does a framework's own provider (a registry `framework`), which the
-  // scaffold picks in place of the default on that framework
-  // (@molecule/app-theme-nativewind on react-native).
-  const coreEntry = findRegistryPackage(pkg.molecule.implements)
+  // The portable default and the default for this renderer both accept project overrides.
+  // Theme presets ship their palette as-is.
+  const entries = defaultProviderEntries(loadRegistry())
+  const framework = rendererFramework(readRendererManifest(projectPath))
   const isDefaultProvider =
-    coreEntry?.molecule?.defaultProvider === pkg.name || Boolean(pkg.molecule.framework)
+    defaultProviderFor(pkg.molecule.implements, entries, [], undefined) === pkg.name ||
+    defaultProviderFor(pkg.molecule.implements, entries, [], framework) === pkg.name
+  // A scoped factory keeps its configuration shape when selected explicitly on another renderer.
+  const scope = entries.get(pkg.name)?.framework ?? pkg.molecule.framework
+  const documentOption = scope ? '' : '\n  applyToDocument: false,'
 
   const typeImport = `import type { Theme } from '${pkg.molecule.implements}'`
   const setterImport = `import { setProvider } from '${pkg.molecule.implements}'`
@@ -2565,8 +2575,7 @@ function generateAppThemeBondSetup(
 export const themeProvider = ${createFn}({
   themes: [lightTheme, darkTheme],
   defaultTheme: 'light',
-  systemDefault: true,
-  applyToDocument: false,
+  systemDefault: true,${documentOption}
   persistKey: 'molecule-theme',
 })
 `
@@ -2613,8 +2622,7 @@ export const themeProvider = ${createFn}({
     themeSetup = `
 export const themeProvider = ${createFn}({
   defaultTheme: 'light',
-  systemDefault: true,
-  applyToDocument: false,
+  systemDefault: true,${documentOption}
   persistKey: 'molecule-theme',
 })
 `
@@ -6474,17 +6482,8 @@ function generateAppBondsSmokeTest(
 /**
  * Resolve default providers from injection plans (for standalone inject).
  *
- * Scans peer dependencies from all plans to find core packages with a
- * defaultProvider declaration. If no provider for that category exists
- * in the current molecule list, returns the default provider names to add.
- *
- * Framework-aware: if the project uses a specific framework (e.g. react-native),
- * prefers a provider with a matching `framework` field over the generic
- * `defaultProvider` (e.g. nativewind over tailwind for RN projects).
- *
- * A provider the project already declares counts: adding one package (`mlcl add <pkg>
- * --inject`) to a SQLite project must not wire Postgres as well — two providers for one
- * core, the last setup call winning.
+ * Look for defaults for packages being injected and their peers. Packages named by the caller
+ * or declared in the project's manifest count as existing providers, even when they have no plan.
  *
  * @param plans - The plans of the packages being injected.
  * @param currentMolecules - The packages being injected.
@@ -6498,86 +6497,30 @@ export async function resolveDefaultProvidersFromPlans(
   projectPath: string,
   declared: readonly string[] = [],
 ): Promise<string[]> {
-  const allNames = new Set(currentMolecules)
-
-  // Detect project framework from current molecules via registry. `loadRegistry()`
-  // ALWAYS returns an array — it throws for a missing registry file — so this used
-  // to sit behind an always-true `if (registry)`: dead code that implied a falsy
-  // registry takes some other path, the same shape the inject command dropped for
-  // its locale lookup. It does not: an empty registry simply matches no framework.
-  const registry = loadRegistry()
-  let projectFramework: string | undefined
-  for (const name of allNames) {
-    const regPkg = registry.find((p) => p.name === name)
-    if (regPkg?.molecule?.category === 'framework' && regPkg.molecule.framework) {
-      projectFramework = regPkg.molecule.framework
-      break
-    }
-  }
-
-  // Collect all core package names to check — both direct molecules and peer deps
-  const coreCheckNames = new Set<string>()
-
-  // Include direct molecules (handles alwaysInclude packages)
-  for (const name of currentMolecules) {
-    coreCheckNames.add(name)
-  }
-
-  // Include peer dep names from all plans (handles transitive deps)
+  const manifest = readRendererManifest(projectPath)
+  const framework = rendererFramework(manifest)
+  const entries = defaultProviderEntries(loadRegistry())
+  const candidates = new Set(currentMolecules)
+  // Use the resolved plans' peers. The registry can describe a different release from the one
+  // the project pins, so a registry peer alone must not start a new injection plan.
   for (const plan of plans) {
     for (const dep of plan.dependencies) {
       if (dep.name.startsWith('@molecule/') && dep.type === 'peerDependency') {
-        coreCheckNames.add(dep.name)
+        candidates.add(dep.name)
       }
     }
   }
-
-  // Scan each candidate for defaultProvider
+  const present = new Set([
+    ...currentMolecules,
+    ...Object.keys({ ...manifest.dependencies, ...manifest.devDependencies }),
+    ...declared,
+  ])
   const additions: string[] = []
-  for (const name of coreCheckNames) {
-    const pkgPath = await findMoleculePackage(name, projectPath)
-    if (!pkgPath) continue
-
-    let pkg: InferredPackage
-    try {
-      pkg = await scanPackage(pkgPath)
-    } catch (error) {
-      console.warn(`[injector] Could not scan package at '${pkgPath}': ${String(error)}`)
-      continue
-    }
-
-    if (pkg.molecule?.type !== 'core' || !pkg.molecule?.defaultProvider) continue
-
-    // Check if any provider implementing this core already exists
-    const hasProvider =
-      [...allNames, ...additions].some((existing) => {
-        const plan = plans.find((p) => p.molecule === existing)
-        return plan?.moleculePackage?.molecule?.implements === name
-      }) ||
-      declared.some((existing) => {
-        const entry = registry.find((p) => p.name === existing)?.molecule
-        return entry?.type === 'provider' && entry.implements === name
-      })
-
-    if (!hasProvider) {
-      // Prefer a framework-specific provider when one exists in the registry
-      // (`registry` is always the array loadRegistry returned — see above).
-      if (projectFramework) {
-        const frameworkProvider = registry.find(
-          (p) =>
-            p.molecule?.implements === name &&
-            p.molecule?.type === 'provider' &&
-            p.molecule?.framework === projectFramework,
-        )
-        if (frameworkProvider) {
-          additions.push(frameworkProvider.name)
-          continue
-        }
-      }
-
-      additions.push(pkg.molecule.defaultProvider)
-    }
+  for (const name of candidates) {
+    const provider = defaultProviderFor(name, entries, present, framework)
+    if (!provider || !(await findMoleculePackage(name, projectPath))) continue
+    present.add(provider)
+    additions.push(provider)
   }
-
   return additions
 }

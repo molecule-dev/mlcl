@@ -121,6 +121,7 @@ function derivePackages(registry: Registry, moleculeDir: string): InferredPackag
         tables: (entry.tables ?? []).map((t) => ({ name: t.name, sqlFile: t.sqlFile })),
         exports: entry.exports ?? [],
         molecule: molecule as unknown as MoleculeMetadata,
+        ...(molecule !== entry ? { frameworkInferred: true } : {}),
         path: join(moleculeDir, entry.path),
       }
     })

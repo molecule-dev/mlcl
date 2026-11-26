@@ -13,6 +13,7 @@ import { join } from 'node:path'
 
 import { CLI_COMMAND } from '#cli-command'
 
+import { defaultProviderEntries, defaultProviderFor } from './default-provider.js'
 import { APP_TEMPLATES_DIR, frameworkTemplateFeatures } from './optional-features.js'
 import { frameworksAcceptedBy, isOfferedPackage } from './package-search.js'
 import { loadAppFrameworks, loadRegistry } from './registry.js'
@@ -287,68 +288,29 @@ function expandPeerDeps(selected: Set<string>, byName: Map<string, InferredPacka
  *
  * Walks the transitive peer dependency tree of selected packages using registry
  * data (no npm install needed) to find core packages that declare a defaultProvider.
- * If no provider for that core's category exists in the selection, returns the
- * default provider package names to add.
+ * Returns the defaults compatible with the project renderer for cores that the selection does
+ * not already provide.
+ *
+ * @param selectedNames - The packages the project will declare.
+ * @param allPackages - The registry packages available to this project.
+ * @param framework - The project renderer selected by create, if it has an app.
+ * @returns The providers to add.
  */
 export function resolveDefaultProviders(
   selectedNames: string[],
   allPackages: InferredPackage[],
+  framework?: string,
 ): string[] {
   const byName = new Map(allPackages.map((p) => [p.name, p]))
-  const selected = new Set(selectedNames)
-
-  // Expand to include all transitive peer deps
-  const allProjectPackages = expandPeerDeps(selected, byName)
-
-  // Auto-detect project framework from selected packages (e.g. react, react-native)
-  let projectFramework: string | undefined
-  for (const pkgName of allProjectPackages) {
-    const pkg = byName.get(pkgName)
-    if (pkg?.molecule?.category === 'framework' && pkg.molecule.framework) {
-      projectFramework = pkg.molecule.framework
-      break
-    }
-  }
-
+  const entries = defaultProviderEntries(allPackages)
+  const allProjectPackages = expandPeerDeps(new Set(selectedNames), byName)
   const additions: string[] = []
-
-  for (const pkgName of allProjectPackages) {
-    const pkg = byName.get(pkgName)
-    if (!pkg?.molecule) continue
-    if (pkg.molecule.type !== 'core' && pkg.molecule.type !== 'middleware') continue
-    if (!pkg.molecule.defaultProvider) continue
-
-    // Check if any provider implementing this core is already in the project.
-    // Framework packages (e.g. app-ui-react) don't count — they're framework
-    // bindings, not bond providers (e.g. app-ui-tailwind provides the ClassMap).
-    const hasProvider = [...allProjectPackages, ...additions].some((name) => {
-      const p = byName.get(name)
-      return p?.molecule?.implements === pkg.name && p.molecule.type !== 'framework'
-    })
-
-    if (!hasProvider) {
-      // Prefer a framework-specific provider when one exists in the registry.
-      // E.g. for react-native, prefer @molecule/app-ui-nativewind over the
-      // generic defaultProvider (@molecule/app-ui-tailwind).
-      if (projectFramework) {
-        const frameworkProvider = allPackages.find(
-          (p) =>
-            p.molecule?.implements === pkg.name &&
-            p.molecule?.type === 'provider' &&
-            p.molecule?.framework === projectFramework,
-        )
-        if (frameworkProvider) {
-          additions.push(frameworkProvider.name)
-          continue
-        }
-      }
-
-      if (byName.has(pkg.molecule.defaultProvider)) {
-        additions.push(pkg.molecule.defaultProvider)
-      }
-    }
+  for (const name of allProjectPackages) {
+    const provider = defaultProviderFor(name, entries, allProjectPackages, framework)
+    if (!provider) continue
+    allProjectPackages.add(provider)
+    additions.push(provider)
   }
-
   return additions
 }
 

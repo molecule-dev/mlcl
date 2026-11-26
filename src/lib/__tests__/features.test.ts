@@ -774,6 +774,7 @@ describe('resolveDefaultProviders', () => {
     const result = resolveDefaultProviders(
       ['@molecule/app-react-native', '@molecule/app-ui-react-native'],
       rnPackages,
+      'react-native',
     )
 
     expect(result).toContain('@molecule/app-ui-nativewind')
@@ -793,6 +794,7 @@ describe('resolveDefaultProviders', () => {
     const result = resolveDefaultProviders(
       ['@molecule/app-react-native', '@molecule/app-ui-react-native', '@molecule/app-ui-tailwind'],
       rnPackages,
+      'react-native',
     )
 
     // tailwind already selected as provider — should not also add nativewind
