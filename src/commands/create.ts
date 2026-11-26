@@ -1295,6 +1295,7 @@ export default class Create extends Command {
             dir: join(projectPath, 'api'),
             secrets: allSelectedSecrets.filter((s) => !s.name.startsWith('VITE_')),
             type: 'api',
+            projectName,
           },
           {
             file: 'app/.env',
