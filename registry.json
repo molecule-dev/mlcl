@@ -110247,7 +110247,8 @@
         "TabsProps",
         "TextareaProps",
         "ToastProps",
-        "TooltipProps"
+        "TooltipProps",
+        "FlexProps"
       ],
       "secrets": [],
       "runtimeDependencies": [
