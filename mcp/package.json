@@ -1,6 +1,6 @@
 {
   "name": "molecule-mcp",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "MCP server for the Molecule.dev packages: lets any coding agent find, read, add, wire and swap composable @molecule/* packages in any JavaScript or TypeScript project",
   "author": "Molecule Dev, Inc. (https://molecule.dev)",
   "license": "Apache-2.0",
