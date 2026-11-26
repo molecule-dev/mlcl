@@ -260,9 +260,14 @@ export default class Setup extends Command {
     }
     // After a setup run, agents went on to `npm install -g mlcl` to "confirm it works" (a second
     // download, 34 s in the 2026-11-25 install eval). The conventions and tools need no global copy.
-    const done = failed
-      ? 'Restart your agents to load Molecule.'
-      : 'Restart your agents to load Molecule. Nothing else to install: agents call the molecule tools, or run `npx mlcl <command>`.'
+    let done = 'Restart your agents to load Molecule.'
+    if (results.some((result) => result.status === 'manual')) {
+      done =
+        'Follow the manual setup instructions above. Restart any configured agents to load Molecule.'
+    } else if (!failed && warmed) {
+      done +=
+        ' Nothing else to install: agents call the molecule tools, or run `npx mlcl <command>`.'
+    }
     if (interactive) p.outro(done)
     else this.log(`\n${done}`)
   }

@@ -182,9 +182,10 @@ describe('mlcl setup', () => {
   })
 
   it('--skip leaves components out', async () => {
-    await run(['--yes', '--agent', 'cursor', '--skip', 'mcp,skills'])
+    const out = await run(['--yes', '--agent', 'cursor', '--skip', 'mcp,skills'])
     expect(existsSync(join(home, '.cursor', 'mcp.json'))).toBe(false)
     expect(existsSync(join(home, '.agents'))).toBe(false)
+    expect(out).not.toContain('agents call the molecule tools')
   })
 
   it('a re-run changes nothing; an edited skill is kept until --force', async () => {
@@ -243,7 +244,10 @@ describe('mlcl setup', () => {
 
   it('prints the steps for an agent it cannot configure by file', async () => {
     const out = await run(['--yes', '--agent', 'claude-code', '--skip', 'skills,instructions'])
+    expect(out).toContain('Install the claude CLI')
     expect(out).toContain('claude mcp add --scope user molecule -- npx -y molecule-mcp')
+    expect(out).not.toContain('Nothing else to install')
+    expect(out).toContain('Follow the manual setup instructions above.')
     expect(process.exitCode).toBeUndefined()
   })
 
@@ -272,6 +276,7 @@ describe('mlcl setup', () => {
       expect(out).toContain('npx -y molecule-mcp did not start:')
       expect(out).toContain('exited with code 1 before answering')
       expect(out).toContain('1 step(s) failed')
+      expect(out).not.toContain('Nothing else to install')
       expect(process.exitCode).toBe(1)
     })
 
