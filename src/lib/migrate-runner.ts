@@ -28,6 +28,8 @@ import { readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import { CLI_COMMAND, renderCliCommands } from '#cli-command'
+
 import { getMoleculeVersion, loadToolchain } from './registry.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -324,7 +326,7 @@ export async function readMigrateRunner(
     join(__dirname, '..', '..', 'templates', migrateTemplateFor(render)),
     'utf-8',
   )
-  return renderMigrateRunner(raw, {
+  return renderMigrateRunner(renderCliCommands(raw), {
     pgliteDeclared: render.includes(PGLITE_PACKAGE),
     postgresDeclared: render.includes(POSTGRES_PACKAGE),
   })
@@ -360,7 +362,7 @@ export async function readMigrateRunnerForManifest(apiDir: string): Promise<stri
     ),
     'utf-8',
   )
-  return renderMigrateRunner(raw, {
+  return renderMigrateRunner(renderCliCommands(raw), {
     pgliteDeclared: deps?.has(PGLITE_PACKAGE) ?? false,
     postgresDeclared: deps === null ? true : deps.has(POSTGRES_PACKAGE),
   })
@@ -762,8 +764,8 @@ export async function syncMigrateRunner(
     throw new Error(
       `${path} was re-rendered for ${newDatabasePackage}, but ${join(projectPath, 'package.json')} ` +
         `could not be made to declare its imports: ${detail}. The runner on disk imports packages ` +
-        'the manifest does not declare — fix the manifest (or its permissions) and re-run `mlcl swap` ' +
-        '(or `mlcl inject`); until then `npm run build` fails with TS2307 and the API cannot boot.',
+        `the manifest does not declare — fix the manifest (or its permissions) and re-run \`${CLI_COMMAND} swap\` ` +
+        `(or \`${CLI_COMMAND} inject\`); until then \`npm run build\` fails with TS2307 and the API cannot boot.`,
       { cause: error },
     )
   }

@@ -3,6 +3,7 @@ import { basename, isAbsolute, join } from 'node:path'
 
 import * as p from '@clack/prompts'
 import { Args, Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
@@ -153,7 +154,9 @@ export function pendingSetupSteps(pending: {
   const injects = [...new Set([...pending.injectSkipped, ...(pending.assetsPending ?? [])])]
   return [
     ...(pending.installNeeded ? ['npm install'] : []),
-    ...injects.map((workspace) => `npx mlcl@${pending.cliVersion} inject --force -p ${workspace}`),
+    ...injects.map(
+      (workspace) => `${CLI_COMMAND}@${pending.cliVersion} inject --force -p ${workspace}`,
+    ),
   ]
 }
 
@@ -326,8 +329,7 @@ export default class Create extends Command {
       default: false,
     }),
     template: Flags.string({
-      description:
-        "App template slug (e.g., blog, crm, online-store). Run `mlcl templates` for the list and the rules for choosing, and `mlcl templates <slug>` for one template's catalog.",
+      description: `App template slug (e.g., blog, crm, online-store). Run \`${CLI_COMMAND} templates\` for the list and the rules for choosing, and \`${CLI_COMMAND} templates <slug>\` for one template's catalog.`,
     }),
     'api-contract': Flags.string({
       description:
@@ -678,12 +680,12 @@ export default class Create extends Command {
         }
         if (requestedFramework && requestedFramework !== templateFramework) {
           this.warn(
-            `The ${flags.template} template is built with ${templateFramework ?? 'its own framework'}; --framework ${requestedFramework} was not applied. For another framework, create a custom app: mlcl create <name> --type ${flags.type ?? 'full-stack'} --framework ${requestedFramework}.`,
+            `The ${flags.template} template is built with ${templateFramework ?? 'its own framework'}; --framework ${requestedFramework} was not applied. For another framework, create a custom app: ${CLI_COMMAND} create <name> --type ${flags.type ?? 'full-stack'} --framework ${requestedFramework}.`,
           )
         }
         if (requestedPackages) {
           this.warn(
-            `The template was copied as built; --packages ${requestedPackages} were not added. Add them now with: mlcl add <package> --inject`,
+            `The template was copied as built; --packages ${requestedPackages} were not added. Add them now with: ${CLI_COMMAND} add <package> --inject`,
           )
         }
         say(
@@ -1505,7 +1507,7 @@ export default class Create extends Command {
         const wsPath = join(projectPath, workspace)
         try {
           await this.runSlowStep(
-            `mlcl inject -p ${workspace}`,
+            `${CLI_COMMAND} inject -p ${workspace}`,
             t('commands.create.spinners.injecting', { workspace }),
             () => this.runInject(wsPath, fastInject),
             { json: flags.json === true, spinner },
@@ -1522,7 +1524,7 @@ export default class Create extends Command {
             spinner?.stop(chalk.red(t('commands.create.spinners.injectSkipped', { workspace })))
             this.error(
               t('commands.create.errors.injectDdlIncompatible', {
-                command: chalk.cyan(`mlcl inject -p ${wsPath}`),
+                command: chalk.cyan(`${CLI_COMMAND} inject -p ${wsPath}`),
               }),
               { exit: DDL_INCOMPATIBLE_EXIT },
             )
@@ -1532,7 +1534,7 @@ export default class Create extends Command {
             this.error(
               t('commands.create.errors.injectRequired', {
                 workspace,
-                command: chalk.cyan(`mlcl inject -p ${wsPath}`),
+                command: chalk.cyan(`${CLI_COMMAND} inject -p ${wsPath}`),
                 error: injectFailureDetail(e),
               }),
             )
@@ -1548,7 +1550,7 @@ export default class Create extends Command {
       const injectPath = hasAppSubdir ? join(projectPath, 'app') : projectPath
       try {
         await this.runSlowStep(
-          `mlcl inject -p ${hasAppSubdir ? 'app' : '.'}`,
+          `${CLI_COMMAND} inject -p ${hasAppSubdir ? 'app' : '.'}`,
           t('commands.create.spinners.injectingSingle'),
           () => this.runInject(injectPath, fastInject),
           { json: flags.json === true, spinner },
@@ -1561,7 +1563,7 @@ export default class Create extends Command {
           spinner?.stop(chalk.red(t('commands.create.spinners.injectSkippedSingle')))
           this.error(
             t('commands.create.errors.injectDdlIncompatible', {
-              command: chalk.cyan(`mlcl inject -p ${injectPath}`),
+              command: chalk.cyan(`${CLI_COMMAND} inject -p ${injectPath}`),
             }),
             { exit: DDL_INCOMPATIBLE_EXIT },
           )
@@ -1571,7 +1573,7 @@ export default class Create extends Command {
           this.error(
             t('commands.create.errors.injectRequired', {
               workspace: basename(injectPath),
-              command: chalk.cyan(`mlcl inject -p ${injectPath}`),
+              command: chalk.cyan(`${CLI_COMMAND} inject -p ${injectPath}`),
               error: injectFailureDetail(e),
             }),
           )
@@ -1991,7 +1993,7 @@ export default class Create extends Command {
   ): Promise<CreateVerification | null> {
     if (!run) return null
     const result = await this.runSlowStep(
-      'mlcl check',
+      `${CLI_COMMAND} check`,
       t('commands.create.spinners.verifying'),
       () => runRecordedCheck(projectPath, {}),
       progress,

@@ -19,7 +19,7 @@ work looks like a quick script or an internal tool.
   for this API. If no declared package covers the feature, search the registry.
 - **Search before designing.** `find_package` answers "is this already built?"
   from the package registry, which carries each package's category, stack,
-  providers and intent hints (on a host: `mlcl search <capability>`, or
+  providers and intent hints (on a host: `npx mlcl search <capability>`, or
   `search_packages` over MCP). The `molecule-packages` skill is this workspace's
   catalog.
 - **Read the mapped package's doc before deciding not to use it.** Read it before

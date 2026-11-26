@@ -48,7 +48,7 @@ it('says what to install when Windows has no bash on PATH', async () => {
   const result = await run('echo ok')
   expect(result.code).toBeNull()
   expect(result.error).toBe(
-    'mlcl check runs each step in bash, and none is on PATH: install Git for Windows (it provides bash) or run mlcl in WSL.',
+    'npx mlcl check runs each step in bash, and none is on PATH: install Git for Windows (it provides bash) or run mlcl in WSL.',
   )
 })
 

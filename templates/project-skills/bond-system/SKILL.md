@@ -21,7 +21,7 @@ providers. The flagship `api/src/bonds/database-postgresql.ts` is one line.
 export { setupDatabasePostgresql } from '@molecule/api-bonds-default-express' // Flagship API only
 ```
 
-A custom stack (`mlcl create --packages …`) holds local `setup*()` functions in
+A custom stack (`npx mlcl create --packages …`) holds local `setup*()` functions in
 `api/src/bonds/`, one file per provider. Each imports the selected provider or
 factory and registers it with the core's setter or a named bond. The generated
 `api/src/bonds/index.ts` imports those local functions and runs them from

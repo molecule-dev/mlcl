@@ -827,7 +827,7 @@ function refuseDroppingUnknownKeys(path: string): void {
   if (unknown.length === 0) return
   const named = unknown.slice(0, 5).join(', ') + (unknown.length > 5 ? ', …' : '')
   throw new Error(
-    `${path} carries ${unknown.length} key(s) this mlcl build does not know (${named}); ` +
+    `${path} carries ${unknown.length} key(s) this CLI build does not know (${named}); ` +
       'writing it would delete them. Rebuild mlcl (cd mlcl && npm run build) and run the command again.',
   )
 }

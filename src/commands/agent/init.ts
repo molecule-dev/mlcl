@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND, renderCliCommands } from '#cli-command'
 
 import { AGENT_HARNESSES, type AgentHarness, findHarness } from '../../lib/agent-harnesses.js'
 import {
@@ -49,8 +50,7 @@ function detectHarness(root: string): string {
 }
 
 export default class AgentInit extends Command {
-  static override description =
-    'Write the Molecule conventions + mlcl quickstart into the instruction files your coding agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where the agent reads those). `mlcl setup` also installs the MCP server'
+  static override description = `Write the Molecule conventions + mlcl quickstart into the instruction files your coding agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where the agent reads those). \`${CLI_COMMAND} setup\` also installs the MCP server`
 
   static override examples = [
     '<%= config.bin %> agent init            # detect the agent in this project and write its files',
@@ -87,9 +87,11 @@ export default class AgentInit extends Command {
       ? undefined
       : findHarness(id)
 
-    const template = readFileSync(
-      join(this.config.root, 'templates', 'shared', 'agent-init-section.md.tpl'),
-      'utf8',
+    const template = renderCliCommands(
+      readFileSync(
+        join(this.config.root, 'templates', 'shared', 'agent-init-section.md.tpl'),
+        'utf8',
+      ),
     )
     const scope = flags.global ? 'machine' : 'project'
     const steps: SetupStep[] = harness
@@ -165,6 +167,6 @@ export default class AgentInit extends Command {
       `  ${ui.cmd('"Build me a blog with molecule"')} ${ui.dim('— it now knows to reach for mlcl.')}`,
     )
     this.log(`\n${ui.dim('For the MCP tools (search_packages, scaffold_project, …), run:')}`)
-    this.log(`  ${ui.cmd(`npx mlcl setup${flags.global ? '' : ' --scope project'}`)}`)
+    this.log(`  ${ui.cmd(`${CLI_COMMAND} setup${flags.global ? '' : ' --scope project'}`)}`)
   }
 }

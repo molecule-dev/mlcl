@@ -1,4 +1,5 @@
 import { Args, Command } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { listProjects, siteBaseUrl } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
@@ -22,7 +23,7 @@ export default class ProjectOpen extends Command {
     const { args } = await this.parse(ProjectOpen)
     const projects = await listProjects()
     const project = projects.find((p) => p.id === args.nameOrId || p.name === args.nameOrId)
-    if (!project) this.error(`No project "${args.nameOrId}" — run mlcl project list`)
+    if (!project) this.error(`No project "${args.nameOrId}" — run ${CLI_COMMAND} project list`)
     this.log(`${ui.id('workspace')}  ${ui.cmd(`${siteBaseUrl()}/workspace/${project.id}`)}`)
     if (project.previewUrl) this.log(`${ui.id('preview')}    ${ui.cmd(project.previewUrl)}`)
     if (project.liveUrl) this.log(`${ui.id('live')}       ${ui.cmd(project.liveUrl)}`)

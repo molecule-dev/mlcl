@@ -17,6 +17,8 @@ import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
+
 import {
   type CheckInput,
   checkLogDir,
@@ -214,7 +216,7 @@ export function stopHookPlan(
  */
 export function stopHookReason(report: string): string {
   return [
-    'npx mlcl check found type or lint errors. Fix every error below at its cause (not by disabling the check or casting it away), then stop again:',
+    `${CLI_COMMAND} check found type or lint errors. Fix every error below at its cause (not by disabling the check or casting it away), then stop again:`,
     '',
     report.trim(),
   ].join('\n')

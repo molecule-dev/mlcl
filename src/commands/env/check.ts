@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { collectRegistrySecrets, detectLocalEnvVars } from '../../lib/env-detect.js'
 import { appendSecretsToEnvFile } from '../../lib/env-file.js'
@@ -79,7 +80,7 @@ export default class EnvCheck extends Command {
         if (v.instructions) this.log(`      ${v.instructions}`)
         if (v.setupUrl) this.log(`      ${ui.dim('get one:')} ${v.setupUrl}`)
         this.log(
-          `      ${ui.dim('fix:')} ${v.fix === 'generate' ? 'mlcl env check --fix' : `mlcl env set ${v.key}=<value>`}`,
+          `      ${ui.dim('fix:')} ${v.fix === 'generate' ? `${CLI_COMMAND} env check --fix` : `${CLI_COMMAND} env set ${v.key}=<value>`}`,
         )
       }
     }
@@ -103,7 +104,7 @@ export default class EnvCheck extends Command {
     }
 
     this.log(
-      `\n${ui.heading(`Set (${setVars.length})`)} ${ui.dim('in your .env files — see mlcl env list')}`,
+      `\n${ui.heading(`Set (${setVars.length})`)} ${ui.dim(`in your .env files — see ${CLI_COMMAND} env list`)}`,
     )
     if (report.hiddenCount > 0) {
       this.log(

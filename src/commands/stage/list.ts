@@ -1,5 +1,6 @@
 import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 import chalk from 'chalk'
 
 import { listEnvironments } from '../../lib/staging.js'
@@ -36,7 +37,7 @@ export default class StageList extends Command {
 
     if (envs.length === 0) {
       p.log.info('No active staging environments.')
-      p.log.info(`Run ${chalk.cyan('mlcl stage up')} to create one.`)
+      p.log.info(`Run ${chalk.cyan(`${CLI_COMMAND} stage up`)} to create one.`)
       p.outro('')
       return
     }

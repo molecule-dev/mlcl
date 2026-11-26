@@ -19,6 +19,8 @@
  *
  * @module
  */
+import { CLI_COMMAND } from '#cli-command'
+
 import { compareVersions } from './package-upgrades.js'
 import type { Registry } from './schema.js'
 
@@ -71,7 +73,7 @@ export function setupSqlVersionProblems(
         name,
         message:
           `${name} carries setupSqlVersion ${version} but the registry pins ${pinned} — ` +
-          'run `mlcl sync-registry --scan-tables` in the same change as the pin move',
+          `run \`${CLI_COMMAND} sync-registry --scan-tables\` in the same change as the pin move`,
       })
   }
   return problems

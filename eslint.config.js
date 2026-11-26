@@ -115,6 +115,7 @@ export default tseslint.config(
     files: [
       'bin/**/*.{mjs,js}',
       'scripts/**/*.{mjs,js}',
+      'mcp/assets/**/*.{mjs,js}',
       'mcp/scripts/**/*.{mjs,js}',
       'templates/shared/*.mjs',
     ],

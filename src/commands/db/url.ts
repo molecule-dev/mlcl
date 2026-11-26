@@ -2,6 +2,7 @@ import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { loadEnvFile } from '../../lib/env-store.js'
 
@@ -9,7 +10,7 @@ export default class DbUrl extends Command {
   static override description =
     'Print the project\u2019s DATABASE_URL (resolving .env when not exported)'
 
-  static override examples = ['<%= config.bin %> db url', 'psql "$(mlcl db url)"']
+  static override examples = ['<%= config.bin %> db url', `psql "$(${CLI_COMMAND} db url)"`]
 
   static override enableJsonFlag = true
 

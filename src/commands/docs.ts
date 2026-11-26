@@ -12,6 +12,7 @@
  */
 
 import { Args, Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { fetchPublishedReadme, localPackageDoc, npmRegistryUrl } from '../lib/package-doc-files.js'
 import { parseDocSearch, searchPackageDoc } from '../lib/package-doc-search.js'
@@ -133,9 +134,12 @@ export default class Docs extends Command {
     const section = split.section
     const names = split.names.map((name) => name.trim().replace(/^@molecule\//, ''))
     if (names.length === 0)
-      this.error('Name a package to read: npx mlcl docs @molecule/<name> --section "<heading>"', {
-        exit: 2,
-      })
+      this.error(
+        `Name a package to read: ${CLI_COMMAND} docs @molecule/<name> --section "<heading>"`,
+        {
+          exit: 2,
+        },
+      )
     if (names.length > MAX_PACKAGES)
       this.error(`Read at most ${MAX_PACKAGES} packages at once.`, { exit: 2 })
     for (const name of names) {
@@ -206,7 +210,7 @@ export default class Docs extends Command {
         package: name,
         source: null,
         found: false,
-        text: `@molecule/${name} is not installed here and npm has no README for it. \`npx mlcl search <capability>\` lists the packages.`,
+        text: `@molecule/${name} is not installed here and npm has no README for it. \`${CLI_COMMAND} search <capability>\` lists the packages.`,
       }
     }
     const source = local ? 'installed' : 'npm'
@@ -222,7 +226,7 @@ export default class Docs extends Command {
     }
     const view = packageDocView(readme, {
       section,
-      sectionHint: `npx mlcl docs @molecule/${name} --section "<heading>"`,
+      sectionHint: `${CLI_COMMAND} docs @molecule/${name} --section "<heading>"`,
     })
     return {
       package: name,

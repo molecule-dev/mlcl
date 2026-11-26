@@ -17,7 +17,10 @@ import { writeResourceClientLint } from '../resource-client-lint.js'
 
 const SHARED = join(import.meta.dirname, '../../../templates/shared')
 const TEMPLATE = readFileSync(join(SHARED, 'eslint.config.js.tpl'), 'utf8')
-const RULE = readFileSync(join(SHARED, 'prefer-generated-resource-clients.mjs'), 'utf8')
+const RULE = readFileSync(join(SHARED, 'prefer-generated-resource-clients.mjs'), 'utf8').replace(
+  'Run mlcl resources',
+  'Run npx mlcl resources',
+)
 const RULE_IMPORT =
   "import { generatedResourceClientConfig } from './eslint-rules/prefer-generated-resource-clients.mjs'"
 const BLOCK =

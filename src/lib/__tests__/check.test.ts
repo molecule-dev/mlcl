@@ -453,7 +453,7 @@ describe('runCheckLocal', () => {
     // eval `check`, 2026-11-25; OLD MUSTFAIL). The next run replaces it.
     const during = readFileSync(join(root, 'log-during-install.txt'), 'utf8')
     expect(during).toBe(
-      'mlcl check: the Playwright browser (chromium) is not installed, so the first e2e run could not launch it. The check is installing it now (`npx --no-install playwright install --only-shell chromium`) and will run this step again; nothing needs doing meanwhile. This log is replaced when that run ends.\n',
+      'npx mlcl check: the Playwright browser (chromium) is not installed, so the first e2e run could not launch it. The check is installing it now (`npx --no-install playwright install --only-shell chromium`) and will run this step again; nothing needs doing meanwhile. This log is replaced when that run ends.\n',
     )
     // Without the first run's failure under it: with that output kept below the note, Codex searched
     // the log for errors, found only "Executable doesn't exist" and looked for the browser itself
@@ -638,7 +638,7 @@ describe('runCheckLocal', () => {
     const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
     if ('error' in result) throw new Error(result.error)
     expect(readFileSync(join(root, 'seen.txt'), 'utf8')).toBe(
-      `mlcl check (pid ${process.pid}) is running this step; this log is replaced with its output when it ends.\n`,
+      `npx mlcl check (pid ${process.pid}) is running this step; this log is replaced with its output when it ends.\n`,
     )
     expect(readFileSync(result.results[0].logPath, 'utf8')).toBe('')
   })

@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { Args, Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import {
   declaredFramework,
@@ -98,7 +99,7 @@ export default class Search extends Command {
 
   static override args = {
     query: Args.string({
-      description: 'Search query; several words need no quotes (mlcl search send emails)',
+      description: `Search query; several words need no quotes (${CLI_COMMAND} search send emails)`,
       required: true,
     }),
   }
@@ -130,7 +131,7 @@ export default class Search extends Command {
     const { argv, flags } = await this.parse(Search)
     const q = (argv as string[]).join(' ').trim()
     setTelemetryContext({ searchQuery: q.slice(0, 100) })
-    if (!q) this.error('Provide a search query, e.g. mlcl search payments')
+    if (!q) this.error(`Provide a search query, e.g. ${CLI_COMMAND} search payments`)
 
     // The shared owner applies the stack filter BEFORE ranking/truncation and
     // emits the DTO both transports expose (the hosted MCP imports the same
@@ -172,7 +173,7 @@ export default class Search extends Command {
         for (const line of hit.quickStart.split('\n')) this.log(`      ${ui.dim('│')} ${line}`)
     }
     this.log(
-      `\n${ui.dim("Read a package's doc before writing code against it or deciding not to use it:")} ${ui.cmd('npx mlcl docs <name>')} ${ui.dim('(--section "<heading>" for one function or heading)')}`,
+      `\n${ui.dim("Read a package's doc before writing code against it or deciding not to use it:")} ${ui.cmd(`${CLI_COMMAND} docs <name>`)} ${ui.dim('(--section "<heading>" for one function or heading)')}`,
     )
     this.log('')
   }

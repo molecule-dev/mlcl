@@ -217,7 +217,7 @@ describe('mlcl token', () => {
       [400, 'apiToken.error.invalidName', 'A token name must be 1 to 60 characters.'],
       [400, 'apiToken.error.invalidExpiry', 'whole number from 1 to 365'],
       [409, 'apiToken.error.nameTaken', 'You already have a token named "ci"'],
-      [403, 'apiToken.error.sessionRequired', 'Run `mlcl login` to sign in'],
+      [403, 'apiToken.error.sessionRequired', 'Run `npx mlcl login` to sign in'],
       [403, 'apiToken.error.emailNotConfirmed', 'Confirm your email address first'],
       [429, 'apiToken.error.limit', 'You have 25 active tokens'],
       [429, 'apiToken.error.dailyLimit', 'You can create 10 tokens a day'],
@@ -301,7 +301,7 @@ describe('mlcl token', () => {
         status: 403,
         body: { error: 'x', errorKey: 'apiToken.error.sessionRequired' },
       })
-      await expect(run(TokenList, [])).rejects.toThrow('Run `mlcl login`')
+      await expect(run(TokenList, [])).rejects.toThrow('Run `npx mlcl login`')
       expect(process.exitCode).toBe(1)
     })
   })

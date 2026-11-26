@@ -4,6 +4,7 @@ import { basename, dirname, join, relative } from 'node:path'
 
 import * as p from '@clack/prompts'
 import { Args, Command, Errors, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
@@ -180,8 +181,8 @@ export default class Add extends Command {
           names: scaffoldOnly.join(', '),
           retry:
             rest.length > 0
-              ? `Run \`mlcl add ${rest.join(' ')}\` for the others.`
-              : 'Add the capability you need instead (`mlcl search <words>` finds it).',
+              ? `Run \`${CLI_COMMAND} add ${rest.join(' ')}\` for the others.`
+              : `Add the capability you need instead (\`${CLI_COMMAND} search <words>\` finds it).`,
         }),
       )
       return this.exit(1)
@@ -602,11 +603,11 @@ export default class Add extends Command {
           `  ${t('commands.add.messages.stepInstall', { command: chalk.cyan('npm install') })}`,
         )
         this.log(
-          `  ${t('commands.add.messages.stepInject', { num: 2, command: chalk.cyan('mlcl inject') })}`,
+          `  ${t('commands.add.messages.stepInject', { num: 2, command: chalk.cyan(`${CLI_COMMAND} inject`) })}`,
         )
       } else {
         this.log(
-          `  ${t('commands.add.messages.stepInject', { num: 1, command: chalk.cyan('mlcl inject') })}`,
+          `  ${t('commands.add.messages.stepInject', { num: 1, command: chalk.cyan(`${CLI_COMMAND} inject`) })}`,
         )
       }
       for (const name of names)

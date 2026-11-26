@@ -11,6 +11,8 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
+
 import { APP_TEMPLATES_DIR, frameworkTemplateFeatures } from './optional-features.js'
 import { frameworksAcceptedBy, isOfferedPackage } from './package-search.js'
 import { loadAppFrameworks, loadRegistry } from './registry.js'
@@ -195,7 +197,7 @@ export function resolveTransitivePeers(
         // apps whose imports don't resolve. Run `mlcl sync-registry` so the
         // registry carries moleculePeers.
         console.warn(
-          `[features] cannot determine @molecule peers of ${name} — no moleculePeers in registry.json and package.json unreadable (${(error as Error).message}). Peer expansion may be incomplete; run \`mlcl sync-registry\`.`,
+          `[features] cannot determine @molecule peers of ${name} — no moleculePeers in registry.json and package.json unreadable (${(error as Error).message}). Peer expansion may be incomplete; run \`${CLI_COMMAND} sync-registry\`.`,
         )
         peers = []
       }

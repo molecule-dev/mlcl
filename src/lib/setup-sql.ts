@@ -47,6 +47,8 @@ import { readdir, readFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { basename, join, relative, resolve, sep } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
+
 import { isExactVersion, isVersionRange, satisfiesVersionRange } from './exact-version.js'
 import { loadRegistry } from './registry.js'
 import type { InferredPackage } from './schema.js'
@@ -325,7 +327,7 @@ export async function resolveSetupSqlSources(options: {
         message:
           `No exact version is recorded for ${packageName}, so its setup SQL cannot be bound ` +
           'to a schema version — it is neither installed here at one version nor pinned in ' +
-          `this project's manifest. Add it with \`mlcl add ${packageName}\` (which resolves the ` +
+          `this project's manifest. Add it with \`${CLI_COMMAND} add ${packageName}\` (which resolves the ` +
           'registry pin), or install the exact version this project should run, then re-run. ' +
           'Refusing before anything is written.',
       })
@@ -425,7 +427,7 @@ export async function resolveSetupSqlSources(options: {
         message:
           `${packageName}@${intended} is not available (${found}), and registry.json bundles no ` +
           'setup SQL for it (no setupSqlVersion recorded); regenerate the registry ' +
-          '(`mlcl sync-registry --scan-tables`) or install the package before scaffolding.',
+          `(\`${CLI_COMMAND} sync-registry --scan-tables\`) or install the package before scaffolding.`,
       })
       continue
     }
@@ -457,7 +459,7 @@ export async function resolveSetupSqlSources(options: {
           sqlFile,
           message:
             `Cannot read ${source} — the registry bundle for ${packageName}@${intended} has no ` +
-            'bytes for that file; run `mlcl sync-registry --scan-tables` or install the package ' +
+            `bytes for that file; run \`${CLI_COMMAND} sync-registry --scan-tables\` or install the package ` +
             'before scaffolding.',
         })
       }

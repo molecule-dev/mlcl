@@ -64,7 +64,7 @@ describe('every setupSql entry is tagged with the version its pin names', () => 
     const problem = problems.find((candidate) => candidate.name === name)
     expect(problem?.message).toBe(
       `${name} carries setupSqlVersion ${registry.packages[name].setupSqlVersion} but the ` +
-        'registry pins 99.0.1 — run `mlcl sync-registry --scan-tables` in the same change ' +
+        'registry pins 99.0.1 — run `npx mlcl sync-registry --scan-tables` in the same change ' +
         'as the pin move',
     )
   })

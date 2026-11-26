@@ -51,7 +51,7 @@ describe('mlcl add of a tooling package from a full-stack root', () => {
     vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
     await expect(cmd.run()).rejects.toThrow()
     expect(prompts.cancel).toHaveBeenCalledWith(
-      '@molecule/eslint-config is dev tooling for both api/ and app/. Run `mlcl add @molecule/eslint-config` from inside each folder; it goes into devDependencies.',
+      '@molecule/eslint-config is dev tooling for both api/ and app/. Run `npx mlcl add @molecule/eslint-config` from inside each folder; it goes into devDependencies.',
     )
     for (const sub of ['', 'api', 'app'])
       expect(readFileSync(join(dir, sub, 'package.json'), 'utf8')).toBe(EMPTY)

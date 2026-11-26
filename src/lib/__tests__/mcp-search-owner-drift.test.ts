@@ -40,8 +40,11 @@ describe('hosted MCP search owner is generated from the CLI owner', () => {
   })
 
   it('the standalone copy keeps the hosted build closure intact', () => {
-    const generated = readFileSync(GENERATED_PATH, 'utf8')
-    // No imports at all: the pure owner needs none, and any import would pull
+    const generated = readFileSync(GENERATED_PATH, 'utf8').replace(
+      /^import \{ CLI_COMMAND \} from '#cli-command'$/m,
+      '',
+    )
+    // Only the CLI display prefix is bundled locally. Other imports could pull
     // the CLI/workspace graph into the image that ships only `mcp/`.
     // A re-export names its module in quotes: without them, `export function …` followed lines
     // later by the word "from" in a JSDoc sentence read as one.

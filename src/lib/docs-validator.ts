@@ -10,6 +10,8 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
+
 import { scanExports } from './scanner.js'
 import type { Registry } from './schema.js'
 
@@ -59,7 +61,7 @@ export async function validateDocs(
       issues.push({
         file: `${entry.path}/README.md`,
         type: 'missing',
-        message: `README.md is missing — run 'mlcl sync-docs --generate' to create it`,
+        message: `README.md is missing — run '${CLI_COMMAND} sync-docs --generate' to create it`,
         fixable: false,
       })
       continue

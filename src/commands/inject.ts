@@ -4,6 +4,7 @@ import { join, relative, resolve } from 'node:path'
 
 import * as p from '@clack/prompts'
 import { Command, Flags, type Interfaces } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
@@ -200,7 +201,7 @@ export default class Inject extends Command {
       this.log('')
       this.log(
         t('commands.inject.messages.addHint', {
-          command: chalk.cyan('mlcl add @molecule/api-resource-user'),
+          command: chalk.cyan(`${CLI_COMMAND} add @molecule/api-resource-user`),
         }),
       )
       return
@@ -371,10 +372,10 @@ export default class Inject extends Command {
         unpinnedSelection
           ? t('commands.inject.messages.packageNotInstalled', {
               name: failure.molecule,
-              command: chalk.cyan(`mlcl add ${failure.molecule}`),
+              command: chalk.cyan(`${CLI_COMMAND} add ${failure.molecule}`),
             })
           : `Could not resolve ${failure.detail} — its files, dependencies and bond wiring were NOT injected. ` +
-              'Install it (npm install) and re-run `mlcl inject`.',
+              `Install it (npm install) and re-run \`${CLI_COMMAND} inject\`.`,
       )
     }
 
@@ -573,7 +574,7 @@ export default class Inject extends Command {
     for (const failure of migrationFailures) {
       this.warn(
         `Could not read a migration: ${failure} — its migration was NOT injected. ` +
-          'Reinstall the package (npm install) and re-run `mlcl inject`.',
+          `Reinstall the package (npm install) and re-run \`${CLI_COMMAND} inject\`.`,
       )
     }
 
@@ -997,7 +998,7 @@ export default class Inject extends Command {
           `Could not declare src/scripts/migrate.ts's imports in ${join(projectPath, 'package.json')}: ` +
             `${error instanceof Error ? error.message : String(error)}. The runner on disk imports ` +
             'packages the manifest does not declare — fix the manifest (or its permissions) and re-run ' +
-            '`mlcl inject`; until then `npm run build` fails and the API cannot boot.',
+            `\`${CLI_COMMAND} inject\`; until then \`npm run build\` fails and the API cannot boot.`,
         )
       }
     }

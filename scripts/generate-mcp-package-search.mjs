@@ -10,8 +10,8 @@
  * the owner verbatim keeps ONE scoring/filtering/DTO implementation while
  * keeping that closure intact.
  *
- * The owner is deliberately pure (no imports), which is what makes a verbatim
- * copy correct. `src/lib/__tests__/mcp-search-owner-drift.test.ts` fails when
+ * The owner imports only the bundled CLI display prefix. The same package-local
+ * import resolves in both packages. `src/lib/__tests__/mcp-search-owner-drift.test.ts` fails when
  * the committed copy and this generator's output diverge, so a CLI search
  * improvement cannot silently miss the hosted transport.
  *
@@ -23,7 +23,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const MLCL_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 
-/** Canonical owner — pure, so it can be copied verbatim. */
+/** Canonical owner, which can be copied verbatim into the MCP package. */
 export const OWNER_PATH = join(MLCL_ROOT, 'src', 'lib', 'package-search.ts')
 
 /** Generated standalone copy shipped inside the hosted server's build context. */

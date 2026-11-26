@@ -26,28 +26,28 @@ npm run dev
 
 ```bash
 # Find a capability:
-npx mlcl search payments
+{{CLI_COMMAND}} search payments
 
 # Add and wire it (installs + bonds + migrations + routes):
-npx mlcl add @molecule/api-payments-stripe --inject
+{{CLI_COMMAND}} add @molecule/api-payments-stripe --inject
 
 # Swap a provider:
-npx mlcl swap @molecule/api-database-mysql
+{{CLI_COMMAND}} swap @molecule/api-database-mysql
 ```
 
-Read any installed package's docs with `npx mlcl docs @molecule/<name>` (the README is at `node_modules/@molecule/<name>/README.md`).
+Read any installed package's docs with `{{CLI_COMMAND}} docs @molecule/<name>` (the README is at `node_modules/@molecule/<name>/README.md`).
 
 ## AI agents
 
-This project is agent-optimized — see `AGENTS.md` for the full conventions (bonds, ClassMap styling, handler patterns, migrations). To set up your coding agents for Molecule (MCP tools, skills and these conventions) on this machine or in this project: `npx mlcl setup`.
+This project is agent-optimized — see `AGENTS.md` for the full conventions (bonds, ClassMap styling, handler patterns, migrations). To set up your coding agents for Molecule (MCP tools, skills and these conventions) on this machine or in this project: `{{CLI_COMMAND}} setup`.
 
 ## Deploy
 
 Deploy to production with the same pipeline as the molecule.dev IDE:
 
 ```bash
-npx mlcl login
-npx mlcl deploy --project <id> --follow
+{{CLI_COMMAND}} login
+{{CLI_COMMAND}} deploy --project <id> --follow
 ```
 
 ---

@@ -18,6 +18,7 @@ import { existsSync, readFileSync, rmSync, type Stats, statSync, writeFileSync }
 import { basename, dirname, extname, join, resolve } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { CLI_COMMAND, renderCliCommands } from '#cli-command'
 import { execa } from 'execa'
 import { z } from 'zod'
 
@@ -63,8 +64,7 @@ import { LOAD_UP_FRONT } from './tool-loading.js'
 const spawnMissing = (originalMessage: string | undefined): boolean =>
   /^spawn\b[^\n]*\bENOENT\b/.test(originalMessage ?? '')
 
-const CLI_NOT_FOUND =
-  'The mlcl CLI could not be started: it is not on PATH and npx could not run the published one. Install Node.js 22 or later (it ships npx) and check that the npm registry is reachable, or install the CLI with `npm install -g mlcl` (then run `mlcl login` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.'
+const CLI_NOT_FOUND = `The mlcl CLI could not be started: it is not on PATH and npx could not run the published one. Install Node.js 22 or later (it ships npx) and check that the npm registry is reachable, or install the CLI with \`npm install -g mlcl\` (then run \`${CLI_COMMAND} login\` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.`
 
 /**
  * How long one `mlcl` run may take before it is killed — ten minutes, the same
@@ -138,9 +138,9 @@ async function runCli(
   // The label built from argv is caller-sized (transcript paths, SQL
   // statements), so the echo is bounded here where every message below is
   // built — the tools whose argv carries a secret pass their own `label`.
-  const labelled = options.label ?? echoOf(`mlcl ${args.join(' ')}`)
+  const labelled = options.label ?? echoOf(`${CLI_COMMAND} ${args.join(' ')}`)
   if (cwd && !existsSync(cwd))
-    throw new Error(`mlcl ${args[0]}: directory does not exist: ${echoOf(cwd)}`)
+    throw new Error(`${CLI_COMMAND} ${args[0]}: directory does not exist: ${echoOf(cwd)}`)
   // `reject: false` makes execa RESOLVE a cannot-spawn failure rather than
   // reject it (verified against execa 10: `failed: true`, NO exit code, and its
   // own `spawn <bin> ENOENT` in `originalMessage`), so a missing CLI arrives at
@@ -206,7 +206,7 @@ async function runCli(
     // by definition enormous), so the message must never quote it.
     if (/^spawn\b[^\n]*\bE2BIG\b/.test(originalMessage ?? '')) {
       throw new Error(
-        `mlcl ${args[0] ?? ''} could not start: the operating system refused its argument ` +
+        `${CLI_COMMAND} ${args[0] ?? ''} could not start: the operating system refused its argument ` +
           'list as too long (E2BIG). Shorten the values this tool passes on the command ' +
           'line — a statement, a path or a comma-separated list is over the limit.',
       )
@@ -305,8 +305,8 @@ async function readEnvList(
     return parsed as Array<{ key: string; value: string }>
   } catch (error) {
     throw new Error(
-      'mlcl env list did not answer with the variable list — its output is not repeated here ' +
-        'because it carries unmasked .env values. Run `mlcl env list --json` to inspect it.',
+      `${CLI_COMMAND} env list did not answer with the variable list — its output is not repeated here ` +
+        `because it carries unmasked .env values. Run \`${CLI_COMMAND} env list --json\` to inspect it.`,
       { cause: error },
     )
   }
@@ -724,8 +724,7 @@ server.registerTool(
   {
     _meta: LOAD_UP_FRONT,
     title: 'Add a package to this project',
-    description:
-      'Install and wire a @molecule/* package into the project at directory (mlcl add --inject: writes the dependency, generates the bond wiring, peers, migrations, routes), by `name`, or by `query`: the capability in words ("file uploads", "send emails with Resend"), which adds the provider of a vendor the words name, else the interface they name with the project’s provider or its default provider, and lists the candidates (adding nothing) when the words do not decide. One add brings a provider’s interface and an interface’s default provider. Its output ends with the call to make and how to use the package, so no separate doc read is needed. It runs a real `npm install`: seconds when the npm cache holds the packages, a few minutes on a first install. Call it once and wait; a slow response is not a failure, do not retry.',
+    description: `Install and wire a @molecule/* package into the project at directory (${CLI_COMMAND} add --inject: writes the dependency, generates the bond wiring, peers, migrations, routes), by \`name\`, or by \`query\`: the capability in words ("file uploads", "send emails with Resend"), which adds the provider of a vendor the words name, else the interface they name with the project’s provider or its default provider, and lists the candidates (adding nothing) when the words do not decide. One add brings a provider’s interface and an interface’s default provider. Its output ends with the call to make and how to use the package, so no separate doc read is needed. It runs a real \`npm install\`: seconds when the npm cache holds the packages, a few minutes on a first install. Call it once and wait; a slow response is not a failure, do not retry.`,
     inputSchema: {
       name: z
         .string()
@@ -1003,7 +1002,9 @@ server.registerResource(
         mimeType: 'text/markdown',
         // Bundled copy of mlcl's templates/shared/agent-init-section.md.tpl —
         // keep the two in sync when the doctrine changes.
-        text: readFileSync(join(import.meta.dirname, '..', 'assets', 'conventions.md'), 'utf8'),
+        text: renderCliCommands(
+          readFileSync(join(import.meta.dirname, '..', 'assets', 'conventions.md'), 'utf8'),
+        ),
       },
     ],
   }),
@@ -1295,7 +1296,7 @@ server.registerTool(
     // quote — see runCli. The key is a name, the value is the secret.
     text(
       await runCli(['env', 'set', key, value, ...(app ? ['--app'] : [])], directory, {
-        label: `mlcl env set ${key}${app ? ' --app' : ''}`,
+        label: `${CLI_COMMAND} env set ${key}${app ? ' --app' : ''}`,
       }),
     ),
   ),
@@ -3932,8 +3933,7 @@ server.registerTool(
   'domain_list',
   {
     title: "List a project's custom domains",
-    description:
-      'The project\u2019s custom domains, each marked verified or unverified \u2014 what `mlcl domain list` prints. See also domain_add / domain_verify / domain_remove. Requires login.',
+    description: `The project’s custom domains, each marked verified or unverified — what \`${CLI_COMMAND} domain list\` prints. See also domain_add / domain_verify / domain_remove. Requires login.`,
     inputSchema: {
       project_id: z.string().describe('molecule.dev project id'),
     },
@@ -3975,7 +3975,7 @@ server.registerTool(
       domain: z
         .string()
         .describe(
-          "The custom domain's row id \u2014 not the hostname. The platform's domains list carries it; `mlcl domain list` prints hostnames only.",
+          `The custom domain's row id — not the hostname. The platform's domains list carries it; \`${CLI_COMMAND} domain list\` prints hostnames only.`,
         ),
     },
   },
@@ -3995,7 +3995,7 @@ server.registerTool(
       domain: z
         .string()
         .describe(
-          "The custom domain's row id \u2014 not the hostname. The platform's domains list carries it; `mlcl domain list` prints hostnames only.",
+          `The custom domain's row id — not the hostname. The platform's domains list carries it; \`${CLI_COMMAND} domain list\` prints hostnames only.`,
         ),
     },
   },

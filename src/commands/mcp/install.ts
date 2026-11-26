@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND, renderCliCommands } from '#cli-command'
 
 import {
   AGENT_HARNESSES,
@@ -34,8 +35,7 @@ const PROJECT_MARKERS: [string, string][] = [
 ]
 
 export default class McpInstall extends Command {
-  static override description =
-    'Register the molecule MCP server with one coding agent, using the agent’s own installer when it has one. `mlcl setup` does this for every agent at once, with the Molecule conventions'
+  static override description = `Register the molecule MCP server with one coding agent, using the agent’s own installer when it has one. \`${CLI_COMMAND} setup\` does this for every agent at once, with the Molecule conventions`
 
   static override examples = [
     '<%= config.bin %> mcp install             # the first agent found on this machine',
@@ -104,9 +104,11 @@ export default class McpInstall extends Command {
     })
     const results = await applySetup(steps, {
       instructions: withInstructions
-        ? readFileSync(
-            join(this.config.root, 'templates', 'shared', 'agent-init-section.md.tpl'),
-            'utf8',
+        ? renderCliCommands(
+            readFileSync(
+              join(this.config.root, 'templates', 'shared', 'agent-init-section.md.tpl'),
+              'utf8',
+            ),
           )
         : '',
       cwd: env.cwd,

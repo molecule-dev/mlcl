@@ -1,11 +1,11 @@
 import { Command } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 import { execaSync } from 'execa'
 
 import DbUrl from './url.js'
 
 export default class DbConsole extends Command {
-  static override description =
-    'Open a psql console on the project database (mlcl db url | psql, with flags forwarded)'
+  static override description = `Open a psql console on the project database (${CLI_COMMAND} db url | psql, with flags forwarded)`
 
   static override examples = [
     '<%= config.bin %> db console',

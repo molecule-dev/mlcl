@@ -31,13 +31,13 @@ function api(dir: string, dependencies: Record<string, string>): void {
 describe('activityCaptureHint', () => {
   it('names mlcl add, from the project root, for a full-stack API without the package', () => {
     api(join(root, 'api'), {})
-    expect(activityCaptureHint(root)).toContain(`cd api && mlcl add ${CAPTURE} --inject`)
+    expect(activityCaptureHint(root)).toContain(`cd api && npx mlcl add ${CAPTURE} --inject`)
   })
 
   it('names it without a cd when the API is the project', () => {
     api(root, {})
     const hint = activityCaptureHint(root)
-    expect(hint).toContain(`To record them: mlcl add ${CAPTURE} --inject`)
+    expect(hint).toContain(`To record them: npx mlcl add ${CAPTURE} --inject`)
     expect(hint).not.toContain('cd api')
   })
 

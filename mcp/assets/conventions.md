@@ -14,13 +14,13 @@ replace it.
 **Which path:** a project that already exists gets packages added to it
 (below). A new app, or a directory with no project in it yet, starts with a
 scaffold (**Starting a new app**, below): a template when one covers the core
-of the request, otherwise a custom stack of the packages `mlcl search` finds,
+of the request, otherwise a custom stack of the packages `{{CLI_COMMAND}} search` finds,
 so the frontend and the backend both start wired.
 
 **Adding a capability to an existing project, this one included:**
 
 1. `add_package` with `query`, the capability in words (a vendor too when the
-   user named one), over MCP, or `npx mlcl add --capability "<capability>" --inject`
+   user named one), over MCP, or `{{CLI_COMMAND}} add --capability "<capability>" --inject`
    — installs the package the words decide and wires it into `src/bonds/`; when
    they do not decide, it lists the candidates and adds nothing. In a project
    Molecule did not create, it writes only the provider files and a
@@ -29,10 +29,10 @@ so the frontend and the backend both start wired.
    your code uses the package: that is the package's contract, no doc read
    needed. The project's entry point, router, tests and formatting stay as they
    are.
-2. To compare packages first: `search_packages` (or `npx mlcl search <capability>`),
-   then `add_package` with `name` (or `npx mlcl add @molecule/<name> --inject`).
+2. To compare packages first: `search_packages` (or `{{CLI_COMMAND}} search <capability>`),
+   then `add_package` with `name` (or `{{CLI_COMMAND}} add @molecule/<name> --inject`).
    One add brings a provider's interface and an interface's default provider.
-3. `swap_provider` (or `npx mlcl swap @molecule/<new-provider>`) — swap in a
+3. `swap_provider` (or `{{CLI_COMMAND}} swap @molecule/<new-provider>`) — swap in a
    different provider for a wired capability
 
 **Tasks that need no code:** the molecule MCP server runs web search, page
@@ -42,36 +42,36 @@ on molecule.dev with no vendor account, billed to a molecule.dev project key
 
 **Starting a new app:**
 
-1. `npx mlcl templates` lists the flagship templates (blog, crm, team-chat, …).
+1. `{{CLI_COMMAND}} templates` lists the flagship templates (blog, crm, team-chat, …).
    Each template is a complete app with its own data model, API and screens, so choose the starting point deliberately:
 
-   - Read the catalog of each strong candidate (at most ~4): `npx mlcl templates <slug>` shows its data model, API handlers, screens and integrations. The one-line descriptions undersell templates; judge fit on the catalog.
+   - Read the catalog of each strong candidate (at most ~4): `{{CLI_COMMAND}} templates <slug>` shows its data model, API handlers, screens and integrations. The one-line descriptions undersell templates; judge fit on the catalog.
    - Start from a template only if it covers the core of the request, not because it is the closest match. When two fit, take the one whose data model and screens are most specific to what is being built.
    - Right-size it: a simple app (a to-do list, a habit tracker, notes) gets a lean template or a small custom stack, never a feature-heavy template (billing, teams, push, calendar) whose features nobody asked for.
    - A site with no accounts, server or database (a blog, docs, a portfolio, a landing page) is the `static-site` template.
    - A template keeps the database its migrations were written for. When the user names a database no fitting template uses, build a custom stack with it.
-   - Otherwise build a custom stack: `npx mlcl search <capability>` for each capability the app needs (at most ~5 searches), then `npx mlcl create <name> --type full-stack --framework react --packages <the packages found> --no-interactive`. Include `@molecule/api-database-sqlite` unless the user named another database or the app needs PostgreSQL (high concurrency, complex queries, `@molecule/api-search-postgres`).
+   - Otherwise build a custom stack: `{{CLI_COMMAND}} search <capability>` for each capability the app needs (at most ~5 searches), then `{{CLI_COMMAND}} create <name> --type full-stack --framework react --packages <the packages found> --no-interactive`. Include `@molecule/api-database-sqlite` unless the user named another database or the app needs PostgreSQL (high concurrency, complex queries, `@molecule/api-search-postgres`).
    - Decide as soon as you can judge fit, then scaffold. In an empty repository that is to become the app, pass `.` as the name to scaffold into it.
 
 2. Scaffold unattended:
-   `npx mlcl create <name> --template <slug> --no-interactive`
+   `{{CLI_COMMAND}} create <name> --template <slug> --no-interactive`
    (or `--type full-stack --framework react --packages @molecule/...` for a custom stack)
 3. Add `--json` for machine-readable output
 
 **More commands:**
 
-- `npx mlcl resources --contract <openapi file>` — write `app/src/resources/*` from the API contract the app serves (typed lists, records, creates and updates over the query cache); run it again when the contract changes
-- `npx mlcl setup` — set up your coding agents: the molecule MCP tools (search/docs/add/swap/scaffold and the hosted tasks) and these conventions, for every project or this one (`--scope project`)
+- `{{CLI_COMMAND}} resources --contract <openapi file>` — write `app/src/resources/*` from the API contract the app serves (typed lists, records, creates and updates over the query cache); run it again when the contract changes
+- `{{CLI_COMMAND}} setup` — set up your coding agents: the molecule MCP tools (search/docs/add/swap/scaffold and the hosted tasks) and these conventions, for every project or this one (`--scope project`)
 
 **Before you build a capability** — a feature, an integration, a script, a tool:
 
 1. **Inspect.** A project Molecule created has a `## Declared capability map` in
    its AGENTS.md: map every feature in the plan to its declared package and
-   configuration. Otherwise use `npx mlcl search <capability>` (or `search_packages` over MCP); its top
+   configuration. Otherwise use `{{CLI_COMMAND}} search <capability>` (or `search_packages` over MCP); its top
    hits carry their Quick Start, enough to say which package fits and show its
    basic call. Before you write code against a package OR decide not to use it,
    read its contract: the add's output, or `read_package_doc` /
-   `npx mlcl docs @molecule/<name>` for a package you have not added.
+   `{{CLI_COMMAND}} docs @molecule/<name>` for a package you have not added.
    A question about which package to use or what its basic call looks like is
    answered from the search hits (their Quick Start and the environment
    variables they read), with no doc read.
@@ -100,10 +100,10 @@ do not extract a package for them.
 **Inside a molecule-built project:** follow its AGENTS.md — prefer
 `@molecule/*` packages over hand-rolled code, keep provider wiring in
 `src/bonds/`, style via ClassMap (`getClassMap()`), route all user-facing text
-through i18n. Read an installed package's API with `npx mlcl docs @molecule/<name>`
+through i18n. Read an installed package's API with `{{CLI_COMMAND}} docs @molecule/<name>`
 (`--section <name>` for one function, `--search <term>` for a literal).
 
-**While implementing a supplied Playwright suite:** start `npx mlcl test-feedback
+**While implementing a supplied Playwright suite:** start `{{CLI_COMMAND}} test-feedback
 --suite <spec-directory> --sources <app-source-directory> --command "<the suite’s native
 Playwright command targeting the local app>" --watch --json` as a background task.
 It runs the real spec files while you build and reports native locator failures

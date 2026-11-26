@@ -26,6 +26,7 @@ import {
 } from 'node:fs/promises'
 import { dirname, isAbsolute, join, relative, sep } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
 import { ts } from 'ts-morph'
 
 import { extendAppBonds } from './extend-app-bonds.js'
@@ -4181,7 +4182,7 @@ export function generateI18nDefaultSetupBond(
  * Uses setupI18nDefault from ${setupPackage}. English comes from the app's own
  * locales/en/ui.ts; every other language loads when the app switches to it, from the app's
  * locales/<code>/ui.ts and from each companion locale bond the app installs, listed below.
- * \`mlcl add <package> --inject\` (or \`mlcl inject\`) rewrites this file with the new list.
+ * \`${CLI_COMMAND} add <package> --inject\` (or \`${CLI_COMMAND} inject\`) rewrites this file with the new list.
  * Swap to a different i18n provider by replacing this bond.
  */`
   const imports = [
@@ -5382,8 +5383,8 @@ export function generateApiLocalesBond(bonds: readonly { pkg: string; local: str
       ? inline
       : `const localeModules = [\n${bonds.map(({ local }) => `  ${local},`).join('\n')}\n]`
   return `/**
- * The translations of every installed API locale bond. \`mlcl add <package> --inject\` (or
- * \`mlcl inject\`) rewrites this file with each package's locale bond.
+ * The translations of every installed API locale bond. \`${CLI_COMMAND} add <package> --inject\` (or
+ * \`${CLI_COMMAND} inject\`) rewrites this file with each package's locale bond.
  */
 import { registerLocaleModule } from '${i18nPkg}'
 ${bonds.map(({ pkg, local }) => `import * as ${local} from '${pkg}'`).join('\n')}
@@ -5436,7 +5437,7 @@ export function generateBondsIndexContent(
  * Bond setup - no providers configured.
  */
 export async function setupBonds(): Promise<void> {
-${localesCall}  // No providers to wire. Add bonds via mlcl inject.${lastCalls}
+${localesCall}  // No providers to wire. Add bonds via ${CLI_COMMAND} inject.${lastCalls}
 }
 `
   }

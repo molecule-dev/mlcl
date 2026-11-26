@@ -8,6 +8,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
+import { renderCliCommands } from '#cli-command'
 import { describe, expect, it } from 'vitest'
 
 import { LIST_TEMPLATES_DESCRIPTION, serverInstructions } from '../../../mcp/src/instructions.js'
@@ -22,13 +23,13 @@ const TEMPLATE_FIRST =
 
 describe('starting-point rules', () => {
   it('appear verbatim in the conventions section, its MCP copy and the build skill', () => {
-    const block = startingPointMarkdown('npx mlcl', '   ')
+    const block = startingPointMarkdown('   ')
     for (const path of [
       'templates/shared/agent-init-section.md.tpl',
       'mcp/assets/conventions.md',
       'templates/host-skills/build-with-molecule/SKILL.md',
     ]) {
-      expect(read(path), path).toContain(block)
+      expect(renderCliCommands(read(path)), path).toContain(block)
     }
   })
 

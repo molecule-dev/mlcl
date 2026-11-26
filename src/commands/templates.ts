@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { Args, Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { STARTING_POINT_LEAD, startingPointRules } from '../lib/starting-point.js'
 import { ui } from '../lib/ui.js'
@@ -20,8 +21,7 @@ interface TemplateEntry {
  * templates from, so the list can never drift from what actually scaffolds.
  */
 export default class Templates extends Command {
-  static override description =
-    "List flagship app templates for mlcl create --template <slug> (blog, crm, team-chat, …), or show one template's catalog"
+  static override description = `List flagship app templates for ${CLI_COMMAND} create --template <slug> (blog, crm, team-chat, …), or show one template's catalog`
 
   static override examples = [
     '<%= config.bin %> templates',
@@ -74,7 +74,7 @@ export default class Templates extends Command {
             description: t.description ?? '',
             type: t.type ?? 'full-stack',
             packageCount: t.packages?.length ?? 0,
-            create: `mlcl create my-app --template ${slug} --no-interactive`,
+            create: `${CLI_COMMAND} create my-app --template ${slug} --no-interactive`,
           })),
           null,
           2,
@@ -87,9 +87,9 @@ export default class Templates extends Command {
     // list (`| head -40`), and this list is where it decides: a template only when one covers the
     // core of the request, otherwise a custom stack, never a hand-built project.
     this.log(
-      `\n${ui.heading(`${entries.length} templates`)} ${ui.dim('— scaffold one with:')} ${ui.cmd('mlcl create <name> --template <slug>')}\n` +
+      `\n${ui.heading(`${entries.length} templates`)} ${ui.dim('— scaffold one with:')} ${ui.cmd(`${CLI_COMMAND} create <name> --template <slug>`)}\n` +
         `${STARTING_POINT_LEAD}\n` +
-        startingPointRules('mlcl')
+        startingPointRules()
           .map((rule) => `  • ${rule}`)
           .join('\n') +
         '\n',
@@ -114,13 +114,15 @@ export default class Templates extends Command {
     // Own keys only: a slug is looked up in a parsed object, where `constructor` is inherited.
     const entry = Object.hasOwn(templates, slug) ? templates[slug] : undefined
     if (!entry) {
-      this.error(`No template "${slug}". Run \`mlcl templates\` for the list.`, { exit: 2 })
+      this.error(`No template "${slug}". Run \`${CLI_COMMAND} templates\` for the list.`, {
+        exit: 2,
+      })
     }
     const catalogPath = join(this.config.root, 'templates', 'apps', slug, 'CATALOG.md')
     const catalog = existsSync(catalogPath)
       ? readFileSync(catalogPath, 'utf8').trimEnd()
       : undefined
-    const create = `mlcl create <name> --template ${slug} --no-interactive`
+    const create = `${CLI_COMMAND} create <name> --template ${slug} --no-interactive`
     if (json) {
       this.log(
         JSON.stringify(

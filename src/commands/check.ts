@@ -1,4 +1,5 @@
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import {
   CHECK_STEP_KINDS,
@@ -163,7 +164,7 @@ export default class Check extends Command {
 
     this.log(`\n${ui.heading('Check')} ${ui.dim(root)}`)
     this.log(result.report)
-    if (testsSkipped) this.log(ui.dim('Tests did not run: npx mlcl check --steps unit,e2e'))
+    if (testsSkipped) this.log(ui.dim(`Tests did not run: ${CLI_COMMAND} check --steps unit,e2e`))
     if (exitCode !== undefined || !result.ok) this.exit(exitCode ?? 1)
   }
 

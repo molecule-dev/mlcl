@@ -11,6 +11,8 @@
  * @module
  */
 
+import { CLI_COMMAND } from '#cli-command'
+
 import type { LocaleMessages } from './types.js'
 
 export const messages: LocaleMessages = {
@@ -18,8 +20,7 @@ export const messages: LocaleMessages = {
   'commands.add.description': 'Add a molecule package to your project',
   'commands.add.flags.noInstall': 'Skip npm install',
   'commands.add.flags.dev': 'Add as dev dependency',
-  'commands.add.flags.inject':
-    'Run mlcl inject immediately after adding (installs + wires the package)',
+  'commands.add.flags.inject': `Run ${CLI_COMMAND} inject immediately after adding (installs + wires the package)`,
   'commands.add.args.molecule': 'Molecule package name',
   'commands.add.flags.capability':
     'Add the package for a capability described in words ("file uploads", "send emails with Resend"): the provider of a vendor the words name, else the interface they name with the project\'s provider for it or its default provider. When the words do not decide, lists the candidates and adds nothing',
@@ -28,11 +29,9 @@ export const messages: LocaleMessages = {
     'Waiting for another mlcl command (pid {pid}) to finish changing this project…',
   'commands.add.messages.capabilityResolved': '"{query}": adding {name} ({because})',
   'commands.add.errors.capabilityUndecided': 'Nothing added: {because}. Add one by name:',
-  'commands.add.errors.missingName':
-    'Name a package (mlcl add @molecule/<name> --inject) or describe the capability (mlcl add --capability "file uploads" --inject)',
-  'commands.add.labels.intro': 'mlcl add',
-  'commands.add.errors.noPackageJson':
-    'No package.json found in {dir}. Run mlcl add from your project root (or its api/ or app/ subdirectory).',
+  'commands.add.errors.missingName': `Name a package (${CLI_COMMAND} add @molecule/<name> --inject) or describe the capability (${CLI_COMMAND} add --capability "file uploads" --inject)`,
+  'commands.add.labels.intro': `${CLI_COMMAND} add`,
+  'commands.add.errors.noPackageJson': `No package.json found in {dir}. Run ${CLI_COMMAND} add from your project root (or its api/ or app/ subdirectory).`,
   'commands.add.warnings.versionFallback':
     'Could not resolve {name} from npm — using "{version}". Set an exact version in package.json before publishing.',
   'commands.add.warnings.replaced': '{name} was renamed to {replacement}; adding {replacement}.',
@@ -71,10 +70,8 @@ export const messages: LocaleMessages = {
   'commands.create.description': 'Create a new project',
   'commands.create.flags.skipInstall':
     'Skip npm install and the integration code, which needs the installed packages: you then run each pendingSetup step yourself. Without it, create installs, wires and checks the project in one step',
-  'commands.create.flags.verify':
-    'After installing, run mlcl check (typecheck, lint, build) and report it. --no-verify skips it',
-  'commands.create.flags.requireInject':
-    'Fail when the integration code cannot be generated, instead of leaving it for a later mlcl inject (also MLCL_REQUIRE_INJECT=1)',
+  'commands.create.flags.verify': `After installing, run ${CLI_COMMAND} check (typecheck, lint, build) and report it. --no-verify skips it`,
+  'commands.create.flags.requireInject': `Fail when the integration code cannot be generated, instead of leaving it for a later ${CLI_COMMAND} inject (also MLCL_REQUIRE_INJECT=1)`,
   'commands.create.flags.idePreview':
     'Add the molecule.dev IDE live-preview bridge scripts to the app (also MLCL_IDE_PREVIEW=1)',
   'commands.create.flags.activityCapture':
@@ -98,19 +95,16 @@ export const messages: LocaleMessages = {
     'This project renders with React Native, and these packages render only in a browser, so nothing was added:\n{list}',
   'commands.add.errors.scaffoldOnly':
     'Only the scaffolds choose {names}: naming one installs every provider it wires. Nothing was added. {retry}',
-  'commands.add.errors.toolingAtRoot':
-    '{name} is dev tooling for both api/ and app/. Run `mlcl add {name}` from inside each folder; it goes into devDependencies.',
-  'commands.add.errors.notFound':
-    '{name} was not found on npm or in the molecule registry, so nothing was added. Check the spelling (`mlcl search <words>` lists real packages).',
+  'commands.add.errors.toolingAtRoot': `{name} is dev tooling for both api/ and app/. Run \`${CLI_COMMAND} add {name}\` from inside each folder; it goes into devDependencies.`,
+  'commands.add.errors.notFound': `{name} was not found on npm or in the molecule registry, so nothing was added. Check the spelling (\`${CLI_COMMAND} search <words>\` lists real packages).`,
   'commands.add.errors.installFailed':
     'The package was added to package.json, but `npm install` failed. Fix the error above and run `npm install`.',
   'commands.create.flags.noInteractive':
     'Run without interactive prompts (requires --type and name arg)',
   'commands.create.args.name': 'Project name',
-  'commands.create.labels.intro': 'mlcl create',
+  'commands.create.labels.intro': `${CLI_COMMAND} create`,
   'commands.create.errors.nameRequired': 'Project name is required in non-interactive mode',
-  'commands.create.errors.packagesUnknown':
-    'Not @molecule packages: {names}. Nothing was created. Check the spelling (`mlcl search <words>` lists real packages).',
+  'commands.create.errors.packagesUnknown': `Not @molecule packages: {names}. Nothing was created. Check the spelling (\`${CLI_COMMAND} search <words>\` lists real packages).`,
   'commands.create.errors.packagesScaffoldOnly':
     'Only the scaffolds choose {names}: a custom stack already has its server and bond wiring, and naming one installs every provider it wires. Nothing was created. Run it again with {retry}.',
   'commands.create.errors.nameInvalid':
@@ -159,17 +153,15 @@ export const messages: LocaleMessages = {
   'commands.create.spinners.installFailed': 'npm install failed - run it manually',
   'commands.create.spinners.injecting': 'Generating {workspace} integration code...',
   'commands.create.spinners.injected': '{workspace} integration code generated',
-  'commands.create.spinners.injectSkipped':
-    '{workspace} injection skipped - run mlcl inject after installing',
+  'commands.create.spinners.injectSkipped': `{workspace} injection skipped - run ${CLI_COMMAND} inject after installing`,
   'commands.create.spinners.injectingSingle': 'Generating integration code...',
   'commands.create.spinners.injectedSingle': 'Integration code generated',
-  'commands.create.spinners.injectSkippedSingle':
-    'Injection skipped - run mlcl inject after installing',
+  'commands.create.spinners.injectSkippedSingle': `Injection skipped - run ${CLI_COMMAND} inject after installing`,
   'commands.create.spinners.reinstalling': 'Reinstalling with resolved paths...',
   'commands.create.spinners.reinstalled': 'Dependencies reinstalled',
   'commands.create.spinners.reinstallFailed': 'Reinstall failed - run npm install manually',
   'commands.create.spinners.testing': 'Running smoke tests...',
-  'commands.create.spinners.verifying': 'Running mlcl check (typecheck, lint, build)...',
+  'commands.create.spinners.verifying': `Running ${CLI_COMMAND} check (typecheck, lint, build)...`,
   'commands.create.spinners.testsPassed': 'Smoke tests passed{summary}',
   'commands.create.spinners.testsFailed': 'Smoke tests failed - run npm test to investigate',
   'commands.create.messages.success': 'Project created!',
@@ -199,17 +191,14 @@ export const messages: LocaleMessages = {
   'commands.create.messages.orientationHandlers':
     'Endpoints: one file per feature in {dir}/, registered in {dir}/index.ts',
   'commands.create.messages.orientationPages': 'Pages: {dir}/',
-  'commands.create.messages.orientationDocs':
-    'Package docs: npx mlcl docs @molecule/<name> (--section "<heading>" for one function or heading)',
+  'commands.create.messages.orientationDocs': `Package docs: ${CLI_COMMAND} docs @molecule/<name> (--section "<heading>" for one function or heading)`,
   'commands.create.messages.orientationInstallScripts':
     'Install scripts off in package.json allowScripts, none of them needed: {names}. A native one loads the prebuilt binary its package ships',
-  'commands.create.messages.orientationInstalled':
-    'Installed: the dependencies are in the root node_modules. Reinstall only after a dependency changes (npx mlcl add installs what it adds)',
-  'commands.create.messages.orientationCheck': 'Before handing work back: npx mlcl check',
-  'commands.create.messages.orientationRecheck': 'After you change code: npx mlcl check',
-  'commands.create.messages.verified': 'mlcl check passed on the new project: {steps}',
-  'commands.create.messages.verifyFailed':
-    'mlcl check failed on the new project. Fix these before building on it:',
+  'commands.create.messages.orientationInstalled': `Installed: the dependencies are in the root node_modules. Reinstall only after a dependency changes (${CLI_COMMAND} add installs what it adds)`,
+  'commands.create.messages.orientationCheck': `Before handing work back: ${CLI_COMMAND} check`,
+  'commands.create.messages.orientationRecheck': `After you change code: ${CLI_COMMAND} check`,
+  'commands.create.messages.verified': `${CLI_COMMAND} check passed on the new project: {steps}`,
+  'commands.create.messages.verifyFailed': `${CLI_COMMAND} check failed on the new project. Fix these before building on it:`,
 
   // ─── commands/init ──────────────────────────────────────────────
   'commands.init.description': 'Initialize a new molecule package',
@@ -224,7 +213,7 @@ export const messages: LocaleMessages = {
   'commands.init.flags.interactive': 'Interactive mode (default: true)',
   'commands.init.flags.force': 'Overwrite existing files',
   'commands.init.flags.dir': 'Target directory (default: cwd)',
-  'commands.init.labels.intro': 'mlcl init',
+  'commands.init.labels.intro': `${CLI_COMMAND} init`,
   'commands.init.prompts.describe': 'Describe what you want to build:',
   'commands.init.prompts.describePlaceholder': 'e.g., A Redis-backed cache provider',
   'commands.init.prompts.describeValidation': 'Please provide a description',
@@ -258,7 +247,7 @@ export const messages: LocaleMessages = {
   'commands.inject.flags.path': 'Path to the project',
   'commands.inject.flags.install': 'Run npm install after injection',
   'commands.inject.flags.test': 'Run smoke tests after injection',
-  'commands.inject.labels.intro': 'mlcl inject',
+  'commands.inject.labels.intro': `${CLI_COMMAND} inject`,
   'commands.inject.spinners.finding': 'Finding molecules...',
   'commands.inject.spinners.found': 'Found {count} molecule(s)',
   'commands.inject.messages.noMolecules': 'No molecules to inject',
@@ -318,7 +307,7 @@ export const messages: LocaleMessages = {
   'commands.swap.flags.noInteractive': 'Skip confirmation prompt',
   'commands.swap.flags.install': 'Run npm install after swap',
   'commands.swap.flags.format': 'Run prettier after swap',
-  'commands.swap.labels.intro': 'mlcl swap',
+  'commands.swap.labels.intro': `${CLI_COMMAND} swap`,
   'commands.swap.errors.mustBeMolecule': 'Package name must start with @molecule/',
   'commands.swap.spinners.resolving': 'Resolving new provider...',
   'commands.swap.errors.notFound': 'Package {name} not found in registry',
@@ -334,8 +323,7 @@ export const messages: LocaleMessages = {
   'commands.swap.errors.replaceNotFound': '{name} not found in registry',
   'commands.swap.errors.replaceNotFoundDetail': 'Specified --replace package not found.',
   'commands.swap.errors.noExistingProvider': 'No existing provider for {interface}',
-  'commands.swap.errors.noExistingProviderDetail':
-    'No existing provider found for this interface. Use "mlcl inject" to add one instead.',
+  'commands.swap.errors.noExistingProviderDetail': `No existing provider found for this interface. Use "${CLI_COMMAND} inject" to add one instead.`,
   'commands.swap.errors.multipleProviders': 'Multiple providers for {interface}',
   'commands.swap.labels.multipleProvidersNote': 'Found multiple providers',
   'commands.swap.errors.multipleProvidersDetail':
@@ -388,7 +376,7 @@ export const messages: LocaleMessages = {
   'commands.validate.description': 'Validate a molecule package structure and conventions',
   'commands.validate.flags.path': 'Path to the molecule package',
   'commands.validate.flags.json': 'Output results as JSON',
-  'commands.validate.labels.intro': 'mlcl validate',
+  'commands.validate.labels.intro': `${CLI_COMMAND} validate`,
   'commands.validate.spinners.validating': 'Validating molecule...',
   'commands.validate.spinners.complete': 'Validation complete',
   'commands.validate.spinners.failed': 'Validation failed',
@@ -442,15 +430,13 @@ export const messages: LocaleMessages = {
     "No copy of {name}@{version} is reachable from this project (found: {found}). Refusing to inject another version's schema — run 'npm install' so {name}@{version} is the copy on disk, then re-run.",
   'lib.injector.errors.packageVersionNotExact':
     '{name} is pinned at {version}, which is not an exact version — the migrations it declares cannot be bound to one schema. Pin an exact version or install the version you mean, then re-run.',
-  'lib.injector.errors.setupSqlUnavailable':
-    'No copy or bundled setup SQL supplies {file} at {name}@{version}; run `mlcl sync-registry --scan-tables` or install that exact version before injecting.',
+  'lib.injector.errors.setupSqlUnavailable': `No copy or bundled setup SQL supplies {file} at {name}@{version}; run \`${CLI_COMMAND} sync-registry --scan-tables\` or install that exact version before injecting.`,
   'lib.injector.errors.setupSqlVersionSkewed':
     "{name} is pinned at {version}, but the only copy mlcl could read is {copyVersion} ({path}) and registry.json bundles no setup SQL for it — writing that copy's schema would run one release's DDL beside another release's code. Install {name}@{version} (`npm install`) or inject the version the project pins, then re-run.",
   'lib.injector.errors.unknownVersion': 'of unknown version',
   'lib.injector.errors.scanFailed': 'Failed to scan molecule package: {error}',
   'lib.injector.errors.migrationExists': "Migration for table '{table}' already exists",
-  'lib.injector.warnings.versionSkewedDependencies':
-    '{name} is pinned at {version} but the copy mlcl read is {copyVersion} ({path}), so its third-party dependencies and peer requirements were NOT copied — they describe {copyVersion}. Its @molecule peers came from registry.json at the pin. Run `npm install` so {name}@{version} is the copy on disk, then re-run `mlcl inject`.{sql}',
+  'lib.injector.warnings.versionSkewedDependencies': `{name} is pinned at {version} but the copy mlcl read is {copyVersion} ({path}), so its third-party dependencies and peer requirements were NOT copied — they describe {copyVersion}. Its @molecule peers came from registry.json at the pin. Run \`npm install\` so {name}@{version} is the copy on disk, then re-run \`${CLI_COMMAND} inject\`.{sql}`,
   'lib.injector.errors.migrationDuplicateOther':
     "Migration for table '{table}' was already planned for {name} in this run — the two packages ship the same setup SQL, so only one file is written",
   'lib.injector.errors.migrationTableConflict':
@@ -473,13 +459,13 @@ export const messages: LocaleMessages = {
     'This is the only time the token is shown. Store it somewhere safe.',
   'commands.token.create.useIt':
     'Use it: export MOLECULE_TOKEN=<token>  (or send the header Authorization: Bearer <token>)',
-  'commands.token.create.revokeIt': 'Revoke it: mlcl token revoke {name}',
+  'commands.token.create.revokeIt': `Revoke it: ${CLI_COMMAND} token revoke {name}`,
   'commands.token.list.description':
     'List your personal API tokens. Token values are never shown again after creation.',
   'commands.token.list.heading_one': '{count} API token',
   'commands.token.list.heading_other': '{count} API tokens',
-  'commands.token.list.empty': 'No API tokens. Create one with: mlcl token create <name>',
-  'commands.token.list.revokeHint': '(revoke with: mlcl token revoke <id-or-name>)',
+  'commands.token.list.empty': `No API tokens. Create one with: ${CLI_COMMAND} token create <name>`,
+  'commands.token.list.revokeHint': `(revoke with: ${CLI_COMMAND} token revoke <id-or-name>)`,
   'commands.token.list.columns.id': 'ID',
   'commands.token.list.columns.name': 'NAME',
   'commands.token.list.columns.created': 'CREATED',
@@ -489,31 +475,25 @@ export const messages: LocaleMessages = {
   'commands.token.list.expired': '{date} (expired)',
   'commands.token.revoke.description':
     'Revoke a personal API token by id or by name. It stops working.',
-  'commands.token.revoke.args.ref': 'The token id, or its name (from mlcl token list)',
+  'commands.token.revoke.args.ref': `The token id, or its name (from ${CLI_COMMAND} token list)`,
   'commands.token.revoke.revoked': 'Revoked token "{name}" ({id}).',
   'commands.token.errors.invalidName': 'A token name must be 1 to 60 characters.',
   'commands.token.errors.invalidExpiry': '--expires-in-days must be a whole number from 1 to 365.',
   'commands.token.errors.nameTaken':
     'You already have a token named "{name}". Pick another name, or revoke that one first.',
-  'commands.token.errors.sessionRequired':
-    'An API token cannot create, list or revoke tokens. Run `mlcl login` to sign in, then try again.',
+  'commands.token.errors.sessionRequired': `An API token cannot create, list or revoke tokens. Run \`${CLI_COMMAND} login\` to sign in, then try again.`,
   'commands.token.errors.emailNotConfirmed':
     'Confirm your email address first, using the link molecule.dev sent you.',
-  'commands.token.errors.limit':
-    'You have 25 active tokens, the most allowed. Revoke one you no longer use (mlcl token list).',
+  'commands.token.errors.limit': `You have 25 active tokens, the most allowed. Revoke one you no longer use (${CLI_COMMAND} token list).`,
   'commands.token.errors.dailyLimit': 'You can create 10 tokens a day. Try again tomorrow.',
-  'commands.token.errors.notFound':
-    'That token no longer exists. Run `mlcl token list` to see your tokens.',
-  'commands.token.errors.noMatch':
-    'No token has the id or name "{ref}". Run `mlcl token list` to see your tokens.',
+  'commands.token.errors.notFound': `That token no longer exists. Run \`${CLI_COMMAND} token list\` to see your tokens.`,
+  'commands.token.errors.noMatch': `No token has the id or name "{ref}". Run \`${CLI_COMMAND} token list\` to see your tokens.`,
   'commands.token.errors.ambiguous':
     'More than one token is named "{name}". Revoke it by id instead: {ids}',
-  'commands.token.errors.noToken':
-    'molecule.dev did not return the token. Revoke it (mlcl token revoke {name}) and create another.',
+  'commands.token.errors.noToken': `molecule.dev did not return the token. Revoke it (${CLI_COMMAND} token revoke {name}) and create another.`,
 
   // ─── lib/registry ───────────────────────────────────────────────
   'lib.registry.errors.notFound':
     'Molecule packages directory not found: {path}\nSet MOLECULE_PACKAGES_DIR or ensure ../molecule/packages exists.',
-  'lib.registry.errors.missingRole':
-    'No package found in registry for role: stack={stack}, type={type}, category={category}.\nRun "mlcl sync-registry" to rebuild or check registry.json.',
+  'lib.registry.errors.missingRole': `No package found in registry for role: stack={stack}, type={type}, category={category}.\nRun "${CLI_COMMAND} sync-registry" to rebuild or check registry.json.`,
 }

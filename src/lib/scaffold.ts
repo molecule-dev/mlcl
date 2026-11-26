@@ -9,6 +9,8 @@
 
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 
+import { CLI_COMMAND, renderCliCommands } from '#cli-command'
+
 /** Dev-only diagnostic printer — silent unless MLCL_DEBUG=1. */
 function mlclDebug(msg: string): void {
   if (process.env.MLCL_DEBUG === '1') console.error(msg)
@@ -2056,8 +2058,7 @@ export function shouldSkipDuringCopy(name: string): boolean {
 export const ENV_SECRETS_GITIGNORE = '.env*\n!.env.example'
 
 /** The note at the top of the AGENTS.md that `mlcl create` writes before its install. */
-export const AGENTS_MD_CREATING =
-  '**`mlcl create` is still writing this project.** The files it writes after the install (handlers, migrations, bond files, `.env`) may not be here yet; this note goes away when it finishes.'
+export const AGENTS_MD_CREATING = `**\`${CLI_COMMAND} create\` is still writing this project.** The files it writes after the install (handlers, migrations, bond files, \`.env\`) may not be here yet; this note goes away when it finishes.`
 
 /**
  * Write the project's AGENTS.md — the conventions file every major coding
@@ -2100,7 +2101,7 @@ export async function ensureAgentsMd(
           '',
           'Generate a client for the API collection your page uses. Import the client from the path the command reports.',
           '',
-          ...modules.map(({ resource }) => `- \`npx mlcl resources --package ${resource}\``),
+          ...modules.map(({ resource }) => `- \`${CLI_COMMAND} resources --package ${resource}\``),
         ].join('\n')
       : ''
   const sections = [renderSkillIndex(projectRoot), capabilityMap, resourceGuide].filter(Boolean)
@@ -3351,7 +3352,7 @@ async function loadTemplateUnsorted(
   vars: Record<string, string> = {},
 ): Promise<string> {
   const content = await readFile(join(getTemplatesDir(), relativePath), 'utf-8')
-  return processTemplate(content, vars)
+  return processTemplate(renderCliCommands(content), vars)
 }
 
 /**
@@ -3362,7 +3363,7 @@ async function loadTemplate(
   vars: Record<string, string> = {},
 ): Promise<string> {
   const content = await readFile(join(getTemplatesDir(), relativePath), 'utf-8')
-  const processed = processTemplate(content, vars)
+  const processed = processTemplate(renderCliCommands(content), vars)
   // Sort imports in generated source files for lint-clean output
   if (/\.(ts|tsx|js|mjs)\.tpl$/.test(relativePath)) {
     return sortImportStatements(processed, relativePath.replace(/\.tpl$/, ''))

@@ -1,4 +1,5 @@
 import { Args, Command } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { cloneSharedProject } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
@@ -18,6 +19,6 @@ export default class ShareCloneCmd extends Command {
     const { args } = await this.parse(ShareCloneCmd)
     const p = await cloneSharedProject(args.slug)
     this.log(`${ui.check('Cloned')} ${p.name} ${ui.dim(`→ ${p.id}`)}`)
-    this.log(ui.cmd(`mlcl project open ${p.id}`))
+    this.log(ui.cmd(`${CLI_COMMAND} project open ${p.id}`))
   }
 }

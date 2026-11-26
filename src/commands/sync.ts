@@ -3,6 +3,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative, resolve, sep } from 'node:path'
 
 import { Args, Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { sandboxExec, writeProjectFile } from '../lib/platform.js'
 import { requirePackageByRole } from '../lib/registry.js'
@@ -33,7 +34,7 @@ export function activityCaptureHint(root: string): string | null {
       continue
     }
     if (manifest.dependencies?.[capture]) return null
-    return `This API's emails, SMS, push and webhooks will not show in the Activity panel. To record them: ${cd}mlcl add ${capture} --inject`
+    return `This API's emails, SMS, push and webhooks will not show in the Activity panel. To record them: ${cd}${CLI_COMMAND} add ${capture} --inject`
   }
   return null
 }

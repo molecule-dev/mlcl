@@ -43,6 +43,8 @@
  * @param entry.selection - `scaffold-only` for a package only the scaffolds choose.
  * @returns True when it may be offered.
  */
+import { CLI_COMMAND } from '#cli-command'
+
 export function isOfferedPackage(entry: {
   stack?: string
   replacedBy?: string
@@ -598,7 +600,7 @@ function includesOf(entry: SearchSourceEntry): { includes?: string } {
  * @returns The command line.
  */
 export function installCommand(name: string): string {
-  return `npx mlcl add ${name} --inject`
+  return `${CLI_COMMAND} add ${name} --inject`
 }
 
 /**

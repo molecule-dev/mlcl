@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 
 import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 import chalk from 'chalk'
 
 import { checkDocs } from '../lib/docs-check.js'
@@ -237,7 +238,7 @@ export default class SyncDocs extends Command {
       spinner.stop('No matching package.')
       this.error(
         `Package "${flags.package}" is not in the registry. ` +
-          `Check the name, or register the package (mlcl init --force) before syncing its docs.`,
+          `Check the name, or register the package (${CLI_COMMAND} init --force) before syncing its docs.`,
       )
     }
 
@@ -258,7 +259,7 @@ export default class SyncDocs extends Command {
         )
         for (const name of result.different) p.log.warn(chalk.yellow(`  ${name}`))
         if (result.different.length) {
-          p.outro(chalk.red(`Run 'mlcl sync-docs --generate' to regenerate`))
+          p.outro(chalk.red(`Run '${CLI_COMMAND} sync-docs --generate' to regenerate`))
           this.exit(1)
         }
         p.outro(chalk.green('All README.md files are in sync'))
@@ -318,7 +319,7 @@ export default class SyncDocs extends Command {
         for (const name of diffFiles) {
           p.log.warn(chalk.yellow(`  ${name}`))
         }
-        p.outro(chalk.red(`Run 'mlcl sync-docs --generate' to regenerate`))
+        p.outro(chalk.red(`Run '${CLI_COMMAND} sync-docs --generate' to regenerate`))
         this.exit(1)
       } else {
         p.outro(chalk.green('All README.md files are in sync'))

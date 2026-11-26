@@ -1,4 +1,5 @@
 import { Command } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { listDevices, localDeviceId } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
@@ -35,7 +36,7 @@ export default class DeviceList extends Command {
     }
 
     this.log(
-      `\n${ui.heading(`${rows.length} device${rows.length === 1 ? '' : 's'}`)} ${ui.dim('(revoke with: mlcl device revoke <id>)')}\n`,
+      `\n${ui.heading(`${rows.length} device${rows.length === 1 ? '' : 's'}`)} ${ui.dim(`(revoke with: ${CLI_COMMAND} device revoke <id>)`)}\n`,
     )
     for (const d of rows.sort((a, b) => Number(b.current) - Number(a.current))) {
       const marker = d.current ? ui.ok('●') : ' '

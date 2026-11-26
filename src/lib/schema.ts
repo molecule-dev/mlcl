@@ -7,6 +7,7 @@
  * @module
  */
 
+import { CLI_COMMAND } from '#cli-command'
 import { z } from 'zod'
 
 import { SQL_FEATURES } from './sql-requirements.js'
@@ -298,7 +299,7 @@ export const DecisionGuide = z.object({
     .optional()
     .describe(
       'This app package can describe an API resource as one module (list, detail and writes on ' +
-        'the shared cache). mlcl resources --package writes a client for a declared API collection ' +
+        `the shared cache). ${CLI_COMMAND} resources --package writes a client for a declared API collection ` +
         'when the HTTP package is declared beside this one. An ' +
         'existing module is never rewritten.',
     ),
@@ -431,7 +432,7 @@ export const MoleculeMetadata = z.object({
     ),
   thirdPartyDependencies: ThirdPartyDependencies.optional().describe(
     'The non-molecule dependencies and required peers the package.json declares, with their versions' +
-      ' or ranges, as sync-registry records them: what mlcl inject declares in the app, so mlcl add' +
+      ` or ranges, as sync-registry records them: what ${CLI_COMMAND} inject declares in the app, so ${CLI_COMMAND} add` +
       ' --inject declares them before its one install',
   ),
   sqlCapabilities: SqlCapabilitiesSchema.optional().describe(
@@ -451,19 +452,19 @@ export const MoleculeMetadata = z.object({
     .string()
     .optional()
     .describe(
-      'The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and `mlcl add` of this name adds the replacement.',
+      `The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and \`${CLI_COMMAND} add\` of this name adds the replacement.`,
     ),
   selection: z
     .literal('scaffold-only')
     .optional()
     .describe(
-      'Set on a package that composes the scaffolds (the bond and server bundles the flagship templates call) instead of adding a capability. Search, the catalogs and the create menu leave it out, and `mlcl create --packages` and `mlcl add` refuse it by name and name the packages to choose instead. Templates and the scaffold still declare it.',
+      `Set on a package that composes the scaffolds (the bond and server bundles the flagship templates call) instead of adding a capability. Search, the catalogs and the create menu leave it out, and \`${CLI_COMMAND} create --packages\` and \`${CLI_COMMAND} add\` refuse it by name and name the packages to choose instead. Templates and the scaffold still declare it.`,
     ),
   webOnlyReason: z
     .string()
     .optional()
     .describe(
-      'Why the package renders only in a browser (HTML5 drag-and-drop of files, MediaRecorder, a WebGL canvas, a pan-and-zoom editing surface). `mlcl add` refuses it, and any package that requires it as a peer, in a React Native project, and prints this reason.',
+      `Why the package renders only in a browser (HTML5 drag-and-drop of files, MediaRecorder, a WebGL canvas, a pan-and-zoom editing surface). \`${CLI_COMMAND} add\` refuses it, and any package that requires it as a peer, in a React Native project, and prints this reason.`,
     ),
   framework: z
     .enum(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'])
@@ -853,19 +854,19 @@ export const RegistryEntry = z.object({
     .string()
     .optional()
     .describe(
-      'The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and `mlcl add` of this name adds the replacement.',
+      `The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and \`${CLI_COMMAND} add\` of this name adds the replacement.`,
     ),
   selection: z
     .literal('scaffold-only')
     .optional()
     .describe(
-      'Set on a package that composes the scaffolds (the bond and server bundles the flagship templates call) instead of adding a capability. Search, the catalogs and the create menu leave it out, and `mlcl create --packages` and `mlcl add` refuse it by name and name the packages to choose instead. Templates and the scaffold still declare it.',
+      `Set on a package that composes the scaffolds (the bond and server bundles the flagship templates call) instead of adding a capability. Search, the catalogs and the create menu leave it out, and \`${CLI_COMMAND} create --packages\` and \`${CLI_COMMAND} add\` refuse it by name and name the packages to choose instead. Templates and the scaffold still declare it.`,
     ),
   webOnlyReason: z
     .string()
     .optional()
     .describe(
-      'Why the package renders only in a browser (HTML5 drag-and-drop of files, MediaRecorder, a WebGL canvas, a pan-and-zoom editing surface). `mlcl add` refuses it, and any package that requires it as a peer, in a React Native project, and prints this reason.',
+      `Why the package renders only in a browser (HTML5 drag-and-drop of files, MediaRecorder, a WebGL canvas, a pan-and-zoom editing surface). \`${CLI_COMMAND} add\` refuses it, and any package that requires it as a peer, in a React Native project, and prints this reason.`,
     ),
   implements: z
     .string()
@@ -898,7 +899,7 @@ export const RegistryEntry = z.object({
     ),
   thirdPartyDependencies: ThirdPartyDependencies.optional().describe(
     'The non-molecule dependencies and required peers the package.json declares, with their versions' +
-      ' or ranges, as sync-registry records them: what mlcl inject declares in the app, so mlcl add' +
+      ` or ranges, as sync-registry records them: what ${CLI_COMMAND} inject declares in the app, so ${CLI_COMMAND} add` +
       ' --inject declares them before its one install',
   ),
   sqlCapabilities: SqlCapabilitiesSchema.optional().describe(
@@ -1328,7 +1329,7 @@ export const AppFrameworkConfig = z.object({
     .string()
     .optional()
     .describe(
-      "The app's public API-base-URL variable that `mlcl create` writes into the app's .env, and the name `apiBaseUrlExpr` reads. Defaults to Vite's `VITE_API_URL`; Expo inlines `EXPO_PUBLIC_*` variables instead.",
+      `The app's public API-base-URL variable that \`${CLI_COMMAND} create\` writes into the app's .env, and the name \`apiBaseUrlExpr\` reads. Defaults to Vite's \`VITE_API_URL\`; Expo inlines \`EXPO_PUBLIC_*\` variables instead.`,
     ),
   fontBasePathExpr: z
     .string()

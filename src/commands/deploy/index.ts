@@ -1,4 +1,5 @@
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { createDeployment, getDeployment } from '../../lib/platform.js'
 import { setTelemetryContext } from '../../lib/telemetry.js'
@@ -39,7 +40,7 @@ export default class Deploy extends Command {
     if (!flags.follow) {
       this.log(
         ui.dim(
-          '\nPoll with: mlcl deploy status --project <id> --deployment <id> (or --follow next time)',
+          `\nPoll with: ${CLI_COMMAND} deploy status --project <id> --deployment <id> (or --follow next time)`,
         ),
       )
       return

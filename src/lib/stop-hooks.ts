@@ -23,6 +23,8 @@
 import { existsSync, mkdirSync, realpathSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
+
 import { STOP_HOOK_MAX_BLOCKS } from './check-stop-hook.js'
 
 /** Seconds a harness waits for the hook: the check's own budget, plus `npx` resolving mlcl. */
@@ -58,7 +60,7 @@ export function stopHookFiles(claudeDir: string): Record<string, string> {
       },
     }),
     [join('.codex', 'hooks.json')]: json({
-      description: 'Type-check and lint when the agent stops (npx mlcl check).',
+      description: `Type-check and lint when the agent stops (${CLI_COMMAND} check).`,
       hooks: {
         Stop: [
           {

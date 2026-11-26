@@ -11,6 +11,7 @@
  */
 
 import { Args, Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { rankExamples } from '../lib/example-search.js'
 import {
@@ -73,7 +74,9 @@ export default class Examples extends Command {
       return
     }
     if (flags.file || flags.all)
-      this.error(`"${query}" is not a slice. Run mlcl examples to list them.`, { exit: 2 })
+      this.error(`"${query}" is not a slice. Run ${CLI_COMMAND} examples to list them.`, {
+        exit: 2,
+      })
 
     const slices = loadExampleSlices(templatesDir)
     if (!query) {
@@ -93,7 +96,7 @@ export default class Examples extends Command {
       }
       this.log(`${slices.length} example slices:\n`)
       for (const slice of slices) this.log(`  ${exampleSlug(slice)} — ${oneLine(slice.intent)}`)
-      this.log('\nFind one for a feature: npx mlcl examples <what it does>')
+      this.log(`\nFind one for a feature: ${CLI_COMMAND} examples <what it does>`)
       return
     }
 
@@ -117,7 +120,7 @@ export default class Examples extends Command {
     }
     if (matches.length === 0) {
       this.log(
-        `No example slice matched "${query}". Build it from the packages \`npx mlcl search <capability>\` finds, or list every slice with \`npx mlcl examples\`.`,
+        `No example slice matched "${query}". Build it from the packages \`${CLI_COMMAND} search <capability>\` finds, or list every slice with \`${CLI_COMMAND} examples\`.`,
       )
       return
     }
@@ -126,7 +129,7 @@ export default class Examples extends Command {
     )
     for (const slice of matches) this.log(`  ${exampleSlug(slice)} — ${oneLine(slice.intent)}`)
     this.log(
-      `\nPrint one, with the file map of where each file goes: npx mlcl examples ${exampleSlug(matches[0])}`,
+      `\nPrint one, with the file map of where each file goes: ${CLI_COMMAND} examples ${exampleSlug(matches[0])}`,
     )
   }
 
@@ -167,7 +170,9 @@ export default class Examples extends Command {
         this.log(`## ${file}\n\n${text.trimEnd()}\n`)
       return
     }
-    this.log(`Files (print one with npx mlcl examples ${slug} --file <path>, or all with --all):`)
+    this.log(
+      `Files (print one with ${CLI_COMMAND} examples ${slug} --file <path>, or all with --all):`,
+    )
     for (const file of files) this.log(`  ${file}`)
   }
 }

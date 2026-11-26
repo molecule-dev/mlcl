@@ -26,6 +26,7 @@
 import * as fs from 'node:fs'
 import { dirname, join } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
 import chalk from 'chalk'
 
 import { t } from './i18n.js'
@@ -175,7 +176,7 @@ export function afterAddGuidance(
   const entry = registry.packages[name]
   const core = entry?.implements
   const api = core ?? name
-  const command = chalk.cyan(`npx mlcl docs ${api}`)
+  const command = chalk.cyan(`${CLI_COMMAND} docs ${api}`)
   const quickStart = registry.packages[api]?.quickStart
   const lines = quickStart
     ? [
@@ -201,7 +202,7 @@ export function afterAddGuidance(
   if (providers.length > 0 && !providers.some(([provider]) => installed.includes(provider)))
     lines.push(
       t('commands.add.messages.needsProvider', {
-        command: chalk.cyan('npx mlcl add <provider> --inject'),
+        command: chalk.cyan(`${CLI_COMMAND} add <provider> --inject`),
         providers: providers.map(([provider, other]) => `${provider} (${other.label})`).join(', '),
       }),
     )

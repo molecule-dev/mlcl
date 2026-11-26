@@ -37,6 +37,8 @@ import {
 import { dirname, isAbsolute, join, relative, resolve } from 'node:path'
 import { stripVTControlCharacters } from 'node:util'
 
+import { CLI_COMMAND } from '#cli-command'
+
 import { acquireCheckLock } from './check-lock.js'
 import { spawnCheckCommand } from './check-process.js'
 import { runServeCheck } from './check-serve.js'
@@ -905,7 +907,7 @@ async function runStep(
   // download got.
   writeLogs(
     step,
-    `mlcl check: the Playwright browser (${browsers}) is not installed, so the first e2e run could not launch it. The check is installing it now (\`${command}\`) and will run this step again; nothing needs doing meanwhile. This log is replaced when that run ends.\n`,
+    `${CLI_COMMAND} check: the Playwright browser (${browsers}) is not installed, so the first e2e run could not launch it. The check is installing it now (\`${command}\`) and will run this step again; nothing needs doing meanwhile. This log is replaced when that run ends.\n`,
   )
   const installStarted = Date.now()
   try {
@@ -1027,7 +1029,7 @@ async function runStepCapture(
 ): Promise<{ result: CheckStepResult; log: string }> {
   writeLogs(
     step,
-    `mlcl check (pid ${process.pid}) is running this step; this log is replaced with its output when it ends.\n`,
+    `${CLI_COMMAND} check (pid ${process.pid}) is running this step; this log is replaced with its output when it ends.\n`,
   )
   const started = Date.now()
   const base = { kind: step.kind, name: step.name, logPath: step.logPath }

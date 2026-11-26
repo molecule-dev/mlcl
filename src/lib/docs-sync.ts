@@ -12,6 +12,7 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
 import { ts } from 'ts-morph'
 
 import { createApiExtractionSession } from './api-extraction-session.js'
@@ -376,7 +377,7 @@ export async function generateDocs(
       [
         'These READMEs name @molecule packages that registry.json does not have:',
         ...misnamed,
-        'Use the real name (`mlcl search <capability>` finds it) in the package JSDoc or registry description,',
+        `Use the real name (\`${CLI_COMMAND} search <capability>\` finds it) in the package JSDoc or registry description,`,
         'or describe the thing without a package name. A package added in this change needs its registry entry.',
       ].join('\n'),
     )

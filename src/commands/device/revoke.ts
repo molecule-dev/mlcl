@@ -1,4 +1,5 @@
 import { Args, Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { listDevices, localDeviceId, revokeDevice } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
@@ -14,7 +15,10 @@ export default class DeviceRevoke extends Command {
   ]
 
   static override args = {
-    id: Args.string({ description: 'Device id (from mlcl device list)', required: false }),
+    id: Args.string({
+      description: `Device id (from ${CLI_COMMAND} device list)`,
+      required: false,
+    }),
   }
 
   static override flags = {
@@ -38,7 +42,8 @@ export default class DeviceRevoke extends Command {
         return
       }
     } else {
-      if (!args.id) this.error('Provide a device id (mlcl device list) or --all-but-current')
+      if (!args.id)
+        this.error(`Provide a device id (${CLI_COMMAND} device list) or --all-but-current`)
       targets = [args.id]
       if (targets[0] === mine && !flags.force) {
         this.log(ui.warn('That is THIS machine — revoking it logs this CLI out. Continue? [y/N] '))

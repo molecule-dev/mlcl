@@ -4,10 +4,10 @@ This project was scaffolded with [mlcl](https://molecule.dev) — the Molecule.d
 
 ## The molecule way
 
-- **Capabilities come from `@molecule/*` packages behind swappable bonds.** Before hand-rolling a feature, check for a package: `npx mlcl search <capability>` (or browse <https://www.molecule.dev/packages>). Install and wire one with `npx mlcl add @molecule/<name> --inject`.
+- **Capabilities come from `@molecule/*` packages behind swappable bonds.** Before hand-rolling a feature, check for a package: `{{CLI_COMMAND}} search <capability>` (or browse <https://www.molecule.dev/packages>). Install and wire one with `{{CLI_COMMAND}} add @molecule/<name> --inject`.
 - **Project skills live in `.agents/skills/`** (the table under "Skills" says when to read each). Read `capability-first` before building a capability — it is the inspect → reuse → adapt → create order — `molecule-packages` for this project's package catalog, and the skill for the kind of code you are about to write (`api-patterns` for an endpoint, `database` for a query or migration, `styling` for a component) before writing it.
-- **Provider wiring lives in `src/bonds/`** (`api/src/bonds/`, `app/src/bonds/`): one file per wired package, named after it (`database-sqlite.ts`, `app-ui-tailwind.ts`), and `<category>-default.ts` for a core configured in place rather than swapped (`auth-default.ts` holds the auth client's options). The capability map below names each one's file (`Wired bond:`). Swap a provider (PostgreSQL → MySQL, Mailgun → SES, one OAuth provider for another) with `npx mlcl swap @molecule/<new-provider>` (pass `-r @molecule/<old-provider-package>` when the category has several wired), or by editing the one bond file. Vendor SDKs normally live inside a bond, which keeps the app swappable; an SDK imported elsewhere works, it just ties that code to the vendor.
-- **Read a package's docs before using it:** `npx mlcl docs @molecule/<name>`. Every `@molecule/*` package ships a generated README with its API, examples and wiring; a long one prints its overview and an index of its sections and exported names, `--section <name>` prints one in full, and `--search <term>` finds a literal in the README and type declarations.
+- **Provider wiring lives in `src/bonds/`** (`api/src/bonds/`, `app/src/bonds/`): one file per wired package, named after it (`database-sqlite.ts`, `app-ui-tailwind.ts`), and `<category>-default.ts` for a core configured in place rather than swapped (`auth-default.ts` holds the auth client's options). The capability map below names each one's file (`Wired bond:`). Swap a provider (PostgreSQL → MySQL, Mailgun → SES, one OAuth provider for another) with `{{CLI_COMMAND}} swap @molecule/<new-provider>` (pass `-r @molecule/<old-provider-package>` when the category has several wired), or by editing the one bond file. Vendor SDKs normally live inside a bond, which keeps the app swappable; an SDK imported elsewhere works, it just ties that code to the vendor.
+- **Read a package's docs before using it:** `{{CLI_COMMAND}} docs @molecule/<name>`. Every `@molecule/*` package ships a generated README with its API, examples and wiring; a long one prints its overview and an index of its sections and exported names, `--section <name>` prints one in full, and `--search <term>` finds a literal in the README and type declarations.
 - **Styling** in the scaffolded components goes through the ClassMap bond — `getClassMap()` from `@molecule/app-ui` and its framework bindings — so a styling-library swap only touches that bond. Your own CSS and utility classes work too (pass raw classes through `cm.cn(...)`); they just won't follow a ClassMap swap.
 - **All user-facing text through i18n** — `t('key', values, { defaultValue })` with translations in the locale bonds; never hardcode strings in components.
 - **Database tables** are timestamped `.sql` files in `api/migrations/` (an `api/`-shaped project). Add a new migration; never edit one that has run. Write migrations for **rolling deploys** (expand/contract): add a column/table, ship code that works with BOTH the old and new shape, backfill if needed, and only drop/rename in a LATER migration after every instance runs the new code. A `DROP COLUMN`, `DROP TABLE`, `RENAME`, or a `NOT NULL` column without a default in the same migration that introduces it breaks the old instances still serving traffic — the deploy replaces them one at a time, not all at once.
@@ -75,7 +75,7 @@ to delete it) — do not "clean it up".
 
 - **Run the e2e specs** — every scaffold ships `app/e2e/` (or `e2e/`) with a
   working `playwright.config.ts` and a real browser via
-  `@molecule/app-e2e-playwright` (`npx mlcl check --steps e2e` installs Chromium
+  `@molecule/app-e2e-playwright` (`{{CLI_COMMAND}} check --steps e2e` installs Chromium
   on a machine without it; no preview tab needed — the runner starts the dev
   server, and the API beside it, when nothing answers yet, or uses a running one):
   `npx playwright test e2e/<file>.spec.ts`. A requirement about an
@@ -90,16 +90,16 @@ to delete it) — do not "clean it up".
   before concluding. The workflow for a visual bug: screenshot before, fix,
   screenshot the same path+viewport after, and compare. Specs remain the tool
   for assertions; screenshots are judgment evidence.
-- `npx mlcl check` runs typecheck, lint and build at once — discovered from
+- `{{CLI_COMMAND}} check` runs typecheck, lint and build at once — discovered from
   this project's own scripts — and prints one compact report with the first
-  actionable errors. `npx mlcl check --steps unit,e2e` runs the
+  actionable errors. `{{CLI_COMMAND}} check --steps unit,e2e` runs the
   tests. Use both before handing work back. The project is installed: a
   reinstall (`npm install`, `npm ci`) proves nothing these do not, and is needed
-  only after a dependency changes (`npx mlcl add` installs what it adds).
+  only after a dependency changes (`{{CLI_COMMAND}} add` installs what it adds).
 - When you stop, the project's stop hook runs typecheck and lint if files
   changed and hands any errors back to you, up to three rounds. Fix them at
   their cause. Claude Code and Cursor run it; Codex runs it only after the user
-  trusts it in `/hooks`, so in Codex run `npx mlcl check` yourself.
+  trusts it in `/hooks`, so in Codex run `{{CLI_COMMAND}} check` yourself.
 - **The tests that came with the template are the app's rules.** When one
   fails after your change, fix the code — do not edit, invert or delete the
   test to match what you built. Change a shipped test only when the user asks

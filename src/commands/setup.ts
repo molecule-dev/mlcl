@@ -3,6 +3,7 @@ import { dirname, join, relative } from 'node:path'
 
 import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND, renderCliCommands } from '#cli-command'
 
 import {
   AGENT_HARNESSES,
@@ -169,9 +170,11 @@ export default class Setup extends Command {
       if (!machine.ok) steps = plan()
     }
 
-    const instructions = readFileSync(
-      join(this.config.root, 'templates', 'shared', 'agent-init-section.md.tpl'),
-      'utf8',
+    const instructions = renderCliCommands(
+      readFileSync(
+        join(this.config.root, 'templates', 'shared', 'agent-init-section.md.tpl'),
+        'utf8',
+      ),
     )
     const capabilityMap =
       scope === 'project' ? renderCapabilityMap(await readProjectCapabilityMap(env.cwd)) : null
@@ -265,8 +268,7 @@ export default class Setup extends Command {
       done =
         'Follow the manual setup instructions above. Restart any configured agents to load Molecule.'
     } else if (!failed && warmed) {
-      done +=
-        ' Nothing else to install: agents call the molecule tools, or run `npx mlcl <command>`.'
+      done += ` Nothing else to install: agents call the molecule tools, or run \`${CLI_COMMAND} <command>\`.`
     }
     if (interactive) p.outro(done)
     else this.log(`\n${done}`)

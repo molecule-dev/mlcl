@@ -1,4 +1,5 @@
 import { Args, Command } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { listTranscripts, PlatformApiError, removeTranscript } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
@@ -32,7 +33,7 @@ export default class TranscriptsRmCmd extends Command {
       const match = rows.find((t) => t.id === args.transcriptId)
       if (match?.source === 'molecule-ide') {
         this.error(
-          `${args.transcriptId} is the project's own conversation in the molecule.dev IDE, not an imported session, so it cannot be removed. Keep it out of the share page with \`mlcl share visibility -p ${flags.project} --transcripts off\`.`,
+          `${args.transcriptId} is the project's own conversation in the molecule.dev IDE, not an imported session, so it cannot be removed. Keep it out of the share page with \`${CLI_COMMAND} share visibility -p ${flags.project} --transcripts off\`.`,
           { exit: 1 },
         )
       }

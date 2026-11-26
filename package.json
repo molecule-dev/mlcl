@@ -35,12 +35,16 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "imports": {
+    "#cli-command": "./mcp/assets/cli-command.mjs"
+  },
   "files": [
     "/bin",
     "/dist",
     "/registry.json",
     "/locks",
     "/templates",
+    "/mcp/assets/cli-command.mjs",
     "/oclif.manifest.json",
     "/docs/AGENTS-AND-HARNESSES.md",
     "/docs/INTEGRATE-EXISTING-APP.md",
@@ -48,6 +52,7 @@
   ],
   "oclif": {
     "bin": "mlcl",
+    "helpClass": "./dist/lib/cli-help.js",
     "dirname": "mlcl",
     "commands": "./dist/commands",
     "plugins": [

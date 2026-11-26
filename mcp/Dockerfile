@@ -8,6 +8,7 @@ COPY package.json ./
 RUN npm install --no-audit --no-fund
 COPY tsconfig.json ./
 COPY src ./src
+COPY assets ./assets
 RUN npx tsc -b
 
 FROM node:22.23.4-bookworm-slim

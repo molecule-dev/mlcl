@@ -1,4 +1,5 @@
 import { Args, Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { createProject } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
@@ -58,7 +59,7 @@ export default class ProjectCreate extends Command {
       packages,
     })
     this.log(`${ui.check('Created')} ${project.name} ${ui.dim(`→ ${project.id}`)}`)
-    this.log(ui.cmd(`mlcl sandbox start --project ${project.id}`))
+    this.log(ui.cmd(`${CLI_COMMAND} sandbox start --project ${project.id}`))
     return { id: project.id, name: project.name, slug: project.slug }
   }
 }

@@ -3,6 +3,7 @@ import { join } from 'node:path'
 
 import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 import chalk from 'chalk'
 
 import { createSpinner } from '../../lib/spinner.js'
@@ -146,7 +147,7 @@ export default class StageUp extends Command {
     if (urls.api) p.log.info(`  API: ${chalk.cyan(urls.api)}`)
     if (urls.app) p.log.info(`  App: ${chalk.cyan(urls.app)}`)
 
-    p.outro(`Use ${chalk.cyan('mlcl stage status')} to check health`)
+    p.outro(`Use ${chalk.cyan(`${CLI_COMMAND} stage status`)} to check health`)
   }
 
   private detectBranch(): string | null {

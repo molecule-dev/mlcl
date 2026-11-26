@@ -56,7 +56,7 @@ describe('mlcl add of a bundle only the scaffolds choose', () => {
   it('refuses the bundle and writes nothing (OLD MUSTFAIL)', async () => {
     await expect(add(['@molecule/api-bonds-default-express'])).rejects.toThrow()
     expect(prompts.cancel).toHaveBeenCalledWith(
-      'Only the scaffolds choose @molecule/api-bonds-default-express: naming one installs every provider it wires. Nothing was added. Add the capability you need instead (`mlcl search <words>` finds it).',
+      'Only the scaffolds choose @molecule/api-bonds-default-express: naming one installs every provider it wires. Nothing was added. Add the capability you need instead (`npx mlcl search <words>` finds it).',
     )
     expect(readFileSync(join(dir, 'package.json'), 'utf8')).toBe(EMPTY)
   })
@@ -66,7 +66,7 @@ describe('mlcl add of a bundle only the scaffolds choose', () => {
       add(['@molecule/api-server-default-express@1.0.0', '@molecule/api-config']),
     ).rejects.toThrow()
     expect(prompts.cancel).toHaveBeenCalledWith(
-      'Only the scaffolds choose @molecule/api-server-default-express: naming one installs every provider it wires. Nothing was added. Run `mlcl add @molecule/api-config` for the others.',
+      'Only the scaffolds choose @molecule/api-server-default-express: naming one installs every provider it wires. Nothing was added. Run `npx mlcl add @molecule/api-config` for the others.',
     )
     expect(readFileSync(join(dir, 'package.json'), 'utf8')).toBe(EMPTY)
   })

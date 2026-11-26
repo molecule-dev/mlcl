@@ -21,6 +21,8 @@
 import { existsSync, readFileSync, realpathSync, statSync } from 'node:fs'
 import { dirname, join, relative, sep } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
+
 import { type AgentToolReport, claudeServerStatus, codexServerTools } from './agent-tool-check.js'
 
 /** Machine-wide (every project for this user) or the current project only. */
@@ -1038,7 +1040,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     installed: (e) => e.onPath('aider'),
     mcp: () => [
       manual(
-        'Aider has no MCP support yet; use the mlcl CLI directly (npx mlcl search, npx mlcl add).',
+        `Aider has no MCP support yet; use the mlcl CLI directly (${CLI_COMMAND} search, ${CLI_COMMAND} add).`,
       ),
     ],
     skillsDir: () => null,

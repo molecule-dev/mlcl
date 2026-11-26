@@ -1,4 +1,5 @@
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import {
   getShareVisibility,
@@ -51,7 +52,7 @@ export default class ShareVisibilityCmd extends Command {
       } catch (error) {
         if (error instanceof PlatformApiError && error.errorKey === 'workspace.sleeping') {
           this.error(
-            `Start the project's sandbox first (mlcl sandbox start -p ${flags.project}); the files are copied when the public workspace is turned on.`,
+            `Start the project's sandbox first (${CLI_COMMAND} sandbox start -p ${flags.project}); the files are copied when the public workspace is turned on.`,
             { exit: 1 },
           )
         }

@@ -32,6 +32,8 @@ import {
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import { CLI_COMMAND } from '#cli-command'
+
 /** The package root of the running copy (`dist/..`). */
 const PACKAGE_DIR = join(dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -51,11 +53,11 @@ const STALE_LOCK_MS = 15 * 60 * 1000
  * The launcher `run.mjs`: start the version `current.json` names, or say in one line why not.
  * It imports that version's `bin/run.js`, which starts the server.
  */
-export const LAUNCHER = `// molecule-mcp, as \`mlcl setup\` installed it: starts the version current.json names.
+export const LAUNCHER = `// molecule-mcp, as \`${CLI_COMMAND} setup\` installed it: starts the version current.json names.
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 const fail = (why) => {
-  process.stderr.write(\`molecule-mcp: \${why}. Run \\\`npx mlcl setup\\\` to install it again.\\n\`)
+  process.stderr.write(\`molecule-mcp: \${why}. Run \\\`${CLI_COMMAND} setup\\\` to install it again.\\n\`)
   process.exit(1)
 }
 if (Number(process.versions.node.split('.')[0]) < 22) fail(\`Node \${process.versions.node} is older than 22\`)

@@ -3,6 +3,8 @@ import { performance } from 'node:perf_hooks'
 import type { Readable } from 'node:stream'
 import { setTimeout as pause } from 'node:timers/promises'
 
+import { CLI_COMMAND } from '#cli-command'
+
 const MAX_OUTPUT_BYTES = 16 * 1024 * 1024
 const STOP_GRACE_MS = 200
 
@@ -91,8 +93,8 @@ function noBash(error: Error, windows: boolean): Error {
   if ((error as NodeJS.ErrnoException).code !== 'ENOENT') return error
   return new Error(
     windows
-      ? 'mlcl check runs each step in bash, and none is on PATH: install Git for Windows (it provides bash) or run mlcl in WSL.'
-      : 'mlcl check runs each step in /bin/bash, and it does not exist.',
+      ? `${CLI_COMMAND} check runs each step in bash, and none is on PATH: install Git for Windows (it provides bash) or run mlcl in WSL.`
+      : `${CLI_COMMAND} check runs each step in /bin/bash, and it does not exist.`,
     { cause: error },
   )
 }

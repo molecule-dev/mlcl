@@ -44,7 +44,7 @@ npm install @molecule/api-resource-comment --workspace=api
 | `app/components/CommentThread.tsx` | `<CommentThread resourceType="post" resourceId={id} />` — fetches the flat comment list, nests it into a tree (`buildTree`), renders the shared `<ThreadTree>`, and posts new comments/replies. |
 
 The **backend is the ready-made `@molecule/api-resource-comment`** — wire its
-routes (it ships `routes` + `requestHandlerMap`) via `mlcl inject` / your bond
+routes (it ships `routes` + `requestHandlerMap`) via `npx mlcl inject` / your bond
 setup. Endpoints:
 
 ```

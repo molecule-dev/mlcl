@@ -1,6 +1,7 @@
 import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { defaultEnvPath, loadEnvFile } from '../../lib/env-store.js'
 import { ui } from '../../lib/ui.js'
@@ -53,7 +54,7 @@ export default class EnvList extends Command {
     }
     const commented = file.entries.filter((e) => e.commented)
     if (commented.length > 0)
-      this.log(`\n  ${ui.dim(`${commented.length} commented out (mlcl env unset)`)}`)
+      this.log(`\n  ${ui.dim(`${commented.length} commented out (${CLI_COMMAND} env unset)`)}`)
     this.log('')
   }
 }

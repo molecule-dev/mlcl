@@ -1,11 +1,11 @@
 import { Args, Command } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { loadEnvFile } from '../../lib/env-store.js'
 import { envPath } from './list.js'
 
 export default class EnvGet extends Command {
-  static override description =
-    'Print one environment variable value (for scripts: mlcl env get DATABASE_URL)'
+  static override description = `Print one environment variable value (for scripts: ${CLI_COMMAND} env get DATABASE_URL)`
 
   static override examples = [
     '<%= config.bin %> env get DATABASE_URL',

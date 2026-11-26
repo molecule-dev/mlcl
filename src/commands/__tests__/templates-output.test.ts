@@ -5,8 +5,10 @@
  * `mlcl templates <slug>` prints that template's catalog, the document the rules say to judge fit
  * on.
  */
-import { readFileSync } from 'node:fs'
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { format, stripVTControlCharacters } from 'node:util'
 
 import { Config } from '@oclif/core'
@@ -39,13 +41,13 @@ async function run(argv: string[]): Promise<string> {
 
 describe('mlcl templates', () => {
   it('puts the starting-point rules in the lines an agent reads first', async () => {
-    const rules = startingPointRules('mlcl')
+    const rules = startingPointRules()
     const top = (await run([])).split('\n').slice(0, rules.length + 3)
-    expect(top.join('\n')).toContain('mlcl create <name> --template <slug>')
+    expect(top.join('\n')).toContain('npx mlcl create <name> --template <slug>')
     expect(top).toContain(STARTING_POINT_LEAD)
     for (const rule of rules) expect(top).toContain(`  • ${rule}`)
     expect(top.join('\n')).toMatch(
-      /mlcl create <name> --type full-stack --framework react --packages .* --no-interactive/,
+      /npx mlcl create <name> --type full-stack --framework react --packages .* --no-interactive/,
     )
     expect(top.join('\n')).not.toMatch(/closest template|None close/i)
   })
@@ -54,7 +56,7 @@ describe('mlcl templates', () => {
     const out = await run(['online-store'])
     expect(out).toContain('## Data model')
     expect(out).toContain('## API surface (handlers)')
-    expect(out).toContain('mlcl create <name> --template online-store --no-interactive')
+    expect(out).toContain('npx mlcl create <name> --template online-store --no-interactive')
   })
 
   it('returns the catalog in the JSON form too', async () => {
@@ -62,10 +64,12 @@ describe('mlcl templates', () => {
       slug: string
       catalog: string | null
       packages: string[]
+      create: string
     }
     expect(entry.slug).toBe('online-store')
     expect(entry.catalog).toContain('## Data model')
     expect(entry.packages.length).toBeGreaterThan(0)
+    expect(entry.create).toBe('npx mlcl create <name> --template online-store --no-interactive')
   })
 
   it('refuses a slug that is not a template, including an inherited object key', async () => {
@@ -95,6 +99,60 @@ describe('mlcl templates', () => {
   it('keeps the JSON listing to template entries', async () => {
     const entries = JSON.parse(await run(['--json'])) as { slug: string; create: string }[]
     expect(entries.length).toBeGreaterThan(0)
-    expect(entries.every((entry) => entry.create.includes(`--template ${entry.slug}`))).toBe(true)
+    for (const { create, slug } of entries) {
+      expect(create).toBe(`npx mlcl create my-app --template ${slug} --no-interactive`)
+    }
+  })
+
+  it('gives the same runnable command to an MCP list_templates caller', async () => {
+    const dir = mkdtempSync(join(tmpdir(), 'mlcl-mcp-templates-'))
+    const cli = join(dir, 'cli.mjs')
+    const moduleUrl = pathToFileURL(join(MLCL_ROOT, 'src', 'commands', 'templates.ts')).href
+    const tsx = import.meta.resolve('tsx/esm/api')
+    writeFileSync(
+      cli,
+      '#!/usr/bin/env node\n' +
+        `import { register } from ${JSON.stringify(tsx)}\n` +
+        'register()\n' +
+        `const { default: Templates } = await import(${JSON.stringify(moduleUrl)})\n` +
+        `await Templates.run(process.argv.slice(3), ${JSON.stringify(MLCL_ROOT)})\n`,
+      { mode: 0o755 },
+    )
+    vi.stubEnv('MOLECULE_MCP_CLI', cli)
+    vi.stubEnv('DO_NOT_TRACK', '1')
+    const sdk = join(
+      MLCL_ROOT,
+      'mcp',
+      'node_modules',
+      '@modelcontextprotocol',
+      'sdk',
+      'dist',
+      'esm',
+    )
+    try {
+      const { moleculeServer } = await import('../../../mcp/src/server.js')
+      const { Client } = await import(join(sdk, 'client', 'index.js'))
+      const { InMemoryTransport } = await import(join(sdk, 'inMemory.js'))
+      const [clientSide, serverSide] = InMemoryTransport.createLinkedPair()
+      await moleculeServer.connect(serverSide)
+      const client = new Client({ name: 'templates-test', version: '0.0.0' })
+      try {
+        await client.connect(clientSide)
+        const reply = await client.callTool({ name: 'list_templates', arguments: {} })
+        expect(reply.isError).toBeFalsy()
+        expect(reply.content).toEqual([
+          {
+            type: 'text',
+            text: expect.stringContaining('npx mlcl create <name> --template <slug>'),
+          },
+        ])
+      } finally {
+        await client.close()
+        await moleculeServer.close()
+      }
+    } finally {
+      vi.unstubAllEnvs()
+      rmSync(dir, { recursive: true, force: true })
+    }
   })
 })

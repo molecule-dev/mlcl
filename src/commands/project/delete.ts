@@ -1,4 +1,5 @@
 import { Command, Flags } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import { deleteProject } from '../../lib/platform.js'
 import { ui } from '../../lib/ui.js'
@@ -41,7 +42,7 @@ export default class ProjectDeleteCmd extends Command {
       ) {
         this.log(
           ui.warn(
-            'Deletion started and is still running on the server. Check `mlcl project list` in a minute.',
+            `Deletion started and is still running on the server. Check \`${CLI_COMMAND} project list\` in a minute.`,
           ),
         )
         return

@@ -34,6 +34,8 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { mkdir, symlink, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 
+import { CLI_COMMAND } from '#cli-command'
+
 import { buildCatalog, type CatalogStack } from './catalog-generator.js'
 import type { Registry } from './schema.js'
 
@@ -162,9 +164,9 @@ description: Catalog of the @molecule/* packages available to this project, grou
 # Available @molecule/* packages
 
 Everything below is published on the public npm registry. Add one with
-\`npx mlcl add @molecule/<name> --inject\` — it writes the dependency, the bond
+\`${CLI_COMMAND} add @molecule/<name> --inject\` — it writes the dependency, the bond
 wiring, and any peer packages a provider needs. Read its docs with
-\`npx mlcl docs @molecule/<name>\` before using its API; they document the
+\`${CLI_COMMAND} docs @molecule/<name>\` before using its API; they document the
 interface, usage examples and wiring.
 
 **Prefer a @molecule/* package over writing custom code.** If a package exists

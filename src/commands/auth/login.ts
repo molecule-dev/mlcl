@@ -2,6 +2,7 @@ import { spawn } from 'node:child_process'
 
 import { Flags } from '@oclif/core'
 import { Command } from '@oclif/core'
+import { CLI_COMMAND } from '#cli-command'
 
 import {
   AuthorizationPendingError,
@@ -34,8 +35,7 @@ function openBrowser(url: string): void {
 
 export default class Login extends Command {
   static override aliases = ['login']
-  static override description =
-    'Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at ~/.mlcl/credentials.json. For CI and scripts, create a named, revocable token with `mlcl token create <name>` and set it as MOLECULE_TOKEN.'
+  static override description = `Log the CLI in to molecule.dev — opens your browser to approve (device-code flow); stores a 90-day token at ~/.mlcl/credentials.json. For CI and scripts, create a named, revocable token with \`${CLI_COMMAND} token create <name>\` and set it as MOLECULE_TOKEN.`
 
   static override examples = [
     '<%= config.bin %> login',
@@ -117,7 +117,7 @@ export default class Login extends Command {
     for (;;) {
       await new Promise((r) => setTimeout(r, session.interval * 1000))
       if (Date.now() > deadline)
-        this.error('Login window expired — re-run mlcl login.', { exit: 1 })
+        this.error(`Login window expired — re-run ${CLI_COMMAND} login.`, { exit: 1 })
       try {
         const token = await pollDeviceToken(session.deviceCode)
         await this.storeVerified(token)

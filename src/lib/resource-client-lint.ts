@@ -1,7 +1,8 @@
 /** Keep the scaffold's route lint in step with the resource clients mlcl generates. */
-import { constants } from 'node:fs'
-import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join, relative } from 'node:path'
+
+import { CLI_COMMAND } from '#cli-command'
 
 /** One generated export and the route it actually implements. */
 export interface ResourceClientRoute {
@@ -144,11 +145,15 @@ export async function writeResourceClientLint(
     const rule = join(root, 'eslint-rules', RULE_FILE)
     await mkdir(dirname(rule), { recursive: true })
     try {
-      await copyFile(
+      const source = await readFile(
         new URL(`../../templates/shared/${RULE_FILE}`, import.meta.url),
-        rule,
-        constants.COPYFILE_EXCL,
+        'utf8',
       )
+      // The vendored rule is also used by other packages. Normalize the command when
+      // writing it into a scaffold, leaving the vendored source in sync.
+      await writeFile(rule, source.replace(/(?<=Run )mlcl(?= resources )/, CLI_COMMAND), {
+        flag: 'wx',
+      })
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error
     }

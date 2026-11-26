@@ -17,6 +17,7 @@ import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
+import { CLI_COMMAND, renderCliCommands } from '#cli-command'
 import { z } from 'zod'
 
 import { docSearchSchema, docSectionSchema } from './doc-search-schema.js'
@@ -628,7 +629,7 @@ export function buildRemoteServer(): McpServer {
               description: entry.description ?? '',
               type: entry.type ?? 'full-stack',
               packages: entry.packages ?? [],
-              create: `npx mlcl create my-app --template ${slug} --no-interactive`,
+              create: `${CLI_COMMAND} create my-app --template ${slug} --no-interactive`,
               catalog,
             },
             null,
@@ -645,7 +646,7 @@ export function buildRemoteServer(): McpServer {
           return `  ${slug.padEnd(28)} ${e.description ?? e.label ?? ''}${type}`
         })
       return text(
-        `${lines.length} templates. Read a candidate's catalog with list_templates and its slug; scaffold one with npx mlcl create <name> --template <slug> --no-interactive.\n\n${lines.join('\n')}`,
+        `${lines.length} templates. Read a candidate's catalog with list_templates and its slug; scaffold one with ${CLI_COMMAND} create <name> --template <slug> --no-interactive.\n\n${lines.join('\n')}`,
       )
     }),
   )
@@ -666,7 +667,9 @@ export function buildRemoteServer(): McpServer {
           mimeType: 'text/markdown',
           // Bundled copy of mlcl's templates/shared/agent-init-section.md.tpl —
           // keep the two in sync when the doctrine changes.
-          text: readFileSync(new URL('../assets/conventions.md', import.meta.url), 'utf8'),
+          text: renderCliCommands(
+            readFileSync(new URL('../assets/conventions.md', import.meta.url), 'utf8'),
+          ),
         },
       ],
     }),
