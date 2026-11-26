@@ -1546,14 +1546,6 @@ export const Registry = z
       })
       .optional()
       .describe('Pinned toolchain versions for generated projects and packages'),
-    toolchainEngines: z
-      .object({
-        node: z.string().describe('Minimum Node.js version for scaffolded projects'),
-        pins: z
-          .record(z.string(), z.string().nullable())
-          .describe('Node engine metadata for exact scaffold pins absent from the CLI lockfile'),
-      })
-      .optional(),
     installScripts: z
       .record(
         z.string(),

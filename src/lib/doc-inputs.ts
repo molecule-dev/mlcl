@@ -144,7 +144,7 @@ export function manifestChangeAffectsDocs(
  * sections. Comparing the rest of the document keeps every metadata edit — and
  * any section this module has not seen — in scope.
  */
-const NON_DOC_REGISTRY_SECTIONS = ['toolchain', 'toolchainEngines', 'moleculeVersions']
+const NON_DOC_REGISTRY_SECTIONS = ['toolchain', 'moleculeVersions']
 
 /**
  * Package entry fields that are NOT documentation inputs: `quickStart` is copied FROM the README

@@ -19,8 +19,6 @@ import {
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { CLI_COMMAND } from '#cli-command'
-
 import { t } from './i18n.js'
 import { packageFramework } from './package-search.js'
 import {
@@ -1006,18 +1004,6 @@ export function getRawRegistry(): Registry {
  */
 export function getRegistryPath(): string {
   return registryFilePath()
-}
-
-/** The Node engine to write into newly scaffolded workspaces. */
-export function loadScaffoldNodeRange(): string {
-  const range =
-    getRawRegistry().toolchainEngines?.node ??
-    rawRegistryAt(DEFAULT_REGISTRY_PATH).registry.toolchainEngines?.node
-  if (!range)
-    throw new Error(
-      `The registry is missing toolchainEngines.node. Run ${CLI_COMMAND} sync-registry --sync-toolchain.`,
-    )
-  return range
 }
 
 // ============================================================================

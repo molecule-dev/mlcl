@@ -81,7 +81,6 @@ import {
   loadApiFrameworks,
   loadAppFrameworks,
   loadRegistry,
-  loadScaffoldNodeRange,
   loadToolchain,
   requirePackageByRole,
 } from './registry.js'
@@ -2182,7 +2181,6 @@ export async function ensureReadmeMd(
     PROJECT_NAME: projectName,
     PROJECT_DESCRIPTION: `${projectName} — built with Molecule.dev`,
     FRAMEWORK: framework ?? 'React',
-    NODE_RANGE: loadScaffoldNodeRange(),
   }
   await writeFile(target, await loadTemplate('shared/README.md.tpl', vars))
 }
@@ -3051,7 +3049,6 @@ async function syncIdentityFromBranding(destDir: string, projectName: string): P
     }
   }
 
-  const node = loadScaffoldNodeRange()
   const editJson = async (
     p: string,
     mutate: (j: Record<string, unknown>) => void,
@@ -3065,8 +3062,6 @@ async function syncIdentityFromBranding(destDir: string, projectName: string): P
       return
     }
     const before = JSON.stringify(json)
-    const engines = json.engines
-    json.engines = { ...(engines && typeof engines === 'object' ? engines : {}), node }
     mutate(json)
     if (JSON.stringify(json) !== before) {
       await writeGuarded(p, JSON.stringify(json, null, 2) + '\n')
@@ -3418,7 +3413,6 @@ export async function createApiProject(
   const packageJson = {
     name: projectName,
     version: '0.0.1',
-    engines: { node: loadScaffoldNodeRange() },
     private: true,
     type: 'module',
     scripts: {
@@ -3647,7 +3641,6 @@ export async function createFullStackProject(
   const rootPackageJson = {
     name: projectName,
     version: '0.0.1',
-    engines: { node: loadScaffoldNodeRange() },
     private: true,
     description: `${projectName} — full-stack Molecule project`,
     workspaces: ['api', 'app'],
@@ -3811,7 +3804,6 @@ export async function createStaticProject(
   const rootPackageJson = {
     name: projectName,
     version: '0.0.1',
-    engines: { node: loadScaffoldNodeRange() },
     private: true,
     description: `${projectName} — static Molecule site`,
     workspaces: ['app'],
@@ -4876,7 +4868,6 @@ export async function createAppProject(
   const packageJson = {
     name: projectName,
     version: '0.0.1',
-    engines: { node: loadScaffoldNodeRange() },
     private: true,
     type: 'module',
     ...(fwConfig.packageImports ? { imports: fwConfig.packageImports } : {}),
@@ -7636,7 +7627,6 @@ export async function createStatusPageEdgeProject(
     const packageJson = {
       name: projectName,
       version: '0.0.1',
-      engines: { node: loadScaffoldNodeRange() },
       private: true,
       type: 'module',
       scripts: {
@@ -7861,7 +7851,6 @@ export async function createReactNativeAppProject(
   const pkgJson = {
     name: projectName,
     version: '0.0.1',
-    engines: { node: loadScaffoldNodeRange() },
     private: true,
     main: 'index.js',
     scripts: {

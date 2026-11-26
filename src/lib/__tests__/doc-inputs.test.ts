@@ -270,13 +270,6 @@ describe('registryChangedPackages — which READMEs a registry edit can change',
     expect(registryChangedPackages(registry(), bumped)).toEqual([])
   })
 
-  it('leaves package READMEs outside a scaffold engine update', () => {
-    const before = registry()
-    const after = registry({ toolchainEngines: { node: '>=22.12.0', pins: {} } })
-    expect(registryChangedPackages(before, after)).toEqual([])
-    expect(registryChangeAffectsDocs(before, after)).toBe(false)
-  })
-
   it('names each added, removed or changed entry', () => {
     const before = registry({
       packages: { '@molecule/api-ai': ai, '@molecule/api-ai-openai': openai },
