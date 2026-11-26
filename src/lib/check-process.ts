@@ -52,8 +52,11 @@ export function spawnCheckCommand(
   onOverflow: (error: Error) => void,
   onLine?: (line: string) => void,
 ): CheckCommand {
-  const grouped = process.platform !== 'win32'
-  const child = spawn('/bin/bash', ['-c', command], {
+  const windows = process.platform === 'win32'
+  const grouped = !windows
+  // Every step is a bash command line. Windows has no /bin/bash: Git for Windows and WSL put a
+  // `bash` on PATH.
+  const child = spawn(windows ? 'bash' : '/bin/bash', ['-c', command], {
     cwd,
     detached: grouped,
     stdio: ['ignore', 'pipe', 'pipe'],
@@ -62,7 +65,9 @@ export function spawnCheckCommand(
   const stderr = capture(child.stderr, 'stderr', onOverflow)
   const exited = new Promise<CommandExit>((resolve) => {
     child.once('exit', (code, signal) => resolve({ code, signal }))
-    child.once('error', (error) => resolve({ code: null, signal: null, error }))
+    child.once('error', (error) =>
+      resolve({ code: null, signal: null, error: noBash(error, windows) }),
+    )
   })
   const closed = new Promise<void>((resolve) => child.once('close', () => resolve()))
 
@@ -79,6 +84,17 @@ export function spawnCheckCommand(
       }
     },
   }
+}
+
+/** A spawn that found no bash, said as what to install; any other error as it is. */
+function noBash(error: Error, windows: boolean): Error {
+  if ((error as NodeJS.ErrnoException).code !== 'ENOENT') return error
+  return new Error(
+    windows
+      ? 'mlcl check runs each step in bash, and none is on PATH: install Git for Windows (it provides bash) or run mlcl in WSL.'
+      : 'mlcl check runs each step in /bin/bash, and it does not exist.',
+    { cause: error },
+  )
 }
 
 async function groupExited(command: CheckCommand): Promise<boolean> {
