@@ -178,6 +178,8 @@ tree has), and `--check` fails on one.
 
 Also update the plan doc in the workspace `internal/mlcl/plans/` to mark completed items.
 
+When developing with the aggregate workspace, keep the Molecule checkout beside it so mlcl can link local packages while each npm install stays independent.
+
 ### Why this is easy to forget — and what guards it
 
 `registry.json` lives in **mlcl**, but a package's exports (the source of truth)
