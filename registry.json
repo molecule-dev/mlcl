@@ -28432,6 +28432,7 @@
         "listTemplates",
         "deleteTemplate",
         "instantiateById",
+        "Substituted",
         "TemplateVariable",
         "Template",
         "TemplateQuery",
@@ -28551,7 +28552,7 @@
         "instantiateTemplate": "function instantiateTemplate<T = unknown>(template: Pick<Template, 'snapshot' | 'variables'>, variables?: VariableValues): InstantiateResult<T>;",
         "listTemplates": "function listTemplates(query?: TemplateQuery): Promise<PaginatedResult<Template>>;",
         "mergeVariableValues": "function mergeVariableValues(declared: TemplateVariable[], supplied?: VariableValues): VariableValues;",
-        "substitute": "function substitute<T>(value: T, variables: VariableValues, missing?: string[]): T;",
+        "substitute": "function substitute<T>(value: T, variables: VariableValues, missing?: string[]): Substituted<T>;",
         "substituteString": "function substituteString(input: string, variables: VariableValues, missing?: string[]): string;",
         "updateTemplate": "function updateTemplate(id: string, patch: UpdateTemplateInput): Promise<Template | null>;"
       },
