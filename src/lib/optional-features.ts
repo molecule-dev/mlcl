@@ -19,7 +19,9 @@
  * (the settings page and the header's drawer) and the footer package `footer` (the footer and the
  * about page). A feature whose controls sit inside another feature's files brings that one:
  * `templates/app/features.json` says two-factor's switch and the billing section live in the
- * settings panel, so a two-factor or payments provider brings it.
+ * settings panel, so a two-factor or payments provider brings it. The same file declares which
+ * enabled features include other capabilities and which packages enable a feature only when
+ * selected by name. A package installed as a peer does not count as an explicit selection.
  *
  * @module
  */
@@ -35,22 +37,30 @@ import type { InferredPackage } from './schema.js'
  *
  * @param packageNames - The project's `@molecule/*` packages.
  * @param registryPackages - Registry entries to read `optionalFeature` from.
+ * @param selectedFeatures - Features explicitly selected by name and recorded in the project manifest.
  * @returns The feature names.
  */
 export function deriveOptionalFeatures(
   packageNames: readonly string[],
   registryPackages?: readonly InferredPackage[],
+  selectedFeatures: readonly string[] = [],
 ): Set<string> {
-  const features = new Set<string>()
-  if (!registryPackages) return features
+  const features = new Set(selectedFeatures)
   const names = new Set(packageNames)
-  for (const pkg of registryPackages) {
+  for (const pkg of registryPackages ?? []) {
     if (!names.has(pkg.name)) continue
     const feature = pkg.molecule?.optionalFeature
     if (typeof feature === 'string' && feature) features.add(feature)
   }
+  const specs = featureDefinitions()
+  // A Set visits each newly included feature once, even when definitions form a cycle.
+  for (const feature of features) {
+    for (const included of specs[feature]?.includes ?? []) features.add(included)
+  }
+  // A containing template is a placement requirement. Its capabilities are enabled when
+  // the package that implements them is declared (an API-only stack has no settings panel).
   for (const feature of [...features]) {
-    const inside = containingFeatures()[feature]
+    const inside = specs[feature]?.inside
     if (inside) features.add(inside)
   }
   return features
@@ -65,23 +75,43 @@ export const APP_TEMPLATES_DIR = join(
   'app',
 )
 
-/** `templates/app/features.json`: the feature whose files hold another feature's controls. */
-const FEATURES_FILE = join(APP_TEMPLATES_DIR, 'features.json')
+interface FeatureDefinition {
+  inside?: string
+  includes?: string[]
+  selectedBy?: string
+}
 
-let containing: Record<string, string> | undefined
+let definitions: Record<string, FeatureDefinition> | undefined
 
-/** Each feature whose controls live in another feature's files, mapped to that feature. */
-function containingFeatures(): Record<string, string> {
-  if (containing) return containing
-  const read = existsSync(FEATURES_FILE)
-    ? (JSON.parse(readFileSync(FEATURES_FILE, 'utf8')) as Record<string, { inside?: string }>)
-    : {}
-  containing = Object.fromEntries(
-    Object.entries(read).flatMap(([feature, spec]) =>
-      spec.inside ? [[feature, spec.inside]] : [],
-    ),
+/** Load the feature combinations and explicit selections shared by the app and API templates. */
+function featureDefinitions(): Record<string, FeatureDefinition> {
+  const file = join(APP_TEMPLATES_DIR, 'features.json')
+  return (definitions ??= existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : {})
+}
+
+/**
+ * Find the opt-in features that the packages explicitly requested by create or add enable.
+ *
+ * @param packageNames - The names requested before the CLI resolves peers and defaults.
+ * @returns The opted-in feature names.
+ */
+export function selectOptionalFeatures(packageNames: readonly string[]): string[] {
+  return Object.entries(featureDefinitions()).flatMap(([feature, spec]) =>
+    spec.selectedBy && packageNames.includes(spec.selectedBy) ? [feature] : [],
   )
-  return containing
+}
+
+/**
+ * Read explicit feature selections from a project's package.json `molecule` field.
+ *
+ * @param metadata - The manifest's parsed Molecule metadata.
+ * @returns The selected feature names, including for a manifest predating the field.
+ */
+export function recordedOptionalFeatures(metadata: unknown): string[] {
+  const selected = (metadata as { selectedFeatures?: unknown } | undefined)?.selectedFeatures
+  return Array.isArray(selected)
+    ? selected.filter((name): name is string => typeof name === 'string')
+    : []
 }
 
 /** The directory, inside a framework's app templates, that holds whole files per feature. */

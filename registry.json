@@ -24190,7 +24190,8 @@
           "handler": "query",
           "middlewares": [
             "auth"
-          ]
+          ],
+          "optional": "devices"
         },
         {
           "method": "get",
@@ -24198,7 +24199,8 @@
           "handler": "read",
           "middlewares": [
             "authUser"
-          ]
+          ],
+          "optional": "devices"
         },
         {
           "method": "patch",
@@ -24206,7 +24208,8 @@
           "handler": "update",
           "middlewares": [
             "authUser"
-          ]
+          ],
+          "optional": "devices"
         },
         {
           "method": "delete",
@@ -24214,7 +24217,8 @@
           "handler": "del",
           "middlewares": [
             "authUser"
-          ]
+          ],
+          "optional": "devices"
         }
       ],
       "tables": [

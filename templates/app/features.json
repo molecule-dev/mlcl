@@ -1,4 +1,7 @@
 {
   "two-factor": { "inside": "settings" },
-  "billing": { "inside": "settings" }
+  "billing": { "inside": "settings" },
+  "settings": { "includes": ["devices"] },
+  "push": { "includes": ["devices"] },
+  "devices": { "selectedBy": "@molecule/api-resource-device" }
 }

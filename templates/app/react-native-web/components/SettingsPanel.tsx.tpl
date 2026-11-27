@@ -1,4 +1,9 @@
+{{#feature devices}}
 import { useState, useEffect, useCallback } from 'react'
+{{/feature}}
+{{^feature devices}}
+import { useState } from 'react'
+{{/feature}}
 import { useNavigate } from 'react-router'
 import type { UserProfile } from '@molecule/app-auth'
 import {
@@ -22,7 +27,9 @@ import {
 } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 import { Button as SubmitButton } from '@molecule/app-ui-react'
+{{#feature devices}}
 import { Icon } from './Icon.js'
+{{/feature}}
 import { Footer } from './Footer.js'
 {{#feature two-factor}}
 import { TwoFactorSetting } from './TwoFactorSetting.js'
@@ -31,12 +38,14 @@ import { TwoFactorSetting } from './TwoFactorSetting.js'
 import { BillingSection } from './BillingSection.js'
 {{/feature}}
 
+{{#feature devices}}
 interface Device {
   id: string
   name: string
   platform: string
   lastSeen?: string
 }
+{{/feature}}
 
 export function SettingsPanel({ onClose }: { onClose: () => void }) {
   const cm = getClassMap()
@@ -64,9 +73,11 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   const [currentPassword, setCurrentPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
 
+{{#feature devices}}
   // Devices
   const [devices, setDevices] = useState<Device[]>([])
   const [devicesLoading, setDevicesLoading] = useState(true)
+{{/feature}}
 
   // Delete account
   const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -77,6 +88,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   // Push notifications
   const [pushEnabled, setPushEnabled] = useState(permission === 'granted')
 
+{{#feature devices}}
   const loadDevices = useCallback(async () => {
     try {
       const response = await http.get<{ data: Device[] }>('/devices')
@@ -91,6 +103,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   useEffect(() => {
     loadDevices()
   }, [loadDevices])
+{{/feature}}
 
   const handleEmailBlur = async () => {
     if (email === user?.email || !email) return
@@ -212,6 +225,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       <BillingSection />
 
 {{/feature}}
+{{#feature devices}}
       {/* Devices */}
       <section>
         <Flex align="center" gap="sm" className={cm.sp('mb', 3)}>
@@ -239,6 +253,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
           )
         )}
       </section>
+{{/feature}}
 
       {/* This Device */}
       <section>

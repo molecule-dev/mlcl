@@ -757,12 +757,14 @@ describe('synthesizeProjectFiles', () => {
     expect(auth).toContain('authorizers.authSelf()')
   })
 
-  it('generates Device resource wrapper', async () => {
+  it('generates the Device resource wrapper when its routes are enabled', async () => {
     const files = await synthesizeProjectFiles(
       [devicePlan],
       ['@molecule/api-resource-device', '@molecule/api-resource'],
       tempDir,
       registryPackages,
+      undefined,
+      { optionalFeatures: new Set(['devices']) },
     )
 
     const wrapper = files.find((f) => f.targetPath.includes('Resource/Device/index.ts'))
@@ -973,6 +975,8 @@ describe('synthesizeProjectFiles', () => {
       ['@molecule/api-resource-user', '@molecule/api-resource-device', '@molecule/api-resource'],
       tempDir,
       registryPackages,
+      undefined,
+      { optionalFeatures: new Set(['devices']) },
     )
 
     const router = files.find((f) => f.targetPath.includes('router.ts'))
@@ -1067,7 +1071,7 @@ describe('synthesizeProjectFiles', () => {
     expect(next.find((f) => f.targetPath === routerPath)).toBeUndefined()
   })
 
-  it('rewrites the generated router when the package list changes', async () => {
+  it('adds newly enabled mounts to the generated router', async () => {
     const projectDir = join(tempDir, 'router-package-change')
     const routerPath = join(projectDir, 'src', 'App', 'router.ts')
 
@@ -1081,16 +1085,18 @@ describe('synthesizeProjectFiles', () => {
     await mkdir(dirname(routerPath), { recursive: true })
     await writeFile(routerPath, one.find((f) => f.targetPath === routerPath)!.content)
 
-    // A later inject adds Device: the mount set changed, so the file is rewritten.
+    // A later inject enables the Device routes alongside the existing mounts.
     const next = await synthesizeProjectFiles(
       [userPlan, devicePlan],
       ['@molecule/api-resource-user', '@molecule/api-resource-device', '@molecule/api-resource'],
       projectDir,
       registryPackages,
+      undefined,
+      { optionalFeatures: new Set(['devices']) },
     )
-    const rewritten = next.find((f) => f.targetPath === routerPath)
-    expect(rewritten).toBeDefined()
-    expect(rewritten!.content).toContain('requestHandlerMap as Device')
+    const extended = next.find((f) => f.targetPath === routerPath)
+    expect(extended?.content).toContain('requestHandlerMap as Device')
+    expect(extended?.content).toContain('router.use(resourceUserRouter)')
   })
 
   it('writes the untouched placeholder, but never overwrites a router the app owns', async () => {

@@ -3467,6 +3467,7 @@ export async function createApiProject(
   projectName: string,
   apiFramework: string = 'express',
   npmOverrides: Record<string, string> = {},
+  selectedFeatures: readonly string[] = [],
 ): Promise<void> {
   mlclDebug(`[scaffold] createApiProject: ${projectPath} (framework: ${apiFramework})`)
   await mkdir(projectPath, { recursive: true })
@@ -3524,6 +3525,7 @@ export async function createApiProject(
     molecule: {
       projectType: 'api',
       apiFramework,
+      ...(selectedFeatures.length ? { selectedFeatures } : {}),
     },
   }
 
@@ -3707,6 +3709,7 @@ export async function createFullStackProject(
   apiFramework: string = 'express',
   npmOverrides: Record<string, string> = {},
   fontAssetMode: 'copy' | 'module' = 'copy',
+  selectedFeatures: readonly string[] = [],
 ): Promise<void> {
   await mkdir(projectPath, { recursive: true })
   mlclDebug(`[scaffold] createFullStackProject: ${projectPath}`)
@@ -3748,7 +3751,13 @@ export async function createFullStackProject(
 
   // Scaffold both sub-projects
   mlclDebug(`[scaffold] Creating API project: ${join(projectPath, 'api')}`)
-  await createApiProject(join(projectPath, 'api'), `${projectName}-api`, apiFramework)
+  await createApiProject(
+    join(projectPath, 'api'),
+    `${projectName}-api`,
+    apiFramework,
+    {},
+    selectedFeatures,
+  )
   const authContract = extraVars.AUTH_CONTRACT_JSON
     ? parseAuthContract(JSON.parse(extraVars.AUTH_CONTRACT_JSON))
     : authContractFromRegistry(
@@ -3772,6 +3781,7 @@ export async function createFullStackProject(
     buildTooling,
     {},
     fontAssetMode,
+    selectedFeatures,
   )
 
   // Now that app/src/branding.ts exists, derive the root package.json description
@@ -3871,6 +3881,7 @@ export async function createStaticProject(
   buildTooling?: BuildTooling,
   npmOverrides: Record<string, string> = {},
   fontAssetMode: 'copy' | 'module' = 'copy',
+  selectedFeatures: readonly string[] = [],
 ): Promise<void> {
   if (framework !== 'react') {
     throw new Error(`static projects support the react framework only (got "${framework}")`)
@@ -3912,6 +3923,7 @@ export async function createStaticProject(
     buildTooling,
     {},
     fontAssetMode,
+    selectedFeatures,
   )
   await applyStaticSiteOverlay(appPath, projectName, extraVars, buildTooling)
   await syncIdentityFromBranding(projectPath, projectName)
@@ -4815,6 +4827,7 @@ export async function createAppProject(
   buildTooling?: BuildTooling,
   npmOverrides: Record<string, string> = {},
   fontAssetMode: 'copy' | 'module' = 'copy',
+  selectedFeatures: readonly string[] = [],
 ): Promise<void> {
   mlclDebug(`[scaffold] createAppProject: ${projectPath} (framework: ${framework})`)
 
@@ -4839,7 +4852,11 @@ export async function createAppProject(
   const appFrameworks = loadAppFrameworks()
   const fwConfig = appFrameworks[framework] ?? { dependencies: {}, devDependencies: {} }
   // The optional features the stack brings: their pages, routes and fields are written.
-  const templateFeatures = deriveOptionalFeatures(selectedPackages, loadRegistry())
+  const templateFeatures = deriveOptionalFeatures(
+    selectedPackages,
+    loadRegistry(),
+    selectedFeatures,
+  )
   if (fontAssetMode === 'module' && (!fwConfig.vitePlugin || fwConfig.htmlTemplate)) {
     throw new Error('Module font assets require a caller-configured Vite index.html project')
   }

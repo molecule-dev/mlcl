@@ -26,6 +26,7 @@ import {
   deriveOptionalFeatures,
   FEATURE_TEMPLATES_DIR,
   featureSectionNames,
+  selectOptionalFeatures,
 } from '../optional-features.js'
 import { loadAppFrameworks, loadRegistry } from '../registry.js'
 import { copyTemplateFiles } from '../scaffold.js'
@@ -47,6 +48,7 @@ const FEATURE_TEXT: Record<string, RegExp> = {
 
 /** The router each feature mounts (`resource<Name><Feature>Router`). */
 const FEATURE_ROUTER: Record<string, RegExp> = {
+  devices: /router\.get\(`\/devices`,/,
   emails: /router\.use\(resourceUserEmailsRouter\)/,
   payments: /router\.use\(resourceUserPaymentsRouter\)/,
   oauth: /router\.use\(resourceUserOauthRouter\)/,
@@ -233,9 +235,12 @@ describe('applyFeatureSections', () => {
 
 describe('optional features in the registry', () => {
   const registry = loadRegistry()
-  const declared = new Set(registry.map((pkg) => pkg.molecule?.optionalFeature).filter(Boolean))
+  const declared = new Set([
+    ...registry.map((pkg) => pkg.molecule?.optionalFeature).filter(Boolean),
+    ...selectOptionalFeatures(registry.map((pkg) => pkg.name)),
+  ])
 
-  it('every feature the app templates gate on is a registry optionalFeature', () => {
+  it('every feature the app templates gate on has a package that can enable it', () => {
     const used = new Set<string>()
     const walk = (dir: string): void => {
       for (const entry of readdirSync(dir, { withFileTypes: true })) {
@@ -251,13 +256,13 @@ describe('optional features in the registry', () => {
       const dir = join(APP_TEMPLATES, framework, FEATURE_TEMPLATES_DIR)
       if (existsSync(dir)) for (const name of readdirSync(dir)) used.add(name)
     }
-    expect([...used].sort()).toEqual(Object.keys(FEATURE_TEXT).sort())
+    expect([...used].sort()).toEqual([...Object.keys(FEATURE_TEXT), 'devices'].sort())
     for (const name of used) expect(declared, `no package declares ${name}`).toContain(name)
   })
 
   // A framework may put a feature in whole files or in sections of shared ones; the set it gates
   // is what must match.
-  it('every framework gates the same features', () => {
+  it('every framework gates the features its templates render', () => {
     const shape = (framework: string): string => {
       const dir = join(APP_TEMPLATES, framework, FEATURE_TEMPLATES_DIR)
       const folders = existsSync(dir) ? readdirSync(dir).sort() : []
@@ -273,8 +278,11 @@ describe('optional features in the registry', () => {
       }
       return JSON.stringify([...new Set([...folders, ...sections])].sort())
     }
-    for (const framework of FRAMEWORKS)
-      expect(shape(framework), framework).toBe(JSON.stringify(gatedFeatures(framework)))
+    for (const framework of FRAMEWORKS) {
+      const expected = gatedFeatures(framework)
+      if (framework === 'react-native-web') expected.push('devices')
+      expect(shape(framework), framework).toBe(JSON.stringify(expected.sort()))
+    }
     expect(gatedFeatures('react')).toEqual(Object.keys(FEATURE_TEXT).sort())
     expect(gatedFeatures('react-native-web')).not.toContain('settings')
   })
@@ -293,7 +301,7 @@ describe('optional features in the registry', () => {
     // A create adds the billing routes to a payments provider (featureBundled); named here.
     expect(
       deriveOptionalFeatures([...FEATURE_PACKAGES, '@molecule/api-billing-routes'], registry),
-    ).toEqual(new Set([...Object.keys(FEATURE_TEXT), 'push']))
+    ).toEqual(new Set([...Object.keys(FEATURE_TEXT), 'push', 'devices']))
   })
 
   // A framework's templateRequires goes into every app it scaffolds, so a feature package listed
@@ -369,12 +377,12 @@ describe.each([
   {
     name: 'the payments capture provider',
     extra: ['@molecule/api-payments-capture'],
-    features: ['billing', 'payments', 'settings'],
+    features: ['billing', 'payments', 'settings', 'devices'],
   },
   {
     name: 'a stack with every feature',
     extra: FEATURE_PACKAGES,
-    features: [...Object.keys(FEATURE_TEXT), 'push'],
+    features: [...Object.keys(FEATURE_TEXT), 'push', 'devices'],
   },
 ])('a full-stack scaffold of $name', ({ extra, features }) => {
   let scratch: string

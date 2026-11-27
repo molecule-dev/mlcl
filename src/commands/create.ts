@@ -40,7 +40,11 @@ import { t } from '../lib/i18n.js'
 import { writeInstallScriptEntries } from '../lib/install-scripts.js'
 import { declaredDependencies, newDeclarations } from '../lib/manifest-declarations.js'
 import { npmFailureDetail, npmInstall } from '../lib/npm-install.js'
-import { deriveOptionalFeatures, featureTemplatePackages } from '../lib/optional-features.js'
+import {
+  deriveOptionalFeatures,
+  featureTemplatePackages,
+  selectOptionalFeatures,
+} from '../lib/optional-features.js'
 import { serviceWorkerPackageFor } from '../lib/peer-closure.js'
 import {
   getMoleculeVersion,
@@ -901,6 +905,7 @@ export default class Create extends Command {
 
     // Step 5: Select features (dynamically built from package metadata)
     const selectedPackageNames: string[] = alwaysInclude.map((pkg) => pkg.name)
+    const explicitPackages = new Set(named?.packages ?? [])
     const allSelectedSecrets: MoleculeSecret[] = [...collectSecrets(alwaysInclude)]
 
     // For app/full-stack projects, auto-include the framework package.
@@ -961,8 +966,8 @@ export default class Create extends Command {
         const explicitPackages = flags.packages.split(',').map((s) => s.trim())
         selectedPackageNames.push(...explicitPackages)
       }
-    } else if (nonInteractive && flags.packages) {
-      // Non-interactive: use explicit package list
+    } else if (flags.packages) {
+      // Use the named packages in place of the feature menu.
       const explicitPackages = flags.packages.split(',').map((s) => s.trim())
       selectedPackageNames.push(...explicitPackages)
       // Collect secrets from all explicitly requested packages
@@ -973,6 +978,7 @@ export default class Create extends Command {
     } else if (!nonInteractive) {
       const result = await this.selectFeatures(features, allPackages)
       selectedPackageNames.push(...result.packages)
+      for (const name of result.packages) explicitPackages.add(name)
       allSelectedSecrets.push(...result.secrets)
     }
 
@@ -1067,6 +1073,9 @@ export default class Create extends Command {
       selectedPackageNames.push(workerPackage)
     }
     // The peers, template packages and defaults can all introduce more required packages.
+    const selectedFeatures = selectOptionalFeatures(
+      selectedPackageNames.filter((name) => explicitPackages.has(name)),
+    )
     // Exhaust the required graph before choosing a provider. The scaffold writes a
     // feature's pages for every package it is handed, peers included: the default bonds bundle
     // peers on the payments providers, so its stack gets the plan page and the settings panel,
@@ -1084,7 +1093,7 @@ export default class Create extends Command {
         const featurePackages = featureTemplatePackages(
           join(getTemplatesDir(), 'app'),
           framework,
-          deriveOptionalFeatures(selectedPackageNames, allPackages),
+          deriveOptionalFeatures(selectedPackageNames, allPackages, selectedFeatures),
         ).filter((name) => !selectedPackageNames.includes(name))
         log(`Feature template packages: ${featurePackages.join(', ') || '(none)'}`)
         selectedPackageNames.push(...featurePackages)
@@ -1207,6 +1216,7 @@ export default class Create extends Command {
         'express',
         npmOverrides,
         fontAssetMode,
+        selectedFeatures,
       )
     } else if (isStatic) {
       await createStaticProject(
@@ -1219,6 +1229,7 @@ export default class Create extends Command {
         buildTooling,
         npmOverrides,
         fontAssetMode,
+        selectedFeatures,
       )
     } else if (projectType === 'app') {
       await createAppProject(
@@ -1232,9 +1243,10 @@ export default class Create extends Command {
         buildTooling,
         npmOverrides,
         fontAssetMode,
+        selectedFeatures,
       )
     } else {
-      await createApiProject(projectPath, projectName, 'express', npmOverrides)
+      await createApiProject(projectPath, projectName, 'express', npmOverrides, selectedFeatures)
     }
 
     // Close the @molecule dependency set in the written manifests — the same

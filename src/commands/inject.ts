@@ -50,8 +50,8 @@ import {
   projectDatabasePackage,
 } from '../lib/migration-dialect.js'
 import { npmInstall } from '../lib/npm-install.js'
-import { npmInstallRoot } from '../lib/npm-install-root.js'
-import { deriveOptionalFeatures } from '../lib/optional-features.js'
+import { npmInstallRoot, siblingWorkspace } from '../lib/npm-install-root.js'
+import { deriveOptionalFeatures, recordedOptionalFeatures } from '../lib/optional-features.js'
 import { withProjectLock } from '../lib/project-lock.js'
 import {
   detectAppFramework,
@@ -603,6 +603,24 @@ export default class Inject extends Command {
     }
 
     const registryPackages = loadRegistry()
+    // An API can serve a feature the app workspace consumes. Only the API's own
+    // packages join its injection plans, even when the app's declarations enable routes.
+    const appDir = !isAppProject ? siblingWorkspace(projectPath, 'app') : undefined
+    const appPkg: typeof projectPkg = appDir
+      ? JSON.parse(await readFile(join(appDir, 'package.json'), 'utf8'))
+      : {}
+    const optionalFeatures = deriveOptionalFeatures(
+      [
+        ...molecules,
+        ...Object.keys(projectDeps),
+        ...Object.keys({ ...appPkg.dependencies, ...appPkg.devDependencies }),
+      ],
+      registryPackages,
+      [
+        ...recordedOptionalFeatures(projectPkg.molecule),
+        ...recordedOptionalFeatures(appPkg.molecule),
+      ],
+    )
     // A named package that brings an optional feature (an email transport brings `emails`) turns
     // on routes another package of the project marks with it (the user resource's password reset):
     // that package joins the synthesis, never the execution, so its router mounts them and its
@@ -632,6 +650,7 @@ export default class Inject extends Command {
           {
             // existingProjectFiles drops every __tests__/ file of such a project.
             smokeTests: !existingProject,
+            optionalFeatures,
           },
         )
     // An app loads a companion locale bond in its i18n bond, which is the i18n core's default

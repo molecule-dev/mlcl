@@ -67,3 +67,23 @@ export function npmInstallRoot(dir: string): string {
     if (dirname(root) === root) return dir
   }
 }
+
+/**
+ * The named sibling workspace at the same npm install root, when both workspaces belong to it.
+ *
+ * @param dir - The current workspace directory.
+ * @param name - The name of the sibling workspace directory.
+ * @returns The sibling workspace directory if it exists and shares the install root.
+ */
+export function siblingWorkspace(dir: string, name: string): string | undefined {
+  const root = npmInstallRoot(dir)
+  const sibling = join(root, name)
+  if (
+    root !== dir &&
+    sibling !== dir &&
+    existsSync(join(sibling, 'package.json')) &&
+    npmInstallRoot(sibling) === root
+  )
+    return sibling
+  return undefined
+}

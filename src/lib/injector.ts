@@ -105,6 +105,7 @@ import {
 } from './capability-map.js'
 import { defaultProviderEntries, defaultProviderFor } from './default-provider.js'
 import { isExactVersion } from './exact-version.js'
+import { extendApiRouter, scaffoldRouteList } from './extend-api-wiring.js'
 import { routerWithAddedFeatures, routerWithFeatures } from './feature-routers.js'
 import { formatGeneratedSource, sortImportStatements } from './format.js'
 import { t } from './i18n.js'
@@ -3221,23 +3222,6 @@ ${bondLines.join('\n')}
 // Holistic project file synthesis
 // =============================================================================
 
-/**
- * Package routes imported by the scaffold router, in a stable order.
- *
- * @param text - A router file's text.
- * @returns The mount identifiers.
- */
-function routerMountNames(text: string): string[] {
-  const maps = text.matchAll(/import\s*\{\s*requestHandlerMap\s+as\s+(\w+)\s*\}/g)
-  return [
-    ...Array.from(maps, ([, name]) => name),
-    ...Array.from(
-      editableRouterImports(text),
-      ([, name, features, file]) => `${name}:${file}:${features?.replace(/\W/g, '') ?? ''}`,
-    ),
-  ].sort()
-}
-
 /** Recognize the default router and any optional provider routers from its module. */
 function editableRouterImports(text: string): IterableIterator<RegExpMatchArray> {
   return text.matchAll(
@@ -3305,49 +3289,39 @@ function contractRouterBlocks(text: string): { key: string; start: number; end: 
   return blocks
 }
 
-/** Update only generated gates/mounts, leaving every app-owned statement in place. */
-function mergeContractRouter(existing: string, generated: string): string {
+/** Update existing mounts of the resource whose auth contract the project controls. */
+function mergeContractRouter(existing: string, generated: string, resource: string): string {
+  const name = extractResourceName(resource)
+  const routePrefix = `route:${name}.`
+  const gate = `gate:${name.charAt(0).toLowerCase() + name.slice(1)}Authorization`
   const replacements = new Map(
-    contractRouterBlocks(generated).map(({ key, start, end }) => [
-      key,
-      generated.slice(start, end),
-    ]),
+    contractRouterBlocks(generated)
+      .filter(({ key }) => key === gate || key.startsWith(routePrefix))
+      .map(({ key, start, end }) => [key, generated.slice(start, end)]),
   )
-  const seen = new Set<string>()
   let merged = existing
   // Apply edits backwards so earlier offsets and app-owned bytes remain intact.
   for (const { key, start, end } of contractRouterBlocks(existing).reverse()) {
     const replacement = replacements.get(key)
-    if (!replacement) continue
-    seen.add(key)
-    merged = merged.slice(0, start) + replacement + merged.slice(end)
+    if (replacement) merged = merged.slice(0, start) + replacement + merged.slice(end)
   }
-  const missing = [...replacements]
-    .filter(([key]) => key.startsWith('route:') && !seen.has(key))
-    .map(([, block]) => block)
-  return missing.length > 0 ? `${merged}\n\n${missing.join('\n\n')}\n` : merged
+  return merged
 }
 
-/**
- * Return the router bytes this inject owns, or undefined when the app's file must stand.
- * Package changes keep the historical whole-file regeneration. Contract changes instead
- * update their route blocks in place, so app middleware is neither a rewrite trigger nor
- * collateral damage.
- */
+/** Fill an untouched placeholder or add to a generated router's existing mounts. */
 function routerContentForInjection(
   existing: string | null,
   generated: string,
-  contractDriven = false,
+  contractResource?: string,
 ): string | undefined {
   if (existing === null) return undefined
   if (!existing.includes(GENERATED_ROUTER_MARKER)) {
     return untouchedRouter(existing) ? generated : undefined
   }
-  if (routerMountNames(generated).join('\n') !== routerMountNames(existing).join('\n')) {
-    return generated
-  }
-  if (!contractDriven) return undefined
-  const merged = mergeContractRouter(existing, generated)
+  const withContract = contractResource
+    ? mergeContractRouter(existing, generated, contractResource)
+    : existing
+  const merged = extendApiRouter(withContract, generated)
   return merged === existing ? undefined : merged
 }
 
@@ -3369,15 +3343,15 @@ export async function synthesizeProjectFiles(
   projectPath: string,
   registryPackages?: InferredPackage[],
   apiFramework?: string,
-  { smokeTests = true }: { smokeTests?: boolean } = {},
+  {
+    smokeTests = true,
+    optionalFeatures = deriveOptionalFeatures(allMolecules, registryPackages),
+  }: { smokeTests?: boolean; optionalFeatures?: ReadonlySet<string> } = {},
 ): Promise<FileOperation[]> {
   const fw = apiFramework ?? getProjectApiFramework(projectPath)
   const files: FileOperation[] = []
 
   const resourcePlans = plans.filter((p) => p.moleculePackage?.type === 'resource')
-
-  // Derive optional features from registry metadata
-  const optionalFeatures = deriveOptionalFeatures(allMolecules, registryPackages)
 
   const authContract = readProjectAuthContract(projectPath)
   const routerPath = join(projectPath, 'src', 'App', 'router.ts')
@@ -3393,7 +3367,7 @@ export async function synthesizeProjectFiles(
   // Generate wrappers for resources that have active routes — plus any resource
   // exporting `authorization`, whose wrapper the router imports for the global
   // gate even when the resource's own routes are all inactive (see
-  // generateRouterContentHeuristic: without the wrapper that import is a missing
+  // generateRouterContent: without the wrapper that import is a missing
   // module, TS2307).
   const routablePlans = resourcePlans.filter((plan) => {
     if (!plan.moleculePackage) return false
@@ -3488,12 +3462,9 @@ export async function synthesizeProjectFiles(
     })
   }
 
-  // Generate router.ts — only when the package list changed (see shouldWriteRouter): the file
-  // is generated, but it is also where the app's own edits beside the mounts live.
   const rawRouterContent = generateRouterContent(
     resourcePlans,
-    allMolecules,
-    registryPackages,
+    optionalFeatures,
     fw,
     authContract,
     resourceRouters,
@@ -3504,11 +3475,11 @@ export async function synthesizeProjectFiles(
   const injectedRouterContent = routerContentForInjection(
     existingRouter,
     routerContent,
-    Boolean(authContract),
+    authContract?.resourcePackage,
   )
   if (injectedRouterContent !== undefined) {
     files.push({
-      action: 'create',
+      action: existingRouter?.includes(GENERATED_ROUTER_MARKER) ? 'modify' : 'create',
       targetPath: routerPath,
       content: injectedRouterContent,
       description: 'Generate complete router with all routes',
@@ -4520,7 +4491,7 @@ Re-export any extra exports described in README.md (like authorization).`,
  * The accessor exports the GENERATED `router.ts` imports from a resource
  * wrapper besides the handler map.
  *
- * `generateRouterContentHeuristic` emits the app-wide gate
+ * `generateRouterContent` emits the app-wide gate
  * (`router.use(xAuthorization.verifyMiddleware())`) for every resource whose
  * package `exports` include `authorization`, and imports it as
  * `{ authorization as xAuthorization }` from that resource's wrapper. The
@@ -4720,18 +4691,6 @@ ${accessorReExports}export const requestHandlerMap = { ${handlerExports.join(', 
 export const GENERATED_ROUTER_MARKER =
   "// Generated by mlcl create from the packages you selected: the mounts below are the scaffold's route set. Keep them (the app's own router is mounted FIRST, so your routes win at the same paths) or serve every path they cover yourself."
 
-/** `POST/GET /items, PUT /items/:id` — a package's routes, grouped by path. */
-function scaffoldRouteList(routes: ReadonlyArray<{ method: string; path: string }>): string {
-  const byPath = new Map<string, string[]>()
-  for (const route of routes) {
-    const methods = byPath.get(route.path) ?? []
-    const method = route.method.toUpperCase()
-    if (!methods.includes(method)) methods.push(method)
-    byPath.set(route.path, methods)
-  }
-  return [...byPath].map(([path, methods]) => `${methods.join('/')} ${path}`).join(', ')
-}
-
 /**
  * The comment block a generated router opens with: what it mounts (each package's routes, at
  * the `/api` prefix `server.ts` gives this router) and the extension point to use instead of
@@ -4743,7 +4702,7 @@ function scaffoldRouteList(routes: ReadonlyArray<{ method: string; path: string 
  */
 function generatedRouterHeader(
   resourcePlans: InjectionPlan[],
-  optionalFeatures: Set<string>,
+  optionalFeatures: ReadonlySet<string>,
   authContract?: AuthContract,
   resourceRouters = new Map<string, ResourceRouter>(),
 ): string {
@@ -4769,7 +4728,7 @@ function generatedRouterHeader(
       }
     }
   } else {
-    lines.push('// It mounts no package routes: none of the selected packages declares any.')
+    lines.push('// It mounts no package routes for the selected features.')
   }
   lines.push('//')
   lines.push(
@@ -4860,31 +4819,8 @@ function splitTopLevelParams(signature: string): string[] {
  */
 function generateRouterContent(
   resourcePlans: InjectionPlan[],
-  allMolecules: string[],
-  registryPackages?: InferredPackage[],
-  apiFramework: string = DEFAULT_API_FRAMEWORK,
-  authContract?: AuthContract,
-  resourceRouters = new Map<string, ResourceRouter>(),
-): string {
-  return generateRouterContentHeuristic(
-    resourcePlans,
-    allMolecules,
-    registryPackages,
-    apiFramework,
-    authContract,
-    resourceRouters,
-  )
-}
-
-/**
- * Heuristic router generation.
- * Derives optional features from installed package names.
- */
-function generateRouterContentHeuristic(
-  resourcePlans: InjectionPlan[],
-  allMolecules: string[],
-  registryPackages?: InferredPackage[],
-  apiFramework: string = DEFAULT_API_FRAMEWORK,
+  optionalFeatures: ReadonlySet<string>,
+  apiFramework: string,
   authContract?: AuthContract,
   resourceRouters = new Map<string, ResourceRouter>(),
 ): string {
@@ -4917,9 +4853,6 @@ function generateRouterContentHeuristic(
   }
   const fw = getApiFrameworkConfig(apiFramework)
   const lines: string[] = []
-
-  // Derive optional features from registry metadata
-  const optionalFeatures = deriveOptionalFeatures(allMolecules, registryPackages)
 
   // Find resources that export authorization
   const authorizationResources = resourcePlans.filter((p) => {

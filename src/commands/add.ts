@@ -24,8 +24,13 @@ import { declareInjectedThirdParty } from '../lib/injected-third-party.js'
 import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../lib/integrate.js'
 import { databasePackageOf } from '../lib/migration-dialect.js'
 import { npmInstall } from '../lib/npm-install.js'
-import { npmInstallRoot } from '../lib/npm-install-root.js'
-import { deriveOptionalFeatures, featureTemplatePackages } from '../lib/optional-features.js'
+import { npmInstallRoot, siblingWorkspace } from '../lib/npm-install-root.js'
+import {
+  deriveOptionalFeatures,
+  featureTemplatePackages,
+  recordedOptionalFeatures,
+  selectOptionalFeatures,
+} from '../lib/optional-features.js'
 import { installCommand } from '../lib/package-search.js'
 import {
   missingMoleculePeers,
@@ -213,11 +218,55 @@ export default class Add extends Command {
     // A package that brings an optional feature to an app made from the starter templates brings
     // the feature's pages too, and its parts of the app's files (`feature-files.ts`).
     const starter = flags.inject ? starterAppOf(process.cwd()) : undefined
-    for (const [workDir, requests] of groups) await this.addTo(workDir, requests, flags)
+    const appDir = starter?.appDir ?? [...groups.keys()].find((dir) => basename(dir) === 'app')
+    const apiDir = flags.inject && appDir ? siblingWorkspace(appDir, 'api') : undefined
+    const appBefore = new Set(apiDir ? manifestNames(appDir) : [])
+    for (const [workDir, requests] of groups)
+      await this.addTo(
+        workDir,
+        requests,
+        flags,
+        selectOptionalFeatures(requests.map((request) => request.name)),
+      )
     if (starter) {
       const requested = [...groups.values()].flat().map((request) => request.name)
       await this.addFeatureFiles(starter, requested, flags)
     }
+    if (appDir && apiDir) {
+      const appRequests = groups.get(appDir)?.map((request) => request.name) ?? []
+      const added = manifestNames(appDir).filter((name) => !appBefore.has(name))
+      await this.injectAppFeatureRoutes(
+        apiDir,
+        [...appRequests, ...added],
+        selectOptionalFeatures(appRequests),
+        flags,
+      )
+    }
+  }
+
+  /** Let a newly selected app capability mount the optional API routes it consumes. */
+  private async injectAppFeatureRoutes(
+    apiDir: string,
+    appPackages: string[],
+    selectedFeatures: string[],
+    flags: AddFlags,
+  ): Promise<void> {
+    if (appPackages.length === 0) return
+    const registry = loadRegistry()
+    const features = deriveOptionalFeatures(appPackages, registry, selectedFeatures)
+    const declared = new Set(manifestNames(apiDir))
+    const resources = registry.filter(
+      (pkg) =>
+        declared.has(pkg.name) &&
+        pkg.routes.some((route) => route.optional && features.has(route.optional)),
+    )
+    if (resources.length > 0)
+      await this.config.runCommand('inject', [
+        ...resources.flatMap((pkg) => ['--molecule', pkg.name]),
+        '-p',
+        apiDir,
+        ...(flags['no-install'] ? ['--no-install'] : []),
+      ])
   }
 
   /**
@@ -236,6 +285,7 @@ export default class Add extends Command {
     const brought = deriveOptionalFeatures(
       [...requested, ...names.filter((name) => !before.has(name))],
       registry,
+      selectOptionalFeatures(requested),
     )
     if (brought.size === 0) return
     const after = new Set([...app.features, ...brought])
@@ -252,12 +302,14 @@ export default class Add extends Command {
       app.framework,
       new Set(added),
     ).filter((name) => !declared.has(name) && getRawRegistry().packages[name])
-    if (missing.length > 0)
+    if (missing.length > 0) {
       await this.addTo(
         app.appDir,
         missing.map((name) => this.request(name)),
         flags,
       )
+      for (const feature of deriveOptionalFeatures(missing, registry)) after.add(feature)
+    }
     const changes = await writeAddedFeatureFiles({
       appDir: app.appDir,
       framework: app.framework,
@@ -382,7 +434,12 @@ export default class Add extends Command {
   }
 
   /** Pin, install and (with `--inject`) wire the packages that belong in one workspace. */
-  private async addTo(workDir: string, requests: AddRequest[], flags: AddFlags): Promise<void> {
+  private async addTo(
+    workDir: string,
+    requests: AddRequest[],
+    flags: AddFlags,
+    selectedFeatures: readonly string[] = [],
+  ): Promise<void> {
     const names = requests.map((request) => request.name)
     const label = names.join(', ')
 
@@ -399,7 +456,8 @@ export default class Add extends Command {
 
     // A package that renders only in a browser, or one that requires it as a peer, cannot render in a
     // React Native project: refuse it before anything is written, naming the chain.
-    const packageJson: MoleculePeerManifest = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
+    const packageJson: MoleculePeerManifest & { molecule?: { selectedFeatures?: string[] } } =
+      JSON.parse(await readFile(packageJsonPath, 'utf-8'))
     const framework = rendererFramework(packageJson)
     if (framework === 'react-native') {
       const refused = webOnlyChains(names, new Map(loadRegistry().map((pkg) => [pkg.name, pkg])))
@@ -538,9 +596,18 @@ export default class Add extends Command {
       const unchanged =
         JSON.stringify(packageJson) === manifestBefore &&
         names.every((name) => installedVersion(name, workDir) === versions[name])
+      const previousFeatures = recordedOptionalFeatures(packageJson.molecule)
+      const selected = selectedFeatures.filter((feature) => !previousFeatures.includes(feature))
+      if (selected.length > 0) {
+        packageJson.molecule = {
+          ...packageJson.molecule,
+          selectedFeatures: [...previousFeatures, ...selected].sort(),
+        }
+      }
+      if (!unchanged || selected.length > 0)
+        await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
       if (unchanged) spinner.stop(t('commands.add.spinners.alreadyAdded', { name: label }))
       else {
-        await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
         const [first, ...rest] = [...added].map(([depKey, list]) =>
           t('commands.add.spinners.addedTo', { name: list.join(', '), depKey }),
         )
