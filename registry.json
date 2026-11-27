@@ -97190,7 +97190,36 @@
         "@molecule/app-routing-react-navigation"
       ],
       "path": "packages/app/frameworks/react-native",
-      "quickStart": "import { MoleculeProvider, useAuth, useAppState, useSafeArea } from '@molecule/app-react-native'\nimport { SafeAreaProvider } from 'react-native-safe-area-context'\nimport { View } from 'react-native'\nimport { provider as stateProvider } from '@molecule/app-state-zustand'\nimport { createJWTAuthClient } from '@molecule/app-auth'\n\nconst authClient = createJWTAuthClient({ baseURL: 'https://api.example.com' })\n\nfunction Shell() {\n  const { isAuthenticated } = useAuth()\n  const { isActive } = useAppState()\n  const insets = useSafeArea()\n  return (\n    <View style={{ paddingTop: insets.top }}>{isAuthenticated && isActive ? <View /> : null}</View>\n  )\n}\n\nfunction App() {\n  return (\n    <SafeAreaProvider>\n      <MoleculeProvider state={stateProvider} auth={authClient}>\n        <Shell />\n      </MoleculeProvider>\n    </SafeAreaProvider>\n  )\n}"
+      "quickStart": "import { MoleculeProvider, useAuth, useAppState, useSafeArea } from '@molecule/app-react-native'\nimport { SafeAreaProvider } from 'react-native-safe-area-context'\nimport { View } from 'react-native'\nimport { provider as stateProvider } from '@molecule/app-state-zustand'\nimport { createJWTAuthClient } from '@molecule/app-auth'\n\nconst authClient = createJWTAuthClient({ baseURL: 'https://api.example.com' })\n\nfunction Shell() {\n  const { isAuthenticated } = useAuth()\n  const { isActive } = useAppState()\n  const insets = useSafeArea()\n  return (\n    <View style={{ paddingTop: insets.top }}>{isAuthenticated && isActive ? <View /> : null}</View>\n  )\n}\n\nfunction App() {\n  return (\n    <SafeAreaProvider>\n      <MoleculeProvider state={stateProvider} auth={authClient}>\n        <Shell />\n      </MoleculeProvider>\n    </SafeAreaProvider>\n  )\n}",
+      "subpathExports": {
+        "./chat": [
+          "AgentIdentity",
+          "ChatContext",
+          "ChatProvider",
+          "ChatProviderProps",
+          "DEFAULT_AGENT_IDENTITY",
+          "DEFAULT_AGENT_NAME",
+          "DEFAULT_PRODUCT_NAME",
+          "SendMessageOptions",
+          "UseChatOptions",
+          "UseChatResult",
+          "convergeHistory",
+          "localOnlyMessages",
+          "resetChatStoresForTests",
+          "useChat",
+          "useChatProvider"
+        ],
+        "./ai-models": [
+          "UseAIModelsResult",
+          "resetAIModelsCache",
+          "useAIModels"
+        ],
+        "./push": [
+          "UsePushOptions",
+          "UsePushResult",
+          "usePush"
+        ]
+      }
     },
     "@molecule/app-reading-progress-bar-angular": {
       "language": "typescript",
