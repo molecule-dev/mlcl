@@ -1823,16 +1823,18 @@ export default class Create extends Command {
 
     // The smoke tests run once, here, on the final tree (inject runs with --no-test), and beside the
     // check: neither reads what the other writes (vitest loads src/, the build writes dist/). In
-    // turn they cost 2.7 s and 6.3 s of an installed create (r33 eval). Skipped under
-    // --skip-install: there are no dependencies to test against.
+    // turn they cost 2.7 s and 6.3 s of an installed create (r33 eval). Skipped while the install
+    // is still to run (--skip-install, or an install that failed): there are no dependencies to
+    // test against, and `npx` would download the newest vitest instead of the project's pin.
+    // `--no` keeps npx from downloading one in any other case too.
     const testCwd = isFullStack
       ? join(projectPath, 'api')
       : hasAppSubdir
         ? join(projectPath, 'app')
         : projectPath
-    const smoke = flags['skip-install']
+    const smoke = installNeeded
       ? null
-      : execa('npx', ['vitest', 'run', '--reporter=verbose'], {
+      : execa('npx', ['--no', 'vitest', 'run', '--reporter=verbose'], {
           cwd: testCwd,
           stdio: 'pipe',
           timeout: 60_000,

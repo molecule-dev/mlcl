@@ -36,12 +36,12 @@ export default class DbMigrate extends Command {
     }
     if (flags.fresh) {
       this.log(ui.warn('Recreating database (--fresh)…'))
-      execaSync('npx', ['tsx', 'src/scripts/migrate.ts', '--fresh'], {
+      execaSync('npx', ['--no', 'tsx', 'src/scripts/migrate.ts', '--fresh'], {
         cwd: apiDir,
         stdio: 'inherit',
       })
     } else {
-      execaSync('npx', ['tsx', 'src/scripts/migrate.ts'], { cwd: apiDir, stdio: 'inherit' })
+      execaSync('npx', ['--no', 'tsx', 'src/scripts/migrate.ts'], { cwd: apiDir, stdio: 'inherit' })
     }
     this.log(ui.check('Migrations applied.'))
   }

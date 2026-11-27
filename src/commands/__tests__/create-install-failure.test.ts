@@ -102,5 +102,10 @@ describe('mlcl create — a failed install', () => {
     expect(result).toMatchObject({ installSkipped: false, installFailure: reason })
     expect(result.pendingSetup).toEqual(expect.arrayContaining(['npm install']))
     expect(warnings).toContain(`npm install failed: ${reason}`)
+    // The smoke tests need the install: after a failed one, `npx vitest` downloaded the newest
+    // vitest from npm (not the project's pin), which crashed on a missing `vite` and printed a
+    // second, misleading failure (harness eval build, 2026-11-27).
+    expect(execaMock.mock.calls.filter(([file]) => file === 'npx')).toEqual([])
+    expect(warnings.filter((w) => /Smoke tests failed/.test(w))).toEqual([])
   })
 })

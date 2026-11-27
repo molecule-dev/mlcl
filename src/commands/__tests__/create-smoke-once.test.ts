@@ -45,7 +45,7 @@ vi.mock('execa', async (importOriginal) => ({
   ...(await importOriginal<typeof Execa>()),
   execa: vi.fn(async (file: string, args: string[] = []) => {
     state.spawned.push({ file, args })
-    if (file !== 'npx' || args[0] !== 'vitest') return { stdout: '', stderr: '' }
+    if (file !== 'npx' || !args.includes('vitest')) return { stdout: '', stderr: '' }
     // The smoke run ends when the check starts, or after a second when nothing starts it.
     state.smokePending = true
     await new Promise<void>((resolve) => {
@@ -137,7 +137,7 @@ async function create(): Promise<{ json: Record<string, unknown>; warnings: stri
 const injects = (): string[][] =>
   state.spawned.filter((s) => s.file === 'node' && s.args.includes('inject')).map((s) => s.args)
 const smokeRuns = (): number =>
-  state.spawned.filter((s) => s.file === 'npx' && s.args[0] === 'vitest').length
+  state.spawned.filter((s) => s.file === 'npx' && s.args.includes('vitest')).length
 
 describe('mlcl create runs the smoke tests once, beside its check', () => {
   it('runs inject without its own smoke tests (OLD MUSTFAIL)', async () => {

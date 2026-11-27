@@ -39,7 +39,7 @@ export default class DbReset extends Command {
         return
       }
     }
-    execaSync('npx', ['tsx', 'src/scripts/migrate.ts', '--fresh'], {
+    execaSync('npx', ['--no', 'tsx', 'src/scripts/migrate.ts', '--fresh'], {
       cwd: apiDir,
       stdio: 'inherit',
     })

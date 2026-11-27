@@ -1310,7 +1310,9 @@ export default class Inject extends Command {
     projectPath: string,
   ): Promise<{ success: boolean; summary: string; output?: string }> {
     try {
-      const result = await execa('npx', ['vitest', 'run', '--reporter=verbose'], {
+      // `--no`: a project without vitest installed (its install failed) gets npm's "missing
+      // packages" error, never a download of the newest vitest in place of the project's pin.
+      const result = await execa('npx', ['--no', 'vitest', 'run', '--reporter=verbose'], {
         cwd: projectPath,
         stdio: 'pipe',
         timeout: 60_000,

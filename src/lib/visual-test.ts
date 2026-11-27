@@ -247,7 +247,7 @@ export async function startShowcaseServer(
   // Start Vite dev server, as its own process group: `npx` runs Vite as a child, so stopping
   // only the npx process left Vite holding the port (2026-11-27: after one failed test the
   // restarted worker found all six ports taken).
-  const viteProcess = spawn('npx', ['vite', '--port', String(port), '--strictPort'], {
+  const viteProcess = spawn('npx', ['--no', 'vite', '--port', String(port), '--strictPort'], {
     cwd: dir,
     detached: true,
     stdio: ['ignore', 'pipe', 'pipe'],

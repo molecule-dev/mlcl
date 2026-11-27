@@ -121,7 +121,7 @@ describe('mlcl inject reports a smoke-test failure even when it captured no outp
 
     expect(execaMock).toHaveBeenCalledWith(
       'npx',
-      ['vitest', 'run', '--reporter=verbose'],
+      ['--no', 'vitest', 'run', '--reporter=verbose'],
       expect.objectContaining({ cwd: project }),
     )
     // The failure must be REPORTED (it is the printed errors that tell the
@@ -152,7 +152,7 @@ describe('mlcl inject reports a smoke-test failure even when it captured no outp
 
     expect(execaMock).toHaveBeenCalledWith(
       'npx',
-      ['vitest', 'run', '--reporter=verbose'],
+      ['--no', 'vitest', 'run', '--reporter=verbose'],
       expect.objectContaining({
         cwd: project,
         timeout: expect.any(Number),
