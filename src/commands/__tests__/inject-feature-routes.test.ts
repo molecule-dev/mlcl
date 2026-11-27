@@ -19,6 +19,7 @@ import { fileURLToPath } from 'node:url'
 import { Config } from '@oclif/core'
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 
+import { featureSmokeModules } from '../../lib/__tests__/feature-smoke-modules.js'
 import Inject from '../inject.js'
 
 vi.mock('execa', () => ({ execa: vi.fn() }))
@@ -34,6 +35,8 @@ let before: { router: string; auth: string }
 
 beforeAll(async () => {
   scratch = await mkdtemp(join(tmpdir(), 'mlcl-inject-feature-routes-'))
+  const fixture = await featureSmokeModules(scratch, WORKSPACE_MODULES)
+  vi.stubEnv('MLCL_REGISTRY_PATH', fixture.registry)
   project = join(scratch, 'api')
   execFileSync(
     process.execPath,
@@ -50,7 +53,7 @@ beforeAll(async () => {
     ],
     { cwd: MLCL_ROOT, encoding: 'utf8', timeout: 240_000, stdio: 'pipe' },
   )
-  await symlink(WORKSPACE_MODULES, join(project, 'node_modules'))
+  await symlink(fixture.modules, join(project, 'node_modules'))
   before = {
     router: await readFile(join(project, 'src', 'App', 'router.ts'), 'utf8'),
     auth: await readFile(join(project, 'src', 'handlers', 'auth.ts'), 'utf8'),
@@ -75,6 +78,7 @@ beforeAll(async () => {
 }, 300_000)
 
 afterAll(async () => {
+  vi.unstubAllEnvs()
   await rm(scratch, { recursive: true, force: true })
 })
 

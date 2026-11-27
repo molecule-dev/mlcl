@@ -20,6 +20,7 @@ import { fileURLToPath } from 'node:url'
 import { Config } from '@oclif/core'
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 
+import { featureSmokeModules } from '../../lib/__tests__/feature-smoke-modules.js'
 import { providerTemplateVars } from '../../lib/feature-files.js'
 import { loadRegistry } from '../../lib/registry.js'
 import Add from '../add.js'
@@ -73,10 +74,15 @@ async function recorded(app: string): Promise<string[]> {
 }
 
 let scratch: string
+let fixtureModules: string
 beforeAll(async () => {
   scratch = await mkdtemp(join(tmpdir(), 'mlcl-add-feature-files-'))
-})
+  const fixture = await featureSmokeModules(scratch, WORKSPACE_MODULES)
+  fixtureModules = fixture.modules
+  vi.stubEnv('MLCL_REGISTRY_PATH', fixture.registry)
+}, 150_000)
 afterAll(async () => {
+  vi.unstubAllEnvs()
   await rm(scratch, { recursive: true, force: true })
 })
 
@@ -87,7 +93,7 @@ describe('adding the settings panel to an app created without it (OLD MUSTFAIL)'
   beforeAll(async () => {
     app = join(scratch, 'settings-app')
     create(app, ['--type', 'app', '--framework', 'react', '--packages', '@molecule/app-routing'])
-    await symlink(WORKSPACE_MODULES, join(app, 'node_modules'))
+    await symlink(fixtureModules, join(app, 'node_modules'))
     // The project's own edit, away from the lines the feature changes.
     const appFile = join(app, 'src', 'App.tsx')
     await writeFile(appFile, `// Our routes.\n${await readFile(appFile, 'utf8')}`)
@@ -143,7 +149,7 @@ describe("adding an email transport to a full-stack project's api", () => {
       '@molecule/api-database-sqlite,@molecule/api-resource-user,@molecule/app-routing',
     ])
     for (const half of ['api', 'app'])
-      await symlink(WORKSPACE_MODULES, join(project, half, 'node_modules'))
+      await symlink(fixtureModules, join(project, half, 'node_modules'))
     output = await add(join(project, 'api'), ['@molecule/api-emails-resend'])
   }, 300_000)
 
@@ -173,7 +179,7 @@ describe('an app whose own edit overlaps the lines a feature changes', () => {
   beforeAll(async () => {
     app = join(scratch, 'edited-menu')
     create(app, ['--type', 'app', '--framework', 'react', '--packages', '@molecule/app-routing'])
-    await symlink(WORKSPACE_MODULES, join(app, 'node_modules'))
+    await symlink(fixtureModules, join(app, 'node_modules'))
     const file = join(app, 'src', 'components', 'UserMenu.tsx')
     userMenu = (await readFile(file, 'utf8')).replace('variant="ghost"', 'variant="outline"')
     await writeFile(file, userMenu)
@@ -205,7 +211,7 @@ describe('OAuth providers', () => {
       '@molecule/api-database-sqlite,@molecule/api-resource-user,@molecule/app-routing,@molecule/api-oauth-google',
     ])
     for (const half of ['api', 'app'])
-      await symlink(WORKSPACE_MODULES, join(project, half, 'node_modules'))
+      await symlink(fixtureModules, join(project, half, 'node_modules'))
   }, 300_000)
 
   it('are listed in registry order, as inject rewrites the list', () => {
@@ -238,7 +244,7 @@ describe('a package declared earlier without --inject', () => {
       '@molecule/api-database-sqlite,@molecule/api-resource-user,@molecule/app-routing',
     ])
     for (const half of ['api', 'app'])
-      await symlink(WORKSPACE_MODULES, join(project, half, 'node_modules'))
+      await symlink(fixtureModules, join(project, half, 'node_modules'))
     await add(join(project, 'api'), ['@molecule/api-emails-resend'], { inject: false })
   }, 300_000)
 

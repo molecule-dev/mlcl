@@ -1,0 +1,14 @@
+{
+  "name": "mlcl-feature-smoke-runtime-fixture",
+  "private": true,
+  "dependencies": {
+    "@molecule/api-emails-resend": "1.0.5",
+    "@molecule/api-locales-body-parser": "1.1.1",
+    "@molecule/api-locales-cache": "1.0.3",
+    "@molecule/api-locales-config": "1.0.3",
+    "@molecule/api-locales-database": "1.0.3",
+    "@molecule/api-locales-emails": "1.0.3",
+    "@molecule/api-locales-secrets": "1.0.3",
+    "@molecule/api-oauth-github": "1.2.3"
+  }
+}
