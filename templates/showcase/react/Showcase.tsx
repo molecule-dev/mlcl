@@ -9,7 +9,7 @@ const components = UI as unknown as Record<string, React.ComponentType<Record<st
 export function Showcase(): React.ReactNode {
   return (
     <div style={{ padding: 24 }}>
-      <h1 style={{ fontSize: 24, marginBottom: 24 }}>Molecule UI Showcase — React</h1>
+      <h1 style={{ fontSize: 24, marginBottom: 24 }}>Molecule UI Showcase</h1>
       {showcaseComponents.map((spec, specIndex) => {
         const Component = components[spec.name]
         if (!Component) return null

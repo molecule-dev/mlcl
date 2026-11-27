@@ -10,7 +10,7 @@ const components = UI as unknown as Record<string, Component<Record<string, unkn
 export const Showcase: Component = () => {
   return (
     <div style={{ padding: '24px' }}>
-      <h1 style={{ 'font-size': '24px', 'margin-bottom': '24px' }}>Molecule UI Showcase — Solid</h1>
+      <h1 style={{ 'font-size': '24px', 'margin-bottom': '24px' }}>Molecule UI Showcase</h1>
       <For each={showcaseComponents}>
         {(spec, specIndex) => {
           const Comp = components[spec.name]

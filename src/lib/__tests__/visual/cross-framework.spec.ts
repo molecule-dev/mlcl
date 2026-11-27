@@ -73,14 +73,12 @@ async function waitForShowcase(page: Page): Promise<void> {
  * @param name - The pair's file name.
  * @param react - React's screenshot.
  * @param actual - The framework's screenshot.
- * @param maxDiffPixelRatio - The share of pixels that may differ.
  */
 async function expectMatchesReact(
   testInfo: TestInfo,
   name: string,
   react: Buffer,
   actual: Buffer,
-  maxDiffPixelRatio: number,
 ): Promise<void> {
   // Updating would replace React's screenshot with the framework's and pass every pair.
   if (testInfo.config.updateSnapshots === 'all' || testInfo.config.updateSnapshots === 'changed')
@@ -88,7 +86,10 @@ async function expectMatchesReact(
   const expected = testInfo.snapshotPath(name)
   await mkdir(dirname(expected), { recursive: true })
   await writeFile(expected, react)
-  expect(actual).toMatchSnapshot(name, { maxDiffPixelRatio })
+  // Pixel for pixel: no pixel may differ, by any amount of colour. A share of differing pixels
+  // (1% of a section, 2% of the page until 2026-11-28) let React Native Web pass with 4,761
+  // pixels of its light page and seven sections different from React.
+  expect(actual).toMatchSnapshot(name, { maxDiffPixels: 0, threshold: 0 })
 }
 
 // ── Per-component cross-framework comparison ──────────────────────────
@@ -133,7 +134,6 @@ for (const entry of specEntries) {
           `${entry.name}-${entry.specIndex}-${framework}.png`,
           reactScreenshot,
           fwScreenshot,
-          0.01,
         )
       })
     }
@@ -158,6 +158,13 @@ test.describe('Capture', () => {
 
 // ── Theme consistency tests ───────────────────────────────────────────
 
+/**
+ * Where the showcase's theme provider keeps the chosen theme (templates/showcase/shared/bonds.ts,
+ * `persistKey`). The provider reads it once, on load, and marks a dark theme with the root's
+ * `dark` class.
+ */
+const SHOWCASE_THEME_KEY = 'molecule-showcase-theme'
+
 test.describe('Light theme consistency', () => {
   for (const framework of comparedFrameworks()) {
     test(`all components match React in light theme (${framework})`, async ({ page }, testInfo) => {
@@ -168,25 +175,25 @@ test.describe('Light theme consistency', () => {
        * @returns The screenshot.
        */
       const lightPage = async (url: string): Promise<Buffer> => {
+        // The theme provider applies the theme it finds saved when the page loads. A `data-theme`
+        // attribute set afterwards changed nothing, so until 2026-11-28 this compared the dark theme.
+        await page.addInitScript(([key, theme]) => localStorage.setItem(key, theme), [
+          SHOWCASE_THEME_KEY,
+          'light',
+        ] as const)
         await page.goto(url)
         await waitForShowcase(page)
-        await page.evaluate(() => {
-          document.documentElement.setAttribute('data-theme', 'light')
-        })
-        await page.waitForTimeout(300)
+        expect(
+          await page.evaluate(() => document.documentElement.classList.contains('dark')),
+          `${url} shows the light theme`,
+        ).toBe(false)
         return page.screenshot({ ...CAPTURE, fullPage: true })
       }
 
       const reactShot = await lightPage(getProject('react').url)
       const fwShot = await lightPage(getProject(framework).url)
 
-      await expectMatchesReact(
-        testInfo,
-        `full-page-light-${framework}.png`,
-        reactShot,
-        fwShot,
-        0.02,
-      )
+      await expectMatchesReact(testInfo, `full-page-light-${framework}.png`, reactShot, fwShot)
     })
   }
 })

@@ -140,7 +140,7 @@ function buildRenderSpecs(): SpecRender[] {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div style="padding: 24px">
-      <h1 style="font-size: 24px; margin-bottom: 24px">Molecule UI Showcase — Angular</h1>
+      <h1 style="font-size: 24px; margin-bottom: 24px">Molecule UI Showcase</h1>
       @for (item of renderSpecs; track item.specIndex) {
         <section
           [attr.data-component]="item.name"

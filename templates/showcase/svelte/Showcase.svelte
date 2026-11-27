@@ -56,7 +56,7 @@
 </script>
 
 <div style="padding: 24px">
-  <h1 style="font-size: 24px; margin-bottom: 24px">Molecule UI Showcase — Svelte</h1>
+  <h1 style="font-size: 24px; margin-bottom: 24px">Molecule UI Showcase</h1>
   {#each specs as spec, specIndex}
     {@const Component = components[spec.name]}
     {#if Component}

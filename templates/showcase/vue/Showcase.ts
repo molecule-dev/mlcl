@@ -10,7 +10,7 @@ export default defineComponent({
   setup() {
     return () =>
       h('div', { style: 'padding: 24px' }, [
-        h('h1', { style: 'font-size: 24px; margin-bottom: 24px' }, 'Molecule UI Showcase — Vue'),
+        h('h1', { style: 'font-size: 24px; margin-bottom: 24px' }, 'Molecule UI Showcase'),
         ...showcaseComponents.map((spec, specIndex) => {
           const Component = components[spec.name]
           if (!Component) return null
