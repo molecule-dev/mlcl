@@ -3,7 +3,19 @@
  *
  * Creates self-contained Vite dev server projects for each framework
  * (React, Vue, Svelte, Solid, Angular, React Native Web) by assembling
- * showcase templates and symlinking @molecule/* packages from the workspace.
+ * showcase templates. `MOLECULE_SHOWCASE_PACKAGES` decides where their
+ * `@molecule/*` packages come from:
+ *
+ * - `workspace` (the default, for a checkout inside molecule-workspace): every package of the
+ *   molecule checkout beside mlcl is symlinked into the showcase's `node_modules`, so a run sees
+ *   uncommitted source and installs nothing from npm.
+ * - `npm` (what CI sets, where mlcl is checked out alone): the showcase's `package.json` declares,
+ *   at the pins registry.json writes, each `@molecule/*` package its own files use and the required
+ *   peers beside them (the closure every scaffolded project gets), and installs them from npm
+ *   under the scaffold's own `.npmrc`.
+ *
+ * `MOLECULE_SHOWCASE_FRAMEWORKS` narrows a run to named frameworks: global-setup.ts starts
+ * React's showcase and theirs, and cross-framework.spec.ts compares only theirs.
  *
  * @module
  */
@@ -11,10 +23,13 @@
 import { type ChildProcess, spawn } from 'node:child_process'
 import { cp, mkdir, readdir, readFile, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { extname, join } from 'node:path'
+
+import { ts } from 'ts-morph'
 
 import { npmInstallArgs } from './npm-install.js'
-import { getRawRegistry, loadAppFrameworks, loadToolchain } from './registry.js'
+import { closeMoleculePeers, type MoleculePeerManifest } from './peer-closure.js'
+import { getMoleculeVersion, getRawRegistry, loadAppFrameworks, loadToolchain } from './registry.js'
 import {
   DEFAULT_TAILWIND_CSS_IMPORTS,
   withSuppliedStylesheet,
@@ -46,6 +61,94 @@ export type VisualTestFramework = (typeof VISUAL_TEST_FRAMEWORKS)[number]
 const MLCL_ROOT = join(import.meta.dirname, '..', '..')
 const TEMPLATES_DIR = join(MLCL_ROOT, 'templates', 'showcase')
 const MOLECULE_PACKAGES = join(MLCL_ROOT, '..', 'molecule', 'packages')
+/** The install rules of every scaffolded project (legacy peer resolution among them). */
+const NPMRC_TEMPLATE = join(MLCL_ROOT, 'templates', 'shared', 'npmrc.tpl')
+
+/** Where a showcase's `@molecule/*` packages come from. */
+export type ShowcasePackageSource = 'workspace' | 'npm'
+
+/**
+ * The package source `MOLECULE_SHOWCASE_PACKAGES` names: `workspace` when it is unset or empty.
+ *
+ * @param value - The environment value.
+ * @returns `workspace` or `npm`.
+ * @throws {Error} When the value names neither.
+ */
+export function showcasePackageSource(value: string | undefined): ShowcasePackageSource {
+  if (value === undefined || value === '') return 'workspace'
+  if (value === 'workspace' || value === 'npm') return value
+  throw new Error(`MOLECULE_SHOWCASE_PACKAGES must be "workspace" or "npm", got "${value}"`)
+}
+
+/** Files whose imports the TypeScript preprocessor reads: a `.svelte` or `.vue` script included. */
+const SCRIPT_EXTENSION = new Set([
+  '.ts',
+  '.tsx',
+  '.mts',
+  '.cts',
+  '.js',
+  '.jsx',
+  '.mjs',
+  '.cjs',
+  '.vue',
+  '.svelte',
+])
+
+/** A package's directory under `node_modules/@molecule/`, as a stylesheet's `@source` line names it. */
+const MOLECULE_DIRECTORY = /node_modules[/\\](@molecule[/\\][^'"`\s/\\]+)/g
+
+/** A single-file component: its imports are in its script blocks, not in its markup. */
+const SINGLE_FILE_COMPONENT = new Set(['.svelte', '.vue'])
+const SCRIPT_BLOCK = /<script\b[^>]*>([\s\S]*?)<\/script>/g
+
+/**
+ * The text a file's module specifiers are read from: a single-file component's script blocks, or
+ * the whole file for any other script.
+ *
+ * @param file - The file name.
+ * @param text - The file's content.
+ * @returns The script text.
+ */
+function scriptText(file: string, text: string): string {
+  if (!SINGLE_FILE_COMPONENT.has(extname(file))) return text
+  return [...text.matchAll(SCRIPT_BLOCK)].map((match) => match[1]).join('\n')
+}
+
+/**
+ * The `@molecule/*` packages a showcase project's own files use: each one a file imports (a
+ * subpath import counts as its package) and each one whose directory under `node_modules/@molecule/`
+ * a file names. Read from the project as written, so a showcase that starts using a package needs
+ * no list updated, and a package a file only mentions in a comment needs no install.
+ *
+ * @param dir - The showcase project.
+ * @returns The package names, sorted.
+ */
+export async function usedMoleculePackages(dir: string): Promise<string[]> {
+  const names = new Set<string>()
+  const visit = async (path: string): Promise<void> => {
+    for (const entry of await readdir(path, { withFileTypes: true })) {
+      if (entry.name === 'node_modules') continue
+      const file = join(path, entry.name)
+      if (entry.isDirectory()) {
+        await visit(file)
+        continue
+      }
+      if (!entry.isFile()) continue
+      const text = await readFile(file, 'utf8')
+      const extension = extname(entry.name)
+      if (SCRIPT_EXTENSION.has(extension))
+        for (const { fileName } of ts.preProcessFile(scriptText(entry.name, text)).importedFiles) {
+          if (!fileName.startsWith('@molecule/')) continue
+          // `@molecule/app-ui/sub` is the package `@molecule/app-ui`.
+          names.add(fileName.split('/').slice(0, 2).join('/'))
+        }
+      for (const match of text.matchAll(MOLECULE_DIRECTORY))
+        names.add(match[1].replaceAll('\\', '/'))
+    }
+  }
+  await visit(dir)
+  return [...names].sort()
+}
 
 /**
  * Recursively find all @molecule/* packages in a directory.
@@ -97,11 +200,12 @@ export interface ShowcaseProject {
  * Create a showcase project for a single framework in a temp directory.
  *
  * 1. Copies shared + framework-specific template files into src/
- * 2. Writes package.json with framework deps
+ * 2. Writes package.json with framework deps, and in the `npm` package source the
+ *    `@molecule/*` packages the showcase uses and their required peers at the registry pins
  * 3. Copies index.html to project root
  *
- * Note: @molecule/* symlinks are created AFTER npm install (in startShowcaseServer)
- * because npm install wipes node_modules.
+ * Note: in the `workspace` package source, @molecule/* symlinks are created AFTER npm install
+ * (in startShowcaseServer) because npm install wipes node_modules.
  *
  * Returns the project directory path. Caller is responsible for cleanup.
  */
@@ -170,28 +274,35 @@ export async function createShowcaseProject(
   await writeFile(indexCss, await withSuppliedStylesheet(srcDir, css))
 
   // 3. Write package.json
-  await writeFile(
-    join(dir, 'package.json'),
-    JSON.stringify(
-      {
-        name: `molecule-showcase-${framework}`,
-        version: '1.0.0',
-        private: true,
-        type: 'module',
-        dependencies: {
-          ...fwDeps.dependencies,
-        },
-        devDependencies: {
-          vite: toolchain.app.vite,
-          typescript: toolchain.shared.typescript,
-          ...styling.devDependencies,
-          ...fwDeps.devDependencies,
-        },
-      },
-      null,
-      2,
-    ),
-  )
+  const manifest: MoleculePeerManifest = {
+    name: `molecule-showcase-${framework}`,
+    version: '1.0.0',
+    private: true,
+    type: 'module',
+    dependencies: { ...fwDeps.dependencies },
+    devDependencies: {
+      vite: toolchain.app.vite,
+      typescript: toolchain.shared.typescript,
+      ...styling.devDependencies,
+      ...fwDeps.devDependencies,
+    },
+  }
+  if (showcasePackageSource(process.env.MOLECULE_SHOWCASE_PACKAGES) === 'npm') {
+    // The showcase's files say which packages it uses; the registry says which version a project
+    // pins each one to and which required peers are declared beside them.
+    const used = await usedMoleculePackages(dir)
+    if (used.length === 0)
+      throw new Error(
+        `${framework}'s showcase files use no @molecule/* package to install from npm`,
+      )
+    manifest.dependencies = Object.fromEntries([
+      ...Object.entries(manifest.dependencies ?? {}),
+      ...used.map((name) => [name, getMoleculeVersion(name)]),
+    ])
+    closeMoleculePeers(manifest)
+    await cp(NPMRC_TEMPLATE, join(dir, '.npmrc'))
+  }
+  await writeFile(join(dir, 'package.json'), JSON.stringify(manifest, null, 2))
 
   return dir
 }
@@ -199,9 +310,17 @@ export async function createShowcaseProject(
 /**
  * Symlink all @molecule/* packages into a project's node_modules.
  * Must be called AFTER npm install to avoid being overwritten.
+ *
+ * @param dir - The showcase project.
+ * @throws {Error} When the molecule checkout beside mlcl has no package: without it nothing is
+ *   linked, and Vite would fail on the first `@molecule/*` import without saying why.
  */
 async function symlinkMoleculePackages(dir: string): Promise<void> {
   const packages = await findMoleculePackages(MOLECULE_PACKAGES)
+  if (packages.size === 0)
+    throw new Error(
+      `no @molecule/* package under ${MOLECULE_PACKAGES}: the workspace package source needs the molecule checkout beside mlcl, or set MOLECULE_SHOWCASE_PACKAGES=npm to install the showcases' packages from npm`,
+    )
   const moleculeModulesDir = join(dir, 'node_modules', '@molecule')
   await mkdir(moleculeModulesDir, { recursive: true })
 
@@ -226,23 +345,35 @@ export async function startShowcaseServer(
   framework: VisualTestFramework,
   port: number,
 ): Promise<ShowcaseProject> {
-  // Install npm deps (framework runtime + Vite + Tailwind)
+  // Install npm deps (framework runtime + Vite + Tailwind, and in the `npm` package source the
+  // @molecule/* packages)
   const install = spawn('npm', [...npmInstallArgs(), '--ignore-scripts'], {
     cwd: dir,
     stdio: ['ignore', 'pipe', 'pipe'],
     env: { ...process.env, NODE_ENV: 'development' },
   })
+  // npm's output is kept for a failure: a pin npm does not serve, or a peer it cannot resolve, is
+  // in it and nowhere else.
+  let installOutput = ''
+  install.stdout.on('data', (data: Buffer) => (installOutput += data.toString()))
+  install.stderr.on('data', (data: Buffer) => (installOutput += data.toString()))
 
   await new Promise<void>((resolve, reject) => {
     install.on('close', (code) => {
       if (code === 0) resolve()
-      else reject(new Error(`npm install failed in ${dir} with code ${code}`))
+      else
+        reject(
+          new Error(
+            `npm install failed in ${dir} with code ${code}:\n${installOutput.trim().slice(-2000)}`,
+          ),
+        )
     })
     install.on('error', reject)
   })
 
   // Symlink @molecule/* packages AFTER npm install (which wipes node_modules)
-  await symlinkMoleculePackages(dir)
+  if (showcasePackageSource(process.env.MOLECULE_SHOWCASE_PACKAGES) === 'workspace')
+    await symlinkMoleculePackages(dir)
 
   // Start Vite dev server, as its own process group: `npx` runs Vite as a child, so stopping
   // only the npx process left Vite holding the port (2026-11-27: after one failed test the
@@ -253,7 +384,8 @@ export async function startShowcaseServer(
   // npm's own to read, so without the `--` npm 11.20 drops both (with an "Unknown cli config"
   // warning) and hands Vite only the number. Every showcase then listens on Vite's default port
   // while the comparisons go to the showcase ports, and each fails on a refused connection
-  // (2026-11-27, the day `--no` was added; npx-no-download.test.ts checks every such call).
+  // (2026-11-27, the day `--no` was added; visual-test-server.test.ts runs this launch, and
+  // npx-no-download.test.ts checks every such call).
   const viteProcess = spawn('npx', ['--no', '--', 'vite', '--port', String(port), '--strictPort'], {
     cwd: dir,
     detached: true,
@@ -325,10 +457,62 @@ export function showcaseBasePort(value: string | undefined): number {
 }
 
 /**
- * Create and start showcase projects for all frameworks.
+ * The frameworks this run starts showcases for: every one, or React's and the ones
+ * `MOLECULE_SHOWCASE_FRAMEWORKS` names (comma-separated). global-setup.ts starts these, and
+ * cross-framework.spec.ts compares the ones besides React, so one framework's run installs two
+ * showcases instead of six. React is always among them: every comparison needs its showcase.
+ *
+ * @param value - The environment value.
+ * @returns The frameworks, in the order of {@link VISUAL_TEST_FRAMEWORKS}.
+ * @throws {Error} When a name is not a showcase framework.
+ */
+export function showcaseFrameworks(value: string | undefined): VisualTestFramework[] {
+  const named = (value ?? '')
+    .split(',')
+    .map((name) => name.trim())
+    .filter((name) => name !== '')
+  if (named.length === 0) return [...VISUAL_TEST_FRAMEWORKS]
+  const unknown = named.filter(
+    (name) => !(VISUAL_TEST_FRAMEWORKS as readonly string[]).includes(name),
+  )
+  if (unknown.length > 0)
+    throw new Error(
+      `MOLECULE_SHOWCASE_FRAMEWORKS names ${unknown.join(', ')}; expected a comma-separated list of ${VISUAL_TEST_FRAMEWORKS.join(', ')}`,
+    )
+  return VISUAL_TEST_FRAMEWORKS.filter(
+    (framework) => framework === 'react' || named.includes(framework),
+  )
+}
+
+/**
+ * The frameworks {@link showcaseFrameworks} gives this run, besides React: what
+ * cross-framework.spec.ts compares with React.
+ *
+ * @returns The frameworks, in the order of {@link VISUAL_TEST_FRAMEWORKS}.
+ */
+export function comparedFrameworks(): VisualTestFramework[] {
+  return showcaseFrameworks(process.env.MOLECULE_SHOWCASE_FRAMEWORKS).filter(
+    (framework) => framework !== 'react',
+  )
+}
+
+/**
+ * A framework's showcase port: the base port plus its place in {@link VISUAL_TEST_FRAMEWORKS}, so
+ * a framework keeps its port in a run that starts only some of the showcases.
+ *
+ * @param framework - The framework.
+ * @returns The port.
+ */
+export function showcasePort(framework: VisualTestFramework): number {
+  return BASE_PORT + VISUAL_TEST_FRAMEWORKS.indexOf(framework)
+}
+
+/**
+ * Create and start showcase projects for the frameworks of this run
+ * ({@link showcaseFrameworks}; every one by default).
  *
  * Creates a shared temp directory, generates a project per framework,
- * installs deps, and starts Vite dev servers on sequential ports.
+ * installs deps, and starts a Vite dev server on each one's port ({@link showcasePort}).
  *
  * Returns all running projects. Caller must call `stopShowcaseServers()`
  * when done.
@@ -339,11 +523,9 @@ export async function startAllShowcases(baseDir?: string): Promise<ShowcaseProje
 
   const projects: ShowcaseProject[] = []
 
-  for (let i = 0; i < VISUAL_TEST_FRAMEWORKS.length; i++) {
-    const framework = VISUAL_TEST_FRAMEWORKS[i]
-    const port = BASE_PORT + i
+  for (const framework of showcaseFrameworks(process.env.MOLECULE_SHOWCASE_FRAMEWORKS)) {
     const projectDir = await createShowcaseProject(framework, dir)
-    const project = await startShowcaseServer(projectDir, framework, port)
+    const project = await startShowcaseServer(projectDir, framework, showcasePort(framework))
     projects.push(project)
   }
 

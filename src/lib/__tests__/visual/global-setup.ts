@@ -7,6 +7,10 @@
  * still held their ports). A global setup runs once per run; the workers read the servers'
  * addresses from `MOLECULE_SHOWCASE_URLS`.
  *
+ * The run's environment decides which showcases start and where their `@molecule/*` packages come
+ * from (`MOLECULE_SHOWCASE_FRAMEWORKS`, `MOLECULE_SHOWCASE_PACKAGES`: ../../visual-test.js). CI
+ * sets both: one framework beside React, installed from npm.
+ *
  * @module
  */
 
@@ -15,19 +19,20 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import {
-  BASE_PORT,
   createShowcaseProject,
+  showcaseFrameworks,
+  showcasePort,
   type ShowcaseProject,
   startShowcaseServer,
   stopShowcaseServers,
-  VISUAL_TEST_FRAMEWORKS,
 } from '../../visual-test.js'
 
 /** The environment variable that carries each framework's showcase address to the workers. */
 export const SHOWCASE_URLS_ENV = 'MOLECULE_SHOWCASE_URLS'
 
 /**
- * Create and start every framework's showcase.
+ * Create and start the run's showcases: every framework's, or React's and the ones
+ * `MOLECULE_SHOWCASE_FRAMEWORKS` names.
  *
  * @returns The teardown, which stops the servers and removes the projects.
  */
@@ -39,10 +44,11 @@ export default async function globalSetup(): Promise<() => Promise<void>> {
     await rm(baseDir, { recursive: true, force: true })
   }
   try {
-    for (let i = 0; i < VISUAL_TEST_FRAMEWORKS.length; i++) {
-      const framework = VISUAL_TEST_FRAMEWORKS[i]
+    for (const framework of showcaseFrameworks(process.env.MOLECULE_SHOWCASE_FRAMEWORKS)) {
+      // Said at the start, so a slow or failed install is attributed to its showcase in the log.
+      console.log(`▸ ${framework}: installing and starting its showcase`)
       const projectDir = await createShowcaseProject(framework, baseDir)
-      projects.push(await startShowcaseServer(projectDir, framework, BASE_PORT + i))
+      projects.push(await startShowcaseServer(projectDir, framework, showcasePort(framework)))
     }
   } catch (error) {
     await teardown()

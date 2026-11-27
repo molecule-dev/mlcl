@@ -20,6 +20,10 @@
  * macOS snapshot, so a framework that drifted from React still passed, and the only snapshots
  * were macOS ones that no other platform could compare against.
  *
+ * The comparisons are the ones for the frameworks global-setup.ts started besides React
+ * (`MOLECULE_SHOWCASE_FRAMEWORKS`: every framework when unset). `--grep` narrows them further
+ * within those.
+ *
  * @module
  */
 
@@ -30,7 +34,7 @@ import { expect, type Page, test, type TestInfo } from '@playwright/test'
 
 import { showcaseComponents } from '@molecule/app-ui-showcase'
 
-import { VISUAL_TEST_FRAMEWORKS, type VisualTestFramework } from '../../visual-test.js'
+import { comparedFrameworks, type VisualTestFramework } from '../../visual-test.js'
 import { SHOWCASE_URLS_ENV } from './global-setup.js'
 
 /**
@@ -45,6 +49,15 @@ function getProject(framework: VisualTestFramework): { url: string } {
   if (!url) throw new Error(`No showcase running for ${framework} (${SHOWCASE_URLS_ENV} unset)`)
   return { url }
 }
+
+/**
+ * How every comparison captures a showcase: with CSS animations and transitions stopped, an
+ * infinite one (Spinner's rotation, Skeleton's pulse) at its first frame. Running, they made two
+ * captures of the same component differ by when each was taken: Spinner failed one run in three
+ * under load (2026-11-27, Svelte and Solid, 1,308 pixels), passing or failing on timing, never on
+ * the kit.
+ */
+const CAPTURE = { animations: 'disabled' } as const
 
 /** Wait for the showcase page to fully render */
 async function waitForShowcase(page: Page): Promise<void> {
@@ -94,7 +107,7 @@ const specEntries = showcaseComponents.map((spec, index) => ({
 
 for (const entry of specEntries) {
   test.describe(`${entry.label}`, () => {
-    const nonBaselineFrameworks = VISUAL_TEST_FRAMEWORKS.filter((f) => f !== 'react')
+    const nonBaselineFrameworks = comparedFrameworks()
 
     for (const framework of nonBaselineFrameworks) {
       test(`renders identically in ${framework} vs React`, async ({ page }, testInfo) => {
@@ -105,7 +118,7 @@ for (const entry of specEntries) {
         await waitForShowcase(page)
         const reactSection = page.locator(section)
         await expect(reactSection).toBeVisible({ timeout: 10_000 })
-        const reactScreenshot = await reactSection.screenshot()
+        const reactScreenshot = await reactSection.screenshot(CAPTURE)
 
         // Screenshot the same component section in the other framework. A framework that does not
         // render the section is a parity gap, so it fails here, naming the section.
@@ -113,7 +126,7 @@ for (const entry of specEntries) {
         await waitForShowcase(page)
         const fwSection = page.locator(section)
         await expect(fwSection, `${framework} renders ${section}`).toBeVisible({ timeout: 10_000 })
-        const fwScreenshot = await fwSection.screenshot()
+        const fwScreenshot = await fwSection.screenshot(CAPTURE)
 
         await expectMatchesReact(
           testInfo,
@@ -127,10 +140,26 @@ for (const entry of specEntries) {
   })
 }
 
+// ── Capture ───────────────────────────────────────────────────────────
+
+test.describe('Capture', () => {
+  test('a section captured at two moments is the same image', async ({ page }) => {
+    // Spinner rotates a quarter turn in 250 ms: with its animation running the two captures differ.
+    await page.goto(getProject('react').url)
+    await waitForShowcase(page)
+    const spinner = page.locator('[data-component="Spinner"]').first()
+    await expect(spinner).toBeVisible({ timeout: 10_000 })
+    const first = await spinner.screenshot(CAPTURE)
+    await page.waitForTimeout(250)
+    const second = await spinner.screenshot(CAPTURE)
+    expect(second.equals(first), 'two captures of the Spinner section are identical').toBe(true)
+  })
+})
+
 // ── Theme consistency tests ───────────────────────────────────────────
 
 test.describe('Light theme consistency', () => {
-  for (const framework of VISUAL_TEST_FRAMEWORKS.filter((f) => f !== 'react')) {
+  for (const framework of comparedFrameworks()) {
     test(`all components match React in light theme (${framework})`, async ({ page }, testInfo) => {
       /**
        * Screenshot a showcase's whole page in the light theme.
@@ -145,7 +174,7 @@ test.describe('Light theme consistency', () => {
           document.documentElement.setAttribute('data-theme', 'light')
         })
         await page.waitForTimeout(300)
-        return page.screenshot({ fullPage: true })
+        return page.screenshot({ ...CAPTURE, fullPage: true })
       }
 
       const reactShot = await lightPage(getProject('react').url)
