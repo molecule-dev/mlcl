@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx watch --include 'src/**/*' --include 'migrations/*.sql' --exclude 'src/**/__tests__/**' --exclude 'src/**/*.test.*' --exclude 'src/**/*.spec.*' --env-file=.env src/server.ts",
+    "dev": "tsx watch --include 'src/**/*' --include 'migrations/*.sql' --exclude 'src/**/__tests__/**' --exclude 'src/**/*.test.*' --exclude 'src/**/*.spec.*' --env-file-if-exists=.env src/server.ts",
     "build": "tsc",
     "start": "node --env-file-if-exists=.env dist/server.js",
     "test": "vitest run",
-    "db:setup": "tsx --env-file=.env src/scripts/migrate.ts",
+    "db:setup": "tsx --env-file-if-exists=.env src/scripts/migrate.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",

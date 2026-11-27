@@ -15,6 +15,7 @@
  * @module
  */
 
+import { spawnSync } from 'node:child_process'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { mkdtemp, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -53,7 +54,7 @@ describe('scaffolded API scripts load .env', () => {
     expect(scaffolded.dev).toBe(template.dev)
     expect(scaffolded.start).toBe(template.start)
     expect(scaffolded['db:setup']).toBe(template['db:setup'])
-    expect(scaffolded.dev).toContain('--env-file=.env')
+    expect(scaffolded.dev).toContain('--env-file-if-exists=.env')
     // The native watch suite exercises these two commands. Every template must ship
     // that same command, including its crash recovery and non-source exclusions.
     for (const name of readdirSync(TEMPLATES_DIR)) {
@@ -70,20 +71,41 @@ describe('scaffolded API scripts load .env', () => {
       const apiDir = join(TEMPLATES_DIR, name, 'api')
       if (!existsSync(join(apiDir, 'package.json'))) continue
       const scripts = apiScripts(apiDir)
-      if (!(scripts.dev ?? '').includes('--env-file=.env')) missing.push(`${name} dev`)
+      if (!(scripts.dev ?? '').includes('--env-file-if-exists=.env')) missing.push(`${name} dev`)
       if (!(scripts.start ?? '').includes('--env-file-if-exists=.env'))
         missing.push(`${name} start`)
-      if (!(scripts['db:setup'] ?? '').includes('--env-file=.env')) missing.push(`${name} db:setup`)
+      if (!(scripts['db:setup'] ?? '').includes('--env-file-if-exists=.env'))
+        missing.push(`${name} db:setup`)
     }
     expect(missing).toEqual([])
   })
 
+  it('each script starts in a fresh clone, which has no .env (git ignores it)', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-api-devscript-'))
+    await createApiProject(dir, 'demo-api')
+    const scripts = apiScripts(dir)
+    const empty = await mkdtemp(join(tmpdir(), 'mlcl-api-clone-'))
+    try {
+      for (const name of ['dev', 'start', 'db:setup']) {
+        const flag = scripts[name]?.split(/\s+/).find((word) => word.startsWith('--env-file'))
+        expect(flag, `${name} loads .env`).toBeTruthy()
+        // Node itself reads the flag, before any app code: run it with nothing else.
+        const run = spawnSync(process.execPath, [flag!, '-e', ''], { cwd: empty, encoding: 'utf8' })
+        // The plain `--env-file=.env` exits 9 with "node: .env: not found".
+        expect(run.stderr, name).not.toContain('node: .env: not found')
+        expect(run.status, name).toBe(0)
+      }
+    } finally {
+      await rm(empty, { recursive: true, force: true })
+    }
+  })
+
   it('the .env the scripts load is written even for a secret-less project', async () => {
-    // `--env-file=.env` (no `-if-exists`) makes node FAIL on a missing file, so
-    // every scaffold path must write one: `mlcl create --template` at
+    // Every scaffold path writes one, so a dev server started right after create
+    // reads its keys (a fresh clone, which has none, still starts): `mlcl create --template` at
     // create.ts:346 and the custom path at create.ts:1034/1047, both through
     // `generateEnvFile`. A project selecting no secret-bearing package must
-    // still get its `.env`, or `npm run dev` never starts.
+    // still get its `.env`.
     dir = await mkdtemp(join(tmpdir(), 'mlcl-api-devscript-'))
     await generateEnvFile(dir, [], 'api', 'demo-api')
     const env = await readFile(join(dir, '.env'), 'utf-8')

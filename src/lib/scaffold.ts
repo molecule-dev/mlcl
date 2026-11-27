@@ -2413,6 +2413,44 @@ async function addHuskyToPackageJson(packageJsonPath: string): Promise<void> {
 }
 
 /**
+ * A full-stack project's root `dev` script: both dev servers under `concurrently -k`, so each half's output is
+ * prefixed and a half that exits stops the other. The older `npm run dev:api & npm run dev:app` never started the app
+ * on Windows, where npm runs scripts with cmd.exe and `a & b` starts b only after a exits; elsewhere an API that
+ * crashed left the app running.
+ */
+export const FULL_STACK_DEV_SCRIPT = 'concurrently -k -n api,app npm:dev:api npm:dev:app'
+
+/** The exact `concurrently` the root `dev` script runs (Node >= 22, as `mlcl create` requires). */
+export const CONCURRENTLY_VERSION = '10.0.7'
+
+/** The background-job `dev` script the flagship sources still carry. */
+const BACKGROUND_JOB_DEV_SCRIPT = 'npm run dev:api & npm run dev:app'
+
+/**
+ * Give a flagship copy the full-stack `dev` script. Flagship sources carry the background-job script, and molecule.dev
+ * sandboxes copy them raw and start each half on its own, so the switch happens here, for `mlcl create --template`.
+ * Any other `dev` script is kept.
+ *
+ * @param projectRoot - Absolute path to the project root.
+ */
+export async function useFullStackDevScript(projectRoot: string): Promise<void> {
+  const packageJsonPath = join(projectRoot, 'package.json')
+  if (!existsSync(packageJsonPath)) return
+  const pkg = JSON.parse(await readFile(packageJsonPath, 'utf-8')) as {
+    scripts?: Record<string, string>
+    devDependencies?: Record<string, string>
+    [key: string]: unknown
+  }
+  if (pkg.scripts?.dev !== BACKGROUND_JOB_DEV_SCRIPT) return
+  pkg.scripts = { ...pkg.scripts, dev: FULL_STACK_DEV_SCRIPT }
+  pkg.devDependencies = sortKeys({
+    ...(pkg.devDependencies ?? {}),
+    concurrently: CONCURRENTLY_VERSION,
+  })
+  await writeGuarded(packageJsonPath, JSON.stringify(pkg, null, 2) + '\n')
+}
+
+/**
  * Copy a fully-baked template instance from `templateDir` into a fresh user
  * project at `destDir`. Replaces the package-driven scaffold path entirely
  * for `mlcl create --template <app>`: each template at
@@ -2498,6 +2536,7 @@ export async function copyTemplateInstance(
   // security CI + Dependabot config as a custom build. Templates ship no
   // `.github/`, so this is the only writer of it on the fast path.
   await scaffoldSecurityWorkflow(destDir, projectName)
+  await useFullStackDevScript(destDir)
 
   // eslint.config is shared INFRA, not template-specific. The per-template copies
   // are identical to the base tpl but drift over time (e.g. they predate the
@@ -3459,11 +3498,14 @@ export async function createApiProject(
       // flash-m64 spent 4 min 26 s on exactly that, reading it as a JWT key
       // mismatch). `mlcl/src/lib/__tests__/scaffold-api-dev-script.test.ts` pins
       // these three lines against the templates so they cannot drift again.
-      dev: "tsx watch --include 'src/**/*' --include 'migrations/*.sql' --exclude 'src/**/__tests__/**' --exclude 'src/**/*.test.*' --exclude 'src/**/*.spec.*' --env-file=.env src/server.ts",
+      // `-if-exists` on all three: git ignores `.env`, so a fresh clone has none, and
+      // the plain flag made `npm run dev` exit with only "node: .env: not found"
+      // while the API runs without it (harness smoke run, 2026-11-27).
+      dev: "tsx watch --include 'src/**/*' --include 'migrations/*.sql' --exclude 'src/**/__tests__/**' --exclude 'src/**/*.test.*' --exclude 'src/**/*.spec.*' --env-file-if-exists=.env src/server.ts",
       build: 'tsc',
       start: 'node --env-file-if-exists=.env dist/server.js',
       test: 'vitest run',
-      'db:setup': 'tsx --env-file=.env src/scripts/migrate.ts',
+      'db:setup': 'tsx --env-file-if-exists=.env src/scripts/migrate.ts',
       typecheck: 'tsc --noEmit',
       lint: 'eslint src/',
       'lint:fix': 'eslint src/ --fix',
@@ -3526,6 +3568,12 @@ export async function createApiProject(
     await loadTemplate('api/bonds-index.ts.tpl'),
   )
   await writeFile(join(projectPath, 'src', 'server.ts'), await loadTemplate('api/server.ts.tpl'))
+  // The flagship APIs' vitest config. Without one, vitest takes the nearest config above the
+  // project (a monorepo's root one, which ran that repo's tests in place of the project's).
+  await writeFile(
+    join(projectPath, 'vitest.config.ts'),
+    await loadTemplate('api/vitest.config.ts.tpl'),
+  )
   // No migrate.ts placeholder here. The skeleton's package selection is not
   // known yet, and the runner statically imports the database bond's pieces
   // (`pg`, `deriveSsl`, the PGlite migrator wrapper) — a placeholder would
@@ -3673,7 +3721,7 @@ export async function createFullStackProject(
     description: `${projectName} — full-stack Molecule project`,
     workspaces: ['api', 'app'],
     scripts: {
-      dev: 'npm run dev:api & npm run dev:app',
+      dev: FULL_STACK_DEV_SCRIPT,
       'dev:api': 'npm run dev --workspace=api',
       'dev:app': 'npm run dev --workspace=app',
       build: 'npm run build --workspace=api && npm run build --workspace=app',
@@ -3683,6 +3731,7 @@ export async function createFullStackProject(
       'test:api': 'npm run test --workspace=api',
       'test:app': 'npm run test --workspace=app',
     },
+    devDependencies: { concurrently: CONCURRENTLY_VERSION },
     ...(Object.keys(npmOverrides).length > 0 ? { overrides: npmOverrides } : {}),
   }
 
