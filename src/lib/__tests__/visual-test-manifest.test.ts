@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { clearRegistryCache, getRegistryPath } from '../registry.js'
-import { createShowcaseProject, VISUAL_TEST_FRAMEWORKS } from '../visual-test.js'
+import { createShowcaseProject, showcaseBasePort, VISUAL_TEST_FRAMEWORKS } from '../visual-test.js'
 
 let scratch: string
 let registry: {
@@ -85,5 +85,16 @@ describe('showcase install manifests', () => {
     await writeFile(join(scratch, 'registry.json'), JSON.stringify(registry))
     clearRegistryCache()
     await expect(createShowcaseProject('vue', scratch)).rejects.toThrow(/framework.*vue/i)
+  })
+})
+
+// Two parity runs on one machine (a coordinator and a fixer) need separate port ranges.
+describe('showcase base port', () => {
+  it('is 5200 unless MOLECULE_SHOWCASE_BASE_PORT moves it, and refuses a value that is not a port', () => {
+    expect(showcaseBasePort(undefined)).toBe(5200)
+    expect(showcaseBasePort('')).toBe(5200)
+    expect(showcaseBasePort('5300')).toBe(5300)
+    expect(() => showcaseBasePort('53oo')).toThrow(/MOLECULE_SHOWCASE_BASE_PORT/)
+    expect(() => showcaseBasePort('80')).toThrow(/1024 to 65000/)
   })
 })

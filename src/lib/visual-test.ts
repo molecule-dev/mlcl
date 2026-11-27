@@ -297,8 +297,25 @@ export async function startShowcaseServer(
   }
 }
 
-/** Starting port for showcase dev servers (each framework gets port + index) */
-export const BASE_PORT = 5200
+/**
+ * Starting port for showcase dev servers (each framework gets port + index).
+ * `MOLECULE_SHOWCASE_BASE_PORT` moves the range, so two runs on one machine do not collide.
+ */
+export const BASE_PORT = showcaseBasePort(process.env.MOLECULE_SHOWCASE_BASE_PORT)
+
+/**
+ * Read the showcase base port from its environment value.
+ *
+ * @param value - `MOLECULE_SHOWCASE_BASE_PORT`, if set.
+ * @returns The port, 5200 when unset.
+ */
+export function showcaseBasePort(value: string | undefined): number {
+  if (value === undefined || value === '') return 5200
+  const port = Number(value)
+  if (!Number.isInteger(port) || port < 1024 || port > 65_000)
+    throw new Error(`MOLECULE_SHOWCASE_BASE_PORT must be a port from 1024 to 65000, got "${value}"`)
+  return port
+}
 
 /**
  * Create and start showcase projects for all frameworks.
