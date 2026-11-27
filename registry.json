@@ -37200,6 +37200,41 @@
       ],
       "quickStart": "import { requireProvider, setProvider } from '@molecule/app-audio'\nimport { provider } from '@molecule/app-audio-howler'\n\nsetProvider(provider) // at startup\n\nconst player = requireProvider().createPlayer({\n  src: '/audio/track.mp3',\n  volume: 0.8,\n  onEnd: () => console.log('Playback finished'),\n})\nplayButton.onclick = () => player.play() // user gesture — autoplay is blocked"
     },
+    "@molecule/app-audio-expo": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "audio",
+      "label": "Expo Audio",
+      "description": "Expo audio playback provider for molecule.dev.",
+      "stack": "app",
+      "implements": "@molecule/app-audio",
+      "autoInstallRequires": [
+        "expo"
+      ],
+      "exports": [
+        "provider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-audio",
+        "@molecule/app-logger",
+        "expo-audio"
+      ],
+      "moleculePeers": [
+        "@molecule/app-audio",
+        "@molecule/app-logger"
+      ],
+      "thirdPartyDependencies": {
+        "dependencies": {},
+        "peerDependencies": {
+          "expo-audio": "0.4.9"
+        }
+      },
+      "framework": "react-native",
+      "path": "packages/app/bonds/audio/expo",
+      "quickStart": "import { setProvider } from '@molecule/app-audio'\nimport { provider } from '@molecule/app-audio-expo'\n\nsetProvider(provider)"
+    },
     "@molecule/app-audio-howler": {
       "language": "typescript",
       "runtime": "node",
@@ -37286,7 +37321,7 @@
       "type": "feature",
       "category": "audio-player",
       "label": "Audio Player React",
-      "description": "HTML5 audio player chrome — play/pause, scrub, time, mute toggle, optional visualizer slot",
+      "description": "Audio player for React DOM and React Native with play, pause, seek, mute, and captions.",
       "stack": "app",
       "webOnlyReason": "plays through an HTML `<audio>` element",
       "exports": [
@@ -37295,12 +37330,16 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-audio",
+        "@molecule/app-logger",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-audio",
+        "@molecule/app-logger",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
