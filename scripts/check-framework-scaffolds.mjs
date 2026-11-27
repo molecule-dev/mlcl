@@ -20,6 +20,8 @@
  * on 2026-11-22 the svelte layout kept passing `afterNavigate` after the pin moved to
  * @molecule/app-routing-sveltekit 3.0.0, whose `SvelteKitExports` reads `navigating` instead,
  * and every fresh svelte app failed svelte-check until a local run of the workspace gate saw it.
+ * Angular also checks what Vite serves for the root component in dev. The plain Angular job
+ * runs the same check on the visual showcase and boots its client build in jsdom.
  *
  * The framework names are registry.json's `appFrameworks` keys; CI runs one job per name.
  * --with-features scaffolds a full-stack project instead, with one package for each optional
@@ -171,6 +173,64 @@ function usePacks(dir, packDir) {
   return names
 }
 
+/**
+ * Checks the installed project's client transform without starting a listener.
+ *
+ * @param {string} dir - The project directory.
+ * @param {string} url - The root component's module URL.
+ * @param {string} component - The exported component class name.
+ * @returns {{ ok: boolean, output: string }} The dev AOT check result.
+ */
+function checkAngularDevAot(dir, url, component) {
+  return run(
+    process.execPath,
+    [join(MLCL, 'scripts', 'check-angular-dev-aot.mjs'), url, component],
+    dir,
+  )
+}
+
+/**
+ * Checks the generated visual showcase in the standalone CI checkout.
+ *
+ * @param {string} parent - The temporary directory for the scaffold gate.
+ * @returns {Promise<{ step: string, ok: boolean, output: string }[]>} The showcase check results.
+ */
+async function checkAngularShowcase(parent) {
+  const { createShowcaseProject } = await import('../dist/lib/visual-test.js')
+  const { getMoleculeVersion } = await import('../dist/lib/registry.js')
+  const { npmInstallArgs } = await import('../dist/lib/npm-install.js')
+  const dir = await createShowcaseProject('angular', parent)
+  // The visual runner links the local fleet. CI installs the showcase's imports from npm.
+  const packages = [
+    '@molecule/app-angular',
+    '@molecule/app-icons',
+    '@molecule/app-icons-molecule',
+    '@molecule/app-theme',
+    '@molecule/app-theme-css-variables',
+    '@molecule/app-ui',
+    '@molecule/app-ui-angular',
+    '@molecule/app-ui-showcase',
+    '@molecule/app-ui-tailwind',
+  ]
+  const file = join(dir, 'package.json')
+  const manifest = JSON.parse(readFileSync(file, 'utf8'))
+  for (const name of packages) manifest.dependencies[name] = getMoleculeVersion(name)
+  writeFileSync(file, JSON.stringify(manifest, null, 2) + '\n')
+  if (packs) usePacks(dir, packs)
+  const install = run('npm', [...npmInstallArgs({ preferOffline: true }), '--ignore-scripts'], dir)
+  if (!install.ok) return [{ step: 'showcase-install', ...install }]
+  return [
+    {
+      step: 'showcase-dev-aot',
+      ...checkAngularDevAot(dir, '/src/Showcase.ts', 'ShowcaseComponent'),
+    },
+    {
+      step: 'showcase-render',
+      ...run(process.execPath, [join(MLCL, 'scripts', 'check-angular-showcase-render.mjs')], dir),
+    },
+  ]
+}
+
 // The project name is the directory name and must be lowercase; mkdtemp's suffix names the parent.
 const parent = mkdtempSync(join(process.env.MLCL_SCAFFOLD_TMP ?? tmpdir(), 'mlcl-scaffold-'))
 const name = `${withFeatures ? 'features' : 'app'}-${framework}`
@@ -251,6 +311,17 @@ try {
             step: 'lint-coverage',
             output: `eslint never read ${unread.length} source file(s):\n${unread.join('\n')}`,
           })
+      }
+      if (framework === 'angular') {
+        const dev = checkAngularDevAot(appDir, '/src/app.component.ts', 'AppComponent')
+        ran.push('dev-aot')
+        if (!dev.ok) failures.push({ step: 'dev-aot', output: dev.output })
+        if (!withFeatures) {
+          for (const { step, ok, output } of await checkAngularShowcase(parent)) {
+            ran.push(step)
+            if (!ok) failures.push({ step, output })
+          }
+        }
       }
     }
   }

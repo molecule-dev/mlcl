@@ -1,6 +1,6 @@
 import { NgComponentOutlet } from '@angular/common'
-import { ChangeDetectionStrategy, Component, type Type } from '@angular/core'
-import type { DomSanitizer, SafeHtml } from '@angular/platform-browser'
+import { ChangeDetectionStrategy, Component, inject, type Type } from '@angular/core'
+import { DomSanitizer, type SafeHtml } from '@angular/platform-browser'
 
 import { getIcon, type IconName } from '@molecule/app-icons'
 import { type ColorVariant, getClassMap, type Size, type UIClassMap } from '@molecule/app-ui'
@@ -192,16 +192,18 @@ function createContent(children: string | false | undefined): Node[][] {
                       <table [class]="tableClass(combo.props)">
                         <thead [class]="cm.tableHeader">
                           <tr [class]="cm.tableRow">
-                            @for (col of asArray(combo.props['columns']); track $index) {
+                            @for (col of asRecords(combo.props['columns']); track $index) {
                               <th [class]="tableHeadClass(col)">{{ col.header }}</th>
                             }
                           </tr>
                         </thead>
                         <tbody [class]="cm.tableBody">
-                          @for (row of asArray(combo.props['data']); track $index) {
+                          @for (row of asRecords(combo.props['data']); track $index) {
                             <tr [class]="tableRowClass(combo.props, $index)">
-                              @for (col of asArray(combo.props['columns']); track $index) {
-                                <td [class]="tableCellClass(col)">{{ row[col.key] }}</td>
+                              @for (col of asRecords(combo.props['columns']); track $index) {
+                                <td [class]="tableCellClass(col)">
+                                  {{ tableCellValue(row, col.key) }}
+                                </td>
                               }
                             </tr>
                           }
@@ -212,7 +214,7 @@ function createContent(children: string | false | undefined): Node[][] {
                   @case ('Tabs') {
                     <div>
                       <div role="tablist" [class]="tabsListClass(combo.props)">
-                        @for (tab of asArray(combo.props['items']); track tab.value) {
+                        @for (tab of asRecords(combo.props['items']); track tab.value) {
                           <button
                             type="button"
                             role="tab"
@@ -236,7 +238,7 @@ function createContent(children: string | false | undefined): Node[][] {
                   }
                   @case ('Accordion') {
                     <div [class]="cm.accordionRoot">
-                      @for (accItem of asArray(combo.props['items']); track accItem.value) {
+                      @for (accItem of asRecords(combo.props['items']); track accItem.value) {
                         <div
                           [class]="cm.accordionItem"
                           [attr.data-state]="
@@ -375,7 +377,9 @@ export class ShowcaseComponent {
   chevronSvg: SafeHtml
   pgIcons: Record<string, SafeHtml>
 
-  constructor(private sanitizer: DomSanitizer) {
+  private readonly sanitizer = inject(DomSanitizer)
+
+  constructor() {
     this.cm = getClassMap()
 
     this.chevronSvg = this.trustSvg('chevron-down', this.cm.accordionChevron)
@@ -521,6 +525,10 @@ export class ShowcaseComponent {
     )
   }
 
+  tableCellValue(row: Record<string, unknown>, key: unknown): unknown {
+    return typeof key === 'string' ? row[key] : undefined
+  }
+
   // ── Tabs ─────────────────────────────────────────────────────────────
 
   tabsListClass(props: Record<string, unknown>): string {
@@ -532,15 +540,16 @@ export class ShowcaseComponent {
   }
 
   activeTabValue(props: Record<string, unknown>): string {
-    const items = Array.isArray(props['items']) ? props['items'] : []
-    return props['defaultValue'] || (items[0]?.value ?? '')
+    const items = this.asRecords(props['items'])
+    const value = props['defaultValue'] || items[0]?.value
+    return typeof value === 'string' ? value : ''
   }
 
   activeTabContent(props: Record<string, unknown>): string | null {
-    const items = Array.isArray(props['items']) ? props['items'] : []
+    const items = this.asRecords(props['items'])
     const activeValue = this.activeTabValue(props)
-    const active = items.find((i: Record<string, unknown>) => i.value === activeValue)
-    return active?.content || null
+    const active = items.find((item) => item.value === activeValue)
+    return typeof active?.content === 'string' ? active.content || null : null
   }
 
   // ── Accordion ────────────────────────────────────────────────────────
@@ -549,8 +558,8 @@ export class ShowcaseComponent {
     return this.cm.cn(this.cm.accordion(), this.cm.accordionTriggerBase)
   }
 
-  isExpanded(value: string, defaultValue: unknown): boolean {
-    if (!defaultValue) return false
+  isExpanded(value: unknown, defaultValue: unknown): boolean {
+    if (typeof value !== 'string' || !defaultValue) return false
     if (Array.isArray(defaultValue)) return defaultValue.includes(value)
     return defaultValue === value
   }
@@ -574,8 +583,12 @@ export class ShowcaseComponent {
 
   // ── Utilities ────────────────────────────────────────────────────────
 
-  asArray(val: unknown): unknown[] {
-    return Array.isArray(val) ? val : []
+  asRecords(value: unknown): Record<string, unknown>[] {
+    if (!Array.isArray(value)) return []
+    return value.filter(
+      (item): item is Record<string, unknown> =>
+        typeof item === 'object' && item !== null && !Array.isArray(item),
+    )
   }
 
   private trustSvg(iconName: IconName, className: string): SafeHtml {

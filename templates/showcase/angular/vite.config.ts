@@ -7,7 +7,8 @@ import { defineConfig } from 'vite'
 const moleculePackages = readdirSync('node_modules/@molecule').map((name) => `@molecule/${name}`)
 
 export default defineConfig({
-  plugins: [angular({ tsconfig: './tsconfig.json' }), tailwindcss()],
+  // Surface Angular diagnostics before Vite serves a component without an Ivy definition.
+  plugins: [angular({ tsconfig: './tsconfig.json', disableTypeChecking: false }), tailwindcss()],
   resolve: {
     preserveSymlinks: true,
     mainFields: ['module'],
