@@ -157,16 +157,19 @@ describe('checkScaffoldClasses on a NativeWind app', () => {
    * @param compiler - The source of its `react-native-css-interop/css-to-rn`, when installed.
    * @returns The app directory.
    */
-  const nativeApp = (compiler?: string): string => {
+  const nativeApp = (compiler?: string, descendant = false): string => {
+    const css = descendant
+      ? '.bg-surface{color:red} .\\[\\&_p\\]\\:leading-relaxed p{line-height:1.5}'
+      : '.bg-surface{color:red}'
     const dir = fixture({
       'package.json': JSON.stringify({ dependencies: { nativewind: '4.2.7' } }),
       'tailwind.config.js': 'module.exports = {}\n',
       'src/bonds/app-ui-nativewind.ts':
         "import { setClassMap } from '@molecule/app-ui'\nimport { classMap } from '@molecule/app-ui-nativewind'\n",
-      'node_modules/@molecule/app-ui-nativewind/dist/index.js':
-        "export const classMap = { card: 'bg-surface' }\n",
-      'node_modules/.bin/tailwindcss':
-        "#!/usr/bin/env node\nconst out = process.argv[process.argv.indexOf('-o') + 1]\nrequire('node:fs').writeFileSync(out, '.bg-surface{color:red}')\n",
+      'node_modules/@molecule/app-ui-nativewind/dist/index.js': descendant
+        ? "export const classMap = { card: 'bg-surface [&_p]:leading-relaxed', splitForNative: (cls) => cls === '[&_p]:leading-relaxed' ? { descendants: { p: 'leading-relaxed' } } : {} }\n"
+        : "export const classMap = { card: 'bg-surface' }\n",
+      'node_modules/.bin/tailwindcss': `#!/usr/bin/env node\nconst out = process.argv[process.argv.indexOf('-o') + 1]\nrequire('node:fs').writeFileSync(out, ${JSON.stringify(css)})\n`,
       ...(compiler
         ? {
             'node_modules/react-native-css-interop/package.json': JSON.stringify({
@@ -180,6 +183,22 @@ describe('checkScaffoldClasses on a NativeWind app', () => {
     chmodSync(join(dir, 'node_modules', '.bin', 'tailwindcss'), 0o755)
     return dir
   }
+
+  it('requires the compiled styles the ClassMap forwards to child elements', async () => {
+    const result = await checkScaffoldClasses(
+      nativeApp(
+        "exports.cssToReactNativeRuntime = () => ({ rules: { 'bg-surface': [], 'leading-relaxed': [] } })",
+        true,
+      ),
+    )
+    expect(result.ok).toBe(true)
+
+    const missing = await checkScaffoldClasses(
+      nativeApp("exports.cssToReactNativeRuntime = () => ({ rules: { 'bg-surface': [] } })", true),
+    )
+    expect(missing.ok).toBe(false)
+    expect(missing.output).toContain('leading-relaxed')
+  })
 
   it("asks the app's own NativeWind compiler whether a device styles each class", async () => {
     const styled = await checkScaffoldClasses(

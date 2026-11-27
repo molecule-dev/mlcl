@@ -173,12 +173,13 @@ export async function checkScaffoldClasses(app) {
    *
    * @param {string} target - What was built.
    * @param {Set<string>} styled - The classes it has a style for.
+   * @param {string[]} [required] - The classes the renderer applies.
    */
-  const judge = (target, styled) => {
-    const missing = classes.filter((cls) => !styled.has(cls))
+  const judge = (target, styled, required = classes) => {
+    const missing = required.filter((cls) => !styled.has(cls))
     if (missing.length)
       failures.push(
-        `${target}: ${missing.length} of ${classes.length} classes of ${pkg} have no style: ` +
+        `${target}: ${missing.length} of ${required.length} classes of ${pkg} have no style: ` +
           missing.slice(0, 12).join(' ') +
           (missing.length > 12 ? ' …' : ''),
       )
@@ -216,7 +217,17 @@ export async function checkScaffoldClasses(app) {
             continue
           }
           const compiled = compiler.cssToReactNativeRuntime(css)
-          judge('NativeWind on a device', nativeStyledClasses(compiled))
+          // NativeWind forwards descendant recipes to the native child element as literal classes.
+          const nativeClasses = new Set(
+            classes.flatMap((cls) => {
+              const descendants = classMap.splitForNative?.(cls, '')?.descendants
+              const forwarded = Object.values(descendants ?? {}).flatMap((value) =>
+                value.split(/\s+/).filter(Boolean),
+              )
+              return forwarded.length ? forwarded : [cls]
+            }),
+          )
+          judge('NativeWind on a device', nativeStyledClasses(compiled), [...nativeClasses])
         }
       }
     } finally {
