@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { UserProfile } from '@molecule/app-auth'
 import { serverErrorMessage } from '@molecule/app-http'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { Button as SubmitButton } from '@molecule/app-ui-react'
 import { Alert, Button, Flex, Input, Modal } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -167,7 +168,7 @@ export function TwoFactorSetting() {
                 required
               />
             </div>
-            <Button
+            <SubmitButton
               type="submit"
               color={mode === 'disable' ? 'error' : undefined}
               fullWidth
@@ -176,7 +177,7 @@ export function TwoFactorSetting() {
               {mode === 'disable'
                 ? t('settings.twoFactorDisable', undefined, { defaultValue: 'Disable' })
                 : t('settings.twoFactorVerify', undefined, { defaultValue: 'Verify & enable' })}
-            </Button>
+            </SubmitButton>
           </form>
         )}
       </Modal>

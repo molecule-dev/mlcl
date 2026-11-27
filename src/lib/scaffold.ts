@@ -91,7 +91,10 @@ import {
   requirePackageByRole,
 } from './registry.js'
 import { scaffoldNodeEngineManifests } from './scaffold-node-range.js'
-import { withSuppliedStylesheet } from './scaffold-supplied-stylesheet.js'
+import {
+  DEFAULT_TAILWIND_CSS_IMPORTS,
+  withSuppliedStylesheet,
+} from './scaffold-supplied-stylesheet.js'
 import type { BuildTooling, FontMetadata, InferredPackage, MoleculeSecret } from './schema.js'
 import { generateSecretValues } from './secret-generate.js'
 import {
@@ -5103,6 +5106,7 @@ export async function createAppProject(
       `[scaffold] CSS template: ${buildTooling.cssTemplate} (framework: ${fwConfig.uiFramework ?? framework})`,
     )
     const stylingCss = await loadTemplate(buildTooling.cssTemplate, {
+      TAILWIND_CSS_IMPORTS: fwConfig.tailwindCssImports ?? DEFAULT_TAILWIND_CSS_IMPORTS,
       NM_PREFIX: nmPrefix,
       FRAMEWORK: fwConfig.uiFramework ?? framework,
       // Append @source scan(s) for any selected ClassMap variant bond (e.g.

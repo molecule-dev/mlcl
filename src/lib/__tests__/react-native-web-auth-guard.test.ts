@@ -70,3 +70,40 @@ describe('React Native Web scaffold auth decision', () => {
     expect(guardResult('authenticated', true).type).toBe('outlet')
   })
 })
+
+describe('React Native Web scaffold form submission', () => {
+  it.each<[string, number]>([
+    ['pages/Login', 1],
+    ['pages/Signup', 1],
+    ['features/emails/pages/ForgotPassword', 1],
+    ['features/emails/pages/ResetPassword', 1],
+    ['features/two-factor/components/TwoFactorSetting', 1],
+    ['components/SettingsPanel', 2],
+  ])('%s uses browser submit controls', (file, count) => {
+    const source = readFileSync(
+      join(import.meta.dirname, '../../../templates/app/react-native-web', `${file}.tsx.tpl`),
+      'utf8',
+    )
+    const template = ts.createSourceFile(`${file}.tsx`, source, ts.ScriptTarget.ESNext, true)
+    const submitTags: string[] = []
+    function visit(node: ts.Node): void {
+      if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+        for (const attribute of node.attributes.properties) {
+          if (
+            ts.isJsxAttribute(attribute) &&
+            attribute.name.getText(template) === 'type' &&
+            attribute.initializer &&
+            ts.isStringLiteral(attribute.initializer) &&
+            attribute.initializer.text === 'submit'
+          ) {
+            submitTags.push(node.tagName.getText(template))
+          }
+        }
+      }
+      ts.forEachChild(node, visit)
+    }
+    visit(template)
+    expect(submitTags).toEqual(Array.from({ length: count }, () => 'SubmitButton'))
+    expect(source).toContain("import { Button as SubmitButton } from '@molecule/app-ui-react'")
+  })
+})

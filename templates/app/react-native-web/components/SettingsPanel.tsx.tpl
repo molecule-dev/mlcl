@@ -21,6 +21,7 @@ import {
   Flex,
 } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
+import { Button as SubmitButton } from '@molecule/app-ui-react'
 import { Icon } from './Icon.js'
 import { Footer } from './Footer.js'
 {{#feature two-factor}}
@@ -313,11 +314,11 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
               required
             />
           </div>
-          <Button type="submit" fullWidth loading={pwStatus === 'pending'}>
+          <SubmitButton type="submit" fullWidth loading={pwStatus === 'pending'}>
             {pwStatus === 'pending'
               ? t('settings.changePasswordModal.changing')
               : t('settings.changePassword')}
-          </Button>
+          </SubmitButton>
         </form>
       </Modal>
 
@@ -348,11 +349,11 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
               required
             />
           </div>
-          <Button type="submit" color="error" fullWidth loading={deleteLoading}>
+          <SubmitButton type="submit" color="error" fullWidth loading={deleteLoading}>
             {deleteLoading
               ? t('settings.deleteAccountModal.deleting')
               : t('settings.deleteAccount')}
-          </Button>
+          </SubmitButton>
         </form>
       </Modal>
     </div>

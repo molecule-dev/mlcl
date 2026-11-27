@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { usePasswordReset, useTranslation } from '@molecule/app-react'
+import { Button as SubmitButton } from '@molecule/app-ui-react'
 import { Button, Flex } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from '../components/Icon.js'
@@ -76,7 +77,7 @@ export function ForgotPassword() {
                   >
                     <Icon name="arrow-left" size={25} />
                   </Button>
-                  <Button
+                  <SubmitButton
                     type="submit"
                     size="lg"
                     color="success"
@@ -84,7 +85,7 @@ export function ForgotPassword() {
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? t('auth.forgotPassword.submitting') : t('common.submit')}
-                  </Button>
+                  </SubmitButton>
                 </div>
               </form>
               {requestError && <div className={cm.authFormError}>{requestError.message}</div>}

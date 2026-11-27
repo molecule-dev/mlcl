@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useSignup, useTranslation } from '@molecule/app-react'
+import { Button as SubmitButton } from '@molecule/app-ui-react'
 import { Button, Flex } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from '../components/Icon.js'
@@ -95,7 +96,7 @@ export function Signup() {
               >
                 <Icon name="arrow-left" size={25} />
               </Button>
-              <Button
+              <SubmitButton
                 type="submit"
                 size="lg"
                 color="success"
@@ -103,7 +104,7 @@ export function Signup() {
                 disabled={isSigningUp}
               >
                 {isSigningUp ? t('auth.signup.signingUp') : t('auth.signup.signUp')}
-              </Button>
+              </SubmitButton>
             </div>
             {error && <div className={cm.authFormError}>{error.message}</div>}
           </form>

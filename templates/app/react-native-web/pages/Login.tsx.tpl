@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router'
 import { useLogin, useTranslation } from '@molecule/app-react'
+import { Button as SubmitButton } from '@molecule/app-ui-react'
 import { Button, Flex } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
@@ -112,7 +113,7 @@ export function Login() {
               >
                 {t('auth.login.signUp')}
               </Button>
-              <Button
+              <SubmitButton
                 type="submit"
                 size="lg"
                 color="success"
@@ -120,7 +121,7 @@ export function Login() {
                 disabled={isLoggingIn}
               >
                 {isLoggingIn ? t('auth.login.loggingIn') : t('auth.login.logIn')}
-              </Button>
+              </SubmitButton>
             </div>
             {error && <div className={cm.authFormError}>{error.message}</div>}
           </form>

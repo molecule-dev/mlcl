@@ -19,7 +19,7 @@ import { extname, join } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
-import { loadAppFrameworks } from '../registry.js'
+import { getRawRegistry, loadAppFrameworks } from '../registry.js'
 import { createAppProject } from '../scaffold.js'
 import { importOrderProblems } from './import-order-lint.js'
 
@@ -35,9 +35,10 @@ const NOT_PACKAGES = /^(\.|\/|\$app\/|\$env\/|virtual:|node:|@molecule\/)/
 const roots: Record<string, string> = {}
 
 beforeAll(async () => {
+  const styling = getRawRegistry().packages?.['@molecule/app-styling-tailwind']?.buildTooling
   for (const framework of FRAMEWORKS) {
     roots[framework] = await mkdtemp(join(tmpdir(), `scaffold-toolchain-${framework}-`))
-    await createAppProject(roots[framework], 'app', framework)
+    await createAppProject(roots[framework], 'app', framework, false, '', {}, [], styling)
   }
 }, 120_000)
 
@@ -235,4 +236,21 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
     }
     expect(missing).toEqual([])
   })
+})
+
+it('scaffolds React Native Web with its real runtime and web ClassMap CSS', async () => {
+  const framework = 'react-native-web'
+  const root = roots[framework]
+  const { dependencies } = await manifest(framework)
+  expect(dependencies).toHaveProperty('react-native-web', expect.stringMatching(/^\d+\.\d+\.\d+$/))
+  expect(dependencies).not.toHaveProperty('react-native')
+
+  const config = await readFile(join(root, 'vite.config.ts'), 'utf8')
+  expect(config).toContain("'/src/react-native-web.js'")
+  const runtime = await readFile(join(root, 'src', 'react-native-web.js'), 'utf8')
+  expect(runtime).toContain("export * from 'react-native-web'")
+
+  const css = await readFile(join(root, 'src', 'index.css'), 'utf8')
+  expect(css).toMatch(/^@import 'tailwindcss\/utilities\.css';$/m)
+  expect(css).toContain('/node_modules/@molecule/app-ui-tailwind/dist')
 })

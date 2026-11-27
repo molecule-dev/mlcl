@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+{{TAILWIND_CSS_IMPORTS}}
 @plugin "@tailwindcss/typography";
 
 /* Scan molecule packages for Tailwind class names. The scaffolder appends a */

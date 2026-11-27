@@ -13,12 +13,7 @@ const moleculePackages = readdirSync('node_modules/@molecule').map((name) => `@m
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
-    // Alias `react-native` to a lightweight DOM shim so that
-    // @molecule/app-ui-react-native components render in the browser
-    // using standard HTML elements with className passthrough.
-    alias: {
-      'react-native': resolve(__dirname, 'src/rn-web-shim.tsx'),
-    },
+    alias: [{ find: /^react-native$/, replacement: resolve(__dirname, 'src/react-native-web.js') }],
     preserveSymlinks: true,
     // One module identity per @molecule package (see moleculePackages above):
     // two identities mean two bond registries.

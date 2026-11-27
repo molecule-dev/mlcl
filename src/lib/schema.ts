@@ -1437,7 +1437,7 @@ export const AppFrameworkConfig = z.object({
     .array(z.string())
     .optional()
     .describe(
-      'Peer dependency names to exclude from injection. Used when a build-time alias replaces an npm package (e.g. react-native is aliased to a DOM shim in react-native-web).',
+      'Peer dependency names to exclude from injection when a build-time alias supplies the runtime (e.g. React Native Web supplies react-native in a web bundle).',
     ),
   e2e: z
     .boolean()
@@ -1449,6 +1449,12 @@ export const AppFrameworkConfig = z.object({
     .string()
     .optional()
     .describe('Extra Vite config lines injected into defineConfig (e.g. resolve block)'),
+  tailwindCssImports: z
+    .string()
+    .optional()
+    .describe(
+      'Override the Tailwind stylesheet imports when a framework needs a different CSS cascade',
+    ),
   htmlRootElement: z
     .string()
     .optional()

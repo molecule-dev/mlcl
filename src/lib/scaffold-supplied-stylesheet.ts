@@ -1,6 +1,9 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 
+/** The default Tailwind CSS imports for both scaffold and showcase stylesheets. */
+export const DEFAULT_TAILWIND_CSS_IMPORTS = "@import 'tailwindcss';"
+
 const suppliedImport = "@import './supplied-styles/entry.css';"
 const instructions = `/* Put supplied CSS in ./supplied-styles/entry.css, beside its relative assets. */
 ${suppliedImport}

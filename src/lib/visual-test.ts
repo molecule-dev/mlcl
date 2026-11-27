@@ -15,14 +15,17 @@ import { join } from 'node:path'
 
 import { npmInstallArgs } from './npm-install.js'
 import { getRawRegistry, loadAppFrameworks, loadToolchain } from './registry.js'
-import { withSuppliedStylesheet } from './scaffold-supplied-stylesheet.js'
+import {
+  DEFAULT_TAILWIND_CSS_IMPORTS,
+  withSuppliedStylesheet,
+} from './scaffold-supplied-stylesheet.js'
 
 /**
  * Supported frameworks for visual testing.
  *
- * `react-native-web` renders the React Native components with the web ClassMap and the web
- * Tailwind build; it is not what a device runs (the NativeWind ClassMap, its Tailwind preset
- * and NativeWind's native style compiler). A device screenshot needs an iOS or Android
+ * `react-native-web` renders the React Native components through React Native Web with the web
+ * ClassMap and Tailwind CSS. Expo uses the NativeWind ClassMap, its Tailwind preset and the
+ * NativeWind compiler on devices. A device screenshot needs an iOS or Android
  * simulator, which neither this machine (aarch64 Linux) nor CI (ubuntu) has. The device
  * styling is checked without pixels instead: the scaffold check's `classes` step
  * (scripts/check-framework-scaffolds.mjs) compiles every ClassMap class of an installed
@@ -146,8 +149,25 @@ export async function createShowcaseProject(
     }
   }
 
+  // The plain-JS runtime modules a framework's scaffold ships beside its sources (React Native
+  // Web's react-native-web.js), so the showcase runs on the module a scaffold does, not a copy.
+  const appDir = join(MLCL_ROOT, 'templates', 'app', framework)
+  for (const file of await readdir(appDir).catch(() => [])) {
+    if (file.endsWith('.js.tpl')) await cp(join(appDir, file), join(srcDir, file.slice(0, -4)))
+  }
+
+  // The shared stylesheet stays valid CSS with the default imports; a framework that needs a
+  // different cascade replaces that exact line.
   const indexCss = join(srcDir, 'index.css')
-  await writeFile(indexCss, await withSuppliedStylesheet(srcDir, await readFile(indexCss, 'utf8')))
+  let css = await readFile(indexCss, 'utf8')
+  if (fwDeps.tailwindCssImports) {
+    if (!css.includes(DEFAULT_TAILWIND_CSS_IMPORTS))
+      throw new Error(
+        `${indexCss} has no "${DEFAULT_TAILWIND_CSS_IMPORTS}" line for ${framework}'s tailwindCssImports to replace`,
+      )
+    css = css.replace(DEFAULT_TAILWIND_CSS_IMPORTS, () => fwDeps.tailwindCssImports ?? '')
+  }
+  await writeFile(indexCss, await withSuppliedStylesheet(srcDir, css))
 
   // 3. Write package.json
   await writeFile(

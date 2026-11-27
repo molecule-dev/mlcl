@@ -1790,7 +1790,7 @@ async function runNpmInstall(projectPath: string): Promise<void> {
 /**
  * Drop the peer dependencies a framework's `excludePeerDependencies` names
  * from every plan's dependency list — `react-native` for the frameworks that
- * alias it to a DOM shim, per the registry's appFrameworks entry. Mutates the
+ * alias it to React Native Web, per the registry's appFrameworks entry. Mutates the
  * plans in place (the inject command calls this right after planning, before
  * execution). Only `peerDependency` entries are filtered: a REGULAR
  * dependency that merely shares the name stays — the exclusion names what the

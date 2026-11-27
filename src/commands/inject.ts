@@ -585,7 +585,7 @@ export default class Inject extends Command {
       )
     }
 
-    // Filter excluded peer dependencies (e.g. react-native aliased to DOM shim)
+    // Filter peer dependencies whose runtime a bundler alias supplies.
     if (framework) {
       const excludedPeers = loadAppFrameworks()[framework]?.excludePeerDependencies
       if (excludedPeers?.length) {

@@ -61,6 +61,25 @@ describe('showcase install manifests', () => {
     })
   })
 
+  it('uses the scaffold’s React Native Web compatibility module and CSS imports', async () => {
+    const directory = await createShowcaseProject('react-native-web', scratch)
+    const config = await readFile(join(directory, 'vite.config.ts'), 'utf8')
+    expect(config).toContain("'src/react-native-web.js'")
+    const runtime = await readFile(join(directory, 'src', 'react-native-web.js'), 'utf8')
+    const template = await readFile(
+      new URL('../../../templates/app/react-native-web/react-native-web.js.tpl', import.meta.url),
+      'utf8',
+    )
+    expect(runtime).toBe(template)
+
+    const css = await readFile(join(directory, 'src', 'index.css'), 'utf8')
+    expect(css).toMatch(/^@import 'tailwindcss\/utilities\.css';$/m)
+    const react = await createShowcaseProject('react', scratch)
+    expect(await readFile(join(react, 'src', 'index.css'), 'utf8')).toContain(
+      "@import 'tailwindcss';",
+    )
+  })
+
   it('refuses missing framework metadata rather than inventing fallback versions', async () => {
     delete registry.appFrameworks.vue
     await writeFile(join(scratch, 'registry.json'), JSON.stringify(registry))
