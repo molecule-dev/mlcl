@@ -119046,6 +119046,10 @@
       },
       "framework": "react-native",
       "path": "packages/app/bonds/audio/expo",
+      "intentHints": [
+        "use expo audio for playback",
+        "play audio with expo"
+      ],
       "quickStart": "import { setProvider } from '@molecule/app-audio'\nimport { provider } from '@molecule/app-audio-expo'\n\nsetProvider(provider)"
     }
   }
