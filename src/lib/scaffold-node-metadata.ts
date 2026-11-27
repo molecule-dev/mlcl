@@ -22,7 +22,7 @@ function readJson(path: string): unknown {
 }
 
 /** Every exact dependency the CLI can declare in one of its generated projects. */
-function scaffoldPins(registry: Registry, registryRoot: string): Map<string, [string, string]> {
+function scaffoldPins(registry: Registry, cliRoot: string): Map<string, [string, string]> {
   const pins = new Map<string, [string, string]>()
   function add(declarations: Record<string, string> = {}): void {
     for (const [name, version] of Object.entries(declarations))
@@ -40,7 +40,7 @@ function scaffoldPins(registry: Registry, registryRoot: string): Map<string, [st
     add({ [name]: resolveMoleculeVersion(registry, name) })
     add(entry.buildTooling?.devDependencies)
   }
-  const templates = join(registryRoot, 'templates', 'apps')
+  const templates = join(cliRoot, 'templates', 'apps')
   if (existsSync(templates)) {
     for (const app of readdirSync(templates, { withFileTypes: true })) {
       if (!app.isDirectory()) continue
@@ -96,7 +96,7 @@ export async function scaffoldNodePinMetadata(
   const existing = registry.toolchainEngines?.pins ?? {}
   const remote = npmRegistryUrl(process.env, cliRoot)
   const missing: [string, [string, string]][] = []
-  for (const [pin, input] of scaffoldPins(registry, registryRoot)) {
+  for (const [pin, input] of scaffoldPins(registry, cliRoot)) {
     const [name, version] = input
     let local = locked.get(pin)
     if (local === undefined && registryRoot !== cliRoot)

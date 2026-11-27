@@ -90,43 +90,50 @@ it('takes the Node range from each workspace and intersects them at the root', a
   }
 })
 
-it('refreshes exact pin metadata for the CLI bundle, including pinned packages with no Node restriction', async () => {
-  await writeJson(join(scratch, 'package-lock.json'), {
-    packages: {
-      'node_modules/different-lock-version': { version: '2.0.0', engines: { node: '>=24' } },
-      'node_modules/local-pin': { version: '1.0.0', engines: { node: '>=22' } },
-    },
-  })
-  await writeJson(join(scratch, 'templates/apps/fixture/api/package.json'), {
-    dependencies: { 'template-pin': '1.0.0' },
-  })
-  const replies = new Map([
-    ['different-lock-version', { name: 'different-lock-version', version: '1.0.0' }],
-    ['template-pin', { name: 'template-pin', version: '1.0.0', engines: { node: '>=20' } }],
-  ])
-  const request = vi.fn(async (url: string) => {
-    const name = new URL(url).pathname.split('/').at(-2) ?? ''
-    return Response.json(replies.get(name), { status: replies.has(name) ? 200 : 404 })
-  })
-  vi.stubGlobal('fetch', request)
-  const registry = Registry.parse({
-    version: 1,
-    packages: {},
-    toolchain: { api: { 'local-pin': '1.0.0', 'different-lock-version': '1.0.0' } },
-  })
-  const pins = await scaffoldNodePinMetadata(registry, scratch)
-  expect(pins).toEqual({
-    'different-lock-version@1.0.0': null,
-    'local-pin@1.0.0': '>=22',
-    'template-pin@1.0.0': '>=20',
-  })
-  expect(request).toHaveBeenCalledTimes(2)
-  request.mockClear()
-  expect(
-    await scaffoldNodePinMetadata({ ...registry, toolchainEngines: { pins } }, scratch),
-  ).toEqual(pins)
-  expect(request).not.toHaveBeenCalled()
-})
+it.each(['default registry', 'detached registry'] as const)(
+  'refreshes exact pin metadata for the CLI bundle with a %s',
+  async (location) => {
+    await writeJson(join(scratch, 'package-lock.json'), {
+      packages: {
+        'node_modules/different-lock-version': { version: '2.0.0', engines: { node: '>=24' } },
+        'node_modules/local-pin': { version: '1.0.0', engines: { node: '>=22' } },
+      },
+    })
+    await writeJson(join(scratch, 'templates/apps/fixture/api/package.json'), {
+      dependencies: { 'template-pin': '1.0.0' },
+    })
+    const replies = new Map([
+      ['different-lock-version', { name: 'different-lock-version', version: '1.0.0' }],
+      ['template-pin', { name: 'template-pin', version: '1.0.0', engines: { node: '>=20' } }],
+    ])
+    const request = vi.fn(async (url: string) => {
+      const name = new URL(url).pathname.split('/').at(-2) ?? ''
+      return Response.json(replies.get(name), { status: replies.has(name) ? 200 : 404 })
+    })
+    vi.stubGlobal('fetch', request)
+    const registry = Registry.parse({
+      version: 1,
+      packages: {},
+      toolchain: { api: { 'local-pin': '1.0.0', 'different-lock-version': '1.0.0' } },
+    })
+    const registryRoot = location === 'detached registry' ? join(scratch, 'registry-only') : scratch
+    await writeJson(join(registryRoot, 'registry.json'), registry)
+    const pins = await scaffoldNodePinMetadata(registry, scratch, { registryRoot })
+    expect(pins).toEqual({
+      'different-lock-version@1.0.0': null,
+      'local-pin@1.0.0': '>=22',
+      'template-pin@1.0.0': '>=20',
+    })
+    expect(request).toHaveBeenCalledTimes(2)
+    request.mockClear()
+    expect(
+      await scaffoldNodePinMetadata({ ...registry, toolchainEngines: { pins } }, scratch, {
+        registryRoot,
+      }),
+    ).toEqual(pins)
+    expect(request).not.toHaveBeenCalled()
+  },
+)
 
 const scaffolds = [
   ['React', ['--type', 'app', '--framework', 'react'], ['package.json']],
