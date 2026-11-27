@@ -17,6 +17,13 @@ import { t } from '@molecule/api-i18n'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 import type { JobBoardLimits } from '../tiers.js'
+import {
+  canReferenceResume,
+  resumeNotFound,
+  resumeUrlSchema,
+  safeResumeUrl,
+  withSafeResumeUrl,
+} from './uploads.js'
 
 const FROM_ADDRESS =
   process.env.EMAIL_FROM ?? `no-reply@${process.env.MAILGUN_DOMAIN ?? 'localhost'}`
@@ -43,12 +50,12 @@ const listQuerySchema = z.object({
 const createApplicationSchema = z.object({
   job_id: z.string().uuid(),
   cover_letter: z.string().default(''),
-  resume_url: z.string().url().nullable().optional(),
+  resume_url: resumeUrlSchema.nullable().optional(),
 })
 
 const updateApplicationSchema = z.object({
   cover_letter: z.string().optional(),
-  resume_url: z.string().url().nullable().optional(),
+  resume_url: resumeUrlSchema.nullable().optional(),
 })
 
 const updateStatusSchema = z.object({
@@ -150,7 +157,7 @@ router.get('/', validateQuery(listQuerySchema), async (req: Request, res: Respon
       const company = job?.company_id ? companiesById.get(String(job.company_id)) : null
       const applicant = a.applicant_id ? usersById.get(String(a.applicant_id)) : null
       return {
-        ...a,
+        ...withSafeResumeUrl(a),
         job: job
           ? {
               id: job.id,
@@ -208,7 +215,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
 
     const applicant = await findById('users', String(application.applicant_id))
-    res.json({ ...application, job, applicant })
+    res.json({ ...withSafeResumeUrl(application), job, applicant })
   } catch (err) {
     console.error('[applications] handler failed:', err)
     res
@@ -271,11 +278,23 @@ router.post(
         return
       }
 
+      let resumeUrl = resume_url
+      if (resumeUrl === undefined) {
+        const profile = await findOne('user_profiles', [
+          { field: 'user_id', operator: '=', value: userId },
+        ])
+        resumeUrl = safeResumeUrl(profile?.resume_url)
+      }
+      if (!(await canReferenceResume(userId, resumeUrl))) {
+        resumeNotFound(res)
+        return
+      }
+
       const result = await create('applications', {
         job_id,
         applicant_id: userId,
         cover_letter: cover_letter || '',
-        resume_url: resume_url ?? null,
+        resume_url: resumeUrl ?? null,
         status: 'submitted',
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
@@ -410,7 +429,7 @@ router.put('/:id/status', validateBody(updateStatusSchema), async (req: Request,
       }
     }
 
-    res.json(result.data)
+    res.json(withSafeResumeUrl(result.data))
   } catch (err) {
     console.error('[applications] handler failed:', err)
     res
@@ -445,11 +464,16 @@ router.put('/:id', validateBody(updateApplicationSchema), async (req: Request, r
       return
     }
 
+    const body = req.body as z.infer<typeof updateApplicationSchema>
+    if (!(await canReferenceResume(userId, body.resume_url))) {
+      resumeNotFound(res)
+      return
+    }
     const result = await updateById('applications', id, {
-      ...req.body,
+      ...body,
       updated_at: new Date().toISOString(),
     })
-    res.json(result.data)
+    res.json(withSafeResumeUrl(result.data))
   } catch (err) {
     console.error('[applications] handler failed:', err)
     res

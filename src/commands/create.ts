@@ -579,6 +579,7 @@ export default class Create extends Command {
           ensureAgentSkills,
           ensureReadmeMd,
           ensureRootNpmrc,
+          ensureScaffoldNodeEngines,
           readTemplatePackages,
           readTemplateSetupSqlVersions,
           stampMoleculeMetadata,
@@ -656,6 +657,7 @@ export default class Create extends Command {
         await ensureAgentsMd(projectPath)
         await ensureRootNpmrc(projectPath)
         await stampMoleculeMetadata(projectPath)
+        await ensureScaffoldNodeEngines(projectPath)
         // The README names what the .env files leave empty: the template's, with api/.env as
         // rewritten below.
         let envLeftToSet = templateEnvLeftToSet
@@ -1358,8 +1360,11 @@ export default class Create extends Command {
       await ensureE2EFiles(hasAppSubdir ? join(projectPath, 'app') : projectPath)
     }
 
+    const { ensureScaffoldNodeEngines } = await import('../lib/scaffold.js')
+
     // Edge status page is a standalone Workers project — skip addPackages/inject/env steps
     if (isStatusPageEdge) {
+      await ensureScaffoldNodeEngines(projectPath)
       let installNeeded = flags['skip-install'] === true
       let installFailure: string | undefined
       if (!flags['skip-install']) {
@@ -1510,6 +1515,8 @@ export default class Create extends Command {
         earlyAgentsMd = existsSync(agentsMd) ? readFileSync(agentsMd, 'utf8') : null
       }
     }
+
+    await ensureScaffoldNodeEngines(projectPath)
 
     // Step 9: Install dependencies
     let installNeeded = flags['skip-install'] === true
@@ -1695,6 +1702,7 @@ export default class Create extends Command {
       const added = Object.values(await ensureMoleculePeerClosure(projectPath)).flat()
       if (added.length > 0) log(`Manifest peer closure added ${added.length}: ${added.join(', ')}`)
     }
+    await ensureScaffoldNodeEngines(projectPath)
 
     // Describe wiring only after injection, template overrides and the peer closure above have
     // written every manifest. ensureAgentsMd preserves a user-owned file from an earlier run. It

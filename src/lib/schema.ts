@@ -1547,6 +1547,10 @@ export const Registry = z
       })
       .optional()
       .describe('Pinned toolchain versions for generated projects and packages'),
+    toolchainEngines: z
+      .object({ pins: z.record(z.string(), z.string().nullable()) })
+      .optional()
+      .describe('Node engine ranges keyed by exact scaffold package pins'),
     installScripts: z
       .record(
         z.string(),

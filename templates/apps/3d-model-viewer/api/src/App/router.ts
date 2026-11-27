@@ -9,14 +9,10 @@ import {
   mountDefaultUserSecurityRoutes,
   mountDefaultUserVerifyPaymentRoutes,
 } from '@molecule/api-bonds-default-express'
+import { t } from '@molecule/api-i18n'
 
-import activityRouter from '../handlers/activity.js'
-import annotationsRouter from '../handlers/annotations.js'
-import authRouter from '../handlers/auth.js'
-import avatarRouter from '../handlers/avatar.js'
-import embedsRouter from '../handlers/embeds.js'
-import modelsRouter from '../handlers/models.js'
-import notificationsRouter from '../handlers/notifications.js'
+import { isManagedAvatar } from '../handlers/avatar.js'
+import templateHandlers from '../handlers/index.js'
 import { requestHandlerMap as Device } from './Resource/Device/index.js'
 import {
   authorization as userAuthorization,
@@ -30,7 +26,19 @@ router.use(userAuthorization.verifyMiddleware())
 mountDefaultDeviceRoutes(router, Device)
 mountDefaultUserAuthRoutes(router, User)
 mountDefaultUserResetPasswordRoute(router, User)
-mountDefaultUserCrudRoutes(router, User)
+mountDefaultUserCrudRoutes(router, {
+  ...User,
+  update: (req, res, next) => {
+    // The upload route creates managed avatar URLs. A profile patch may not claim one.
+    if (isManagedAvatar(req.body?.avatar)) {
+      res.status(400).json({
+        error: t('uploads.useAvatarRoute', {}, { defaultValue: 'Upload the avatar to set it.' }),
+      })
+      return
+    }
+    return User.update(req, res, next)
+  },
+})
 mountDefaultUserSecurityRoutes(router, User)
 mountDefaultUserBillingRoutes(router, User)
 // POST/GET /users/:id/verify-payment/:provider — what the checkout return
@@ -39,10 +47,4 @@ mountDefaultUserBillingRoutes(router, User)
 // confirmed.
 mountDefaultUserVerifyPaymentRoutes(router, User)
 
-router.use('/users', authRouter)
-router.use('/user', avatarRouter)
-router.use('/models', modelsRouter)
-router.use('/annotations', annotationsRouter)
-router.use('/embeds', embedsRouter)
-router.use('/notifications', notificationsRouter)
-router.use('/activity', activityRouter)
+router.use(templateHandlers)

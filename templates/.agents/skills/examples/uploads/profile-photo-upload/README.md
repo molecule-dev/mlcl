@@ -19,44 +19,59 @@ attachments, etc. — change the storage destination + database column.
 ```bash
 cd /workspace
 npm install @molecule/api-uploads-s3 --workspace=api          # OR -filesystem for local dev
-npm install @molecule/app-file-dropzone-react --workspace=app
+npm install @molecule/app-file-dropzone-react @molecule/app-filesystem --workspace=app
 # Optional: @molecule/app-image-crop-cropperjs --workspace=app  # only if you add client-side cropping (this example doesn't)
 ```
 
 ## Files in this example
 
-| Path                             | What it does                                                                                                                                                                                                                                                                          |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api/bonds/uploads-s3.ts`        | Wires S3 as the `uploads` bond. Use `-filesystem` for local dev.                                                                                                                                                                                                                      |
-| `api/handlers/upload.ts`         | `POST /upload/avatar` streams a file to the `uploads` bond and saves a **serve URL** on `users.avatar`; `GET /upload/avatar/:fileId` streams the private object back (authenticated, avatar-scoped).                                                                                  |
-| `api/connect-busboy.d.ts`        | Type stub for the untyped `connect-busboy` package — copy it so the handler's `import connectBusboy from 'connect-busboy'` + `req.busboy` type-check (TS7016 otherwise). `connect-busboy` itself is already installed (it ships with `@molecule/api-middleware-body-parser-express`). |
-| `app/pages/ProfilePhotoPage.tsx` | `FileDropzone` widget (`@molecule/app-file-dropzone-react`) → posts the file to `/upload/avatar`, renders the returned serve URL.                                                                                                                                                     |
+| Path                             | What it does                                                                                                                                                                                         |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api/bonds/uploads-s3.ts`        | Wires S3 as the `uploads` bond. Use `-filesystem` for local dev.                                                                                                                                     |
+| `api/handlers/upload.ts`         | `POST /upload/avatar` streams a file to the `uploads` bond and saves a **serve URL** on `users.avatar`; `GET /upload/avatar/:fileId` streams the private object back (authenticated, avatar-scoped). |
+| `app/pages/ProfilePhotoPage.tsx` | `FileDropzone` widget (`@molecule/app-file-dropzone-react`) → posts the file to `/upload/avatar`, renders the returned serve URL.                                                                    |
 
 The uploaded photo is saved to the **framework `users.avatar` column** (a text column,
 not `avatar_url`) — as the `/api/upload/avatar/<id>` serve URL, not the raw bucket URL.
 
-## Mount the upload router BEFORE the body parser
+## Mount the upload router with the others
 
-The app-wide body parser reads every multipart request itself (and drops the
-file), so an upload route mounted in the normal router finds the request already
-read and **waits forever** — the request hangs until the client times out. Mount
-it in `api/src/server.ts` through the `preBodyParser` hook, which runs first:
+Register it in `api/src/handlers/index.ts`, which `App/router.ts` mounts after session verification.
 
 ```ts
-export const create = createServerFactory({
-  setupBonds,
-  runMigrations,
-  getRouter: () => import('./App/router.js'),
-  preBodyParser: async (app) => {
-    const { authorization: userAuthorization } = await import('./App/Resource/User/index.js')
-    const { default: uploadRouter } = await import('./handlers/upload.js')
-    app.use('/api/upload', userAuthorization.verifyMiddleware(), uploadRouter)
+import uploadRouter from './upload.js'
+
+router.use('/upload', uploadRouter)
+```
+
+The app-wide body parser leaves `multipart/form-data` bodies unread, so
+`receiveUploads` (`@molecule/api-uploads`) reads the file on this route: it
+checks the field, the type and the size, stores the file in the `uploads` bond,
+and answers a refusal with a translated `{ error, errorKey }` before the handler
+runs. Read the stored file with `getUploads(req, 'file')`. The parser also
+removes stored files when the handler returns an error status.
+
+Reserve `/api/upload/avatar/` URLs for the upload handler. In `App/router.ts`,
+use `isManagedAvatar` from the example when wiring user updates. This keeps a
+normal profile edit from registering an arbitrary file as an avatar.
+
+```ts
+import { t } from '@molecule/api-i18n'
+import { isManagedAvatar } from '../handlers/upload.js'
+
+mountDefaultUserCrudRoutes(router, {
+  ...User,
+  update: (req, res, next) => {
+    if (isManagedAvatar(req.body?.avatar)) {
+      res.status(400).json({
+        error: t('upload.useAvatarRoute', {}, { defaultValue: 'Upload the avatar to set it.' }),
+      })
+      return
+    }
+    return User.update(req, res, next)
   },
 })
 ```
-
-Drop `verifyMiddleware()` for an upload anyone may make (no accounts). Do NOT also
-register the router in `App/router.ts`.
 
 ## Required env (S3 variant)
 
@@ -74,7 +89,9 @@ AWS_SECRET_ACCESS_KEY=...
 
 - Do not store image bytes in the database. Use the `uploads` bond.
 - Do not skip MIME type + file size validation server-side. Client
-  validation can be bypassed.
+  validation can be bypassed: pass `types` and `maxFileBytes` to `receiveUploads`.
+- Do not parse multipart yourself (busboy, multer, formidable). `receiveUploads`
+  already refuses bad requests and removes partial files.
 - **Do not render the provider's raw `location` URL as an `<img src>`.**
   Upload buckets are PRIVATE by default (a public bucket leaks every user's
   files), so a raw S3 URL 403s in the browser — it only "works" on the local

@@ -8,26 +8,24 @@
  */
 import { Router } from 'express'
 
-import billing from '../routes/billing.js'
-import accounts from './accounts.js'
-import budgets from './budgets.js'
-import categories from './categories.js'
+import accountsRouter from './accounts.js'
+import budgetsRouter from './budgets.js'
+import categoriesRouter from './categories.js'
 import dataExport from './data-export.js'
-import goals from './goals.js'
-import notifications from './notifications.js'
-import reports from './reports.js'
-import transactions from './transactions.js'
+import goalsRouter from './goals.js'
+import notificationsRouter from './notifications.js'
+import reportsRouter from './reports.js'
+import transactionsRouter from './transactions.js'
 
 const router = Router()
 
-router.use('/accounts', accounts)
-router.use('/transactions', transactions)
-router.use('/budgets', budgets)
-router.use('/goals', goals)
-router.use('/categories', categories)
-router.use('/reports', reports)
-router.use('/notifications', notifications)
-router.use('/billing', billing)
+router.use('/accounts', accountsRouter)
+router.use('/transactions', transactionsRouter)
+router.use('/budgets', budgetsRouter)
+router.use('/goals', goalsRouter)
+router.use('/categories', categoriesRouter)
+router.use('/reports', reportsRouter)
+router.use('/notifications', notificationsRouter)
 router.use('/export', dataExport)
 
 export default router

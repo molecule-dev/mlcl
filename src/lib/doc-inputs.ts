@@ -136,15 +136,16 @@ export function manifestChangeAffectsDocs(
 /**
  * Registry sections that are NOT documentation inputs.
  *
- * `toolchain` holds the dev-dependency versions the scaffolder writes;
+ * `toolchain` holds the dev-dependency versions the scaffolder writes, and
+ * `toolchainEngines` holds the exact Node constraints it writes.
  * `moleculeVersions` holds the published pin per package, rewritten by every
  * release. `docs-generator.ts` reads package metadata from `packages` and the
  * framework tokens from `appFrameworks` (through `loadAppFrameworks` in
- * `inferTranslatedPackage`); nothing in the docs pipeline reads these two
+ * `inferTranslatedPackage`); nothing in the docs pipeline reads these
  * sections. Comparing the rest of the document keeps every metadata edit — and
  * any section this module has not seen — in scope.
  */
-const NON_DOC_REGISTRY_SECTIONS = ['toolchain', 'moleculeVersions']
+const NON_DOC_REGISTRY_SECTIONS = ['toolchain', 'toolchainEngines', 'moleculeVersions']
 
 /**
  * Package entry fields that are NOT documentation inputs: `quickStart` is copied FROM the README
@@ -192,8 +193,8 @@ function registryProjection(raw: string): string {
 /**
  * Whether a registry.json edit can change any package's generated README.
  *
- * A `toolchain` / `moleculeVersions`-only edit (a test-tool pin sync, a release
- * pin bump) cannot. Any package-metadata change can, so it returns `true`.
+ * Edits limited to `toolchain`, `toolchainEngines`, or `moleculeVersions`
+ * cannot. Any package-metadata change can, so it returns `true`.
  * Missing or unparseable documents return `true` — unknown inputs widen the
  * scope, never narrow it.
  *

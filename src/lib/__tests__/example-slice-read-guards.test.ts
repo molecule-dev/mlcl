@@ -58,9 +58,12 @@ import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import type { FileDropzoneProps } from '@molecule/app-file-dropzone-react'
+import { fromBrowserFile } from '@molecule/app-filesystem'
+
 interface FetchRequest {
   url: string
-  /** The parsed request body, so a test can assert WHAT was sent. */
+  /** The parsed JSON or multipart form, so a test can assert what was sent. */
   body?: unknown
   answered: boolean
   respond: (status: number, body: unknown) => void
@@ -165,17 +168,17 @@ vi.mock('@molecule/app-feature-thread-tree-react', () => ({
     ),
 }))
 
-// The dropzone is not what is under test — one button hands the page a File
-// through the real `onFiles` prop.
+// One button sends the same portable browser selection as the real dropzone.
 vi.mock('@molecule/app-file-dropzone-react', () => ({
-  FileDropzone: (props: { onFiles: (files: File[]) => void; disabled?: boolean }) =>
+  FileDropzone: (props: Pick<FileDropzoneProps, 'onFiles' | 'disabled'>) =>
     createElement(
       'button',
       {
         type: 'button',
         'aria-label': 'drop-files',
         disabled: props.disabled,
-        onClick: () => props.onFiles([new File(['x'], 'avatar.png', { type: 'image/png' })]),
+        onClick: () =>
+          props.onFiles([fromBrowserFile(new File(['x'], 'avatar.png', { type: 'image/png' }))]),
       },
       'drop',
     ),
@@ -481,7 +484,7 @@ beforeEach(() => {
     new Promise<Pick<Response, 'ok' | 'status' | 'json'>>((resolve, reject) => {
       fetches.requests.push({
         url: String(input),
-        body: safeJson(init?.body),
+        body: init?.body instanceof FormData ? init.body : safeJson(init?.body),
         answered: false,
         respond: (status, body) =>
           resolve({
@@ -1090,6 +1093,11 @@ describe('example slices — a 2xx body is validated before it becomes state', (
   it('renders the avatar a real upload carries (the positive twin)', async () => {
     await mount(createElement(ProfilePhotoPage, {}))
     await clickByLabel('drop-files')
+
+    const body = fetches.requests.find(({ url }) => url === '/api/upload/avatar')?.body
+    const part = body instanceof FormData ? body.get('file') : null
+    expect(part).toBeInstanceOf(File)
+    expect(part).toMatchObject({ name: 'avatar.png', type: 'image/png', size: 1 })
 
     await respond('/api/upload/avatar', 200, { avatar: '/api/upload/avatar/abc' })
     expect(container.querySelector('img')?.getAttribute('src')).toBe('/api/upload/avatar/abc')

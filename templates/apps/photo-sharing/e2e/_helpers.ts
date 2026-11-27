@@ -10,7 +10,7 @@
  * - uploadAndCreatePhoto encapsulates the two-step upload→create flow
  *   the Upload page uses (multipart to /photo-uploads, then JSON to
  *   /photos), so individual specs can stage data without re-implementing
- *   busboy plumbing.
+ *   the multipart request.
  */
 
 import { Page, APIRequestContext, expect } from '@molecule/app-e2e-fixtures-default'
@@ -133,7 +133,7 @@ export async function uploadAndCreatePhoto(
   const buffer = fs.readFileSync(file)
   const upload = await request.post(`${API_BASE}/photo-uploads`, {
     multipart: {
-      file: { name: path.basename(file), mimeType: 'image/jpeg', buffer },
+      photo: { name: path.basename(file), mimeType: 'image/jpeg', buffer },
     },
   })
   expect(upload.status(), 'photo upload should be 201').toBe(201)

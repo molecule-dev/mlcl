@@ -8,24 +8,26 @@
  */
 import { Router } from 'express'
 
-import apiTokens from './api-tokens.js'
-import documents from './documents.js'
-import extractionRules from './extraction-rules.js'
-import extractionTemplates from './extraction-templates.js'
-import folders from './folders.js'
-import integrations from './integrations.js'
-import processing from './processing.js'
-import reports from './reports.js'
+import apiTokensRouter from './api-tokens.js'
+import documentsRouter from './documents.js'
+import extractionRulesRouter from './extraction-rules.js'
+import extractionTemplatesRouter from './extraction-templates.js'
+import foldersRouter from './folders.js'
+import integrationsRouter from './integrations.js'
+import processingRouter from './processing.js'
+import reportsRouter from './reports.js'
+import uploadRouter from './upload.js'
 
 const router = Router()
 
-router.use('/documents', documents)
-router.use('/folders', folders)
-router.use('/extraction-rules', extractionRules)
-router.use('/extraction-templates', extractionTemplates)
-router.use('/api-tokens', apiTokens)
-router.use('/processing', processing)
-router.use('/integrations', integrations)
-router.use('/reports', reports)
+router.use('/documents/upload', uploadRouter)
+router.use('/documents', documentsRouter)
+router.use('/folders', foldersRouter)
+router.use('/extraction-rules', extractionRulesRouter)
+router.use('/extraction-templates', extractionTemplatesRouter)
+router.use('/api-tokens', apiTokensRouter)
+router.use('/processing', processingRouter)
+router.use('/integrations', integrationsRouter)
+router.use('/reports', reportsRouter)
 
 export default router

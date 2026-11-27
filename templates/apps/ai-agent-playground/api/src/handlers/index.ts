@@ -8,24 +8,24 @@
  */
 import { Router } from 'express'
 
-import agents from './agents.js'
-import apiCredentials from './api-credentials.js'
-import datasets from './datasets.js'
-import executions from './executions.js'
-import knowledgeBases from './knowledge-bases.js'
-import notifications from './notifications.js'
-import tools from './tools.js'
-import userPreferences from './user-preferences.js'
+import agentsRouter from './agents.js'
+import apiCredentialsRouter from './api-credentials.js'
+import datasetsRouter from './datasets.js'
+import executionsRouter from './executions.js'
+import knowledgeBasesRouter from './knowledge-bases.js'
+import notificationsRouter from './notifications.js'
+import toolsRouter from './tools.js'
+import userPreferencesRouter from './user-preferences.js'
 
 const router = Router()
 
-router.use('/agents', agents)
-router.use('/api-credentials', apiCredentials)
-router.use('/datasets', datasets)
-router.use('/executions', executions)
-router.use('/knowledge-bases', knowledgeBases)
-router.use('/notifications', notifications)
-router.use('/tools', tools)
-router.use('/user-preferences', userPreferences)
+router.use('/agents', agentsRouter)
+router.use('/api-credentials', apiCredentialsRouter)
+router.use('/datasets', datasetsRouter)
+router.use('/executions', executionsRouter)
+router.use('/knowledge-bases', knowledgeBasesRouter)
+router.use('/notifications', notificationsRouter)
+router.use('/tools', toolsRouter)
+router.use('/user-preferences', userPreferencesRouter)
 
 export default router

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { FileDropzone } from '@molecule/app-file-dropzone-react'
+import type { PickedFile } from '@molecule/app-filesystem'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -12,14 +13,14 @@ export function ProfilePhotoPage() {
   const [error, setError] = useState<string | null>(null)
   const [uploading, setUploading] = useState(false)
 
-  async function handleFiles(files: File[]) {
+  async function handleFiles(files: readonly PickedFile[]) {
     const file = files[0]
     if (!file) return
     setError(null)
     setUploading(true)
     try {
       const form = new FormData()
-      form.append('file', file, file.name)
+      file.appendTo(form, 'file')
       const res = await fetch('/api/upload/avatar', {
         method: 'POST',
         body: form,
@@ -57,7 +58,7 @@ export function ProfilePhotoPage() {
     }
   }
 
-  function handleRejected(files: File[]) {
+  function handleRejected(files: readonly PickedFile[]) {
     const name = files[0]?.name ?? ''
     setError(t('profilePhoto.error.rejected', { name }, { defaultValue: `File rejected: ${name}` }))
   }

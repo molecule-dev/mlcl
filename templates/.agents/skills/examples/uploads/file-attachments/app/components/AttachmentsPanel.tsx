@@ -1,6 +1,7 @@
 import { type ReactElement, useCallback, useEffect, useRef, useState } from 'react'
 
 import { FileDropzone } from '@molecule/app-file-dropzone-react'
+import type { PickedFile } from '@molecule/app-filesystem'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -133,7 +134,7 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps): ReactElem
     }
   }, [load])
 
-  async function upload(files: File[]): Promise<void> {
+  async function upload(files: readonly PickedFile[]): Promise<void> {
     setError(null)
     setUploading(true)
     // This upload's ticket — the reset above invalidates it on a record change,
@@ -143,7 +144,7 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps): ReactElem
       // Upload sequentially so one bad file surfaces a clear error.
       for (const file of files) {
         const form = new FormData()
-        form.append('file', file, file.name)
+        file.appendTo(form, 'file')
         const res = await fetch(`/api/attachments?parent_id=${encodeURIComponent(parentId)}`, {
           method: 'POST',
           body: form,
@@ -180,7 +181,7 @@ export function AttachmentsPanel({ parentId }: AttachmentsPanelProps): ReactElem
     }
   }
 
-  function handleRejected(files: File[]): void {
+  function handleRejected(files: readonly PickedFile[]): void {
     const name = files[0]?.name ?? ''
     setError(t('attachments.error.rejected', { name }, { defaultValue: `File rejected: ${name}` }))
   }

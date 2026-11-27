@@ -21,6 +21,23 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import Setup from '../setup.js'
 
+// Exercise the real command-selection logic with a deterministic registry outage.
+vi.mock(import('../../lib/mcp-machine-install.js'), async (importOriginal) => {
+  const actual = await importOriginal()
+  const unavailable = async (): Promise<never> => {
+    throw new Error('registry unavailable in command fixture')
+  }
+  return {
+    ...actual,
+    useMachineMcp: (env: Parameters<typeof actual.useMachineMcp>[0]) =>
+      actual.useMachineMcp(env, {
+        latest: unavailable,
+        install: unavailable,
+        activate: unavailable,
+      }),
+  }
+})
+
 // Setup starts the MCP server once after registering it (lib/mcp-warm.ts); never spawn npx here.
 const warm = vi.hoisted(() => vi.fn(async () => ({ version: '9.9.9', tools: 76, ms: 1234 })))
 vi.mock('../../lib/mcp-warm.js', () => ({ warmMcpServer: warm }))

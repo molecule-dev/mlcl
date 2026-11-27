@@ -110,9 +110,8 @@ export function Upload() {
       let fileId: string | undefined
 
       if (entry.blob) {
-        // Real byte upload to S3 via the backend uploads bond. The fetch
-        // API is used directly so we get a multipart/form-data body that
-        // bypasses the JSON body parser and reaches busboy intact.
+        // Real byte upload to S3 via the backend uploads bond, as a
+        // multipart/form-data body in the `file` field.
         //
         // The upload endpoint creates the file metadata row itself, bound to
         // the server-minted storage key — the client never supplies a storage

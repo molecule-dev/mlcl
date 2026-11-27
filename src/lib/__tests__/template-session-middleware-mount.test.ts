@@ -21,11 +21,11 @@
  * the generated `App/router.ts` — so a template that ALSO mounts it in the
  * server bootstrap is the outlier, never the shape to copy.
  *
- * Scoped mounts are NOT duplicates and stay allowed: a route family that must be
- * authenticated before the body parser consumes its stream (uploads) mounts the
- * middleware on its own sub-path (`app.use('/api/uploads', verifyMiddleware(), …)`)
- * — it is the only mount for that path, and it runs before the router without
- * shadowing it.
+ * Scoped mounts are NOT duplicates and stay allowed: a route family mounted on its
+ * own sub-path with the middleware (`app.use('/api/x', verifyMiddleware(), …)`) is the
+ * only mount for that path, and it runs before the router without shadowing it.
+ * (Upload routes no longer need one: the body parser leaves multipart bodies unread,
+ * so they register in `handlers/index.ts` like any other route.)
  *
  * @module
  */

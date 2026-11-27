@@ -1158,6 +1158,15 @@
       "resource": "galleries"
     },
     {
+      "id": "route-get-uploads--id",
+      "method": "GET",
+      "mountedPath": "/photo-files/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/uploads.ts",
+      "line": 286,
+      "resource": "uploads"
+    },
+    {
       "id": "route-get-photos-",
       "method": "GET",
       "mountedPath": "/photos",
@@ -1212,15 +1221,6 @@
       "resource": "profiles"
     },
     {
-      "id": "route-get-uploads--id",
-      "method": "GET",
-      "mountedPath": "/uploads/:id",
-      "rawPath": "/:id",
-      "handlerFile": "api/src/handlers/uploads.ts",
-      "line": 356,
-      "resource": "uploads"
-    },
-    {
       "id": "route-patch-preferences-",
       "method": "PATCH",
       "mountedPath": "/preferences",
@@ -1239,6 +1239,15 @@
       "resource": "albums"
     },
     {
+      "id": "route-post-uploads-",
+      "method": "POST",
+      "mountedPath": "/photo-uploads",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/uploads.ts",
+      "line": 157,
+      "resource": "uploads"
+    },
+    {
       "id": "route-post-photos-",
       "method": "POST",
       "mountedPath": "/photos",
@@ -1255,15 +1264,6 @@
       "handlerFile": "api/src/handlers/photos.ts",
       "line": 366,
       "resource": "photos"
-    },
-    {
-      "id": "route-post-uploads-",
-      "method": "POST",
-      "mountedPath": "/uploads",
-      "rawPath": "/",
-      "handlerFile": "api/src/handlers/uploads.ts",
-      "line": 102,
-      "resource": "uploads"
     },
     {
       "id": "route-put-albums--id",

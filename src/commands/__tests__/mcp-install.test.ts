@@ -9,14 +9,31 @@
  */
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { join, sep } from 'node:path'
 
 import { Config } from '@oclif/core'
 import { parse } from 'jsonc-parser'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { MOLECULE_SECTION_MARKER } from '../../lib/instruction-section.js'
 import McpInstall from '../mcp/install.js'
+
+// Exercise the real command-selection logic with a deterministic registry outage.
+vi.mock(import('../../lib/mcp-machine-install.js'), async (importOriginal) => {
+  const actual = await importOriginal()
+  const unavailable = async (): Promise<never> => {
+    throw new Error('registry unavailable in command fixture')
+  }
+  return {
+    ...actual,
+    useMachineMcp: (env: Parameters<typeof actual.useMachineMcp>[0]) =>
+      actual.useMachineMcp(env, {
+        latest: unavailable,
+        install: unavailable,
+        activate: unavailable,
+      }),
+  }
+})
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
 const STANDARD = { command: 'npx', args: ['-y', 'molecule-mcp'] }
@@ -107,6 +124,23 @@ describe('mlcl mcp install', () => {
   it('writes Cursor config files directly: Cursor has no mcp add command', async () => {
     await run(['--agent', 'cursor'])
     expect(at(join(home, '.cursor', 'mcp.json'), 'mcpServers', 'molecule')).toEqual(STANDARD)
+  })
+
+  it('keeps an installed machine launcher when the registry is unavailable', async () => {
+    const serverHome = join(home, '.mlcl', 'mcp')
+    const launcher = join(serverHome, 'run.mjs')
+    const bin = join(serverHome, 'versions', '1.0.0', 'node_modules', 'molecule-mcp', 'bin')
+    mkdirSync(bin, { recursive: true })
+    writeFileSync(join(bin, 'run.js'), '')
+    writeFileSync(launcher, '')
+    writeFileSync(join(serverHome, 'current.json'), JSON.stringify({ version: '1.0.0' }))
+
+    await run(['--agent', 'cursor'])
+
+    expect(at(join(home, '.cursor', 'mcp.json'), 'mcpServers', 'molecule')).toEqual({
+      command: 'node',
+      args: [launcher.split(sep).join('/')],
+    })
   })
 
   it('detects a project set up for Cursor by its .cursor folder', async () => {

@@ -6,12 +6,19 @@ import { create, findOne, updateMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 
+import {
+  canReferenceResume,
+  resumeNotFound,
+  resumeUrlSchema,
+  withSafeResumeUrl,
+} from './uploads.js'
+
 const router = Router()
 
 const upsertProfileSchema = z.object({
   headline: z.string().max(200).nullable().optional(),
   bio: z.string().max(5000).nullable().optional(),
-  resume_url: z.string().url().nullable().optional(),
+  resume_url: resumeUrlSchema.nullable().optional(),
   skills: z.array(z.string().min(1).max(80)).max(50).optional(),
   location: z.string().max(200).nullable().optional(),
   willing_to_relocate: z.boolean().optional(),
@@ -34,7 +41,9 @@ router.get('/me', async (_req: Request, res: Response) => {
     const profile = await findOne<Record<string, unknown>>('user_profiles', [
       { field: 'user_id', operator: '=', value: userId },
     ])
-    res.json(profile ?? { user_id: userId, headline: null, bio: null, skills: [] })
+    res.json(
+      withSafeResumeUrl(profile) ?? { user_id: userId, headline: null, bio: null, skills: [] },
+    )
   } catch (err) {
     console.error('[user-profiles] handler failed:', err)
     res
@@ -55,6 +64,10 @@ router.put('/me', validateBody(upsertProfileSchema), async (req: Request, res: R
     ])
     const now = new Date().toISOString()
     const body = req.body as z.infer<typeof upsertProfileSchema>
+    if (!(await canReferenceResume(userId, body.resume_url))) {
+      resumeNotFound(res)
+      return
+    }
     const payload = compact({
       headline: body.headline,
       bio: body.bio,
@@ -75,7 +88,7 @@ router.put('/me', validateBody(upsertProfileSchema), async (req: Request, res: R
       const fresh = await findOne<Record<string, unknown>>('user_profiles', [
         { field: 'user_id', operator: '=', value: userId },
       ])
-      res.json(fresh)
+      res.json(withSafeResumeUrl(fresh))
       return
     }
     const result = await create('user_profiles', {
@@ -83,7 +96,7 @@ router.put('/me', validateBody(upsertProfileSchema), async (req: Request, res: R
       created_at: now,
       ...payload,
     })
-    res.json(result.data)
+    res.json(withSafeResumeUrl(result.data))
   } catch (err) {
     console.error('[user-profiles] handler failed:', err)
     res
@@ -121,7 +134,7 @@ router.get('/:id', async (req: Request, res: Response) => {
         .json({ error: t('userProfiles.notFound', {}, { defaultValue: 'Profile not found' }) })
       return
     }
-    res.json(profile)
+    res.json(withSafeResumeUrl(profile))
   } catch (err) {
     console.error('[user-profiles] handler failed:', err)
     res

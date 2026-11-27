@@ -12,18 +12,15 @@ import billing from '../routes/billing.js'
 import _test from './_test.js'
 import issues from './issues.js'
 import notifications from './notifications.js'
+import photos from './photos.js'
 import usersMe from './users-me.js'
 import watchAreas from './watch-areas.js'
 
 const router = Router()
 
+// Before `/issues`, so the issues router's `/:id` routes never see `/issues/photo/<fileId>`.
+router.use('/issues/photo', photos)
 router.use('/issues', issues)
-// The photo upload/serve router (`/issues/photo`) is NOT mounted here: its
-// multipart POST needs the raw request stream, which the shared body parser
-// (busboy with `files: 0`) drains before domain routers run. It is mounted in
-// server.ts via createServerFactory's preBodyParser hook, ahead of the body
-// parser. Serve URLs persisted on issues.photo_url stay `/api/issues/photo/
-// <fileId>` — unchanged from the consumer's point of view.
 router.use('/watch-areas', watchAreas)
 router.use('/notifications', notifications)
 // /users/me/* must be registered before the molecule user resource's

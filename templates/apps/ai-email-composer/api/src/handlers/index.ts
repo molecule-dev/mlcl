@@ -8,20 +8,18 @@
  */
 import { Router } from 'express'
 
-import billing from '../routes/billing.js'
-import contacts from './contacts.js'
-import drafts from './drafts.js'
-import sentEmails from './sentEmails.js'
-import templates from './templates.js'
-import webhooks from './webhooks.js'
+import contactsRouter from './contacts.js'
+import draftsRouter from './drafts.js'
+import sentEmailsRouter from './sentEmails.js'
+import templatesRouter from './templates.js'
+import webhooksRouter from './webhooks.js'
 
 const router = Router()
 
-router.use('/drafts', drafts)
-router.use('/templates', templates)
-router.use('/sent-emails', sentEmails)
-router.use('/contacts', contacts)
-router.use('/webhooks', webhooks)
-router.use('/billing', billing)
+router.use('/drafts', draftsRouter)
+router.use('/templates', templatesRouter)
+router.use('/sent-emails', sentEmailsRouter)
+router.use('/contacts', contactsRouter)
+router.use('/webhooks', webhooksRouter)
 
 export default router

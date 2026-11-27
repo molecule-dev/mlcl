@@ -35,6 +35,9 @@ import { createRoot, type Root } from 'react-dom/client'
 import { MemoryRouter } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import type { FileDropzoneProps } from '@molecule/app-file-dropzone-react'
+import { fromBrowserFile } from '@molecule/app-filesystem'
+
 // ---------------------------------------------------------------------------
 // Network doubles
 // ---------------------------------------------------------------------------
@@ -111,7 +114,7 @@ vi.mock('@molecule/app-pagination-bar-react', () => ({
 }))
 
 vi.mock('@molecule/app-file-dropzone-react', () => ({
-  FileDropzone: (props: { onFiles: (files: File[]) => void; disabled?: boolean }) =>
+  FileDropzone: (props: Pick<FileDropzoneProps, 'onFiles' | 'disabled'>) =>
     createElement(
       'button',
       {
@@ -122,8 +125,8 @@ vi.mock('@molecule/app-file-dropzone-react', () => ({
         // failure the fix has to recover from.
         onClick: () =>
           props.onFiles([
-            new File(['a'], 'a.txt', { type: 'text/plain' }),
-            new File(['b'], 'b.txt', { type: 'text/plain' }),
+            fromBrowserFile(new File(['a'], 'a.txt', { type: 'text/plain' })),
+            fromBrowserFile(new File(['b'], 'b.txt', { type: 'text/plain' })),
           ]),
       },
       'drop',

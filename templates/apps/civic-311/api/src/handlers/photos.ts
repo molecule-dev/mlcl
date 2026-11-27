@@ -1,12 +1,16 @@
-import connectBusboy from 'connect-busboy'
-import { type Request, type Response, Router } from 'express'
+import { type RequestHandler, Router } from 'express'
 
 import { getUserId } from '@molecule/api-bonds-default-express'
 import { findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
-import { getProvider as getUploadProvider } from '@molecule/api-uploads'
+import {
+  getProvider as getUploadProvider,
+  getUploads,
+  receiveUploads,
+  sendUpload,
+} from '@molecule/api-uploads'
 
-// Issue photos: stream one image field ("photo") to the uploads bond and
+// Issue photos: receive one image field ("photo") into the uploads bond and
 // return a SERVE URL (`/api/issues/photo/<fileId>`) that the client stores
 // on `issues.photo_url`. The GET below streams the private object back —
 // never persist `provider.upload(...).location` and render it directly:
@@ -14,114 +18,37 @@ import { getProvider as getUploadProvider } from '@molecule/api-uploads'
 // 403s in the browser. The serve-URL indirection keeps it provider-agnostic
 // (filesystem dev fallback AND S3 work unchanged).
 const PHOTO_ROUTE = '/api/issues/photo/'
-
-// The report form accepts "JPG, PNG or GIF. 5MB max." — validate that
-// server-side (the authoritative check; the client accept="" can be
-// bypassed).
-const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/gif'])
-const MAX_BYTES = 5 * 1024 * 1024
+const photoUrl = (id: string): string => `${PHOTO_ROUTE}${encodeURIComponent(id)}`
 
 const router = Router()
 
-const busboyMiddleware = connectBusboy({
-  limits: { files: 1, fileSize: MAX_BYTES, fields: 0 },
-})
-
-// POST / — upload one issue photo. Returns `{ url }` (the serve URL the
-// client passes as photo_url when POSTing the issue).
-router.post('/', busboyMiddleware, (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
+const requireUser: RequestHandler = (_req, res, next) => {
+  if (!getUserId(res)) {
     res.status(401).json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
     return
   }
+  next()
+}
 
-  if (!req.busboy) {
-    res.status(400).json({
-      error: t('uploads.error.notMultipart', {}, { defaultValue: 'Expected multipart/form-data.' }),
-    })
-    return
-  }
-
-  let provider: ReturnType<typeof getUploadProvider>
-  try {
-    provider = getUploadProvider()
-  } catch (err) {
-    console.error('photo.upload_provider_lookup', err)
-    res.status(500).json({
-      error: t('uploads.error.noProvider', {}, { defaultValue: 'Upload provider not configured.' }),
-    })
-    return
-  }
-
-  let responded = false
-  let sawFile = false
-
-  const sendError = (status: number, message: string): void => {
-    if (responded) return
-    responded = true
-    if (!res.headersSent) res.status(status).json({ error: message })
-  }
-
-  req.busboy.on(
-    'file',
-    (
-      _field: string,
-      stream: NodeJS.ReadableStream,
-      info: { filename: string; encoding: string; mimeType: string },
-    ) => {
-      if (responded) {
-        stream.resume()
-        return
-      }
-      sawFile = true
-      const mimetype = (info.mimeType || 'application/octet-stream').toLowerCase()
-      if (!ALLOWED_MIME.has(mimetype)) {
-        sendError(415, t('uploads.badType', {}, { defaultValue: 'Unsupported image type' }))
-        stream.resume()
-        return
-      }
-
-      let limitHit = false
-      stream.on('limit', () => {
-        limitHit = true
-        sendError(413, t('uploads.tooLarge', {}, { defaultValue: 'File exceeds 5 MB limit.' }))
-      })
-
-      // The provider derives an opaque storage id (`file.id`), never the
-      // filename, so two reporters' "pothole.jpg" can't collide.
-      const file = provider.upload('photo', stream, info, (err) => {
-        if (limitHit) return
-        console.error('photo.upload', err)
-        sendError(500, err.message || 'Upload failed.')
-      })
-
-      const promise = file.uploadPromise
-      if (!promise) return
-
-      promise
-        .then(async () => {
-          if (responded) return
-          responded = true
-          res.json({ url: `${PHOTO_ROUTE}${file.id}` })
-        })
-        .catch(() => {
-          // onError callback already produced a response; swallow to avoid
-          // an unhandled rejection.
-        })
-    },
-  )
-
-  req.busboy.on('finish', () => {
-    if (!sawFile && !responded) {
-      sendError(400, t('uploads.missingFile', {}, { defaultValue: 'No file uploaded' }))
-    }
-  })
-
-  req.busboy.on('error', (err: Error) => sendError(400, err.message))
-  req.on('aborted', () => sendError(499, 'Client aborted upload.'))
-  req.pipe(req.busboy)
-})
+// POST / — upload one issue photo. Returns `{ url }` (the serve URL the
+// client passes as photo_url when POSTing the issue). The report form accepts
+// "JPG, PNG or GIF. 5MB max."; receiveUploads enforces that server-side (415
+// for another type, 413 over 5 MB, 400 without a photo) before this runs, and
+// the uploads bond derives an opaque storage id, never the filename.
+router.post(
+  '/',
+  requireUser,
+  receiveUploads({
+    field: 'photo',
+    maxFileBytes: 5 * 1024 * 1024,
+    types: ['image/jpeg', 'image/png', 'image/gif'],
+    maxFields: 0,
+  }),
+  (req, res) => {
+    const [photo] = getUploads(req, 'photo')
+    res.json({ url: photoUrl(photo.id) })
+  },
+)
 
 // GET /:fileId — stream an issue photo (works for S3 AND filesystem: the
 // raw bucket URL is private, so it is served through here). Auth required,
@@ -131,15 +58,10 @@ router.post('/', busboyMiddleware, (req: Request, res: Response) => {
 // community-visible with the issue itself, so any authenticated resident may
 // view a REGISTERED one. `<img>` sniffs the bytes, so a generic content-type
 // still renders jpeg/png/gif.
-router.get('/:fileId', async (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res.status(401).json({ error: t('auth.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
-    return
-  }
+router.get('/:fileId', requireUser, async (req, res) => {
   const fileId = String(req.params.fileId)
   const registered = (await findMany('issues', {
-    where: [{ field: 'photo_url', operator: '=', value: `${PHOTO_ROUTE}${fileId}` }],
+    where: [{ field: 'photo_url', operator: '=', value: photoUrl(fileId) }],
     limit: 1,
   })) as unknown[]
   if (registered.length === 0) {
@@ -161,13 +83,8 @@ router.get('/:fileId', async (req: Request, res: Response) => {
     res.status(404).json({ error: t('uploads.notFound', {}, { defaultValue: 'Photo not found' }) })
     return
   }
-  res.setHeader('Content-Type', 'image/jpeg')
-  // nosniff: this route serves the stored bytes inline, so stop the browser
-  // sniffing them into any type other than the server-declared image (defense
-  // in depth with the uploads bond's storage-side MIME blocklist).
-  res.setHeader('X-Content-Type-Options', 'nosniff')
   res.setHeader('Cache-Control', 'private, max-age=300')
-  stream.pipe(res)
+  await sendUpload(res, stream, { inline: true, type: 'image/jpeg' })
 })
 
 export default router

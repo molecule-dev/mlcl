@@ -30,6 +30,9 @@ import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import type { FileDropzoneProps } from '@molecule/app-file-dropzone-react'
+import { fromBrowserFile } from '@molecule/app-filesystem'
+
 interface Pending {
   url: string
   /** The request's HTTP method — a list GET and an upload POST share one URL. */
@@ -119,18 +122,17 @@ vi.mock('@molecule/app-pagination-bar-react', () => ({
     ),
 }))
 
-// The dropzone is not what is under test — the panel's own list render is.
+// One button sends the real dropzone's portable file selection to the panel.
 vi.mock('@molecule/app-file-dropzone-react', () => ({
-  // One button hands the panel a File through the real `onFiles` prop, so a
-  // test can drive an upload.
-  FileDropzone: (props: { onFiles: (files: File[]) => void; disabled?: boolean }) =>
+  FileDropzone: (props: Pick<FileDropzoneProps, 'onFiles' | 'disabled'>) =>
     createElement(
       'button',
       {
         type: 'button',
         'aria-label': 'drop-files',
         disabled: props.disabled,
-        onClick: () => props.onFiles([new File(['x'], 'new.txt', { type: 'text/plain' })]),
+        onClick: () =>
+          props.onFiles([fromBrowserFile(new File(['x'], 'new.txt', { type: 'text/plain' }))]),
       },
       'drop',
     ),

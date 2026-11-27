@@ -8,26 +8,26 @@
  */
 import { Router } from 'express'
 
-import applications from './applications.js'
-import candidates from './candidates.js'
-import interviews from './interviews.js'
-import jobs from './jobs.js'
-import notifications from './notifications.js'
-import profile from './profile.js'
-import reports from './reports.js'
-import scorecards from './scorecards.js'
-import settings from './settings.js'
+import applicationsRouter from './applications.js'
+import candidatesRouter from './candidates.js'
+import interviewsRouter from './interviews.js'
+import jobsRouter from './jobs.js'
+import notificationsRouter from './notifications.js'
+import profileRouter from './profile.js'
+import reportsRouter from './reports.js'
+import scorecardsRouter from './scorecards.js'
+import settingsRouter from './settings.js'
 
 const router = Router()
 
-router.use('/jobs', jobs)
-router.use('/applications', applications)
-router.use('/candidates', candidates)
-router.use('/scorecards', scorecards)
-router.use('/interviews', interviews)
-router.use('/notifications', notifications)
-router.use('/reports', reports)
-router.use('/settings', settings)
-router.use('/profile', profile)
+router.use('/jobs', jobsRouter)
+router.use('/candidates', candidatesRouter)
+router.use('/applications', applicationsRouter)
+router.use('/interviews', interviewsRouter)
+router.use('/scorecards', scorecardsRouter)
+router.use('/notifications', notificationsRouter)
+router.use('/reports', reportsRouter)
+router.use('/settings', settingsRouter)
+router.use('/profile', profileRouter)
 
 export default router

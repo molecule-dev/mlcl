@@ -4,6 +4,8 @@
 
 Built with **[Molecule.dev](https://molecule.dev)** — a composable `@molecule/*` package ecosystem for production TypeScript apps. Every capability sits behind a swappable **bond**: change PostgreSQL → MySQL, Mailgun → SES, or one OAuth provider for another by changing one wiring file, not rewriting your app.
 
+Use a Node.js version accepted by `engines.node` in the root `package.json`.
+
 ## Quick start
 
 ```bash

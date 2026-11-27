@@ -1981,7 +1981,7 @@
       "mountedPath": "/user/avatar",
       "rawPath": "/avatar",
       "handlerFile": "api/src/handlers/avatar.ts",
-      "line": 170,
+      "line": 109,
       "resource": "avatar"
     },
     {
@@ -2053,7 +2053,7 @@
       "mountedPath": "/user/avatar/:fileId",
       "rawPath": "/avatar/:fileId",
       "handlerFile": "api/src/handlers/avatar.ts",
-      "line": 199,
+      "line": 134,
       "resource": "avatar"
     },
     {
@@ -2134,7 +2134,7 @@
       "mountedPath": "/user/avatar",
       "rawPath": "/avatar",
       "handlerFile": "api/src/handlers/avatar.ts",
-      "line": 42,
+      "line": 74,
       "resource": "avatar"
     },
     {

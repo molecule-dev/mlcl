@@ -10,13 +10,7 @@ import {
   mountDefaultUserVerifyPaymentRoutes,
 } from '@molecule/api-bonds-default-express'
 
-import commentsRouter from '../handlers/comments.js'
-import documentsRouter from '../handlers/documents.js'
-import notificationsRouter from '../handlers/notifications.js'
-import profileRouter from '../handlers/profile.js'
-import sharingRouter from '../handlers/sharing.js'
-import templatesRouter from '../handlers/templates.js'
-import versionsRouter from '../handlers/versions.js'
+import templateHandlers from '../handlers/index.js'
 import billingRoutes from '../routes/billing.js'
 import { requestHandlerMap as Device } from './Resource/Device/index.js'
 import {
@@ -37,10 +31,4 @@ mountDefaultUserBillingRoutes(router, User)
 mountDefaultUserVerifyPaymentRoutes(router, User)
 
 router.use('/billing', billingRoutes)
-router.use('/documents', documentsRouter)
-router.use('/versions', versionsRouter)
-router.use('/comments', commentsRouter)
-router.use('/sharing', sharingRouter)
-router.use('/templates', templatesRouter)
-router.use('/notifications', notificationsRouter)
-router.use('/profile', profileRouter)
+router.use(templateHandlers)

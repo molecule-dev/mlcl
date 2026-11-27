@@ -13,28 +13,28 @@
  */
 import { Router } from 'express'
 
-import activity from './activity.js'
-import apiTokens from './api-tokens.js'
-import glossary from './glossary.js'
-import memory from './memory.js'
-import notifications from './notifications.js'
-import projects from './projects.js'
-import reports from './reports.js'
-import segments from './segments.js'
-import team from './team.js'
-import translations from './translations.js'
+import activityRouter from './activity.js'
+import apiTokensRouter from './api-tokens.js'
+import glossaryRouter from './glossary.js'
+import memoryRouter from './memory.js'
+import notificationsRouter from './notifications.js'
+import projectsRouter from './projects.js'
+import reportsRouter from './reports.js'
+import segmentsRouter from './segments.js'
+import teamRouter from './team.js'
+import translationsRouter from './translations.js'
 
 const router = Router()
 
-router.use('/projects', projects)
-router.use('/translations', translations)
-router.use('/segments', segments)
-router.use('/glossary', glossary)
-router.use('/memory', memory)
-router.use('/team', team)
-router.use('/notifications', notifications)
-router.use('/api-tokens', apiTokens)
-router.use('/activity', activity)
-router.use('/reports', reports)
+router.use('/projects', projectsRouter)
+router.use('/translations', translationsRouter)
+router.use('/segments', segmentsRouter)
+router.use('/glossary', glossaryRouter)
+router.use('/memory', memoryRouter)
+router.use('/team', teamRouter)
+router.use('/notifications', notificationsRouter)
+router.use('/api-tokens', apiTokensRouter)
+router.use('/activity', activityRouter)
+router.use('/reports', reportsRouter)
 
 export default router

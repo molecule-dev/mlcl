@@ -90,6 +90,7 @@ import {
   packagesByStack,
   requirePackageByRole,
 } from './registry.js'
+import { scaffoldNodeEngineManifests } from './scaffold-node-range.js'
 import { withSuppliedStylesheet } from './scaffold-supplied-stylesheet.js'
 import type { BuildTooling, FontMetadata, InferredPackage, MoleculeSecret } from './schema.js'
 import { generateSecretValues } from './secret-generate.js'
@@ -2198,6 +2199,12 @@ export async function ensureReadmeMd(
     ENV_STEP: readmeEnvStep(envToSet),
   }
   await writeFile(target, await loadTemplate('shared/README.md.tpl', vars))
+}
+
+/** Write the Node engines of each generated manifest once its declared pins are known. */
+export async function ensureScaffoldNodeEngines(projectRoot: string): Promise<void> {
+  for (const { path, contents } of await scaffoldNodeEngineManifests(projectRoot))
+    await writeGuarded(path, contents)
 }
 
 /**

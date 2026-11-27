@@ -8,22 +8,33 @@
  */
 import { Router } from 'express'
 
-import alerts from './alerts.js'
-import carriers from './carriers.js'
-import notifications from './notifications.js'
-import shipments from './shipments.js'
-import team from './team.js'
-import tracking from './tracking.js'
-import webhooks from './webhooks.js'
+import testEndpoints from './_test.js'
+import alertsRouter from './alerts.js'
+import carriersRouter from './carriers.js'
+import eventsRouter from './events.js'
+import notificationsRouter from './notifications.js'
+import reportsRouter from './reports.js'
+import settingsRouter from './settings.js'
+import shipmentsRouter from './shipments.js'
+import teamRouter from './team.js'
+import trackingRouter from './tracking.js'
+import webhookEventsRouter from './webhook-events.js'
+import webhooksRouter from './webhooks.js'
 
 const router = Router()
 
-router.use('/shipments', shipments)
-router.use('/tracking', tracking)
-router.use('/carriers', carriers)
-router.use('/notifications', notifications)
-router.use('/alerts', alerts)
-router.use('/webhooks', webhooks)
-router.use('/team', team)
+router.use('/shipments', shipmentsRouter)
+router.use('/tracking', trackingRouter)
+router.use('/carriers', carriersRouter)
+router.use('/notifications', notificationsRouter)
+router.use('/alerts', alertsRouter)
+router.use('/webhooks', webhooksRouter)
+router.use('/webhook-events', webhookEventsRouter)
+router.use('/team', teamRouter)
+router.use('/team-members', teamRouter)
+router.use('/events', eventsRouter)
+router.use('/reports', reportsRouter)
+router.use('/settings', settingsRouter)
+router.use('/_test', testEndpoints)
 
 export default router

@@ -8,34 +8,30 @@
  */
 import { Router } from 'express'
 
-import billing from '../routes/billing.js'
-import analytics from './analytics.js'
-import credentials from './credentials.js'
-import dashboard from './dashboard.js'
-import documents from './documents.js'
-import generate from './generate.js'
-import images from './images.js'
-import integrations from './integrations.js'
-import preferences from './preferences.js'
-import profile from './profile.js'
-import seo from './seo.js'
-import templates from './templates.js'
+import analyticsRouter from './analytics.js'
+import credentialsRouter from './credentials.js'
+import dashboardRouter from './dashboard.js'
+import documentsRouter from './documents.js'
+import generateRouter from './generate.js'
+import imagesRouter from './images.js'
+import integrationsRouter from './integrations.js'
+import preferencesRouter from './preferences.js'
+import profileRouter from './profile.js'
+import seoRouter from './seo.js'
+import templatesRouter from './templates.js'
 
 const router = Router()
 
-router.use('/documents', documents)
-router.use('/templates', templates)
-router.use('/generate', generate)
-router.use('/images', images)
-router.use('/credentials', credentials)
-// SEO routes are nested under /seo/documents/:id/... — keep the seo router
-// rooted at /seo so the templated paths align with the SEOAnalysis page.
-router.use('/seo', seo)
-router.use('/billing', billing)
-router.use('/dashboard', dashboard)
-router.use('/profile', profile)
-router.use('/analytics', analytics)
-router.use('/integrations', integrations)
-router.use('/preferences', preferences)
+router.use('/documents', documentsRouter)
+router.use('/templates', templatesRouter)
+router.use('/generate', generateRouter)
+router.use('/images', imagesRouter)
+router.use('/credentials', credentialsRouter)
+router.use('/seo', seoRouter)
+router.use('/dashboard', dashboardRouter)
+router.use('/profile', profileRouter)
+router.use('/analytics', analyticsRouter)
+router.use('/integrations', integrationsRouter)
+router.use('/preferences', preferencesRouter)
 
 export default router

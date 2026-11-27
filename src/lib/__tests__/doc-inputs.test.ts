@@ -270,6 +270,21 @@ describe('registryChangedPackages — which READMEs a registry edit can change',
     expect(registryChangedPackages(registry(), bumped)).toEqual([])
   })
 
+  it('treats exact scaffold Node ranges as toolchain data without widening README scope', () => {
+    const before = registry({ packages: { '@molecule/api-ai': ai } })
+    const toolchainEngines = { pins: { 'vite@8.0.12': '^20.19.0 || >=22.12.0' } }
+    const enginesOnly = registry({ packages: { '@molecule/api-ai': ai }, toolchainEngines })
+    expect(registryChangeAffectsDocs(before, enginesOnly)).toBe(false)
+    expect(registryChangedPackages(before, enginesOnly)).toEqual([])
+
+    const described = registry({
+      packages: { '@molecule/api-ai': { ...ai, description: 'AI' } },
+      toolchainEngines,
+    })
+    expect(registryChangeAffectsDocs(before, described)).toBe(true)
+    expect(registryChangedPackages(before, described)).toEqual(['@molecule/api-ai'])
+  })
+
   it('names each added, removed or changed entry', () => {
     const before = registry({
       packages: { '@molecule/api-ai': ai, '@molecule/api-ai-openai': openai },

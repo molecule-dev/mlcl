@@ -10,11 +10,6 @@ export const create = createServerFactory({
   setupBonds,
   runMigrations,
   getRouter: () => import('./App/router.js'),
-  preBodyParser: async (app) => {
-    const { authorization: userAuthorization } = await import('./App/Resource/User/index.js')
-    const { default: uploadsRouter } = await import('./handlers/uploads.js')
-    app.use('/api/uploads', userAuthorization.verifyMiddleware(), uploadsRouter)
-  },
 })
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

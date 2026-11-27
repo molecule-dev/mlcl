@@ -6,9 +6,11 @@
  * @module
  */
 
-import { mkdir, mkdtemp, readdir, readFile, symlink, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { join, resolve, sep } from 'node:path'
+
+import { getRawRegistry } from '../registry.js'
 
 /** Path to the public molecule repo's packages directory */
 export const MOLECULE_PACKAGES = join(
@@ -57,44 +59,6 @@ export const TEST_MOLECULES = [
 ]
 
 /**
- * Recursively find all @molecule/* packages in a directory.
- * Returns a map of package name → absolute path.
- */
-async function findPackages(dir: string, depth = 0): Promise<Map<string, string>> {
-  const packages = new Map<string, string>()
-  if (depth > 4) return packages
-
-  try {
-    const entries = await readdir(dir, { withFileTypes: true })
-    const hasPackageJson = entries.some((e) => e.name === 'package.json')
-
-    if (hasPackageJson) {
-      const pkg = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8'))
-      if (pkg.name?.startsWith('@molecule/')) {
-        packages.set(pkg.name, dir)
-      }
-    }
-
-    for (const entry of entries) {
-      if (
-        entry.isDirectory() &&
-        !entry.name.startsWith('.') &&
-        entry.name !== 'node_modules' &&
-        entry.name !== 'dist'
-      ) {
-        const sub = await findPackages(join(dir, entry.name), depth + 1)
-        for (const [name, path] of sub) packages.set(name, path)
-      }
-    }
-  } catch (_error) {
-    // best-effort traversal: skip directories that are unreadable, missing, or
-    // contain unparseable package.json — the caller falls back to an empty map
-  }
-
-  return packages
-}
-
-/**
  * Create a temporary test project with package.json, tsconfig.json,
  * and symlinks to all @molecule packages in node_modules.
  *
@@ -102,6 +66,21 @@ async function findPackages(dir: string, depth = 0): Promise<Map<string, string>
  * Caller is responsible for cleanup via `rm(path, { recursive: true, force: true })`.
  */
 export async function createTestProject(): Promise<string> {
+  const { packages } = getRawRegistry()
+  const sources = await Promise.all(
+    TEST_MOLECULES.map(async (name) => {
+      const path = packages[name]?.path
+      if (!path) throw new Error(`No source path is registered for test package ${name}`)
+      const source = resolve(MOLECULE_PACKAGES, '..', path)
+      if (!source.startsWith(MOLECULE_PACKAGES + sep)) {
+        throw new Error(`Test package ${name} is outside the Molecule packages directory`)
+      }
+      const manifest = JSON.parse(await readFile(join(source, 'package.json'), 'utf8'))
+      if (manifest.name !== name)
+        throw new Error(`Registered source for ${name} declares ${manifest.name}`)
+      return { name, source }
+    }),
+  )
   const dir = await mkdtemp(join(tmpdir(), 'mlcl-test-project-'))
 
   // Write package.json
@@ -143,16 +122,10 @@ export async function createTestProject(): Promise<string> {
     ),
   )
 
-  // Find all packages and create symlinks
-  const packages = await findPackages(MOLECULE_PACKAGES)
   const moleculeDir = join(dir, 'node_modules', '@molecule')
   await mkdir(moleculeDir, { recursive: true })
-
-  for (const mol of TEST_MOLECULES) {
-    const pkgPath = packages.get(mol)
-    if (pkgPath) {
-      await symlink(pkgPath, join(moleculeDir, mol.replace('@molecule/', '')))
-    }
+  for (const { name, source } of sources) {
+    await symlink(source, join(dir, 'node_modules', name))
   }
 
   return dir

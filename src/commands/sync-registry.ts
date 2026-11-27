@@ -10,6 +10,7 @@ import {
 } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { isDeepStrictEqual } from 'node:util'
 
 import * as p from '@clack/prompts'
 import { Args, Command, Flags } from '@oclif/core'
@@ -27,6 +28,7 @@ import { registryPinException } from '../lib/registry-pin-exceptions.js'
 import { syncQuickStart } from '../lib/registry-quick-start.js'
 import { scanResourceRouter } from '../lib/resource-router-source.js'
 import { scanResponseRecord } from '../lib/response-record.js'
+import { scaffoldNodePinMetadata } from '../lib/scaffold-node-metadata.js'
 import {
   bondSetterScope,
   declarationScope,
@@ -250,7 +252,7 @@ export default class SyncRegistry extends Command {
   private async sync(flags: { [K in keyof typeof SyncRegistry.flags]: boolean }): Promise<void> {
     // Individual flag modes
     if (flags['sync-toolchain']) {
-      this.syncToolchain(flags['dry-run'])
+      await this.syncToolchain(flags['dry-run'])
       return
     }
 
@@ -294,10 +296,10 @@ export default class SyncRegistry extends Command {
     const dryRun = flags.check || flags['dry-run']
 
     // Named package directories scope the package scans; the version syncs read every package.
-    const toolchainUpdated = this.scope ? 0 : this.syncToolchain(dryRun, false)
-    const frameworksUpdated = this.scope ? 0 : this.syncFrameworks(dryRun, false)
     // Only an unscoped run reads every package, so only it can tell that one is gone.
-    const entriesPruned = this.scope ? 0 : this.pruneMissingPackages(dryRun)
+    const pruned = this.scope ? [] : this.pruneMissingPackages(dryRun)
+    const frameworksUpdated = this.scope ? 0 : this.syncFrameworks(dryRun, false)
+    const toolchainUpdated = this.scope ? 0 : await this.syncToolchain(dryRun, false, pruned)
     const exportsUpdated = await this.refreshExports(dryRun, false)
     const tablesUpdated = await this.refreshTables(dryRun, false)
     const routesUpdated = await this.refreshRoutes(dryRun, false)
@@ -307,7 +309,7 @@ export default class SyncRegistry extends Command {
     const totalUpdated =
       toolchainUpdated +
       frameworksUpdated +
-      entriesPruned +
+      pruned.length +
       exportsUpdated +
       tablesUpdated +
       routesUpdated +
@@ -337,19 +339,25 @@ export default class SyncRegistry extends Command {
    *
    * @returns Number of versions updated.
    */
-  private syncToolchain(dryRun: boolean, standalone = true): number {
+  private async syncToolchain(
+    dryRun: boolean,
+    standalone = true,
+    pruned: readonly string[] = [],
+  ): Promise<number> {
     const spinner = createSpinner()
     spinner.start('Syncing toolchain versions...')
 
     const registry = getRawRegistry()
     const registryPath = getRegistryPath()
-    const toolchain = registry.toolchain ?? {
-      shared: {},
-      api: {},
-      app: {},
-      moleculePackage: {},
-      postgres: {},
-    }
+    const toolchain = structuredClone(
+      registry.toolchain ?? {
+        shared: {},
+        api: {},
+        app: {},
+        moleculePackage: {},
+        postgres: {},
+      },
+    )
 
     const __dir = dirname(fileURLToPath(import.meta.url))
     const mlclDir = join(__dir, '..', '..')
@@ -423,10 +431,19 @@ export default class SyncRegistry extends Command {
       }
     }
 
-    if (!dryRun && updated > 0) {
-      registry.toolchain = toolchain
-      writeRegistryFile(registryPath, registry)
+    const packages = Object.fromEntries(
+      Object.entries(registry.packages).filter(([name]) => !pruned.includes(name)),
+    )
+    const pins = await scaffoldNodePinMetadata({ ...registry, packages, toolchain }, mlclDir, {
+      registryRoot: dirname(registryPath),
+      moleculeRoot: moleculeDir,
+    })
+    if (!isDeepStrictEqual(registry.toolchainEngines?.pins, pins)) {
+      updated++
+      changes.push('Refreshed Node engines for exact scaffold pins')
     }
+    if (!dryRun && updated > 0)
+      writeRegistryFile(registryPath, { ...registry, toolchain, toolchainEngines: { pins } })
 
     const details = changes.length > 0 ? '\n' + changes.join('\n') : ''
 
@@ -1227,14 +1244,14 @@ export default class SyncRegistry extends Command {
    * judge by, and every entry stays.
    *
    * @param dryRun - When true, report the entries without removing them.
-   * @returns Number of entries removed, or that a write would remove.
+   * @returns Entries removed, or that a write would remove.
    */
-  private pruneMissingPackages(dryRun: boolean): number {
+  private pruneMissingPackages(dryRun: boolean): string[] {
     const __dir = dirname(fileURLToPath(import.meta.url))
     const moleculeDir = process.env.MOLECULE_PACKAGES_DIR
       ? join(process.env.MOLECULE_PACKAGES_DIR, '..')
       : join(__dir, '..', '..', '..', 'molecule')
-    if (!existsSync(join(moleculeDir, 'packages'))) return 0
+    if (!existsSync(join(moleculeDir, 'packages'))) return []
     const registry = getRawRegistry()
     // A declaration awaiting its first release names a package in this tree like any other.
     const sections = [registry.packages, registry.pendingPackages ?? {}]
@@ -1243,7 +1260,7 @@ export default class SyncRegistry extends Command {
         .filter(([, entry]) => !existsSync(join(moleculeDir, entry.path, 'package.json')))
         .map(([name]) => name),
     )
-    if (missing.length === 0) return 0
+    if (missing.length === 0) return []
     p.log.warn(
       `${dryRun ? 'Would remove' : 'Removed'} ${missing.length} entr${missing.length === 1 ? 'y' : 'ies'} whose package molecule does not have: ${missing.join(', ')}`,
     )
@@ -1251,7 +1268,7 @@ export default class SyncRegistry extends Command {
       for (const section of sections) for (const name of missing) delete section[name]
       writeRegistryFile(getRegistryPath(), registry)
     }
-    return missing.length
+    return missing
   }
 
   /**

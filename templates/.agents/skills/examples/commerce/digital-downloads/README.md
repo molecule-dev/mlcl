@@ -9,7 +9,7 @@ intent: |
 keywords: [digital, download, ebook, license, file-product, gumroad]
 ---
 
-# Digital downloads (sell digital files; deliver via signed URL)
+# Digital downloads
 
 **When to copy this example:** the user sells digital goods (PDFs,
 fonts, design templates, e-books). Different from
@@ -39,15 +39,17 @@ setProvider(provider)
 
 ## Files in this example
 
-| Path                            | What it does                                                                                                                                                                                                                                                                          |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api/handlers/products.ts`      | Public storefront (`GET /`, `GET /:id`) + admin `POST /` that streams the deliverable file to the uploads bond and records a catalog row (title + price cents + storage key). Never exposes `storage_key`.                                                                            |
-| `api/handlers/downloads.ts`     | `GET /downloads/:order_id` — verifies the caller owns a **paid** order and hasn't spent the download cap, then streams the file through an authenticated route (increments a per-order counter). `GET /downloads` lists the caller's purchases.                                       |
-| `api/connect-busboy.d.ts`       | Type stub for the untyped `connect-busboy` package — copy it so the handler's `import connectBusboy from 'connect-busboy'` + `req.busboy` type-check (TS7016 otherwise). `connect-busboy` itself is already installed (it ships with `@molecule/api-middleware-body-parser-express`). |
-| `app/pages/MyDownloadsPage.tsx` | Buyer's purchased-downloads list with an authenticated Download button per item (shows downloads remaining; disables when the cap is spent).                                                                                                                                          |
+| Path                            | What it does                                                                                                                                                                                                                                    |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api/handlers/products.ts`      | Public storefront (`GET /`, `GET /:id`) + admin `POST /` that streams the deliverable file to the uploads bond and records a catalog row (title + price cents + storage key). Never exposes `storage_key`.                                      |
+| `api/handlers/downloads.ts`     | `GET /downloads/:order_id` — verifies the caller owns a **paid** order and hasn't spent the download cap, then streams the file through an authenticated route (increments a per-order counter). `GET /downloads` lists the caller's purchases. |
+| `app/pages/MyDownloadsPage.tsx` | Buyer's purchased-downloads list with an authenticated Download button per item (shows downloads remaining; disables when the cap is spent).                                                                                                    |
 
 ## Anti-patterns
 
+- Register the router in `api/src/handlers/index.ts`. `receiveUploads` reads the
+  file and text fields and removes partial uploads and files from failed requests.
+  The product route accepts documents, archives, fonts, PNG and JPEG.
 - Do not put the file on a public/guessable path or hand out a
   permanent link. The uploads bond exposes no signed-URL method —
   serve the file ONLY through the ownership-checked `/downloads`

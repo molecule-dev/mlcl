@@ -1,12 +1,12 @@
 /**
  * Document upload + AI processing handler.
  *
- * Mounted BEFORE the body-parser in `server.ts` so the multipart body
- * survives untouched. The handler:
+ * The handler:
  *
- *   1. Streams the incoming file to S3 via the bonded uploads provider
- *      and *also* buffers it in memory (size-capped) so we can hand the
- *      bytes to the AI provider for OCR + classification + extraction.
+ *   1. `receiveUploads` streams the incoming file to S3 via the bonded
+ *      uploads provider (size-capped); the handler reads the stored bytes
+ *      back to hand them to the AI provider for OCR + classification +
+ *      extraction.
  *   2. Calls Anthropic's `chat` (non-streaming, single tool_use) with a
  *      strict JSON tool definition. Whatever Claude returns goes into
  *      `documents`, `document_fields`, and `document_events`.
@@ -15,15 +15,13 @@
  *      `recent`) consume — see `serializeDocument()` in
  *      `./documents.ts`.
  *
- * Authentication: `verifyMiddleware()` runs ahead of this in
- * `server.ts`. We re-check `res.locals.session.userId` defensively
- * and 401 if missing.
+ * Authentication: `verifyMiddleware()` runs ahead of the domain routers
+ * in `App/router.ts`. We re-check the user defensively and 401 before any
+ * bytes are read.
  *
  * @module
  */
-import connectBusboy from 'connect-busboy'
-import { type Request, type Response, Router } from 'express'
-import { Readable } from 'stream'
+import { type RequestHandler, Router } from 'express'
 
 import type { AIProvider, ChatEvent } from '@molecule/api-ai'
 import {
@@ -34,17 +32,18 @@ import { getUserId } from '@molecule/api-bonds-default-express'
 import { create, findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
-import { getProvider as getUploadProvider } from '@molecule/api-uploads'
+import {
+  discardUploads,
+  getProvider as getUploadProvider,
+  getUploads,
+  receiveUploads,
+} from '@molecule/api-uploads'
 
 import { serializeDocument } from './documents.js'
 
 const router = Router()
 
 const MAX_FILE_BYTES = 25 * 1024 * 1024
-
-const busboyMiddleware = connectBusboy({
-  limits: { files: 1, fileSize: MAX_FILE_BYTES, fields: 5 },
-})
 
 const ALLOWED_CLASSES = [
   'invoice',
@@ -265,230 +264,194 @@ const askAIToProcess = async (
   }
 }
 
-router.post('/', busboyMiddleware, (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
+const requireUser: RequestHandler = (_req, res, next) => {
+  if (!getUserId(res)) {
     res.status(401).json({
       error: t('auth.unauthorized', undefined, { defaultValue: 'Authentication required.' }),
     })
     return
   }
+  next()
+}
 
-  if (!req.busboy) {
-    res.status(400).json({
-      error: t('uploads.error.notMultipart', undefined, {
-        defaultValue: 'Expected multipart/form-data.',
-      }),
-    })
-    return
-  }
+/**
+ * The stored bytes of an upload, for the AI provider.
+ *
+ * @param id - The upload's storage id.
+ * @returns The file's bytes.
+ */
+const readStored = async (id: string): Promise<Buffer> => {
+  const stream = await getUploadProvider().getFile?.(id)
+  if (!stream) throw new Error('The uploads provider cannot read files back.')
+  const chunks: Buffer[] = []
+  for await (const chunk of stream) chunks.push(Buffer.from(chunk as Uint8Array))
+  return Buffer.concat(chunks)
+}
 
-  let uploadProvider: ReturnType<typeof getUploadProvider>
-  try {
-    uploadProvider = getUploadProvider()
-  } catch (err) {
-    logger.error('upload.handler: provider lookup failed', err)
-    res.status(500).json({
-      error: t('uploads.error.noProvider', undefined, {
-        defaultValue: 'Upload provider not configured.',
-      }),
-    })
-    return
-  }
+// receiveUploads refuses a body that is not multipart (415), a file over
+// MAX_FILE_BYTES (413) and a request without a `file` (400), and removes a
+// partial file when the client disconnects, before this handler runs.
+router.post(
+  '/',
+  requireUser,
+  receiveUploads({ field: 'file', maxFileBytes: MAX_FILE_BYTES, maxFields: 5 }),
+  async (req, res) => {
+    const userId = String(getUserId(res))
+    const [upload] = getUploads(req, 'file')
+    const fail = (status: number, error: Error | string): void => {
+      const message = typeof error === 'string' ? error : error.message
+      logger.error(`upload.handler: ${message}`)
+      if (!res.headersSent) res.status(status).json({ error: message })
+    }
+    const filename = upload.filename || 'document'
+    const mimetype = upload.mimetype || 'application/octet-stream'
+    let buf: Buffer
+    try {
+      buf = await readStored(upload.id)
+    } catch (err) {
+      await discardUploads(req)
+      fail(500, err instanceof Error ? err : new Error(String(err)))
+      return
+    }
 
-  let responded = false
-  let limitHit = false
+    // Persist a "uploaded → ocring" row before AI runs so the
+    // document still exists if the AI call later fails. Matches a
+    // production queue → background worker shape.
+    let document: Record<string, unknown> | null = null
+    try {
+      const result = await create('documents', {
+        user_id: userId,
+        title: filename,
+        original_name: filename,
+        source_type: 'upload',
+        mime: mimetype,
+        size_bytes: buf.byteLength,
+        s3_key: upload.id,
+        doc_class: null,
+        status: 'ocring',
+        language: null,
+        page_count: null,
+        tags_json: JSON.stringify([]),
+        folder_id: null,
+        uploaded_at: new Date(),
+        created_at: new Date(),
+      })
+      document = result.data
+    } catch (err) {
+      logger.error('upload.handler: recording the document failed', err)
+    }
+    if (!document || typeof document.id !== 'string') {
+      // No row points at the stored file, so nothing could ever serve or delete it.
+      await discardUploads(req)
+      fail(500, 'Failed to persist document row.')
+      return
+    }
+    const documentId = document.id
 
-  const fail = (status: number, error: Error | string): void => {
-    if (responded) return
-    responded = true
-    const message = typeof error === 'string' ? error : error.message
-    logger.error(`upload.handler: ${message}`)
-    if (!res.headersSent) res.status(status).json({ error: message })
-  }
+    const ctrl = new AbortController()
+    const timer = setTimeout(() => ctrl.abort(), 5 * 60 * 1000)
 
-  req.busboy.on(
-    'file',
-    (
-      _field: string,
-      stream: NodeJS.ReadableStream,
-      info: { filename: string; encoding: string; mimeType: string },
-    ) => {
-      if (responded) {
-        stream.resume()
-        return
+    try {
+      await create('document_events', {
+        document_id: documentId,
+        user_id: userId,
+        kind: 'uploaded',
+        detail_json: JSON.stringify({ filename, mimetype, size_bytes: buf.byteLength }),
+        created_at: new Date(),
+      })
+      const ai = await askAIToProcess(filename, mimetype, buf, ctrl.signal)
+
+      const ready = {
+        doc_class: ai.document_type,
+        status: 'ready',
+        summary_md: ai.summary,
+        language: ai.detected_language,
+        page_count: ai.page_count,
+        classification_confidence: ai.classification_confidence,
+        classification_reasoning: ai.classification_reasoning,
+        suggested_filing_path: ai.suggested_filing_path,
+        processed_at: new Date(),
       }
+      await updateById('documents', documentId, ready)
+      document = { ...document, ...ready }
 
-      const chunks: Buffer[] = []
-      stream.on('data', (chunk: Buffer) => {
-        if (limitHit) return
-        chunks.push(chunk)
-      })
-      stream.on('limit', () => {
-        limitHit = true
-      })
-
-      stream.on('end', async () => {
-        if (responded) return
-        if (limitHit) {
-          fail(
-            413,
-            t('uploads.error.tooLarge', undefined, {
-              defaultValue: 'File exceeds maximum allowed size.',
-            }),
-          )
-          return
-        }
-
-        const buf = Buffer.concat(chunks)
-        const filename = info.filename || 'document'
-        const mimetype = info.mimeType || 'application/octet-stream'
-
-        const replay = Readable.from(buf)
-        const upload = uploadProvider.upload(
-          'file',
-          replay,
-          { filename, encoding: info.encoding ?? '7bit', mimeType: mimetype },
-          (err) => fail(500, err),
-        )
-
-        try {
-          await Promise.resolve(upload.uploadPromise)
-        } catch (err) {
-          fail(500, err instanceof Error ? err : new Error(String(err)))
-          return
-        }
-
-        // Persist a "uploaded → ocring" row before AI runs so the
-        // document still exists if the AI call later fails. Matches a
-        // production queue → background worker shape.
-        const initialResult = await create('documents', {
+      for (const f of ai.fields) {
+        await create('document_fields', {
+          document_id: documentId,
           user_id: userId,
-          title: filename,
-          original_name: filename,
-          source_type: 'upload',
-          mime: mimetype,
-          size_bytes: buf.byteLength,
-          s3_key: upload.id,
-          doc_class: null,
-          status: 'ocring',
-          language: null,
-          page_count: null,
-          tags_json: JSON.stringify([]),
-          folder_id: null,
-          uploaded_at: new Date(),
+          key: f.field_name,
+          value: f.field_value,
+          confidence: f.confidence,
+          field_group: f.field_group ?? 'Other',
+          source: 'extraction',
+          reviewed: false,
+          corrected_value: null,
           created_at: new Date(),
         })
-        const initialDoc =
-          (initialResult as { data?: Record<string, unknown> }).data ?? initialResult
-        const documentId = (initialDoc as { id?: string }).id
-        if (!documentId) {
-          fail(500, 'Failed to persist document row.')
-          return
-        }
+      }
 
+      await create('document_events', {
+        document_id: documentId,
+        user_id: userId,
+        kind: 'classified',
+        detail_json: JSON.stringify({
+          document_type: ai.document_type,
+          classification_confidence: ai.classification_confidence,
+          field_count: ai.fields.length,
+        }),
+        created_at: new Date(),
+      })
+      await create('document_events', {
+        document_id: documentId,
+        user_id: userId,
+        kind: 'ready',
+        detail_json: JSON.stringify({ summary_chars: ai.summary.length }),
+        created_at: new Date(),
+      })
+    } catch (err) {
+      const errMsg = err instanceof Error ? err.message : String(err)
+      logger.error('upload.handler: AI processing failed', errMsg)
+      const failure = {
+        status: 'failed',
+        classification_reasoning: `AI processing failed: ${errMsg.slice(0, 500)}`,
+      }
+      try {
+        await updateById('documents', documentId, failure)
+        document = { ...document, ...failure }
         await create('document_events', {
           document_id: documentId,
           user_id: userId,
-          kind: 'uploaded',
-          detail_json: JSON.stringify({ filename, mimetype, size_bytes: buf.byteLength }),
+          kind: 'failed',
+          detail_json: JSON.stringify({ error: errMsg.slice(0, 500) }),
           created_at: new Date(),
         })
+      } catch (recordError) {
+        logger.error('upload.handler: could not record processing failure', recordError)
+      }
+    } finally {
+      clearTimeout(timer)
+    }
 
-        const ctrl = new AbortController()
-        const timer = setTimeout(() => ctrl.abort(), 5 * 60 * 1000)
-
-        try {
-          const ai = await askAIToProcess(filename, mimetype, buf, ctrl.signal)
-          clearTimeout(timer)
-
-          await updateById('documents', documentId, {
-            doc_class: ai.document_type,
-            status: 'ready',
-            summary_md: ai.summary,
-            language: ai.detected_language,
-            page_count: ai.page_count,
-            classification_confidence: ai.classification_confidence,
-            classification_reasoning: ai.classification_reasoning,
-            suggested_filing_path: ai.suggested_filing_path,
-            processed_at: new Date(),
-          })
-
-          for (const f of ai.fields) {
-            await create('document_fields', {
-              document_id: documentId,
-              user_id: userId,
-              key: f.field_name,
-              value: f.field_value,
-              confidence: f.confidence,
-              field_group: f.field_group ?? 'Other',
-              source: 'extraction',
-              reviewed: false,
-              corrected_value: null,
-              created_at: new Date(),
-            })
-          }
-
-          await create('document_events', {
-            document_id: documentId,
-            user_id: userId,
-            kind: 'classified',
-            detail_json: JSON.stringify({
-              document_type: ai.document_type,
-              classification_confidence: ai.classification_confidence,
-              field_count: ai.fields.length,
-            }),
-            created_at: new Date(),
-          })
-          await create('document_events', {
-            document_id: documentId,
-            user_id: userId,
-            kind: 'ready',
-            detail_json: JSON.stringify({ summary_chars: ai.summary.length }),
-            created_at: new Date(),
-          })
-        } catch (err) {
-          clearTimeout(timer)
-          const errMsg = err instanceof Error ? err.message : String(err)
-          logger.error('upload.handler: AI processing failed', errMsg)
-          await updateById('documents', documentId, {
-            status: 'failed',
-            classification_reasoning: `AI processing failed: ${errMsg.slice(0, 500)}`,
-          })
-          await create('document_events', {
-            document_id: documentId,
-            user_id: userId,
-            kind: 'failed',
-            detail_json: JSON.stringify({ error: errMsg.slice(0, 500) }),
-            created_at: new Date(),
-          })
-        }
-
-        const fresh = await findById<Record<string, unknown>>('documents', documentId)
-        if (!fresh) {
-          fail(500, 'Document vanished after processing.')
-          return
-        }
-
-        const fields = (await findMany('document_fields', {
-          where: [{ field: 'document_id', operator: '=', value: documentId }],
-          orderBy: [{ field: 'key', direction: 'asc' }],
-        })) as Record<string, unknown>[]
-        const events = (await findMany('document_events', {
-          where: [{ field: 'document_id', operator: '=', value: documentId }],
-          orderBy: [{ field: 'created_at', direction: 'asc' }],
-        })) as Record<string, unknown>[]
-
-        responded = true
-        res.status(201).json(serializeDocument(fresh, fields, events))
+    // The document owns the upload as soon as it is inserted. Return the last persisted
+    // state when enrichment fails so the parser cannot remove a referenced file.
+    let fields: Record<string, unknown>[] = []
+    let events: Record<string, unknown>[] = []
+    try {
+      document = (await findById('documents', documentId)) ?? document
+      fields = await findMany('document_fields', {
+        where: [{ field: 'document_id', operator: '=', value: documentId }],
+        orderBy: [{ field: 'key', direction: 'asc' }],
       })
-    },
-  )
+      events = await findMany('document_events', {
+        where: [{ field: 'document_id', operator: '=', value: documentId }],
+        orderBy: [{ field: 'created_at', direction: 'asc' }],
+      })
+    } catch (error) {
+      logger.error('upload.handler: could not enrich the saved document', error)
+    }
 
-  req.busboy.on('error', (err: Error) => fail(400, err))
-  req.on('aborted', () => fail(499, new Error('Client aborted upload.')))
-
-  req.pipe(req.busboy)
-})
+    res.status(201).json(serializeDocument(document, fields, events))
+  },
+)
 
 export default router

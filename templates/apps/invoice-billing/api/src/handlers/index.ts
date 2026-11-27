@@ -8,28 +8,28 @@
  */
 import { Router } from 'express'
 
-import clients from './clients.js'
-import dashboard from './dashboard.js'
+import clientsRouter from './clients.js'
+import dashboardRouter from './dashboard.js'
 import exportsRouter from './exports.js'
-import invoices from './invoices.js'
-import notifications from './notifications.js'
-import payments from './payments.js'
-import profile from './profile.js'
-import recurring from './recurring.js'
-import reports from './reports.js'
-import taxRates from './tax-rates.js'
+import invoicesRouter from './invoices.js'
+import notificationsRouter from './notifications.js'
+import paymentsRouter from './payments.js'
+import profileRouter from './profile.js'
+import recurringRouter from './recurring.js'
+import reportsRouter from './reports.js'
+import taxRatesRouter from './tax-rates.js'
 
 const router = Router()
 
-router.use('/clients', clients)
-router.use('/dashboard', dashboard)
+router.use('/clients', clientsRouter)
+router.use('/dashboard', dashboardRouter)
 router.use('/exports', exportsRouter)
-router.use('/invoices', invoices)
-router.use('/notifications', notifications)
-router.use('/payments', payments)
-router.use('/profile', profile)
-router.use('/recurring', recurring)
-router.use('/reports', reports)
-router.use('/tax-rates', taxRates)
+router.use('/invoices', invoicesRouter)
+router.use('/notifications', notificationsRouter)
+router.use('/payments', paymentsRouter)
+router.use('/profile', profileRouter)
+router.use('/recurring', recurringRouter)
+router.use('/reports', reportsRouter)
+router.use('/tax-rates', taxRatesRouter)
 
 export default router

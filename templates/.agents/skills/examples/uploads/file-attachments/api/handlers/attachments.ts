@@ -1,12 +1,15 @@
-import connectBusboy from 'connect-busboy'
-import type { NextFunction, Request, Response } from 'express'
+import type { NextFunction, Request, RequestHandler, Response } from 'express'
 import { Router } from 'express'
 
 import { create, deleteById, findById, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import {
+  discardUploads,
   getProvider as getUploadProvider,
+  getUploads,
   hasProvider as hasUploadProvider,
+  receiveUploads,
+  sendUpload,
 } from '@molecule/api-uploads'
 
 // Adapt PARENT_TABLE to the record attachments hang off (orders, tickets, tasks…).
@@ -17,7 +20,7 @@ const ATTACHMENTS_TABLE = 'attachments'
 
 // Broad document support. This is enforced SERVER-SIDE on purpose — a client can
 // lie about Content-Type, so never trust the browser's declared MIME.
-const ALLOWED_MIME = new Set([
+const ALLOWED_MIME = [
   'application/pdf',
   'image/jpeg',
   'image/png',
@@ -30,7 +33,7 @@ const ALLOWED_MIME = new Set([
   'application/vnd.ms-excel',
   'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   'application/zip',
-])
+]
 const MAX_BYTES = 25 * 1024 * 1024
 
 const requireAuth = (_req: Request, res: Response, next: NextFunction): void => {
@@ -69,12 +72,6 @@ const requireOwnedParent = async (
 
 const router = Router()
 
-// The size cap is enforced by the multipart parser's `fileSize` limit — the uploads
-// bond only size-limits a stream that emits busboy's `'limit'` event.
-const busboyMiddleware = connectBusboy({
-  limits: { files: 1, fileSize: MAX_BYTES, fields: 8 },
-})
-
 // GET /?parent_id=... — list a record's attachments (metadata only).
 router.get('/', requireAuth, async (req, res) => {
   const userId = res.locals.session.userId as string
@@ -106,10 +103,9 @@ router.get('/', requireAuth, async (req, res) => {
   )
 })
 
-// POST /?parent_id=... — stream one file to the uploads bond, record a row the user owns.
-router.post('/', requireAuth, busboyMiddleware, async (req: Request, res: Response) => {
-  const userId = res.locals.session.userId as string
-
+// Authorize the PARENT before accepting a single byte — users only attach to
+// records they own (parent.user_id === session.userId), never someone else's.
+const loadOwnedParent: RequestHandler = async (req, res, next) => {
   if (!hasUploadProvider()) {
     res.status(503).json({
       error: t('attachments.noProvider', undefined, {
@@ -118,127 +114,75 @@ router.post('/', requireAuth, busboyMiddleware, async (req: Request, res: Respon
     })
     return
   }
-  if (!req.busboy) {
-    res.status(400).json({
-      error: t('attachments.notMultipart', undefined, {
-        defaultValue: 'Expected multipart/form-data.',
-      }),
-    })
-    return
-  }
-
-  // Authorize the PARENT before accepting a single byte — users only attach to
-  // records they own (parent.user_id === session.userId), never someone else's.
+  const userId = res.locals.session.userId as string
   const parent = await requireOwnedParent(req.query.parent_id as string | undefined, userId, res)
   if (!parent) return
+  res.locals.parent = parent
+  next()
+}
 
-  let responded = false
-  let sawFile = false
-  const sendError = (status: number, message: string): void => {
-    if (responded) return
-    responded = true
-    if (!res.headersSent) res.status(status).json({ error: message })
-  }
-
-  req.busboy.on(
-    'file',
-    (
-      _field: string,
-      stream: NodeJS.ReadableStream,
-      info: { filename: string; encoding: string; mimeType: string },
-    ) => {
-      if (responded) {
-        stream.resume()
-        return
-      }
-      sawFile = true
-      const mimetype = (info.mimeType || 'application/octet-stream').toLowerCase()
-      if (!ALLOWED_MIME.has(mimetype)) {
-        sendError(
-          415,
-          t(
-            'attachments.badType',
-            { type: mimetype },
-            { defaultValue: `Unsupported file type: ${mimetype}` },
-          ),
-        )
-        stream.resume()
-        return
-      }
-
-      let size = 0
-      let limitHit = false
-      stream.on('data', (chunk: Buffer) => {
-        size += chunk.length
+// POST /?parent_id=... — store one file in the uploads bond, record a row the user owns.
+// receiveUploads refuses a type outside ALLOWED_MIME (415), a file over MAX_BYTES (413)
+// and a request without a `file` (400) before the handler runs, and removes a partial
+// file when the client disconnects.
+router.post(
+  '/',
+  requireAuth,
+  loadOwnedParent,
+  receiveUploads({ field: 'file', maxFileBytes: MAX_BYTES, types: ALLOWED_MIME, maxFields: 8 }),
+  async (req: Request, res: Response) => {
+    const userId = res.locals.session.userId as string
+    const parent = res.locals.parent as { id: string }
+    const [file] = getUploads(req, 'file')
+    try {
+      // Persist the provider's file id + owner — this is what makes the file OURS.
+      const result = await create(ATTACHMENTS_TABLE, {
+        parent_id: parent.id,
+        user_id: userId,
+        file_id: file.id,
+        filename: file.filename,
+        mimetype: file.mimetype.toLowerCase(),
+        size: file.size,
+        created_at: new Date().toISOString(),
       })
-      stream.on('limit', () => {
-        limitHit = true
-        sendError(
-          413,
-          t('attachments.tooLarge', undefined, { defaultValue: 'File exceeds the 25 MB limit.' }),
-        )
+      if (!result.data) throw new Error('The attachment write returned no row')
+      res.status(201).json(result.data)
+    } catch (err) {
+      // No row points at the stored file, so nothing could ever download or delete it.
+      console.error('[attachments] recording the upload failed', err)
+      await discardUploads(req)
+      res.status(500).json({
+        error: t('attachments.saveFailed', undefined, { defaultValue: 'Could not save the file.' }),
       })
-
-      const file = getUploadProvider().upload('file', stream, info, (err) => {
-        if (limitHit) return
-        console.error('[attachments] provider error', err)
-        sendError(500, err.message || 'Upload failed.')
-      })
-
-      const promise = file.uploadPromise
-      if (!promise) return
-
-      promise
-        .then(async () => {
-          if (responded) return
-          // Persist the provider's file id + owner — this is what makes the file OURS.
-          const result = await create(ATTACHMENTS_TABLE, {
-            parent_id: parent.id,
-            user_id: userId,
-            file_id: file.id,
-            filename: info.filename,
-            mimetype,
-            size,
-            created_at: new Date().toISOString(),
-          })
-          responded = true
-          res.status(201).json(result.data)
-        })
-        .catch(() => {
-          // onError already produced a response; swallow to avoid an unhandled rejection.
-        })
-    },
-  )
-
-  req.busboy.on('finish', () => {
-    if (!sawFile && !responded) {
-      sendError(400, t('attachments.missingFile', undefined, { defaultValue: 'No file uploaded' }))
     }
-  })
-  req.busboy.on('error', (err: Error) => sendError(400, err.message))
-  req.on('aborted', () => sendError(499, 'Client aborted upload.'))
-  req.pipe(req.busboy)
-})
+  },
+)
 
-// GET /:id/download — authenticated, ownership-checked stream (works for S3 AND filesystem).
-// The uploads bond exposes no signed-URL method; streaming through an authenticated
-// route keeps files private-by-default without ever putting them on a public path.
-router.get('/:id/download', requireAuth, async (req, res) => {
+interface AttachmentRow {
+  id: string
+  parent_id: string
+  user_id: string
+  file_id: string
+  filename: string
+}
+
+// Both the attachment and its parent must still belong to the caller.
+async function requireOwnedAttachment(req: Request, res: Response): Promise<AttachmentRow | null> {
   const userId = res.locals.session.userId as string
-  const row = (await findById(ATTACHMENTS_TABLE, req.params.id as string)) as {
-    id: string
-    user_id: string
-    file_id: string
-    filename: string
-    mimetype: string
-  } | null
-  // Load the row and 404 unless it's the caller's — an unscoped getFile(id) is an IDOR.
+  const row = await findById<AttachmentRow>(ATTACHMENTS_TABLE, String(req.params.id))
   if (!row || row.user_id !== userId) {
     res.status(404).json({
       error: t('attachments.notFound', undefined, { defaultValue: 'Attachment not found' }),
     })
-    return
+    return null
   }
+  return (await requireOwnedParent(row.parent_id, userId, res)) ? row : null
+}
+
+// GET /:id/download — authenticated, ownership-checked stream.
+router.get('/:id/download', requireAuth, async (req, res) => {
+  const row = await requireOwnedAttachment(req, res)
+  if (!row) return
   if (!hasUploadProvider()) {
     res.status(503).json({
       error: t('attachments.noProvider', undefined, {
@@ -256,38 +200,22 @@ router.get('/:id/download', requireAuth, async (req, res) => {
     })
     return
   }
-  res.setHeader('Content-Type', row.mimetype || 'application/octet-stream')
-  res.setHeader('Content-Disposition', `attachment; filename="${encodeURIComponent(row.filename)}"`)
-  // [M4-2] mimetype is client-declared — stop the browser sniffing the streamed bytes
-  // into executable markup (defense in depth with the uploads bond's [M4-1] blocklist).
-  res.setHeader('X-Content-Type-Options', 'nosniff')
-  stream.pipe(res)
+  res.setHeader('Cache-Control', 'private, no-store')
+  await sendUpload(res, stream, { filename: row.filename })
 })
 
 // DELETE /:id — remove the row AND the stored blob (owner only).
 router.delete('/:id', requireAuth, async (req, res) => {
-  const userId = res.locals.session.userId as string
-  const row = (await findById(ATTACHMENTS_TABLE, req.params.id as string)) as {
-    id: string
-    user_id: string
-    file_id: string
-  } | null
-  if (!row || row.user_id !== userId) {
-    res.status(404).json({
-      error: t('attachments.notFound', undefined, { defaultValue: 'Attachment not found' }),
-    })
-    return
-  }
-  if (hasUploadProvider()) {
+  const row = await requireOwnedAttachment(req, res)
+  if (!row) return
+  const removed = await deleteById(ATTACHMENTS_TABLE, row.id)
+  if (removed.affected && hasUploadProvider()) {
     try {
       await getUploadProvider().deleteFile(row.file_id)
     } catch (err) {
-      // Best-effort: still drop the row so it leaves the UI; a leftover blob is
-      // recoverable, a dangling row the owner can't clear is not.
       console.error('[attachments] deleteFile failed', err)
     }
   }
-  await deleteById(ATTACHMENTS_TABLE, row.id)
   res.status(204).end()
 })
 

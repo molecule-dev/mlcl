@@ -213,7 +213,7 @@ Totals — pages: 18, elements: 162, forms: 4, routes: 28
 | route-delete-embeds--id                | DELETE | /embeds/:id                  | api/src/handlers/embeds.ts:170        |
 | route-delete-models--id                | DELETE | /models/:id                  | api/src/handlers/models.ts:199        |
 | route-delete-notifications--id         | DELETE | /notifications/:id           | api/src/handlers/notifications.ts:126 |
-| route-delete-avatar-avatar             | DELETE | /user/avatar                 | api/src/handlers/avatar.ts:170        |
+| route-delete-avatar-avatar             | DELETE | /user/avatar                 | api/src/handlers/avatar.ts:109        |
 | route-get-activity-                    | GET    | /activity                    | api/src/handlers/activity.ts:16       |
 | route-get-annotations-                 | GET    | /annotations                 | api/src/handlers/annotations.ts:34    |
 | route-get-embeds-                      | GET    | /embeds                      | api/src/handlers/embeds.ts:30         |
@@ -221,7 +221,7 @@ Totals — pages: 18, elements: 162, forms: 4, routes: 28
 | route-get-models-                      | GET    | /models                      | api/src/handlers/models.ts:41         |
 | route-get-models--id                   | GET    | /models/:id                  | api/src/handlers/models.ts:57         |
 | route-get-notifications-               | GET    | /notifications               | api/src/handlers/notifications.ts:27  |
-| route-get-avatar-avatar--fileid        | GET    | /user/avatar/:fileId         | api/src/handlers/avatar.ts:199        |
+| route-get-avatar-avatar--fileid        | GET    | /user/avatar/:fileId         | api/src/handlers/avatar.ts:134        |
 | route-post-activity-                   | POST   | /activity                    | api/src/handlers/activity.ts:32       |
 | route-post-annotations-                | POST   | /annotations                 | api/src/handlers/annotations.ts:78    |
 | route-post-embeds-                     | POST   | /embeds                      | api/src/handlers/embeds.ts:89         |
@@ -230,7 +230,7 @@ Totals — pages: 18, elements: 162, forms: 4, routes: 28
 | route-post-models--id-render           | POST   | /models/:id/render           | api/src/handlers/models.ts:233        |
 | route-post-notifications-              | POST   | /notifications               | api/src/handlers/notifications.ts:43  |
 | route-post-notifications-mark-all-read | POST   | /notifications/mark-all-read | api/src/handlers/notifications.ts:72  |
-| route-post-avatar-avatar               | POST   | /user/avatar                 | api/src/handlers/avatar.ts:42         |
+| route-post-avatar-avatar               | POST   | /user/avatar                 | api/src/handlers/avatar.ts:74         |
 | route-post-auth-reset-password         | POST   | /users/reset-password        | api/src/handlers/auth.ts:48           |
 | route-put-annotations--id              | PUT    | /annotations/:id             | api/src/handlers/annotations.ts:131   |
 | route-put-embeds--id                   | PUT    | /embeds/:id                  | api/src/handlers/embeds.ts:131        |

@@ -23,16 +23,15 @@ endpoint.
 ```bash
 cd /workspace
 npm install @molecule/api-uploads-s3 --workspace=api        # OR -filesystem for local
-npm install @molecule/app-file-dropzone-react --workspace=app
+npm install @molecule/app-file-dropzone-react @molecule/app-filesystem --workspace=app
 ```
 
 ## Files in this example
 
-| Path                                  | What it does                                                                                                                                                                                                                                                                          |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api/handlers/attachments.ts`         | `POST /attachments?parent_id=...` upload, `GET /attachments?parent_id=...` list, `GET /attachments/:id/download` authenticated ownership-checked stream, `DELETE /attachments/:id`. Every route scopes to a parent the caller owns (no IDOR).                                         |
-| `api/connect-busboy.d.ts`             | Type stub for the untyped `connect-busboy` package — copy it so the handler's `import connectBusboy from 'connect-busboy'` + `req.busboy` type-check (TS7016 otherwise). `connect-busboy` itself is already installed (it ships with `@molecule/api-middleware-body-parser-express`). |
-| `app/components/AttachmentsPanel.tsx` | Drag-and-drop `FileDropzone` (multi-file) + list of existing attachments with download links + delete.                                                                                                                                                                                |
+| Path                                  | What it does                                                                                                                                                                                                                                  |
+| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api/handlers/attachments.ts`         | `POST /attachments?parent_id=...` upload, `GET /attachments?parent_id=...` list, `GET /attachments/:id/download` authenticated ownership-checked stream, `DELETE /attachments/:id`. Every route scopes to a parent the caller owns (no IDOR). |
+| `app/components/AttachmentsPanel.tsx` | Drag-and-drop `FileDropzone` (multi-file) + list of existing attachments with download links + delete.                                                                                                                                        |
 
 ## Anti-patterns
 
@@ -43,7 +42,10 @@ npm install @molecule/app-file-dropzone-react --workspace=app
   private-by-default path (and the only one that works for both the S3
   and `-filesystem` variants).
 - Do not skip MIME + size validation server-side. Client validation
-  can be bypassed.
+  can be bypassed: pass `types` and `maxFileBytes` to `receiveUploads`.
+- Register the router in `api/src/handlers/index.ts`. The app-wide body parser
+  leaves `multipart/form-data` unread so `receiveUploads` can validate the
+  request and clean up partial uploads.
 - Do not invent `@molecule/api-attachments` — composition is
   `api-uploads-*` + a normal `attachments` table.
 - Do not let users delete attachments belonging to another user's

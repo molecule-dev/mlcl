@@ -8,29 +8,31 @@
  */
 import { Router } from 'express'
 
-import actionItems from './action_items.js'
-import apiTokens from './api_tokens.js'
-import calendarEvents from './calendar_events.js'
-import meetings from './meetings.js'
-import notifications from './notifications.js'
-import search from './search.js'
-import team from './team.js'
-import transcriptSegments from './transcript_segments.js'
+import actionItemsRouter from './action_items.js'
+import apiTokensRouter from './api_tokens.js'
+import calendarEventsRouter from './calendar_events.js'
+import meetingsRouter from './meetings.js'
+import notificationsRouter from './notifications.js'
+import searchRouter from './search.js'
+import settingsRouter from './settings.js'
+import teamRouter from './team.js'
+import transcriptSegmentsRouter from './transcript_segments.js'
 
 const router = Router()
 
-router.use('/meetings', meetings)
-router.use('/transcript-segments', transcriptSegments)
-router.use('/transcript_segments', transcriptSegments)
-router.use('/action-items', actionItems)
-router.use('/action_items', actionItems)
-router.use('/calendar-events', calendarEvents)
-router.use('/calendar_events', calendarEvents)
-router.use('/team-members', team)
-router.use('/team', team)
-router.use('/notifications', notifications)
-router.use('/search', search)
-router.use('/api-tokens', apiTokens)
-router.use('/api_tokens', apiTokens)
+router.use('/meetings', meetingsRouter)
+router.use('/transcript-segments', transcriptSegmentsRouter)
+router.use('/transcript_segments', transcriptSegmentsRouter)
+router.use('/action-items', actionItemsRouter)
+router.use('/action_items', actionItemsRouter)
+router.use('/calendar-events', calendarEventsRouter)
+router.use('/calendar_events', calendarEventsRouter)
+router.use('/team-members', teamRouter)
+router.use('/team', teamRouter)
+router.use('/notifications', notificationsRouter)
+router.use('/search', searchRouter)
+router.use('/settings', settingsRouter)
+router.use('/api-tokens', apiTokensRouter)
+router.use('/api_tokens', apiTokensRouter)
 
 export default router

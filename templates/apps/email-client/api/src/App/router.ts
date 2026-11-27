@@ -10,10 +10,7 @@ import {
   mountDefaultUserVerifyPaymentRoutes,
 } from '@molecule/api-bonds-default-express'
 
-import draftsRouter from '../handlers/drafts.js'
-import emailsRouter from '../handlers/emails.js'
-import foldersRouter from '../handlers/folders.js'
-import labelsRouter from '../handlers/labels.js'
+import templateHandlers from '../handlers/index.js'
 import billingRouter from '../routes/billing.js'
 import { requestHandlerMap as Device } from './Resource/Device/index.js'
 import {
@@ -33,8 +30,5 @@ mountDefaultUserSecurityRoutes(router, User)
 mountDefaultUserBillingRoutes(router, User)
 mountDefaultUserVerifyPaymentRoutes(router, User)
 
-router.use('/emails', emailsRouter)
-router.use('/folders', foldersRouter)
-router.use('/labels', labelsRouter)
-router.use('/drafts', draftsRouter)
+router.use(templateHandlers)
 router.use('/billing', billingRouter)

@@ -11,38 +11,31 @@
  * from a raw bucket URL, which 403s the moment you switch off the local
  * filesystem bond. Mirrors the profile-photo / file-attachments molecule pattern.
  */
-import connectBusboy from 'connect-busboy'
-import { type Request, type Response, Router } from 'express'
+import { type Request, type RequestHandler, type Response, Router } from 'express'
 
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import { create, findById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import {
+  discardUploads,
   getProvider as getUploadProvider,
+  getUploads,
   hasProvider as hasUploadProvider,
+  receiveUploads,
+  sendUpload,
 } from '@molecule/api-uploads'
 
 const UPLOADS_TABLE = 'uploads'
 
 // Images only. Enforced SERVER-SIDE on purpose — a client can lie about
 // Content-Type, so never trust the browser's declared MIME.
-const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif'])
+const ALLOWED_MIME = ['image/jpeg', 'image/png', 'image/webp', 'image/gif']
 const MAX_BYTES = 10 * 1024 * 1024
 
 const router = Router()
 
-// The size cap is enforced by the multipart parser's `fileSize` limit — the
-// uploads bond only size-limits a stream that emits busboy's `'limit'` event.
-const busboyMiddleware = connectBusboy({
-  limits: { files: 1, fileSize: MAX_BYTES, fields: 0 },
-})
-
-// POST /api/uploads — an authenticated host uploads one listing photo. Streams
-// the file to the uploads bond, records an OWNED row, and returns a same-origin
-// serve URL the client stores in the listing's `images` array.
-router.post('/', busboyMiddleware, (req: Request, res: Response) => {
-  const userId = getUserId(res)
-  if (!userId) {
+const requireUser: RequestHandler = (_req, res, next) => {
+  if (!getUserId(res)) {
     res.status(401).json({ error: t('common.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
     return
   }
@@ -52,101 +45,46 @@ router.post('/', busboyMiddleware, (req: Request, res: Response) => {
     })
     return
   }
-  if (!req.busboy) {
-    res.status(400).json({
-      error: t('uploads.notMultipart', {}, { defaultValue: 'Expected multipart/form-data.' }),
-    })
-    return
-  }
+  next()
+}
 
-  let responded = false
-  let sawFile = false
-  const sendError = (status: number, message: string): void => {
-    if (responded) return
-    responded = true
-    if (!res.headersSent) res.status(status).json({ error: message })
-  }
-
-  req.busboy.on(
-    'file',
-    (
-      _field: string,
-      stream: NodeJS.ReadableStream,
-      info: { filename: string; encoding: string; mimeType: string },
-    ) => {
-      if (responded) {
-        stream.resume()
-        return
-      }
-      sawFile = true
-      const mimetype = (info.mimeType || 'application/octet-stream').toLowerCase()
-      if (!ALLOWED_MIME.has(mimetype)) {
-        sendError(415, t('uploads.badType', {}, { defaultValue: 'Unsupported image type.' }))
-        stream.resume()
-        return
-      }
-
-      let size = 0
-      let limitHit = false
-      stream.on('data', (chunk: Buffer) => {
-        size += chunk.length
+// POST /api/uploads — an authenticated host uploads one listing photo. receiveUploads
+// refuses a type outside ALLOWED_MIME (415), a file over MAX_BYTES (413) and a request
+// without a `file` (400) before this runs; the handler records an OWNED row and returns
+// a same-origin serve URL the client stores in the listing's `images` array.
+router.post(
+  '/',
+  requireUser,
+  receiveUploads({ field: 'file', maxFileBytes: MAX_BYTES, types: ALLOWED_MIME, maxFields: 0 }),
+  async (req: Request, res: Response) => {
+    const [file] = getUploads(req, 'file')
+    // Own the file: persist the provider id + uploader. The serve route can
+    // only stream back an id that exists here, and the owner can later manage it.
+    let row: { id: string } | null | undefined
+    try {
+      const result = await create<{ id: string }>(UPLOADS_TABLE, {
+        user_id: String(getUserId(res)),
+        file_id: file.id,
+        filename: file.filename,
+        mimetype: file.mimetype.toLowerCase(),
+        size: file.size,
+        created_at: new Date().toISOString(),
       })
-      stream.on('limit', () => {
-        limitHit = true
-        sendError(
-          413,
-          t('uploads.tooLarge', {}, { defaultValue: 'Image exceeds the 10 MB limit.' }),
-        )
-      })
-
-      const file = getUploadProvider().upload('file', stream, info, (err) => {
-        if (limitHit) return
-        console.error('[uploads] provider error', err)
-        sendError(500, err.message || 'Upload failed.')
-      })
-
-      const promise = file.uploadPromise
-      if (!promise) return
-
-      promise
-        .then(async () => {
-          if (responded) return
-          // Own the file: persist the provider id + uploader. The serve route can
-          // only stream back an id that exists here, and the owner can later manage it.
-          const result = await create<{ id: string }>(UPLOADS_TABLE, {
-            user_id: userId,
-            file_id: file.id,
-            filename: info.filename,
-            mimetype,
-            size,
-            created_at: new Date().toISOString(),
-          })
-          const row = result.data
-          if (!row) {
-            sendError(
-              500,
-              t('uploads.saveFailed', {}, { defaultValue: 'Could not save the upload.' }),
-            )
-            return
-          }
-          responded = true
-          res.status(201).json({ id: row.id, url: `/api/uploads/${row.id}` })
-        })
-        .catch(() => {
-          // onError already produced a response; swallow to avoid an unhandled rejection.
-        })
-    },
-  )
-
-  req.busboy.on('finish', () => {
-    if (!sawFile && !responded) {
-      sendError(400, t('uploads.missingFile', {}, { defaultValue: 'No file uploaded.' }))
+      row = result.data
+    } catch (err) {
+      console.error('[uploads] recording the upload failed', err)
     }
-  })
-  req.busboy.on('error', (err: Error) => sendError(400, err.message))
-  req.on('aborted', () => sendError(499, 'Client aborted upload.'))
-  req.pipe(req.busboy)
-})
+    if (!row) {
+      // No row points at the stored file, so the serve route could never reach it.
+      await discardUploads(req)
+      res.status(500).json({
+        error: t('uploads.saveFailed', {}, { defaultValue: 'Could not save the upload.' }),
+      })
+      return
+    }
+    res.status(201).json({ id: row.id, url: `/api/uploads/${row.id}` })
+  },
+)
 
 // GET /api/uploads/:id — stream a stored listing photo. PUBLIC on purpose:
 // listing photos are shown to anonymous marketplace visitors (GET /api/listings
@@ -158,6 +96,7 @@ router.get('/:id', async (req: Request, res: Response) => {
   const row = (await findById(UPLOADS_TABLE, id)) as {
     id: string
     file_id: string
+    filename?: string
     mimetype: string
   } | null
   if (!row) {
@@ -175,14 +114,12 @@ router.get('/:id', async (req: Request, res: Response) => {
     res.status(404).json({ error: t('uploads.notFound', {}, { defaultValue: 'Image not found.' }) })
     return
   }
-  res.setHeader('Content-Type', row.mimetype || 'application/octet-stream')
-  // [M4-2] mimetype is client-declared AND this route serves the bytes INLINE (no
-  // attachment disposition, so a browser may render them) — stop it sniffing a
-  // benign-typed file into executable HTML. Serving-side half of the uploads bond's
-  // [M4-1] storage-side dangerous-MIME blocklist (defense in depth).
-  res.setHeader('X-Content-Type-Options', 'nosniff')
   res.setHeader('Cache-Control', 'public, max-age=3600')
-  stream.pipe(res)
+  await sendUpload(res, stream, {
+    inline: ALLOWED_MIME.includes(row.mimetype),
+    type: row.mimetype,
+    filename: row.filename,
+  })
 })
 
 export default router

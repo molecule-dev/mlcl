@@ -10,7 +10,6 @@ import { cookieParser as cookieParserMiddleware } from '@molecule/api-middleware
 import { cors as corsMiddleware } from '@molecule/api-middleware-cors'
 
 import { setupBonds } from './bonds/index.js'
-import { photoFilesRouter, uploadsRouter } from './handlers/uploads.js'
 import { runMigrations } from './scripts/migrate.js'
 
 // The molecule.dev IDE sets MOL_API_ERROR_LOG to the file it reads fatal API errors from.
@@ -34,22 +33,12 @@ export const create = async (
   await setupBonds()
 
   const { router } = await import('./App/router.js')
-  const { authorization: userAuthorization } = await import('./App/Resource/User/index.js')
 
   const app = express()
   app.disable('x-powered-by')
 
-  // CORS + cookie parsing must run for every request, including the
-  // multipart upload route below. The shared body parser uses busboy
-  // with files: 0, which silently consumes (and discards) the file
-  // bytes — so the upload route MUST be mounted ahead of it. The same
-  // applies to the GET file-proxy route, which we keep public so
-  // <img src> loads work for unauthenticated viewers (e.g. landing).
   app.use(corsMiddleware)
   app.use(cookieParserMiddleware)
-  app.use('/api/photo-files', photoFilesRouter)
-  app.use('/api/photo-uploads', userAuthorization.verifyMiddleware(), uploadsRouter)
-
   app.use(bodyParserMiddleware)
 
   app.use('/api', router)

@@ -8,20 +8,18 @@
  */
 import { Router } from 'express'
 
-import billing from '../routes/billing.js'
-import agents from './agents.js'
-import conversations from './conversations.js'
-import preferences from './preferences.js'
-import profile from './profile.js'
-import speech from './speech.js'
+import agentsRouter from './agents.js'
+import conversationsRouter from './conversations.js'
+import preferencesRouter from './preferences.js'
+import profileRouter from './profile.js'
+import speechRouter from './speech.js'
 
 const router = Router()
 
-router.use('/agents', agents)
-router.use('/conversations', conversations)
-router.use('/speech', speech)
-router.use('/preferences', preferences)
-router.use('/profile', profile)
-router.use('/billing', billing)
+router.use('/agents', agentsRouter)
+router.use('/conversations', conversationsRouter)
+router.use('/speech', speechRouter)
+router.use('/preferences', preferencesRouter)
+router.use('/profile', profileRouter)
 
 export default router

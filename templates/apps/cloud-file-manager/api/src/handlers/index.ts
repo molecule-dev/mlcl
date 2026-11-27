@@ -8,20 +8,23 @@
  */
 import { Router } from 'express'
 
-import activity from './activity.js'
-import files from './files.js'
-import folders from './folders.js'
-import shares from './shares.js'
-import stats from './stats.js'
-import storage from './storage.js'
+import activityRouter from './activity.js'
+import filesRouter from './files.js'
+import foldersRouter from './folders.js'
+import sharesRouter, { publicRouter as sharesPublicRouter } from './shares.js'
+import statsRouter from './stats.js'
+import storageRouter from './storage.js'
+import uploadsRouter from './uploads.js'
 
 const router = Router()
 
-router.use('/files', files)
-router.use('/folders', folders)
-router.use('/shares', shares)
-router.use('/activity', activity)
-router.use('/stats', stats)
-router.use('/storage', storage)
+router.use('/shares', sharesPublicRouter)
+router.use('/files', filesRouter)
+router.use('/folders', foldersRouter)
+router.use('/shares', sharesRouter)
+router.use('/activity', activityRouter)
+router.use('/stats', statsRouter)
+router.use('/storage', storageRouter)
+router.use('/uploads', uploadsRouter)
 
 export default router

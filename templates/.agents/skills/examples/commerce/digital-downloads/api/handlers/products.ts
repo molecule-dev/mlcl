@@ -1,12 +1,13 @@
-import connectBusboy from 'connect-busboy'
 import type { NextFunction, Request, Response } from 'express'
 import { Router } from 'express'
 
 import { create, findById, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import {
-  getProvider as getUploadProvider,
+  discardUploads,
+  getUploads,
   hasProvider as hasUploadProvider,
+  receiveUploads,
 } from '@molecule/api-uploads'
 
 const PRODUCTS_TABLE = 'products'
@@ -14,7 +15,7 @@ const PRODUCTS_TABLE = 'products'
 // Digital goods: PDFs, ebooks, fonts, design/template archives. Enforced
 // SERVER-SIDE on purpose — a client can lie about Content-Type, so never trust
 // the browser's declared MIME.
-const ALLOWED_MIME = new Set([
+const ALLOWED_MIME = [
   'application/pdf',
   'application/epub+zip',
   'application/zip',
@@ -24,8 +25,7 @@ const ALLOWED_MIME = new Set([
   'font/woff2',
   'image/png',
   'image/jpeg',
-  'image/svg+xml',
-])
+]
 const MAX_BYTES = 100 * 1024 * 1024 // 100 MB — fonts / ebooks / design bundles
 
 // The shape returned to the storefront. `price` is an integer number of cents
@@ -96,13 +96,7 @@ router.get('/:id', async (req, res) => {
   return res.json(toStorefront(product))
 })
 
-// The size cap is enforced by the multipart parser's `fileSize` limit — the
-// uploads bond only size-limits a stream that emits busboy's `'limit'` event.
-const busboyMiddleware = connectBusboy({ limits: { files: 1, fileSize: MAX_BYTES, fields: 8 } })
-
-// POST / — admin uploads a new digital product: stream the deliverable file to
-// the uploads bond, then record a catalog row (title + price + the storage key).
-router.post('/', requireAdmin, busboyMiddleware, (req: Request, res: Response) => {
+const requireUploadProvider = (_req: Request, res: Response, next: NextFunction): void => {
   if (!hasUploadProvider()) {
     res.status(503).json({
       error: t('products.noProvider', undefined, {
@@ -111,124 +105,69 @@ router.post('/', requireAdmin, busboyMiddleware, (req: Request, res: Response) =
     })
     return
   }
-  if (!req.busboy) {
-    res.status(400).json({
-      error: t('products.notMultipart', undefined, {
-        defaultValue: 'Expected multipart/form-data.',
-      }),
-    })
-    return
-  }
+  next()
+}
 
-  const fields: Record<string, string> = {}
-  let responded = false
-  let sawFile = false
-  const sendError = (status: number, message: string): void => {
-    if (responded) return
-    responded = true
-    if (!res.headersSent) res.status(status).json({ error: message })
-  }
-
-  req.busboy.on('field', (name: string, value: string) => {
-    fields[name] = value
-  })
-
-  req.busboy.on(
-    'file',
-    (
-      _field: string,
-      stream: NodeJS.ReadableStream,
-      info: { filename: string; encoding: string; mimeType: string },
-    ) => {
-      if (responded) {
-        stream.resume()
-        return
-      }
-      sawFile = true
-      const mimetype = (info.mimeType || 'application/octet-stream').toLowerCase()
-      if (!ALLOWED_MIME.has(mimetype)) {
-        sendError(
-          415,
-          t(
-            'products.badType',
-            { type: mimetype },
-            { defaultValue: `Unsupported file type: ${mimetype}` },
-          ),
-        )
-        stream.resume()
-        return
-      }
-
-      let limitHit = false
-      stream.on('limit', () => {
-        limitHit = true
-        sendError(
-          413,
-          t('products.tooLarge', undefined, { defaultValue: 'File exceeds the 100 MB limit.' }),
-        )
-      })
-
-      const file = getUploadProvider().upload('file', stream, info, (err) => {
-        if (limitHit) return
-        console.error('[products] provider error', err)
-        sendError(500, err.message || 'Upload failed.')
-      })
-
-      const promise = file.uploadPromise
-      if (!promise) return
-
-      promise
-        .then(async () => {
-          if (responded) return
-          const title = (fields.title ?? '').trim()
-          const priceCents = Number.parseInt(fields.price ?? '', 10)
-          if (!title) {
-            sendError(
-              400,
-              t('products.missingTitle', undefined, {
-                defaultValue: 'A product title is required.',
-              }),
-            )
-            return
-          }
-          if (!Number.isInteger(priceCents) || priceCents < 0) {
-            sendError(
-              400,
-              t('products.badPrice', undefined, {
-                defaultValue: 'Price must be a whole number of cents (>= 0).',
-              }),
-            )
-            return
-          }
-          // storage_key = the uploads bond's file id. This is what /downloads
-          // streams through the ownership check — it is NEVER sent to the
-          // storefront (see toStorefront).
-          const result = await create(PRODUCTS_TABLE, {
-            title,
-            description: (fields.description ?? '').trim() || null,
-            price: priceCents,
-            storage_key: file.id,
-            filename: info.filename,
-            mime_type: mimetype,
-            created_at: new Date().toISOString(),
-          })
-          responded = true
-          res.status(201).json(toStorefront(result.data as Record<string, unknown>))
-        })
-        .catch(() => {
-          // onError already produced a response; swallow to avoid an unhandled rejection.
-        })
-    },
-  )
-
-  req.busboy.on('finish', () => {
-    if (!sawFile && !responded) {
-      sendError(400, t('products.missingFile', undefined, { defaultValue: 'No file uploaded' }))
+// POST / — admin uploads a new digital product: receiveUploads stores the deliverable
+// (the `file` field) in the uploads bond, then the handler records a catalog row (title +
+// price + the storage key). receiveUploads refuses a type outside ALLOWED_MIME (415), a
+// file over MAX_BYTES (413) and a request without a file (400) before the handler runs;
+// the text fields arrive in req.body as strings.
+router.post(
+  '/',
+  requireAdmin,
+  requireUploadProvider,
+  receiveUploads({ field: 'file', maxFileBytes: MAX_BYTES, types: ALLOWED_MIME, maxFields: 8 }),
+  async (req: Request, res: Response) => {
+    const fields = req.body as Record<string, string | undefined>
+    const [file] = getUploads(req, 'file')
+    // A refused request must not leave its deliverable in storage with no product row.
+    const refuse = async (status: number, message: string): Promise<void> => {
+      await discardUploads(req)
+      res.status(status).json({ error: message })
     }
-  })
-  req.busboy.on('error', (err: Error) => sendError(400, err.message))
-  req.on('aborted', () => sendError(499, 'Client aborted upload.'))
-  req.pipe(req.busboy)
-})
+    const title = (fields.title ?? '').trim()
+    const price = (fields.price ?? '').trim()
+    const priceCents = Number(price)
+    if (!title) {
+      await refuse(
+        400,
+        t('products.missingTitle', undefined, { defaultValue: 'A product title is required.' }),
+      )
+      return
+    }
+    if (!/^\d+$/.test(price) || !Number.isSafeInteger(priceCents)) {
+      await refuse(
+        400,
+        t('products.badPrice', undefined, {
+          defaultValue: 'Price must be a whole number of cents (>= 0).',
+        }),
+      )
+      return
+    }
+    try {
+      // storage_key = the uploads bond's file id. This is what /downloads
+      // streams through the ownership check — it is NEVER sent to the
+      // storefront (see toStorefront).
+      const result = await create(PRODUCTS_TABLE, {
+        title,
+        description: (fields.description ?? '').trim() || null,
+        price: priceCents,
+        storage_key: file.id,
+        filename: file.filename,
+        mime_type: file.mimetype.toLowerCase(),
+        created_at: new Date().toISOString(),
+      })
+      if (!result.data) throw new Error('The product write returned no row')
+      res.status(201).json(toStorefront(result.data))
+    } catch (err) {
+      console.error('[products] recording the product failed', err)
+      await refuse(
+        500,
+        t('products.saveFailed', undefined, { defaultValue: 'Could not save the product.' }),
+      )
+    }
+  },
+)
 
 export default router

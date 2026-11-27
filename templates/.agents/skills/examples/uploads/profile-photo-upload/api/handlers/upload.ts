@@ -1,11 +1,16 @@
-import connectBusboy from 'connect-busboy'
-import { type Request, type Response, Router } from 'express'
+import { type Request, type RequestHandler, type Response, Router } from 'express'
 
-import { findMany, updateById } from '@molecule/api-database'
+import { findById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
-import { getProvider as getUploadProvider } from '@molecule/api-uploads'
+import {
+  discardUploads,
+  getProvider as getUploadProvider,
+  getUploads,
+  receiveUploads,
+  sendUpload,
+} from '@molecule/api-uploads'
 
-const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp'])
+const ALLOWED_MIME = ['image/jpeg', 'image/png', 'image/webp']
 const MAX_BYTES = 5 * 1024 * 1024
 
 // The avatar is served THROUGH this API (an authenticated getFile stream), never as a
@@ -19,42 +24,87 @@ const AVATAR_ROUTE = '/api/upload/avatar/'
 
 const router = Router()
 
-const busboyMiddleware = connectBusboy({
-  limits: { files: 1, fileSize: MAX_BYTES, fields: 0 },
-})
+/** Whether a profile URL refers to a file managed by the avatar router. */
+export const isManagedAvatar = (avatar: unknown): avatar is string =>
+  typeof avatar === 'string' && avatar.startsWith(AVATAR_ROUTE)
 
-// If the app-wide body parser already read this request, busboy would wait forever
-// for a body that never comes. Say so at once instead of hanging (see README:
-// mount this router through `preBodyParser`).
-const requireUnreadBody = (req: Request, res: Response, next: () => void): void => {
-  if (req.readableEnded) {
-    res.status(500).json({
-      error: t(
-        'uploads.error.bodyAlreadyRead',
-        {},
-        {
-          defaultValue:
-            'The upload body was already read by the body parser — mount this router in preBodyParser (api/src/server.ts).',
-        },
-      ),
-    })
-    return
-  }
-  next()
-}
+const avatarUrl = (id: string): string => `${AVATAR_ROUTE}${encodeURIComponent(id)}`
 
-router.post('/avatar', requireUnreadBody, busboyMiddleware, (req: Request, res: Response) => {
+const requireUser: RequestHandler = (_req, res, next) => {
   if (!res.locals.session?.userId) {
     res
       .status(401)
       .json({ error: t('auth.required', {}, { defaultValue: 'Authentication required' }) })
     return
   }
+  next()
+}
 
-  if (!req.busboy) {
-    res.status(400).json({
-      error: t('uploads.error.notMultipart', {}, { defaultValue: 'Expected multipart/form-data.' }),
-    })
+// POST /avatar — receiveUploads stores one image from the `file` field in the uploads bond.
+// It refuses a type outside ALLOWED_MIME (415), a file over MAX_BYTES (413) and a request
+// without a file (400) before the handler runs, and removes a partial file when the client
+// disconnects. Put requireUser first, so an anonymous request is refused before anything
+// is stored.
+router.post(
+  '/avatar',
+  requireUser,
+  receiveUploads({ field: 'file', maxFileBytes: MAX_BYTES, types: ALLOWED_MIME, maxFields: 0 }),
+  async (req: Request, res: Response) => {
+    const userId = res.locals.session.userId as string
+    const [file] = getUploads(req, 'file')
+    // The provider derives a storage id (`file.id`) itself — an opaque UUID, never the
+    // filename, so two users' "photo.jpg" can't collide. Persist a SERVE URL (not
+    // `file.location`) into the framework `avatar` column; GET below streams the private
+    // object back. NOTE the column is `avatar` (text) — NOT `avatar_url`.
+    const avatar = avatarUrl(file.id)
+    let previous: unknown
+    try {
+      previous = (await findById('users', userId))?.avatar
+      const result = await updateById('users', userId, { avatar })
+      if (result.affected !== 1) throw new Error('The profile write affected no row')
+    } catch (err) {
+      // A failed persist means the avatar wouldn't survive a reload — surface it as a real
+      // error, never return 200 with an unsaved avatar, and free the new object.
+      console.error('[upload.avatar] profile update failed', err)
+      await discardUploads(req)
+      res
+        .status(500)
+        .json({ error: t('upload.saveFailed', {}, { defaultValue: 'Could not save avatar.' }) })
+      return
+    }
+    if (isManagedAvatar(previous) && previous !== avatar) {
+      try {
+        const references = await findMany('users', {
+          where: [{ field: 'avatar', operator: '=', value: previous }],
+          limit: 1,
+        })
+        if (!references.length) {
+          await getUploadProvider().deleteFile(
+            decodeURIComponent(previous.slice(AVATAR_ROUTE.length)),
+          )
+        }
+      } catch (err) {
+        console.error('[upload.avatar] removing the previous avatar failed', err)
+      }
+    }
+    res.json({ avatar })
+  },
+)
+
+// GET /avatar/:fileId — stream the avatar image (works for S3 AND filesystem: the raw
+// bucket URL is private, so it's served through here). Auth required, and — crucially —
+// it only streams a fileId REGISTERED as some user's avatar. Without that check,
+// `getFile(anyId)` is an IDOR: a signed-in user could pass another user's private
+// ATTACHMENT id to this route and download it (all objects share one bucket). `<img>`
+// sniffs the image bytes, so a generic content-type still renders jpeg/png/webp.
+router.get('/avatar/:fileId', requireUser, async (req: Request, res: Response) => {
+  const fileId = String(req.params.fileId)
+  const registered = (await findMany('users', {
+    where: [{ field: 'avatar', operator: '=', value: avatarUrl(fileId) }],
+    limit: 1,
+  })) as unknown[]
+  if (registered.length === 0) {
+    res.status(404).json({ error: t('upload.notFound', {}, { defaultValue: 'Avatar not found' }) })
     return
   }
 
@@ -68,131 +118,13 @@ router.post('/avatar', requireUnreadBody, busboyMiddleware, (req: Request, res: 
     })
     return
   }
-
-  const userId = res.locals.session.userId as string
-  let responded = false
-  let sawFile = false
-
-  const sendError = (status: number, message: string): void => {
-    if (responded) return
-    responded = true
-    if (!res.headersSent) res.status(status).json({ error: message })
-  }
-
-  req.busboy.on(
-    'file',
-    (
-      _field: string,
-      stream: NodeJS.ReadableStream,
-      info: { filename: string; encoding: string; mimeType: string },
-    ) => {
-      if (responded) {
-        stream.resume()
-        return
-      }
-      sawFile = true
-      const mimetype = (info.mimeType || 'application/octet-stream').toLowerCase()
-      if (!ALLOWED_MIME.has(mimetype)) {
-        sendError(415, t('upload.badType', {}, { defaultValue: 'Unsupported image type' }))
-        stream.resume()
-        return
-      }
-
-      let limitHit = false
-      stream.on('limit', () => {
-        limitHit = true
-        sendError(413, t('upload.tooLarge', {}, { defaultValue: 'File exceeds 5 MB limit.' }))
-      })
-
-      const file = provider.upload('file', stream, info, (err) => {
-        if (limitHit) return
-        console.error('[upload.avatar] provider error', err)
-        sendError(500, err.message || 'Upload failed.')
-      })
-
-      const promise = file.uploadPromise
-      if (!promise) return
-
-      promise
-        .then(async () => {
-          if (responded) return
-          // The provider derives a storage id (`file.id`) itself — an opaque UUID, never
-          // the filename, so two users' "photo.jpg" can't collide. Persist a SERVE URL
-          // (not `file.location`) into the framework `avatar` column; GET below streams
-          // the private object back. NOTE the column is `avatar` (text) — NOT `avatar_url`.
-          const avatar = `${AVATAR_ROUTE}${file.id}`
-          try {
-            await updateById('users', userId, { avatar })
-          } catch (err) {
-            // A failed persist means the avatar wouldn't survive a reload — surface it as
-            // a real error, never return 200 with an unsaved avatar.
-            console.error('[upload.avatar] profile update failed', err)
-            sendError(500, t('upload.saveFailed', {}, { defaultValue: 'Could not save avatar.' }))
-            return
-          }
-          responded = true
-          res.json({ avatar })
-        })
-        .catch(() => {
-          // onError callback already produced a response; swallow to avoid unhandled rejection.
-        })
-    },
-  )
-
-  req.busboy.on('finish', () => {
-    if (!sawFile && !responded) {
-      sendError(400, t('upload.missingFile', {}, { defaultValue: 'No file uploaded' }))
-    }
-  })
-
-  req.busboy.on('error', (err: Error) => sendError(400, err.message))
-  req.on('aborted', () => sendError(499, 'Client aborted upload.'))
-  req.pipe(req.busboy)
-})
-
-// GET /avatar/:fileId — stream the avatar image (works for S3 AND filesystem: the raw
-// bucket URL is private, so it's served through here). Auth required, and — crucially —
-// it only streams a fileId REGISTERED as some user's avatar. Without that check,
-// `getFile(anyId)` is an IDOR: a signed-in user could pass another user's private
-// ATTACHMENT id to this route and download it (all objects share one bucket). `<img>`
-// sniffs the image bytes, so a generic content-type still renders jpeg/png/webp.
-router.get('/avatar/:fileId', async (req: Request, res: Response) => {
-  if (!res.locals.session?.userId) {
-    res
-      .status(401)
-      .json({ error: t('auth.required', {}, { defaultValue: 'Authentication required' }) })
-    return
-  }
-  const fileId = String(req.params.fileId)
-  const registered = (await findMany('users', {
-    where: [{ field: 'avatar', operator: '=', value: `${AVATAR_ROUTE}${fileId}` }],
-    limit: 1,
-  })) as unknown[]
-  if (registered.length === 0) {
-    res.status(404).json({ error: t('upload.notFound', {}, { defaultValue: 'Avatar not found' }) })
-    return
-  }
-
-  let provider: ReturnType<typeof getUploadProvider>
-  try {
-    provider = getUploadProvider()
-  } catch {
-    res.status(500).json({
-      error: t('uploads.error.noProvider', {}, { defaultValue: 'Upload provider not configured.' }),
-    })
-    return
-  }
   const stream = await provider.getFile?.(fileId)
   if (!stream) {
     res.status(404).json({ error: t('upload.notFound', {}, { defaultValue: 'Avatar not found' }) })
     return
   }
-  res.setHeader('Content-Type', 'image/jpeg')
-  // [M4-2] nosniff: this route serves the stored bytes inline, so stop the browser
-  // sniffing them into any type other than the server-declared image/jpeg.
-  res.setHeader('X-Content-Type-Options', 'nosniff')
   res.setHeader('Cache-Control', 'private, max-age=300')
-  stream.pipe(res)
+  await sendUpload(res, stream, { inline: true, type: 'image/jpeg' })
 })
 
 export default router

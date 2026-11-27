@@ -8,29 +8,29 @@
  */
 import { Router } from 'express'
 
-import billing from '../routes/billing.js'
-import bookings from './bookings.js'
-import conversations from './conversations.js'
-import flights from './flights.js'
-import notifications from './notifications.js'
-import preferences from './preferences.js'
-import profile from './profile.js'
-import speech from './speech.js'
+import testEndpoints from './_test.js'
+import bookingsRouter from './bookings.js'
+import conversationsRouter from './conversations.js'
+import flightsRouter from './flights.js'
+import notificationsRouter from './notifications.js'
+import preferencesRouter from './preferences.js'
+import profileRouter from './profile.js'
+import speechRouter from './speech.js'
 import { payRouter, splitsRouter } from './splits.js'
-import trips from './trips.js'
+import tripsRouter from './trips.js'
 
 const router = Router()
 
-router.use('/conversations', conversations)
-router.use('/flights', flights)
-router.use('/trips', trips)
-router.use('/bookings', bookings)
+router.use('/conversations', conversationsRouter)
+router.use('/flights', flightsRouter)
+router.use('/trips', tripsRouter)
+router.use('/bookings', bookingsRouter)
 router.use('/splits', splitsRouter)
 router.use('/pay', payRouter)
-router.use('/notifications', notifications)
-router.use('/speech', speech)
-router.use('/preferences', preferences)
-router.use('/profile', profile)
-router.use('/billing', billing)
+router.use('/notifications', notificationsRouter)
+router.use('/speech', speechRouter)
+router.use('/preferences', preferencesRouter)
+router.use('/profile', profileRouter)
+router.use('/_test', testEndpoints)
 
 export default router

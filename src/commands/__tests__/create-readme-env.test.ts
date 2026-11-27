@@ -74,7 +74,10 @@ describe('the scaffold README names what the .env files leave empty', () => {
       '--skip-install',
       '--no-interactive',
     ])
-    expect(quickStart(join(dir, 'proj'))).toBe('npm install\nnpm run dev\n')
+    const projectRoot = join(dir, 'proj')
+    const readme = readFileSync(join(projectRoot, 'README.md'), 'utf8')
+    expect(readme.split('## Quick start')[0]).toMatch(/`engines\.node`[^\n]*`package\.json`/)
+    expect(quickStart(projectRoot)).toBe('npm install\nnpm run dev\n')
   })
 
   it('names each variable a package needs, by file', async () => {

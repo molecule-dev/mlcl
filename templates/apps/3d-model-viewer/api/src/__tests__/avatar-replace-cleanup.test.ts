@@ -1,134 +1,202 @@
-import { Readable } from 'node:stream'
+import { once } from 'node:events'
+import type { AddressInfo } from 'node:net'
 
-import type { Request, Response } from 'express'
+import express, { type Router } from 'express'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-// Replacing an avatar (POST /avatar when one already exists) must delete the PREVIOUS blob —
-// otherwise every avatar change leaks the old object. The delete path already cleans up; this
-// closes the same gap on the replace path. Both share the avatarFileId extractor.
+import type * as defaultExpress from '@molecule/api-bonds-default-express'
+import type * as database from '@molecule/api-database'
 
-const db = { findById: vi.fn(), updateById: vi.fn(), findMany: vi.fn() }
-vi.mock('@molecule/api-database', () => ({
-  findById: (...a: unknown[]) => db.findById(...a),
-  updateById: (...a: unknown[]) => db.updateById(...a),
-  findMany: (...a: unknown[]) => db.findMany(...a),
-}))
-const upload = vi.fn()
-const deleteFile = vi.fn()
-vi.mock('@molecule/api-uploads', () => ({
-  getProvider: () => ({ upload, deleteFile, getFile: vi.fn() }),
-}))
-vi.mock('@molecule/api-bonds-default-express', () => ({ getUserId: () => 'user-1' }))
-vi.mock('@molecule/api-i18n', () => ({
-  t: (_k: string, _v?: unknown, o?: { defaultValue?: string }) => o?.defaultValue ?? _k,
-}))
+import type * as userResource from '../App/Resource/User/index.js'
 
-import router from '../handlers/avatar.js'
-
-function findRoute(method: 'post' | 'delete') {
-  const layer = (
-    router.stack as Array<{
-      route?: { path: string; methods: Record<string, boolean>; stack: Array<{ handle: unknown }> }
-    }>
-  ).find((l) => l.route?.path === '/avatar' && l.route.methods[method])
-  if (!layer?.route) throw new Error(`${method.toUpperCase()} /avatar not found`)
-  return layer.route.stack
-}
-function mockRes() {
-  const res = {
-    statusCode: 200,
-    body: undefined as unknown,
-    ended: false,
-    status(c: number) {
-      this.statusCode = c
-      return this
-    },
-    json(o: unknown) {
-      this.body = o
-      this.ended = true
-      return this
-    },
-    end() {
-      this.ended = true
-      return this
-    },
-    setHeader() {
-      return this
-    },
-    get headersSent() {
-      return this.ended
+const db = { findById: vi.fn(), updateById: vi.fn(), updateMany: vi.fn(), findMany: vi.fn() }
+vi.mock('@molecule/api-database', async (importOriginal) => ({
+  ...(await importOriginal<typeof database>()),
+  findById: (...args: unknown[]) => db.findById(...args),
+  updateById: (...args: unknown[]) => db.updateById(...args),
+  updateMany: (...args: unknown[]) => db.updateMany(...args),
+  findMany: (...args: unknown[]) => db.findMany(...args),
+}))
+vi.mock('@molecule/api-bonds-default-express', async (importOriginal) => ({
+  ...(await importOriginal<typeof defaultExpress>()),
+  getUserId: () => 'user-1',
+}))
+vi.mock('../App/Resource/User/index.js', async (importOriginal) => {
+  const user = await importOriginal<typeof userResource>()
+  return {
+    ...user,
+    requestHandlerMap: {
+      ...user.requestHandlerMap,
+      authSelf: (_req: unknown, _res: unknown, next: () => void) => next(),
+      update: (_req: unknown, res: express.Response) => res.status(204).end(),
+      resetPassword: (_req: unknown, res: express.Response) => res.status(204).end(),
     },
   }
-  return res
-}
-function multipartReq() {
-  const boundary = '----molavatarboundary'
-  const body = Buffer.concat([
-    Buffer.from(
-      `--${boundary}\r\nContent-Disposition: form-data; name="avatar"; filename="a.png"\r\n` +
-        `Content-Type: image/png\r\n\r\n`,
-    ),
-    Buffer.from([0x89, 0x50, 0x4e, 0x47]),
-    Buffer.from(`\r\n--${boundary}--\r\n`),
-  ])
-  const req = Readable.from(body) as Readable & { method: string; headers: Record<string, string> }
-  req.method = 'POST'
-  req.headers = {
-    'content-type': `multipart/form-data; boundary=${boundary}`,
-    'content-length': String(body.length),
+})
+
+import { setUploadParserFactory } from '@molecule/api-middleware-body-parser'
+import { uploadParserFactory } from '@molecule/api-middleware-body-parser-express'
+import { setProvider, type UploadedFile } from '@molecule/api-uploads'
+
+import { router as appRouter } from '../App/router.js'
+import avatars from '../handlers/avatar.js'
+import templateHandlers from '../handlers/index.js'
+
+const stored = new Set<string>()
+setUploadParserFactory(uploadParserFactory)
+setProvider({
+  upload(fieldname, stream, info) {
+    const file: UploadedFile = {
+      id: 'newkey',
+      fieldname,
+      filename: info.filename ?? '',
+      mimetype: info.mimeType,
+      encoding: info.encoding,
+      size: 0,
+      uploaded: false,
+    }
+    file.uploadPromise = new Promise<void>((resolve, reject) => {
+      stream.on('data', (chunk: Buffer) => {
+        file.size += chunk.length
+      })
+      stream.on('error', reject)
+      stream.on('end', () => {
+        stored.add(file.id)
+        file.uploaded = true
+        resolve()
+      })
+    })
+    return file
+  },
+  abortUpload: () => {},
+  async deleteFile(id) {
+    stored.delete(id)
+  },
+})
+
+async function request(path: string, init: RequestInit, router: Router = avatars) {
+  const app = express()
+  app.use(express.json())
+  app.use(router)
+  const server = app.listen(0, '127.0.0.1')
+  await once(server, 'listening')
+  try {
+    const { port } = server.address() as AddressInfo
+    const response = await fetch(`http://127.0.0.1:${port}${path}`, init)
+    const body = response.headers.get('content-type')?.includes('application/json')
+      ? await response.json()
+      : await response.text()
+    return { status: response.status, body }
+  } finally {
+    server.close()
   }
-  return req
 }
-async function settle(res: { ended: boolean }) {
-  for (let i = 0; i < 300 && !res.ended; i++) await new Promise((r) => setTimeout(r, 5))
-}
-async function runUpload() {
-  const stack = findRoute('post')
-  const middleware = stack[0].handle as (req: unknown, res: unknown, next: () => void) => void
-  const handler = stack[1].handle as (req: unknown, res: unknown) => void
-  const req = multipartReq()
-  const res = mockRes()
-  await new Promise<void>((resolve) => middleware(req, res, () => resolve()))
-  handler(req, res)
-  await settle(res)
-  return res
+
+function upload(options: { type?: string; extraField?: boolean } = {}) {
+  const body = new FormData()
+  if (options.extraField) body.append('note', 'unexpected text field')
+  body.append('avatar', new Blob(['image bytes'], { type: options.type ?? 'image/png' }), 'a.png')
+  return request('/avatar', { method: 'POST', body })
 }
 
 beforeEach(() => {
-  vi.clearAllMocks()
-  db.updateById.mockResolvedValue({ data: {} })
-  deleteFile.mockResolvedValue(undefined)
-  upload.mockImplementation((_field: string, stream: NodeJS.ReadableStream) => {
-    stream.resume() // drain so busboy 'finish' fires
-    return { id: 'newkey', uploadPromise: Promise.resolve() }
+  vi.resetAllMocks()
+  stored.clear()
+  db.findById.mockResolvedValue({ avatar: null })
+  db.updateById.mockResolvedValue({ data: {}, affected: 1 })
+  db.updateMany.mockResolvedValue({ data: {}, affected: 1 })
+  db.findMany.mockResolvedValue([])
+})
+
+describe('avatar storage after a profile write', () => {
+  it('replaces the avatar and deletes the old blob after the swap', async () => {
+    stored.add('oldkey')
+    db.findById.mockResolvedValue({ avatar: '/api/user/avatar/oldkey' })
+    const res = await upload()
+    expect(res).toEqual({ status: 200, body: { url: '/api/user/avatar/newkey' } })
+    expect(db.updateMany).toHaveBeenCalledWith(
+      'users',
+      [
+        { field: 'id', operator: '=', value: 'user-1' },
+        { field: 'avatar', operator: '=', value: '/api/user/avatar/oldkey' },
+      ],
+      { avatar: '/api/user/avatar/newkey' },
+    )
+    expect(stored).toEqual(new Set(['newkey']))
+  })
+
+  it('keeps an old blob still referenced by another profile', async () => {
+    stored.add('oldkey')
+    db.findById.mockResolvedValue({ avatar: '/api/user/avatar/oldkey' })
+    db.findMany.mockResolvedValue([{ avatar: '/api/user/avatar/oldkey' }])
+    expect((await upload()).status).toBe(200)
+    expect(stored).toEqual(new Set(['oldkey', 'newkey']))
+  })
+
+  it('stores the first avatar', async () => {
+    expect((await upload()).body).toEqual({ url: '/api/user/avatar/newkey' })
+    expect(stored).toEqual(new Set(['newkey']))
+  })
+
+  it('frees the new blob when saving the profile fails', async () => {
+    stored.add('oldkey')
+    db.findById.mockResolvedValue({ avatar: '/api/user/avatar/oldkey' })
+    db.updateMany.mockRejectedValueOnce(new Error('database down'))
+    db.updateById.mockRejectedValueOnce(new Error('database down'))
+    expect((await upload()).status).toBe(500)
+    expect(stored).toEqual(new Set(['oldkey']))
+  })
+
+  it('frees the new blob when the expected profile row changed before the update', async () => {
+    db.updateMany.mockResolvedValueOnce({ affected: 0 })
+    db.updateById.mockResolvedValueOnce({ affected: 0 })
+    expect((await upload()).status).toBe(500)
+    expect(stored.size).toBe(0)
+  })
+
+  it('rejects SVG and unexpected text fields without storing an avatar', async () => {
+    expect((await upload({ type: 'image/svg+xml' })).status).toBe(415)
+    expect((await upload({ extraField: true })).status).toBe(413)
+    expect(stored.size).toBe(0)
+  })
+
+  it('clears the profile reference and deletes the blob', async () => {
+    stored.add('oldkey')
+    db.findById.mockResolvedValue({ avatar: '/api/user/avatar/oldkey' })
+    expect((await request('/avatar', { method: 'DELETE' })).status).toBe(204)
+    expect(db.updateMany).toHaveBeenCalledWith('users', expect.any(Array), { avatar: null })
+    expect(stored.size).toBe(0)
+  })
+
+  it('keeps the blob if clearing the profile reference fails', async () => {
+    stored.add('oldkey')
+    db.findById.mockResolvedValue({ avatar: '/api/user/avatar/oldkey' })
+    db.updateMany.mockRejectedValueOnce(new Error('database down'))
+    db.updateById.mockRejectedValueOnce(new Error('database down'))
+    expect((await request('/avatar', { method: 'DELETE' })).status).toBe(500)
+    expect(stored).toEqual(new Set(['oldkey']))
   })
 })
 
-describe('avatar replace frees the previous blob', () => {
-  it('deletes the old avatar object when replacing an existing avatar', async () => {
-    db.findById.mockResolvedValue({ avatar: '/api/user/avatar/oldkey' })
-    const res = await runUpload()
-    expect(res.body).toEqual({ url: '/api/user/avatar/newkey' })
-    expect(db.updateById).toHaveBeenCalledWith('users', 'user-1', {
-      avatar: '/api/user/avatar/newkey',
-    })
-    expect(deleteFile).toHaveBeenCalledWith('oldkey')
+describe('3D model viewer app router', () => {
+  it('reserves managed avatar references for uploads and accepts external profile avatars', async () => {
+    const patch = (avatar: string) =>
+      request(
+        '/users/user-1',
+        {
+          method: 'PATCH',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ avatar }),
+        },
+        appRouter,
+      )
+    expect((await patch('/api/user/avatar/another-avatar')).status).toBe(400)
+    expect((await patch('https://example.com/avatar.png')).status).toBe(204)
   })
 
-  it('does not delete anything on a first-time avatar (no previous)', async () => {
-    db.findById.mockResolvedValue({ avatar: null })
-    const res = await runUpload()
-    expect(res.body).toEqual({ url: '/api/user/avatar/newkey' })
-    expect(deleteFile).not.toHaveBeenCalled()
-  })
-
-  it('DELETE /avatar removes the blob and clears the column', async () => {
-    db.findById.mockResolvedValue({ avatar: '/api/user/avatar/k' })
-    const handler = findRoute('delete')[0].handle as (req: Request, res: Response) => Promise<void>
-    const res = mockRes()
-    await handler({} as unknown as Request, res as unknown as Response)
-    expect(deleteFile).toHaveBeenCalledWith('k')
-    expect(db.updateById).toHaveBeenCalledWith('users', 'user-1', { avatar: null })
-    expect(res.statusCode).toBe(204)
+  it('serves password resets only through the default user routes', async () => {
+    const post = { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' }
+    expect((await request('/users/reset-password', post, appRouter)).status).toBe(204)
+    expect((await request('/users/reset-password', post, templateHandlers)).status).toBe(404)
   })
 })
