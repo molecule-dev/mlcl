@@ -22,7 +22,12 @@ import { join } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
-import { type PackageSources, requestReport, unansweredRequests } from './helpers/request-routes.js'
+import {
+  type PackageSources,
+  requestReport,
+  servedRoutes,
+  unansweredRequests,
+} from './helpers/request-routes.js'
 
 const ROOT = join(import.meta.dirname, '..', '..', '..')
 const MOLECULE = join(ROOT, '..', 'molecule')
@@ -85,6 +90,38 @@ describe('a flagship that lost a route or a base its app relies on', () => {
 
   const unanswered = (copy: string): string[] =>
     unansweredRequests(copy, sources).map((request) => `${request.method} ${request.path}`)
+
+  it('reads a dynamically imported router after auth middleware in an Express mount', () => {
+    const routes = (variantName: string, declaration: string): string[] => {
+      const copy = variant(variantName, 'api/src/server.ts', () =>
+        [
+          "import { authorize } from './handlers/mount-guard.js'",
+          'export async function mount(app) {',
+          "  const { default: upload } = await import('./handlers/mount-target.js')",
+          "  app.use('/api/uploads', authorize, upload)",
+          '}',
+        ].join('\n'),
+      )
+      writeFileSync(
+        join(copy, 'api/src/handlers/mount-guard.ts'),
+        'export function authorize(_req, _res, next) { next() }\n',
+      )
+      writeFileSync(
+        join(copy, 'api/src/handlers/mount-target.ts'),
+        [
+          "import { Router } from 'express'",
+          'const router = Router()',
+          declaration,
+          'export default router',
+        ].join('\n'),
+      )
+      return servedRoutes(join(copy, 'api'), sources).map(({ method, path }) => `${method} ${path}`)
+    }
+    expect(routes('pre-parser-router', "router.post('/document', uploadDocument)")).toEqual([
+      'post /api/uploads/document',
+    ])
+    expect(routes('pre-parser-empty-router', '')).toEqual([])
+  })
 
   it('names the payment confirmation when the router does not mount it', () => {
     const copy = variant('no-verify-payment', 'api/src/App/router.ts', (text) =>

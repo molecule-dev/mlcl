@@ -21,6 +21,8 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 
+import ts from 'typescript'
+
 import { code } from './source-text.js'
 
 /** A route the API serves: an HTTP method (`all` for any) and an Express path. */
@@ -367,6 +369,33 @@ function joinPath(mount: string, path: string): string {
   return joined === '' ? '/' : joined.replace(/\/$/, '') || '/'
 }
 
+/** Literal app mounts may use Express middleware before the final router. */
+function applicationMounts(text: string): { mount: string; router: string }[] {
+  const source = ts.createSourceFile('server.ts', text, ts.ScriptTarget.Latest, true)
+  const mounts: { mount: string; router: string }[] = []
+  function visit(node: ts.Node): void {
+    if (ts.isCallExpression(node) && ts.isPropertyAccessExpression(node.expression)) {
+      const { expression: receiver, name } = node.expression
+      if (ts.isIdentifier(receiver) && receiver.text === 'app' && name.text === 'use') {
+        const mount = node.arguments[0]
+        const router = node.arguments.at(-1)
+        if (
+          mount &&
+          (ts.isStringLiteral(mount) || ts.isNoSubstitutionTemplateLiteral(mount)) &&
+          mount.text.startsWith('/') &&
+          router &&
+          ts.isIdentifier(router)
+        ) {
+          mounts.push({ mount: mount.text, router: router.text })
+        }
+      }
+    }
+    ts.forEachChild(node, visit)
+  }
+  visit(source)
+  return mounts
+}
+
 /**
  * Every route the project's API serves: each router `server.ts` mounts (`app.use('/api', router)`),
  * and the router it hands a server factory (`getRouter: () => import('./App/router.js')`), under
@@ -378,11 +407,10 @@ export function servedRoutes(apiDir: string, sources: PackageSources): ServedRou
   const binds = bindings(server)
   const seen = new Set<string>()
   const routes: ServedRoute[] = []
-  for (const match of server.matchAll(/\bapp\.use\(\s*(['"`])(\/[^'"`]*)\1\s*,\s*([\w$]+)\s*\)/g)) {
-    const [, , mount, ident] = match
-    if (!binds.has(ident))
-      throw new Error(`server.ts mounts ${ident} at ${mount}, imported from nowhere it reads`)
-    for (const route of mountedRoutes(serverFile, server, binds, ident, sources, seen)) {
+  for (const { mount, router } of applicationMounts(server)) {
+    if (!binds.has(router))
+      throw new Error(`server.ts mounts ${router} at ${mount}, imported from nowhere it reads`)
+    for (const route of mountedRoutes(serverFile, server, binds, router, sources, seen)) {
       routes.push({ ...route, path: joinPath(mount, route.path) })
     }
   }
