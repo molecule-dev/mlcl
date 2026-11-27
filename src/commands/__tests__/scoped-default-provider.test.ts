@@ -36,6 +36,7 @@ const FONT_PROVIDER = '@molecule/app-fixture-fonts-vue'
 const FONT_STYLESHEET = 'https://example.com/fixture-font.css'
 const PRESET_THEME = '@molecule/app-theme-css-variables-liquid-glass'
 const VENDOR_PEER = 'fixture-device-sdk'
+const DEVICE_RUNTIME = 'expo'
 const PIN = '1.2.3'
 const CORES = [CHOOSER, VIEW, PORTABLE]
 const PROVIDERS = [ALTERNATE, DEVICE, GENERIC, VUE].sort()
@@ -71,6 +72,7 @@ const fixture: Record<string, RegistryEntry> = {
     type: 'provider',
     implements: CHOOSER,
     framework: 'react-native',
+    autoInstallRequires: [DEVICE_RUNTIME],
     moleculePeers: [CHOOSER],
     thirdPartyDependencies: { dependencies: {}, peerDependencies: { [VENDOR_PEER]: PIN } },
   }),
@@ -227,13 +229,24 @@ describe('mlcl create framework-scoped defaults', () => {
 
 describe('mlcl add --inject framework-scoped defaults', () => {
   it.each(frameworks)('declares and wires the correct providers for $framework', async (test) => {
-    const result = await add({ molecule: { framework: test.framework } }, [FEATURE])
+    const result = await add(
+      { molecule: { framework: test.framework }, dependencies: { [DEVICE_RUNTIME]: PIN } },
+      [FEATURE],
+    )
     expect(namesIn(result.manifest)).toEqual(expect.arrayContaining(CORES))
     expect(fixtureProviders(namesIn(result.manifest))).toEqual(test.providers)
     expect(fixtureProviders(result.wired)).toEqual(test.providers)
     expect(result.manifest.dependencies?.[VENDOR_PEER]).toBe(
       test.framework === 'react-native' ? PIN : undefined,
     )
+  })
+
+  it('keeps an existing bare React Native app free of Expo and its picker', async () => {
+    const result = await add({ dependencies: { react: PIN, 'react-native': PIN } }, [FEATURE])
+    expect(fixtureProviders(namesIn(result.manifest))).toEqual([GENERIC])
+    expect(fixtureProviders(result.wired)).toEqual([GENERIC])
+    expect(namesIn(result.manifest)).not.toContain(DEVICE_RUNTIME)
+    expect(namesIn(result.manifest)).not.toContain(VENDOR_PEER)
   })
 
   it('keeps a declared alternate in devDependencies and omits its default from inject', async () => {
@@ -290,7 +303,7 @@ describe('standalone inject framework-scoped defaults', () => {
       join(dir, 'package.json'),
       JSON.stringify({
         molecule: { framework: test.framework },
-        dependencies: { 'react-native': PIN },
+        dependencies: { 'react-native': PIN, [DEVICE_RUNTIME]: PIN },
       }),
     )
     for (const name of CORES) {
@@ -311,6 +324,21 @@ describe('standalone inject framework-scoped defaults', () => {
 })
 
 describe('scaffold manifest closure', () => {
+  it('adds the device default only in an Expo workspace', async () => {
+    const devices = { molecule: { framework: 'react-native' }, dependencies: { [CHOOSER]: PIN } }
+    const path = join(dir, 'package.json')
+    await writeFile(path, JSON.stringify(devices))
+    expect(await ensureMoleculePeerClosure(dir)).toEqual({})
+    await writeFile(
+      path,
+      JSON.stringify({
+        ...devices,
+        dependencies: { ...devices.dependencies, [DEVICE_RUNTIME]: PIN },
+      }),
+    )
+    expect(await ensureMoleculePeerClosure(dir)).toEqual({ 'package.json': [DEVICE] })
+  })
+
   it('uses each workspace renderer and counts a provider declared as a dev dependency', async () => {
     const app = join(dir, 'app')
     const api = join(dir, 'api')

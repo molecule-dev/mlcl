@@ -5,6 +5,7 @@ interface ProviderEntry {
   type?: string
   implements?: string
   defaultProvider?: string
+  autoInstallRequires?: readonly string[]
   framework?: string
 }
 
@@ -29,6 +30,7 @@ export function defaultProviderEntries(
  * @param entries - The registry metadata by package name.
  * @param present - Packages the project or request already includes.
  * @param framework - The project's renderer, if known.
+ * @param projectDependencies - Names declared by the project, including external packages.
  * @returns The provider to add, if any.
  */
 export function defaultProviderFor(
@@ -36,13 +38,19 @@ export function defaultProviderFor(
   entries: ReadonlyMap<string, ProviderEntry>,
   present: Iterable<string>,
   framework: string | undefined,
+  projectDependencies?: ReadonlySet<string>,
 ): string | undefined {
   const name = entries.get(core)?.defaultProvider
   if (!name) return undefined
   const fallback = entries.get(name)
   if (!fallback || (fallback.framework && fallback.framework !== framework)) return undefined
 
-  for (const selected of present) {
+  const selectedPackages = new Set(present)
+  const declared = projectDependencies ?? selectedPackages
+  const supported = (entry: ProviderEntry): boolean =>
+    !entry.autoInstallRequires?.some((dependency) => !declared.has(dependency))
+
+  for (const selected of selectedPackages) {
     const entry = entries.get(selected)
     // Framework bindings can implement the interface without supplying its bond.
     if (selected === name || (entry?.implements === core && entry.type !== 'framework')) return
@@ -50,9 +58,14 @@ export function defaultProviderFor(
 
   if (!fallback.framework && framework) {
     for (const [candidate, entry] of entries) {
-      if (entry.type === 'provider' && entry.implements === core && entry.framework === framework)
+      if (
+        entry.type === 'provider' &&
+        entry.implements === core &&
+        entry.framework === framework &&
+        supported(entry)
+      )
         return candidate
     }
   }
-  return name
+  return supported(fallback) ? name : undefined
 }

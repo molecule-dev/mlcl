@@ -50,7 +50,8 @@ export function missingMoleculePeers(
   ),
   framework?: string,
 ): string[] {
-  const have = new Set([...names].filter((d) => d.startsWith('@molecule/')))
+  const declared = new Set(names)
+  const have = new Set([...declared].filter((d) => d.startsWith('@molecule/')))
   const queue = [...have]
   const missing: string[] = []
   const packages = [...registryPackages.values()]
@@ -73,7 +74,7 @@ export function missingMoleculePeers(
     if (visited < queue.length) continue
 
     for (let index = 0; index < visited; index++) {
-      const provider = defaultProviderFor(queue[index], entries, have, framework)
+      const provider = defaultProviderFor(queue[index], entries, have, framework, declared)
       if (provider) add(provider)
     }
     if (visited === queue.length) return missing

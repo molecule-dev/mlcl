@@ -984,9 +984,8 @@ export default class Create extends Command {
 
     // This caller creates the configured Vite index.html below. Svelte's
     // app.html and non-Vite callers retain the static-copy asset contract.
-    const fontFramework = framework ? loadAppFrameworks()[framework] : undefined
-    const fontAssetMode =
-      fontFramework?.vitePlugin && !fontFramework.htmlTemplate ? 'module' : 'copy'
+    const appFramework = framework ? loadAppFrameworks()[framework] : undefined
+    const fontAssetMode = appFramework?.vitePlugin && !appFramework.htmlTemplate ? 'module' : 'copy'
     // Derive named bond providers from selected packages using registry metadata
     // Groups by bondWiring.bondCategory (e.g. oauth → OAUTH_PROVIDERS, payments → PAYMENTS_PROVIDERS)
     const extraVars: Record<string, string> = {}
@@ -1008,8 +1007,7 @@ export default class Create extends Command {
     // Step 7: Resolve full package list (template requirements + default providers)
     // Done before project creation so templates can adapt to selected providers.
     if (framework) {
-      const fwConfig = loadAppFrameworks()[framework]
-      const templateRequired = getTemplateRequiredPackages(framework, frameworkPkg, fwConfig)
+      const templateRequired = getTemplateRequiredPackages(framework, frameworkPkg, appFramework)
       log(`Template-required packages: ${templateRequired.join(', ') || '(none)'}`)
       selectedPackageNames.push(...templateRequired)
     }
@@ -1075,6 +1073,9 @@ export default class Create extends Command {
     // and their packages must come with it. A feature's packages can bring peers in turn. Same
     // derivation as the app templates and the API router.
     const defaultProviders: string[] = []
+    const frameworkDependencies = new Set(
+      Object.keys({ ...appFramework?.dependencies, ...appFramework?.devDependencies }),
+    )
     for (;;) {
       const transitivePeers = resolveTransitivePeers(selectedPackageNames, allPackages)
       log(`Transitive peer companions auto-resolved: ${transitivePeers.join(', ') || '(none)'}`)
@@ -1089,7 +1090,12 @@ export default class Create extends Command {
         selectedPackageNames.push(...featurePackages)
         if (featurePackages.length > 0) continue
       }
-      const providers = resolveDefaultProviders(selectedPackageNames, allPackages, framework)
+      const providers = resolveDefaultProviders(
+        selectedPackageNames,
+        allPackages,
+        framework,
+        frameworkDependencies,
+      )
       if (providers.length === 0) break
       selectedPackageNames.push(...providers)
       defaultProviders.push(...providers)

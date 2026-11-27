@@ -410,6 +410,10 @@ export const MoleculeMetadata = z.object({
     .string()
     .optional()
     .describe('Default provider package to auto-include when no explicit provider is selected'),
+  autoInstallRequires: z
+    .array(z.string())
+    .optional()
+    .describe('Direct project dependencies required before this provider is chosen automatically'),
   multiSelect: z
     .boolean()
     .optional()
@@ -877,6 +881,10 @@ export const RegistryEntry = z.object({
     .string()
     .optional()
     .describe('Default provider package to auto-include when no explicit provider is selected'),
+  autoInstallRequires: z
+    .array(z.string())
+    .optional()
+    .describe('Direct project dependencies required before this provider is chosen automatically'),
   multiSelect: z
     .boolean()
     .optional()

@@ -294,19 +294,27 @@ function expandPeerDeps(selected: Set<string>, byName: Map<string, InferredPacka
  * @param selectedNames - The packages the project will declare.
  * @param allPackages - The registry packages available to this project.
  * @param framework - The project renderer selected by create, if it has an app.
+ * @param projectDependencies - External dependencies provided by the selected framework.
  * @returns The providers to add.
  */
 export function resolveDefaultProviders(
   selectedNames: string[],
   allPackages: InferredPackage[],
   framework?: string,
+  projectDependencies?: ReadonlySet<string>,
 ): string[] {
   const byName = new Map(allPackages.map((p) => [p.name, p]))
   const entries = defaultProviderEntries(allPackages)
   const allProjectPackages = expandPeerDeps(new Set(selectedNames), byName)
   const additions: string[] = []
   for (const name of allProjectPackages) {
-    const provider = defaultProviderFor(name, entries, allProjectPackages, framework)
+    const provider = defaultProviderFor(
+      name,
+      entries,
+      allProjectPackages,
+      framework,
+      projectDependencies,
+    )
     if (!provider) continue
     allProjectPackages.add(provider)
     additions.push(provider)

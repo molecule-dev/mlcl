@@ -7,7 +7,7 @@
 
 import { describe, expect, it } from 'vitest'
 
-import { getRawRegistry, serializeRegistry } from '../registry.js'
+import { getRawRegistry, loadRegistry, serializeRegistry } from '../registry.js'
 import type { InferredPackage } from '../schema.js'
 import {
   describeWebOnlyChains,
@@ -156,6 +156,17 @@ describe('unrefusedOnReactNative', () => {
 })
 
 describe('the registry', () => {
+  it('admits the gallery file picker on device while canvas remains web-only', () => {
+    const app = new Map(loadRegistry('app').map((entry) => [entry.name, entry]))
+    expect(webOnlyChains(['@molecule/app-image-gallery-editor-react'], app)).toEqual([])
+    expect(webOnlyChains(['@molecule/app-feature-canvas-react'], app)).toEqual([
+      {
+        chain: ['@molecule/app-feature-canvas-react'],
+        reason: expect.stringContaining('pan-and-zoom'),
+      },
+    ])
+  })
+
   it('keeps webOnlyReason when it stores an entry', () => {
     const raw = getRawRegistry()
     const name = '@molecule/app-feature-canvas-react'
