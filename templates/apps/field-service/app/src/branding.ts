@@ -10,8 +10,9 @@
  *     ...description meta + theme-color meta            ← APP_DESCRIPTION / BRAND_COLOR
  *     (synced at scaffold time on BOTH the flagship-template and custom paths)
  *   • root/app/api package.json name + description      ← synced from here + project name
- *   • app/src/locales/<lang>/ui.ts strings              → prefer t('app.name', …)
- *     over a literal product name so a rename here flows through every locale
+ *   • app/src/locales/<lang>/ui.ts strings              → write {{appName}} and pass
+ *     { appName: APP_NAME } instead of a literal product name, so a rename here
+ *     flows through every locale
  * After changing BRAND_COLOR or replacing public/logo.svg, run:
  *   npm run generate-icons   (rebuilds favicon, PWA icons, splash, OG, + HTML meta)
  * ============================================================================= */

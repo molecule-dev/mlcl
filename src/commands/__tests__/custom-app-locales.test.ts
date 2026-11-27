@@ -51,6 +51,30 @@ async function directories(dir: string): Promise<string[]> {
 
 const custom = ['--type', 'app', '--framework', 'react', '--packages', '@molecule/app-routing']
 
+/** A literal key passed to `t()` or `$t()` in starter source (script, JSX or template). */
+const STARTER_KEY = /(?<![\w$.])\$?t\(\s*(['"])([A-Za-z][\w.-]*)\1/g
+
+/**
+ * Source without its comments: the capability recipes stamped into starter files quote other
+ * apps' calls (`t('orders.open')`), which are examples, not keys this app uses.
+ */
+function withoutComments(source: string): string {
+  return source
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/(^|[^:\\'"`])\/\/[^\n]*/gm, '$1')
+}
+
+async function sourceFiles(dir: string): Promise<string[]> {
+  const files: string[] = []
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name)
+    if (entry.isDirectory()) files.push(...(await sourceFiles(path)))
+    else files.push(path)
+  }
+  return files
+}
+
 async function addTranslations(app: string, locale: string, translations: string): Promise<void> {
   const file = join(app, 'src', 'locales', locale, 'ui.ts')
   const source = await readFile(file, 'utf-8')
@@ -141,6 +165,63 @@ export const stringFromBond = (): string => t('nav.primaryNavigation')
     const built = run('npm', ['run', 'build'], app)
     expect(built.status, built.output).toBe(0)
   }, 120_000)
+
+  // Every literal key the starter source uses must be in the catalogs the scaffold offers, or the
+  // app's own typecheck fails on it. The scaffold matrix compiles each framework only when someone
+  // runs it with that framework's toolchain installed: on 2026-11-27 it ran without React Native,
+  // whose generated App.tsx and Home.tsx (nav.home, home.welcome, home.subtitle) failed for every
+  // user. This compiles only the generated catalog types and one call per key, so it needs no
+  // framework toolchain and covers every framework in each run of the suite.
+  it.each(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native-web', 'react-native'])(
+    'offers every key the %s starter source uses',
+    async (framework) => {
+      const app = create(`locale-keys-${framework}`, '--type', 'app', '--framework', framework)
+      const files = await sourceFiles(join(app, 'src'))
+      const catalogs = files.find((file) => file.endsWith(`${'/'}locales/catalogs.d.ts`))
+      expect(catalogs, 'the scaffold writes its catalog types').toBeDefined()
+      const keys = new Set<string>()
+      for (const file of files) {
+        if (/[\\/]locales[\\/]/.test(file) || !/\.(?:tsx?|vue|svelte|html)$/.test(file)) continue
+        const code = withoutComments(await readFile(file, 'utf-8'))
+        for (const match of code.matchAll(STARTER_KEY)) keys.add(match[2])
+      }
+      // A scan that matches nothing would pass for every framework.
+      expect(keys.size, `literal t() keys found in the ${framework} starter`).toBeGreaterThan(2)
+      const probe = join(app, 'src', 'starter-keys.probe.ts')
+      await writeFile(
+        probe,
+        `import type { TranslateFunction } from '@molecule/app-i18n'\n\ndeclare const t: TranslateFunction\n\n${[
+          ...keys,
+        ]
+          .sort()
+          .map((key) => `t(${JSON.stringify(key)})`)
+          .join('\n')}\n`,
+      )
+      const checked = run(
+        process.execPath,
+        [
+          require.resolve('typescript/bin/tsc'),
+          // Only the probe and the catalog types: the app's own config would compile its
+          // framework sources, which need that framework's toolchain.
+          '--ignoreConfig',
+          '--noEmit',
+          '--strict',
+          '--skipLibCheck',
+          '--target',
+          'es2022',
+          '--module',
+          'esnext',
+          '--moduleResolution',
+          'bundler',
+          probe,
+          catalogs!,
+        ],
+        app,
+      )
+      expect(checked.status, checked.output).toBe(0)
+    },
+    120_000,
+  )
 
   it('keeps the flagship locale folders', async () => {
     const app = create('locale-flagship', '--template', 'static-site')

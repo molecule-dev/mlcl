@@ -264,8 +264,9 @@ const BRANDING_HEADER = `/* ====================================================
  *   • app/index.html <title> + og/twitter/apple title  ← APP_NAME
  *     ...description meta + theme-color meta            ← APP_DESCRIPTION / BRAND_COLOR
  *   • root/app/api package.json name + description      ← synced from here + project name
- *   • app/src/locales/<lang>/ui.ts strings              → prefer t('app.name', …)
- *     over a literal product name so a rename here flows through every locale
+ *   • app/src/locales/<lang>/ui.ts strings              → write {{appName}} and pass
+ *     { appName: APP_NAME } instead of a literal product name, so a rename here
+ *     flows through every locale
  * After changing BRAND_COLOR or replacing public/logo.svg, run:
  *   npm run generate-icons   (rebuilds favicon, PWA icons, splash, OG, + HTML meta)
  * ============================================================================= */
@@ -8285,6 +8286,7 @@ import { t } from '@molecule/app-i18n'
 import { useMoleculeRouter, useNavigationTheme } from '@molecule/app-routing-react-navigation'
 
 import { setupProviders } from './bonds/index.js'
+import { APP_NAME } from './branding.js'
 import { HomeScreen } from './screens/Home.js'
 
 // Initialize providers
@@ -8313,7 +8315,7 @@ export function App(): React.ReactElement {
           <Stack.Screen
             name="Home"
             component={HomeScreen}
-            options={{ title: t('nav.home', undefined, { defaultValue: 'Home' }) }}
+            options={{ title: t('home.title', { appName: APP_NAME }) }}
           />
         </Stack.Navigator>
       </NavigationContainer>
@@ -8332,7 +8334,7 @@ import { Text, View } from 'react-native'
 import { t } from '@molecule/app-i18n'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME } from '../branding.js'
+import { APP_DESCRIPTION } from '../branding.js'
 
 export function HomeScreen(): React.ReactElement {
   const cm = getClassMap()
@@ -8340,10 +8342,11 @@ export function HomeScreen(): React.ReactElement {
   return (
     <View className={cm.cn(cm.flex1, cm.center, cm.page)}>
       <Text className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
-        {t('home.welcome', { name: APP_NAME }, { defaultValue: 'Welcome to {{name}}' })}
+        {t('home.greeting')}
+        {t('home.world')}!
       </Text>
       <Text className={cm.cn(cm.sp('mt', 2), cm.textMuted)}>
-        {t('home.subtitle', undefined, { defaultValue: 'Built with molecule.dev' })}
+        {t('home.tagline', { description: APP_DESCRIPTION })}
       </Text>
     </View>
   )

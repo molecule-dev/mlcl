@@ -80,6 +80,7 @@ function renderApp(source: string): Rendered {
       },
     },
     './bonds/index.js': { setupProviders: () => undefined },
+    './branding.js': { APP_NAME: 'App' },
     './screens/Home.js': { HomeScreen: 'HomeScreen' },
   }
   const exports: Record<string, unknown> = {}
