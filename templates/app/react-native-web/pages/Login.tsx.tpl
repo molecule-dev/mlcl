@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router'
+import { serverErrorMessage } from '@molecule/app-http'
 import { useLogin, useTranslation } from '@molecule/app-react'
 import { Button as SubmitButton } from '@molecule/app-ui-react'
 import { Button, Flex } from '@molecule/app-ui-react-native'
@@ -123,7 +124,12 @@ export function Login() {
                 {isLoggingIn ? t('auth.login.loggingIn') : t('auth.login.logIn')}
               </SubmitButton>
             </div>
-            {error && <div className={cm.authFormError}>{error.message}</div>}
+            {error && (
+              <div className={cm.authFormError}>
+                {serverErrorMessage(error) ??
+                  t('auth.error.loginFailed', {}, { defaultValue: 'Login failed' })}
+              </div>
+            )}
           </form>
 {{#feature emails}}
           <div className={cm.authAfterSubmit}>

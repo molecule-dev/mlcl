@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { serverErrorMessage } from '@molecule/app-http'
 import { useSignup, useTranslation } from '@molecule/app-react'
 import { Button as SubmitButton } from '@molecule/app-ui-react'
 import { Button, Flex } from '@molecule/app-ui-react-native'
@@ -106,7 +107,12 @@ export function Signup() {
                 {isSigningUp ? t('auth.signup.signingUp') : t('auth.signup.signUp')}
               </SubmitButton>
             </div>
-            {error && <div className={cm.authFormError}>{error.message}</div>}
+            {error && (
+              <div className={cm.authFormError}>
+                {serverErrorMessage(error) ??
+                  t('auth.error.registrationFailed', {}, { defaultValue: 'Registration failed' })}
+              </div>
+            )}
           </form>
 {{#feature oauth}}
           <OAuthButtons />
