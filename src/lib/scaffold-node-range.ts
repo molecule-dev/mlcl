@@ -23,6 +23,31 @@ interface ScaffoldManifest {
   manifest: z.infer<typeof manifestShape>
 }
 
+/**
+ * Node options a generated script passes that not every Node in the range the dependencies allow
+ * accepts, with the first Node that does (Node's CLI docs, "Added in"). An older Node refuses the
+ * whole command ("bad option"), so the script needs that floor as much as any dependency does.
+ */
+const NODE_OPTION_ENGINES: readonly (readonly [option: string, node: string])[] = [
+  ['--env-file-if-exists', '>=22.9.0'],
+]
+
+/**
+ * The Node floors the manifest's scripts need for the options they pass.
+ *
+ * @param scripts - The manifest's scripts.
+ * @returns Each option used, keyed by a label, with the range it needs.
+ */
+export function scriptOptionRequirements(scripts: Record<string, string>): Map<string, string> {
+  const result = new Map<string, string>()
+  for (const [option, node] of NODE_OPTION_ENGINES) {
+    const used = new RegExp(`(?:^|\\s)${option.replace(/[-]/g, '\\-')}(?:[=\\s]|$)`)
+    if (Object.values(scripts).some((command) => used.test(command)))
+      result.set(`node ${option}`, node)
+  }
+  return result
+}
+
 async function readManifest(path: string): Promise<ScaffoldManifest> {
   const contents = await readFile(path, 'utf8')
   const raw = manifestObject.parse(JSON.parse(contents))
@@ -53,7 +78,7 @@ export async function scaffoldNodeEngineManifests(
   )
 
   function requirements(entry: ScaffoldManifest, usesCli: boolean): Map<string, string> {
-    const result = new Map<string, string>()
+    const result = scriptOptionRequirements(entry.manifest.scripts)
     if (usesCli && cli.manifest.engines.node) result.set('mlcl', cli.manifest.engines.node)
     for (const declarations of [entry.manifest.dependencies, entry.manifest.devDependencies]) {
       for (const [name, version] of Object.entries(declarations)) {

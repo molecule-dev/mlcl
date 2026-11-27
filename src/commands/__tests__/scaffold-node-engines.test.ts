@@ -8,7 +8,10 @@ import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import { z } from 'zod'
 
 import { scaffoldNodePinMetadata } from '../../lib/scaffold-node-metadata.js'
-import { scaffoldNodeEngineManifests } from '../../lib/scaffold-node-range.js'
+import {
+  scaffoldNodeEngineManifests,
+  scriptOptionRequirements,
+} from '../../lib/scaffold-node-range.js'
 import { Registry } from '../../lib/schema.js'
 import Create from '../create.js'
 
@@ -18,6 +21,7 @@ const packageJson = z.object({
   engines: declarations,
   dependencies: declarations,
   devDependencies: declarations,
+  scripts: declarations,
 })
 let scratch: string
 let originalCwd: string
@@ -88,6 +92,42 @@ it('takes the Node range from each workspace and intersects them at the root', a
   ]) {
     expect(semver.satisfies(version, app?.node ?? '')).toBe(semver.satisfies(version, appRange))
   }
+})
+
+it('raises the range to the first Node that accepts an option a script passes', async () => {
+  // The API scripts load .env with --env-file-if-exists, which Node added in 22.9.0; the
+  // dependencies alone allowed Node 20, which refuses the whole command.
+  const catalog = join(scratch, 'catalog.json')
+  await writeJson(catalog, {
+    version: 1,
+    packages: {},
+    toolchainEngines: { pins: { 'api-tool@1.0.0': '>=20' } },
+  })
+  vi.stubEnv('MLCL_REGISTRY_PATH', catalog)
+  await writeJson(join(scratch, 'package.json'), { workspaces: ['api', 'app'] })
+  await writeJson(join(scratch, 'api/package.json'), {
+    dependencies: { 'api-tool': '1.0.0' },
+    scripts: { dev: 'tsx watch --env-file-if-exists=.env src/server.ts' },
+  })
+  await writeJson(join(scratch, 'app/package.json'), {
+    dependencies: { 'api-tool': '1.0.0' },
+    scripts: { dev: 'vite' },
+  })
+
+  const planned = new Map(
+    (await scaffoldNodeEngineManifests(scratch)).map(({ path, contents }) => [
+      path,
+      packageJson.parse(JSON.parse(contents)).engines,
+    ]),
+  )
+  const api = planned.get(join(scratch, 'api/package.json'))?.node ?? ''
+  const app = planned.get(join(scratch, 'app/package.json'))?.node ?? ''
+  const root = planned.get(join(scratch, 'package.json'))?.node ?? ''
+  expect(semver.satisfies('22.8.0', api)).toBe(false)
+  expect(semver.satisfies('22.9.0', api)).toBe(true)
+  // A workspace whose scripts pass no such option keeps the dependencies' range.
+  expect(semver.satisfies('20.0.0', app)).toBe(true)
+  expect(semver.satisfies('22.8.0', root)).toBe(false)
 })
 
 it.each(['default registry', 'detached registry'] as const)(
@@ -201,12 +241,14 @@ it.each(scaffolds)(
       ),
     )
     const cli = packageJson.parse(JSON.parse(await readFile(join(cliRoot, 'package.json'), 'utf8')))
-    const sources = parsed.map((manifest) =>
-      [manifest.dependencies, manifest.devDependencies]
+    const sources = parsed.map((manifest) => [
+      ...[manifest.dependencies, manifest.devDependencies]
         .flatMap((deps) => Object.entries(deps))
         .map(([name, version]) => pins?.[name + '@' + version])
         .filter((range) => range !== null && range !== undefined),
-    )
+      // The Node options its scripts pass (`--env-file-if-exists` needs 22.9.0).
+      ...scriptOptionRequirements(manifest.scripts).values(),
+    ])
     expect(sources.flat().length).toBeGreaterThan(0)
     for (const [index, { engines }] of parsed.entries()) {
       expect(engines.node, paths[index]).toBeTruthy()
