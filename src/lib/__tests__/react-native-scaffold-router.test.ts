@@ -111,6 +111,20 @@ describe('react-native scaffold: molecule router', () => {
     await rm(projectPath, { recursive: true, force: true })
   })
 
+  it('declares only app runtime packages from a full-stack selection', async () => {
+    const app = '@molecule/app-routing'
+    const api = '@molecule/api-database-postgresql'
+    const tooling = '@molecule/eslint-config'
+    await createReactNativeAppProject(projectPath, 'rn-app', {}, [app, api, tooling])
+
+    const manifest = JSON.parse(await readFile(join(projectPath, 'package.json'), 'utf8'))
+    expect(manifest.dependencies).toHaveProperty([app])
+    expect(manifest.dependencies).not.toHaveProperty([api])
+    expect(manifest.dependencies).not.toHaveProperty([tooling])
+    expect(manifest.devDependencies).toHaveProperty([tooling])
+    expect(manifest.devDependencies).not.toHaveProperty([api])
+  })
+
   it('bonds the molecule router to the ref its NavigationContainer gets', async () => {
     const { tree, refs, routerConfigs } = renderApp(
       await readFile(join(projectPath, 'src', 'App.tsx'), 'utf-8'),

@@ -87,6 +87,7 @@ import {
   loadAppFrameworks,
   loadRegistry,
   loadToolchain,
+  packagesByStack,
   requirePackageByRole,
 } from './registry.js'
 import { withSuppliedStylesheet } from './scaffold-supplied-stylesheet.js'
@@ -7895,7 +7896,7 @@ export async function createReactNativeAppProject(
   projectPath: string,
   projectName: string,
   extraVars: Record<string, string> = {},
-  _selectedPackages: string[] = [],
+  selectedPackages: string[] = [],
   _buildTooling?: BuildTooling,
 ): Promise<void> {
   const toolchain = loadToolchain()
@@ -7912,19 +7913,19 @@ export async function createReactNativeAppProject(
   await mkdir(join(projectPath, 'src', 'components'), { recursive: true })
   await mkdir(join(projectPath, 'assets'), { recursive: true })
 
+  // Full-stack selections contain API providers that Metro cannot load on a device.
+  const { app: appPackages, tooling } = packagesByStack(selectedPackages)
+
   // ---- package.json ----
   const deps: Record<string, string> = {
     ...(fwConfig.dependencies || {}),
-    ...Object.fromEntries(
-      _selectedPackages
-        .filter((p) => p.startsWith('@molecule/'))
-        .map((p) => [p, getMoleculeVersion(p)]),
-    ),
+    ...Object.fromEntries(appPackages.map((pkg) => [pkg, getMoleculeVersion(pkg)])),
   }
 
   const devDeps: Record<string, string> = {
     ...(toolchain?.shared || {}),
     ...(fwConfig.devDependencies || {}),
+    ...Object.fromEntries(tooling.map((pkg) => [pkg, getMoleculeVersion(pkg)])),
     typescript: toolchain?.shared?.typescript || '6.0.3',
   }
 
