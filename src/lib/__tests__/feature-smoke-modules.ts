@@ -1,12 +1,17 @@
 import { execFile } from 'node:child_process'
-import { copyFile, mkdir, readdir, readFile, symlink, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, readdir, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { promisify } from 'node:util'
+
+import { z } from 'zod'
 
 import { getRawRegistry, loadMoleculeVersions } from '../registry.js'
 
 const exec = promisify(execFile)
 const fixture = new URL('./fixtures/feature-smoke-runtime/', import.meta.url)
+const pinsSchema = z.record(z.string(), z.string())
+const fixtureManifest = z.object({ dependencies: pinsSchema, devDependencies: pinsSchema })
+const packageIdentity = z.object({ name: z.string(), version: z.string() })
 
 /**
  * Set up the published providers and locales that generated smoke tests import in standalone CI.
@@ -25,12 +30,30 @@ export async function featureSmokeModules(
   const manifest = join(root, 'package.json')
   await copyFile(new URL('package.json', fixture), manifest)
   await copyFile(new URL('package-lock.json', fixture), join(root, 'package-lock.json'))
-  await exec('npm', ['ci', '--legacy-peer-deps', '--ignore-scripts', '--no-audit', '--no-fund'], {
-    cwd: root,
-    timeout: 120_000,
-  })
+  const { dependencies, devDependencies: shared } = fixtureManifest.parse(
+    JSON.parse(await readFile(manifest, 'utf8')),
+  )
+  await exec(
+    'npm',
+    ['ci', '--no-legacy-peer-deps', '--strict-peer-deps', '--no-audit', '--no-fund'],
+    { cwd: root, timeout: 120_000 },
+  )
 
   const modules = join(root, 'node_modules')
+  // The fixture lock declares the shared packages so npm validates the complete peer graph.
+  // Use the CLI's copy at runtime so linked packages and new providers share the same bonds.
+  for (const [name, version] of Object.entries(shared)) {
+    const installed = join(cliModules, name)
+    const actual = packageIdentity.parse(
+      JSON.parse(await readFile(join(installed, 'package.json'), 'utf8')),
+    )
+    if (actual.name !== name || actual.version !== version)
+      throw new Error(
+        `The fixture locks ${name}@${version}; CLI installed ${actual.name}@${actual.version}`,
+      )
+    await rm(join(modules, name), { recursive: true })
+    await symlink(installed, join(modules, name))
+  }
   const scopes = ['', '@molecule', '.bin']
   for (const scope of scopes) await mkdir(join(modules, scope), { recursive: true })
   for (const scope of scopes) {
@@ -43,9 +66,6 @@ export async function featureSmokeModules(
 
   // The fixtures intentionally bind these providers to the released versions in the lockfile.
   // The rest of the generated project's packages and all metadata use the current registry.
-  const { dependencies } = JSON.parse(await readFile(manifest, 'utf8')) as {
-    dependencies: Record<string, string>
-  }
   const pins = loadMoleculeVersions()
   const registry = join(root, 'registry.json')
   await writeFile(
