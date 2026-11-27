@@ -55,7 +55,9 @@ describe('synthesis makes no duplicate model request', () => {
     const plan = await planInjection('@molecule/api-resource-device', project)
     expect(plan.moleculePackage, 'the resource plan must resolve for this test').toBeTruthy()
 
-    await synthesizeProjectFiles([plan], ['@molecule/api-resource-device'], project)
+    await synthesizeProjectFiles([plan], [plan.molecule], project, undefined, undefined, {
+      optionalFeatures: new Set(['devices']),
+    })
 
     // It did ask the model (a stubbed-away AI path would make this vacuous).
     expect(requests.all.length).toBeGreaterThan(1)

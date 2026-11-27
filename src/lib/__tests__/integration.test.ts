@@ -17,6 +17,7 @@ import { dirname, join } from 'node:path'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { type InjectionPlan, planInjection, synthesizeProjectFiles } from '../injector.js'
+import { deriveOptionalFeatures, selectOptionalFeatures } from '../optional-features.js'
 import { loadRegistry } from '../registry.js'
 import { validateInjectionOutput } from '../validator.js'
 import { createTestProject, TEST_MOLECULES } from './create-test-project.js'
@@ -38,11 +39,15 @@ beforeAll(async () => {
 
   // Synthesize holistic project files
   const registryPackages = loadRegistry()
+  const selected = selectOptionalFeatures(TEST_MOLECULES)
+  const optionalFeatures = deriveOptionalFeatures(TEST_MOLECULES, registryPackages, selected)
   synthesizedFiles = await synthesizeProjectFiles(
     plans,
     TEST_MOLECULES,
     testProject,
     registryPackages,
+    undefined,
+    { optionalFeatures },
   )
 
   // Write per-plan files to disk (bond setups, middleware files)
