@@ -89,17 +89,31 @@ function packageOf(specifier: string): string | null {
  * `require('x')` and `vi.mock('x')` / `vi.importActual('x')` with a literal argument.
  *
  * @param file - Absolute path.
+ * @param options - `valuesOnly` leaves out `import type` / `export type` declarations, which
+ *   compile away and load nothing at run time.
+ * @param options.valuesOnly - Whether to count only declarations that load a module.
  * @returns The literal specifiers.
  */
-function specifiersOf(file: string): string[] {
+function specifiersOf(file: string, options: { valuesOnly?: boolean } = {}): string[] {
   const text = readFileSync(file, 'utf8')
   const source = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true)
   const found: string[] = []
+  const typeOnly = (node: ts.ImportDeclaration | ts.ExportDeclaration): boolean =>
+    ts.isImportDeclaration(node)
+      ? node.importClause?.isTypeOnly === true ||
+        (node.importClause !== undefined &&
+          !node.importClause.name &&
+          node.importClause.namedBindings !== undefined &&
+          ts.isNamedImports(node.importClause.namedBindings) &&
+          node.importClause.namedBindings.elements.length > 0 &&
+          node.importClause.namedBindings.elements.every((element) => element.isTypeOnly))
+      : node.isTypeOnly
   const visit = (node: ts.Node): void => {
     if (
       (ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) &&
       node.moduleSpecifier &&
-      ts.isStringLiteral(node.moduleSpecifier)
+      ts.isStringLiteral(node.moduleSpecifier) &&
+      !(options.valuesOnly && typeOnly(node))
     )
       found.push(node.moduleSpecifier.text)
     if (ts.isCallExpression(node) && node.arguments.length > 0) {
@@ -137,6 +151,38 @@ describe("mlcl's own imports", () => {
       .map(
         ([name, files]) =>
           `${name} — add it to mlcl's devDependencies (exact version); imported by ${[...files].sort().join(', ')}`,
+      )
+    expect(report).toEqual([])
+  })
+
+  it('ships every package its runtime imports as a dependency, not a devDependency', () => {
+    // npm installs a devDependency only in mlcl's own checkout. `npx mlcl` gets `dependencies`
+    // (and optional and peer packages), so a runtime import of a devDependency resolves here and
+    // fails for every user: `mlcl resources` died on `Cannot find package 'yaml'` from 2026-11-21
+    // until a harness eval's Codex arm hand-linked yaml into its npx cache (2026-11-27).
+    const runtime = new Set([
+      manifest.name,
+      ...Object.keys(manifest.dependencies ?? {}),
+      ...Object.keys(manifest.optionalDependencies ?? {}),
+      ...Object.keys(manifest.peerDependencies ?? {}),
+    ])
+    const devOnly = new Map<string, Set<string>>()
+    for (const root of ['src', 'bin'])
+      for (const file of sourceFiles(join(MLCL, root))) {
+        if (/[\\/]__tests__[\\/]|\.test\.[cm]?[jt]sx?$/.test(file)) continue
+        for (const specifier of specifiersOf(file, { valuesOnly: true })) {
+          const name = packageOf(specifier)
+          if (!name || runtime.has(name)) continue
+          const files = devOnly.get(name) ?? new Set<string>()
+          files.add(relative(MLCL, file))
+          devOnly.set(name, files)
+        }
+      }
+    const report = [...devOnly]
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(
+        ([name, files]) =>
+          `${name} — move it to mlcl's dependencies (exact version); the CLI imports it in ${[...files].sort().join(', ')}`,
       )
     expect(report).toEqual([])
   })
