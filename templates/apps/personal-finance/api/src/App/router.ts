@@ -13,6 +13,7 @@ import {
 import accountsRouter from '../handlers/accounts.js'
 import budgetsRouter from '../handlers/budgets.js'
 import categoriesRouter from '../handlers/categories.js'
+import dataExportRouter from '../handlers/data-export.js'
 import goalsRouter from '../handlers/goals.js'
 import notificationsRouter from '../handlers/notifications.js'
 import reportsRouter from '../handlers/reports.js'
@@ -42,5 +43,6 @@ router.use('/budgets', budgetsRouter)
 router.use('/goals', goalsRouter)
 router.use('/categories', categoriesRouter)
 router.use('/reports', reportsRouter)
+router.use('/export', dataExportRouter)
 router.use('/notifications', notificationsRouter)
 router.use('/billing', billingRouter)
