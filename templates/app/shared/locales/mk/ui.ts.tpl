@@ -2,9 +2,15 @@
  * Macedonian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Не можеше да се потврди вашата сесија.',
+  'about.visitWebsite': 'Посетете ја нашата веб-страница →',
+  'notFound.title': 'Страницата не е пронајдена',
+
   // Common
   'common.loading': 'Вчитување...',
   'common.saving': 'Зачувување...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
   'planUpdated.retry': 'Обидете се повторно',
 {{/feature}}
-}
+} satisfies UiTranslations

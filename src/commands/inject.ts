@@ -36,6 +36,7 @@ import {
   installedLocaleBonds,
   planInjection,
   type PlanInjectionOptions,
+  refreshAppTranslationCatalogs,
   resolveDefaultProvidersFromPlans,
   synthesizeAppProjectFiles,
   synthesizeProjectFiles,
@@ -1109,6 +1110,7 @@ export default class Inject extends Command {
     }
 
     // Post-injection validation
+    if (isAppProject) await refreshAppTranslationCatalogs(projectPath)
     spinner.start(t('commands.inject.spinners.validating'))
     const validation = await validateInjectionOutput(projectPath, {
       existingProject,

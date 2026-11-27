@@ -2,9 +2,15 @@
  * Malay translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Sesi anda tidak dapat disahkan.',
+  'about.visitWebsite': 'Lawati laman web kami →',
+  'notFound.title': 'Halaman tidak ditemui',
+
   // Common
   'common.loading': 'Memuatkan...',
   'common.saving': 'Menyimpan...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
   'planUpdated.retry': 'Cuba lagi',
 {{/feature}}
-}
+} satisfies UiTranslations

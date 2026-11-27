@@ -2,9 +2,15 @@
  * Vietnamese translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Không thể xác nhận phiên của bạn.',
+  'about.visitWebsite': 'Truy cập trang web của chúng tôi →',
+  'notFound.title': 'Không tìm thấy trang',
+
   // Common
   'common.loading': 'Đang tải...',
   'common.saving': 'Đang lưu...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Chúng tôi chưa thể xác nhận thanh toán của bạn.',
   'planUpdated.retry': 'Hãy thử lại',
 {{/feature}}
-}
+} satisfies UiTranslations

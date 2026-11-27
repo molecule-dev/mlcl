@@ -2,9 +2,15 @@
  * Punjabi translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'ਤੁਹਾਡੇ ਸੈਸ਼ਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਹੋ ਸਕੀ।',
+  'about.visitWebsite': 'ਸਾਡੀ ਵੈੱਬਸਾਈਟ ਦੇਖੋ →',
+  'notFound.title': 'ਸਫ਼ਾ ਨਹੀਂ ਮਿਲਿਆ',
+
   // Common
   'common.loading': 'ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...',
   'common.saving': 'ਸੇਵ ਹੋ ਰਿਹਾ ਹੈ...',
@@ -264,4 +270,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'ਅਸੀਂ ਅਜੇ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕੇ।',
   'planUpdated.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
 {{/feature}}
-}
+} satisfies UiTranslations

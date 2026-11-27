@@ -59,7 +59,7 @@ import { FooterComponent } from './footer.component.js'
         [class]="pageLinkClasses"
         data-mol-id="settings-page-link"
       >
-        {{ t('settings.openProfilePage', undefined, { defaultValue: 'Edit your profile' }) }}
+        {{ t('nav.editProfile', undefined, { defaultValue: 'Edit profile' }) }}
       </a>
       <section mol-settings-account></section>
 {{#feature two-factor}}

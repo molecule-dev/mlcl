@@ -103,6 +103,13 @@ do not extract a package for them.
 through i18n. Read an installed package's API with `{{CLI_COMMAND}} docs @molecule/<name>`
 (`--section <name>` for one function, `--search <term>` for a literal).
 
+Custom apps start with English unless you select another locale. Run
+`{{CLI_COMMAND}} locale add fr` or call the MCP `add_locale` tool to add French.
+Use `satisfies UiTranslations` for each catalog. Preserve finite computed keys with
+`as const` on template literals. Run `{{CLI_COMMAND}} inject` after upgrading locale bonds.
+The editor, `npm run typecheck` and `npm run build` report missing keys at
+the call site and name each locale that needs a translation.
+
 **While implementing a supplied Playwright suite:** start `{{CLI_COMMAND}} test-feedback
 --suite <spec-directory> --sources <app-source-directory> --command "<the suite’s native
 Playwright command targeting the local app>" --watch --json` as a background task.

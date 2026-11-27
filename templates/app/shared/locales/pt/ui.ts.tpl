@@ -2,9 +2,15 @@
  * Portuguese translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Não foi possível confirmar a sua sessão.',
+  'about.visitWebsite': 'Visite o nosso site →',
+  'notFound.title': 'Página não encontrada',
+
   // Common
   'common.loading': 'Carregando...',
   'common.saving': 'Salvando...',
@@ -268,4 +274,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Ainda não foi possível confirmar o seu pagamento.',
   'planUpdated.retry': 'Tente novamente',
 {{/feature}}
-}
+} satisfies UiTranslations

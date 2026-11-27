@@ -37,7 +37,7 @@ const check = (name, cond, detail = '') => {
   )
   check(
     'search carries install cmd',
-    hits.every((h) => h.install?.startsWith('mlcl add')),
+    hits.every((h) => /^(?:npx )?mlcl add @molecule\//.test(h.install ?? '')),
   )
 }
 

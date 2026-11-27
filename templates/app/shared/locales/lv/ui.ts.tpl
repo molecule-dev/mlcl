@@ -2,9 +2,15 @@
  * Latvian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Neizdevās apstiprināt jūsu sesiju.',
+  'about.visitWebsite': 'Apmeklējiet mūsu tīmekļa vietni →',
+  'notFound.title': 'Lapa nav atrasta',
+
   // Common
   'common.loading': 'Ielāde...',
   'common.saving': 'Saglabāšana...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
   'planUpdated.retry': 'Mēģiniet vēlreiz',
 {{/feature}}
-}
+} satisfies UiTranslations

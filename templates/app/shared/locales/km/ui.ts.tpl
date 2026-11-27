@@ -2,9 +2,15 @@
  * Khmer translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'មិនអាចបញ្ជាក់សម័យរបស់អ្នកបានទេ។',
+  'about.visitWebsite': 'ចូលទៅកាន់គេហទំព័ររបស់យើង →',
+  'notFound.title': 'រកមិនឃើញទំព័រ',
+
   // Common
   'common.loading': 'កំពុងផ្ទុក...',
   'common.saving': 'កំពុងរក្សាទុក...',
@@ -275,4 +281,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
   'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
 {{/feature}}
-}
+} satisfies UiTranslations

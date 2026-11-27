@@ -2,9 +2,15 @@
  * Filipino translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Hindi makumpirma ang session mo.',
+  'about.visitWebsite': 'Bisitahin ang aming website →',
+  'notFound.title': 'Hindi natagpuan ang pahina',
+
   // Common
   'common.loading': 'Naglo-load...',
   'common.saving': 'Nagse-save...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
   'planUpdated.retry': 'Subukan muli',
 {{/feature}}
-}
+} satisfies UiTranslations

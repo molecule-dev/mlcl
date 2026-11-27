@@ -1,5 +1,7 @@
 import { getProvider as getI18nProvider, registerContent } from '@molecule/app-i18n'
 
+import { loadLocaleContent } from './locales/project.js'
+
 export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
 
 /*
@@ -145,8 +147,7 @@ export async function loadContent(module: string): Promise<void> {
   const provider = getI18nProvider()
   const locale = provider.getLocale()
   const loader = async (loc: string): Promise<void> => {
-    const content = await import(`./locales/${loc}/${module}.ts`)
-    provider.addTranslations(loc, content[module])
+    provider.addTranslations(loc, await loadLocaleContent(loc, module))
   }
   registerContent(module, loader)
   await loader(locale)

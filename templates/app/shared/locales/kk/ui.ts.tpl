@@ -2,9 +2,15 @@
  * Kazakh translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Сеансыңызды растау мүмкін болмады.',
+  'about.visitWebsite': 'Веб-сайтымызға кіріңіз →',
+  'notFound.title': 'Бет табылмады',
+
   // Common
   'common.loading': 'Жүктелуде...',
   'common.saving': 'Сақталуда...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Төлеміңізді әлі растай алмадық.',
   'planUpdated.retry': 'Қайтадан байқап көріңіз',
 {{/feature}}
-}
+} satisfies UiTranslations

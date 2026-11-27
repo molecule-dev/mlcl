@@ -2,9 +2,15 @@
  * Turkish translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Oturumunuz doğrulanamadı.',
+  'about.visitWebsite': 'Web sitemizi ziyaret edin →',
+  'notFound.title': 'Sayfa bulunamadı',
+
   // Common
   'common.loading': 'Yükleniyor...',
   'common.saving': 'Kaydediliyor...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
   'planUpdated.retry': 'Tekrar deneyin',
 {{/feature}}
-}
+} satisfies UiTranslations

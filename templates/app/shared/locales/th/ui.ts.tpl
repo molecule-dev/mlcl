@@ -2,9 +2,15 @@
  * Thai translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'ไม่สามารถยืนยันเซสชันของคุณได้',
+  'about.visitWebsite': 'เยี่ยมชมเว็บไซต์ของเรา →',
+  'notFound.title': 'ไม่พบหน้า',
+
   // Common
   'common.loading': 'กำลังโหลด...',
   'common.saving': 'กำลังบันทึก...',
@@ -264,4 +270,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'เรายังไม่สามารถยืนยันการชำระเงินของคุณได้',
   'planUpdated.retry': 'ลองอีกครั้ง',
 {{/feature}}
-}
+} satisfies UiTranslations

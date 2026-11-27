@@ -2,9 +2,15 @@
  * Maltese translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Ma stajniex nikkonfermaw is-sessjoni tiegħek.',
+  'about.visitWebsite': 'Żur is-sit tagħna →',
+  'notFound.title': 'Il-paġna ma nstabitx',
+
   // Common
   'common.loading': 'Jitgħabba...',
   'common.saving': 'Qed jiġi ssejvjat...',
@@ -268,4 +274,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
   'planUpdated.retry': "Erġa' pprova",
 {{/feature}}
-}
+} satisfies UiTranslations

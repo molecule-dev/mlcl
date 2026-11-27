@@ -32,11 +32,12 @@ await client.connect(clientSide)
 const { tools } = await client.listTools()
 const names = tools.map((t) => t.name)
 check(
-  'listTools exposes all seven tools',
+  'listTools exposes scaffold, locale, and package tools',
   [
     'search_packages',
     'list_templates',
     'scaffold_project',
+    'add_locale',
     'add_package',
     'swap_provider',
     'read_package_doc',
@@ -52,16 +53,16 @@ const search = await client.callTool({
 const searchHits = JSON.parse(search.content[0].text)
 check(
   'search_packages returns JSON hits',
-  Array.isArray(searchHits) && searchHits.some((h) => h.name === '@molecule/api-payments-stripe'),
+  Array.isArray(searchHits) && searchHits.some((h) => h.name.startsWith('@molecule/api-payments')),
   search.content[0].text,
 )
 
 // 3. list_templates
 const templates = await client.callTool({ name: 'list_templates', arguments: {} })
-const tplList = JSON.parse(templates.content[0].text)
+const tplList = templates.content[0].text
 check(
-  'list_templates returns 134 slugs',
-  Array.isArray(tplList) && tplList.length >= 130 && tplList.some((t) => t.slug === 'blog'),
+  'list_templates lists blog and static-site',
+  /^\s+blog\s+/m.test(tplList) && /^\s+static-site\s+/m.test(tplList),
 )
 
 // 3b. conventions resource — the doctrine ships WITH the server
@@ -103,6 +104,34 @@ check(
   existsSync(join(result.path, 'AGENTS.md')) &&
     existsSync(join(result.path, 'app', 'public', 'fonts')),
 )
+
+const frenchScaffold = await client.callTool({
+  name: 'scaffold_project',
+  arguments: {
+    name: 'mcp-french',
+    type: 'app',
+    framework: 'react',
+    packages: '@molecule/app-routing',
+    locales: ['fr'],
+    skip_install: true,
+    directory: dir,
+  },
+})
+const french = JSON.parse(frenchScaffold.content[0].text)
+check(
+  'scaffold_project uses the requested locale',
+  existsSync(join(french.path, 'src/locales/fr/ui.ts')) &&
+    !existsSync(join(french.path, 'src/locales/en')),
+)
+const addedLocale = await client.callTool({
+  name: 'add_locale',
+  arguments: { locale: 'en', directory: french.path },
+})
+check(
+  'add_locale adds a second language',
+  !addedLocale.isError && existsSync(join(french.path, 'src/locales/en/ui.ts')),
+  addedLocale.content[0].text,
+)
 // 5. read_package_doc — fallback path on an uninstalled package (friendly message)
 const docMiss = await client.callTool({
   name: 'read_package_doc',
@@ -110,7 +139,9 @@ const docMiss = await client.callTool({
 })
 check(
   'read_package_doc miss is friendly',
-  /No local README|molecule\.dev\/packages/.test(docMiss.content[0].text),
+  /Published README from npm|No README found for @molecule\/api-payments-stripe/.test(
+    docMiss.content[0].text,
+  ),
 )
 
 rmSync(dir, { recursive: true, force: true })

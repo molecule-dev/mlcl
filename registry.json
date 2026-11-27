@@ -60370,6 +60370,8 @@
         "getPluralForm",
         "createSimpleI18nProvider",
         "simpleProvider",
+        "parseRichMessage",
+        "createRichTranslator",
         "setProvider",
         "getProvider",
         "getLocale",
@@ -60378,6 +60380,7 @@
         "addTranslations",
         "registerLocaleModule",
         "t",
+        "tRich",
         "formatNumber",
         "formatDate",
         "formatRelativeTime",
@@ -60390,18 +60393,17 @@
         "NumberFormatOptions",
         "DateFormatOptions",
         "I18nProvider",
+        "TranslationCatalogs",
         "TranslateFunction",
+        "TranslateFunctionWithFallback",
         "PluralCategory",
         "TranslateOptions",
-        "getNestedValue",
-        "deepMerge",
-        "interpolate",
         "RichTag",
         "RichNode",
         "RichTranslateFunction",
-        "parseRichMessage",
-        "createRichTranslator",
-        "tRich"
+        "getNestedValue",
+        "deepMerge",
+        "interpolate"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -114726,7 +114728,8 @@
           ]
         },
         "angularCompilerOptions": {
-          "compilationMode": "full"
+          "compilationMode": "full",
+          "strictTemplates": true
         },
         "include": [
           "src/**/*"
@@ -114740,7 +114743,8 @@
         "import": "import angular from '@analogjs/vite-plugin-angular'",
         "usage": "angular({ tsconfig: './tsconfig.json' })"
       },
-      "buildScript": "tsc --noEmit && vite build",
+      "buildScript": "ngc --noEmit && vite build",
+      "typecheckScript": "ngc --noEmit",
       "fileExtension": "ts",
       "viteExtraConfig": "resolve: {\n    mainFields: ['module'],\n  },",
       "htmlRootElement": "<app-root></app-root>"

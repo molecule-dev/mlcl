@@ -2,9 +2,15 @@
  * Galician translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Non se puido confirmar a túa sesión.',
+  'about.visitWebsite': 'Visita o noso sitio web →',
+  'notFound.title': 'Non se atopou a páxina',
+
   // Common
   'common.loading': 'Cargando...',
   'common.saving': 'Gardando...',
@@ -268,4 +274,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Aínda non puidemos confirmar o teu pagamento.',
   'planUpdated.retry': 'Téntao de novo',
 {{/feature}}
-}
+} satisfies UiTranslations

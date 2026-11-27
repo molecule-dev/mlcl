@@ -2,9 +2,15 @@
  * Russian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Не удалось подтвердить сеанс.',
+  'about.visitWebsite': 'Посетите наш сайт →',
+  'notFound.title': 'Страница не найдена',
+
   // Common
   'common.loading': 'Загрузка...',
   'common.saving': 'Сохранение...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
   'planUpdated.retry': 'Попробуйте еще раз',
 {{/feature}}
-}
+} satisfies UiTranslations

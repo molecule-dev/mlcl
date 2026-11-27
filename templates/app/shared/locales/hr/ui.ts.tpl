@@ -2,9 +2,15 @@
  * Croatian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Vašu sesiju nije bilo moguće potvrditi.',
+  'about.visitWebsite': 'Posjetite našu web-stranicu →',
+  'notFound.title': 'Stranica nije pronađena',
+
   // Common
   'common.loading': 'Učitavanje...',
   'common.saving': 'Spremanje...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Još nismo mogli potvrditi vašu uplatu.',
   'planUpdated.retry': 'Pokušajte ponovno',
 {{/feature}}
-}
+} satisfies UiTranslations

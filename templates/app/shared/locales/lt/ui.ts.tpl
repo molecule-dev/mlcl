@@ -2,9 +2,15 @@
  * Lithuanian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Nepavyko patvirtinti jūsų seanso.',
+  'about.visitWebsite': 'Apsilankykite mūsų svetainėje →',
+  'notFound.title': 'Puslapis nerastas',
+
   // Common
   'common.loading': 'Kraunama...',
   'common.saving': 'Saugoma...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
   'planUpdated.retry': 'Bandykite dar kartą',
 {{/feature}}
-}
+} satisfies UiTranslations

@@ -68,7 +68,7 @@ const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
   template: `
     <section [class]="cm.cn(cm.sp('py', 8), cm.sp('px', 4))">
       <h1 [class]="cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))">
-        {{ t('settings.title', undefined, { defaultValue: 'Your settings' }) }}
+        {{ t('nav.settings', undefined, { defaultValue: 'Settings' }) }}
       </h1>
       <form [class]="cm.stack(4)" data-mol-id="settings-form" (submit)="onSubmit($event)">
         <div>
@@ -87,7 +87,7 @@ const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
         </div>
         <div>
           <label [class]="cm.formLabelSmall" [attr.for]="fieldId('username')">
-            {{ t('settings.username', undefined, { defaultValue: 'Username' }) }}
+            {{ t('auth.username', undefined, { defaultValue: 'Username' }) }}
           </label>
           <input
             [attr.id]="fieldId('username')"
@@ -101,7 +101,7 @@ const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
         </div>
         <div>
           <label [class]="cm.formLabelSmall" [attr.for]="fieldId('bio')">
-            {{ t('settings.bio', undefined, { defaultValue: 'Bio' }) }}
+            {{ t('form.bio', undefined, { defaultValue: 'Bio' }) }}
           </label>
           <textarea
             [attr.id]="fieldId('bio')"
@@ -115,7 +115,7 @@ const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
         </div>
         <div>
           <label [class]="cm.formLabelSmall" [attr.for]="fieldId('avatar')">
-            {{ t('settings.avatar', undefined, { defaultValue: 'Avatar URL' }) }}
+            {{ t('ui.avatar.alt', undefined, { defaultValue: 'Avatar' }) }}
           </label>
           <input
             [attr.id]="fieldId('avatar')"
@@ -137,7 +137,7 @@ const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
             {{
               profile.isSubmitting()
                 ? t('common.saving', undefined, { defaultValue: 'Saving...' })
-                : t('settings.save', undefined, { defaultValue: 'Save changes' })
+                : t('common.saveChanges', undefined, { defaultValue: 'Save changes' })
             }}
           </button>
           <button
@@ -146,14 +146,14 @@ const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
             (click)="profile.reset()"
             data-mol-id="settings-cancel"
           >
-            {{ t('settings.cancel', undefined, { defaultValue: 'Cancel' }) }}
+            {{ t('common.cancel', undefined, { defaultValue: 'Cancel' }) }}
           </button>
         </div>
         @if (profile.error()) {
           <p role="alert" [class]="cm.formError" data-mol-id="settings-error">
             {{
-              t('settings.saveFailed', undefined, {
-                defaultValue: 'Could not save your changes.',
+              t('common.couldNotSaveChanges', undefined, {
+                defaultValue: 'Could not save changes.',
               })
             }}{{ reason() ? ' ' + reason() : '' }}
           </p>

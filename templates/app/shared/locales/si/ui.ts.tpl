@@ -2,9 +2,15 @@
  * Sinhala translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'ඔබේ සැසිය තහවුරු කළ නොහැකි විය.',
+  'about.visitWebsite': 'අපගේ වෙබ් අඩවියට පිවිසෙන්න →',
+  'notFound.title': 'පිටුව හමු නොවීය',
+
   // Common
   'common.loading': 'පූරණය වෙමින්...',
   'common.saving': 'සුරකිමින්...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'අපට තවමත් ඔබගේ ගෙවීම තහවුරු කිරීමට නොහැකි විය.',
   'planUpdated.retry': 'නැවත උත්සාහ කරන්න',
 {{/feature}}
-}
+} satisfies UiTranslations

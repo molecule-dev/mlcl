@@ -133,7 +133,7 @@ Enforced by `.npmrc` with `save-exact=true`. When writing code that touches depe
 
 ### 12. All UI Text Through i18n
 
-Never hardcode user-visible strings (labels, placeholders, messages, aria-labels) in components or templates. Use `t('key', values, { defaultValue: 'English fallback' })` from `@molecule/app-i18n` or the framework-specific `useTranslation()` hook. Translations live in **companion locale bond packages** (`@molecule/{stack}-locales-{name}`), NOT embedded in feature packages. Each locale bond provides type-safe translations in 79 languages. UI primitives accept optional string props with English defaults. Templates include `locales/` with all translations.
+Never hardcode user-visible strings (labels, placeholders, messages, aria-labels) in components or templates. Use `t('key', values, { defaultValue: 'English fallback' })` from `@molecule/app-i18n` or the framework-specific `useTranslation()` hook. Translations live in **companion locale bond packages** (`@molecule/{stack}-locales-{name}`), NOT embedded in feature packages. Each locale bond provides type-safe translations in 79 languages. UI primitives accept optional string props with English defaults. Flagships include their full locale sets. Custom scaffolds copy only the locales selected by `mlcl create --locales`, with English as the default.
 
 ---
 

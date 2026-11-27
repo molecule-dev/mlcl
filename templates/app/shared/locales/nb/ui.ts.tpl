@@ -2,9 +2,15 @@
  * Norwegian Bokmål translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Kunne ikke bekrefte økten din.',
+  'about.visitWebsite': 'Besøk nettstedet vårt →',
+  'notFound.title': 'Siden ble ikke funnet',
+
   // Common
   'common.loading': 'Laster...',
   'common.saving': 'Lagrer...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Vi kunne ikke bekrefte betalingen din ennå.',
   'planUpdated.retry': 'Prøv igjen',
 {{/feature}}
-}
+} satisfies UiTranslations

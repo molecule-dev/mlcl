@@ -1,13 +1,13 @@
-/**
- * Default English translations.
- *
- * Add additional locales by creating new files (e.g., es.ts, fr.ts)
- * and registering them with the i18n provider in config.ts.
- */
+/** English translations. */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Could not confirm your session.',
+  'notFound.title': 'Page not found',
+
   // Common
   'common.loading': 'Loading...',
   'common.saving': 'Saving...',
@@ -97,7 +97,6 @@ export const ui: UiTranslations = {
   'footer.language': 'Language',
 
   // About
-  'about.title': 'About {{appName}}',
   'about.visitWebsite': 'Visit our website →',
 
   // OAuth
@@ -273,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'We could not confirm your payment yet.',
   'planUpdated.retry': 'Try again',
 {{/feature}}
-}
+} satisfies UiTranslations

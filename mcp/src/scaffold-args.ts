@@ -4,6 +4,7 @@ export interface ScaffoldProjectOptions {
   template?: string
   type?: string
   framework?: string
+  locales?: string[]
   packages?: string
   api_contract?: string
   skip_install?: boolean
@@ -15,6 +16,7 @@ export function scaffoldProjectCliArgs(options: ScaffoldProjectOptions): string[
   if (options.template) args.push('--template', options.template)
   if (options.type) args.push('--type', options.type)
   if (options.framework) args.push('--framework', options.framework)
+  if (options.locales) args.push('--locales', options.locales.join(','))
   if (options.packages) args.push('--packages', options.packages)
   if (options.api_contract) args.push('--api-contract', options.api_contract)
   if (options.skip_install) args.push('--skip-install')

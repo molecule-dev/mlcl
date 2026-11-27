@@ -2,9 +2,15 @@
  * Hungarian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Nem sikerült ellenőrizni a munkamenetet.',
+  'about.visitWebsite': 'Látogasson el a weboldalunkra →',
+  'notFound.title': 'Az oldal nem található',
+
   // Common
   'common.loading': 'Betöltés...',
   'common.saving': 'Mentés...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
   'planUpdated.retry': 'Próbáld újra',
 {{/feature}}
-}
+} satisfies UiTranslations

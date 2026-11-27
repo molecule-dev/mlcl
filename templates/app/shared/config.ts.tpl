@@ -1,5 +1,5 @@
 import { getProvider as getI18nProvider, registerContent } from '@molecule/app-i18n'
-
+{{LOCALE_CONTENT_IMPORT}}
 export const API_BASE_URL = {{API_BASE_URL_EXPR}}
 
 /*
@@ -139,8 +139,7 @@ export async function loadContent(module: string): Promise<void> {
   const provider = getI18nProvider()
   const locale = provider.getLocale()
   const loader = async (loc: string): Promise<void> => {
-    const content = {{LOCALE_CONTENT_MODULE}}
-    provider.addTranslations(loc, content[module])
+    {{LOCALE_CONTENT_LOAD}}
   }
   registerContent(module, loader)
   await loader(locale)

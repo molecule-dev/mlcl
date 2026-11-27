@@ -2,9 +2,15 @@
  * Urdu translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'آپ کے سیشن کی تصدیق نہیں ہو سکی۔',
+  'about.visitWebsite': 'ہماری ویب سائٹ دیکھیں →',
+  'notFound.title': 'صفحہ نہیں ملا',
+
   // Common
   'common.loading': 'لوڈ ہو رہا ہے...',
   'common.saving': 'محفوظ ہو رہا ہے...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'ہم ابھی تک آپ کی ادائیگی کی تصدیق نہیں کر سکے۔',
   'planUpdated.retry': 'دوبارہ کوشش کریں۔',
 {{/feature}}
-}
+} satisfies UiTranslations

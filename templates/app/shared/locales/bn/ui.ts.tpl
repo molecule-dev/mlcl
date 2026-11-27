@@ -2,9 +2,15 @@
  * Bengali translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'আপনার সেশন নিশ্চিত করা যায়নি।',
+  'about.visitWebsite': 'আমাদের ওয়েবসাইট দেখুন →',
+  'notFound.title': 'পৃষ্ঠাটি পাওয়া যায়নি',
+
   // Common
   'common.loading': 'লোড হচ্ছে...',
   'common.saving': 'সংরক্ষণ হচ্ছে...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি।',
   'planUpdated.retry': 'আবার চেষ্টা করুন',
 {{/feature}}
-}
+} satisfies UiTranslations

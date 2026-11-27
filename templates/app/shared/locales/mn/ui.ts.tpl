@@ -2,9 +2,15 @@
  * Mongolian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Таны сессийг баталгаажуулж чадсангүй.',
+  'about.visitWebsite': 'Манай вэб сайтад зочлоорой →',
+  'notFound.title': 'Хуудас олдсонгүй',
+
   // Common
   'common.loading': 'Ачааллаж байна...',
   'common.saving': 'Хадгалж байна...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
   'planUpdated.retry': 'Дахин оролдоно уу',
 {{/feature}}
-}
+} satisfies UiTranslations

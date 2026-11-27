@@ -2,9 +2,15 @@
  * Traditional Chinese translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': '無法確認您的工作階段。',
+  'about.visitWebsite': '瀏覽我們的網站 →',
+  'notFound.title': '找不到頁面',
+
   // Common
   'common.loading': '載入中...',
   'common.saving': '儲存中...',
@@ -261,4 +267,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': '我們目前還無法確認您的付款。',
   'planUpdated.retry': '再試一次',
 {{/feature}}
-}
+} satisfies UiTranslations

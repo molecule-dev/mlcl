@@ -2,9 +2,15 @@
  * Korean translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': '세션을 확인할 수 없습니다.',
+  'about.visitWebsite': '웹사이트 방문하기 →',
+  'notFound.title': '페이지를 찾을 수 없습니다',
+
   // Common
   'common.loading': '로딩 중...',
   'common.saving': '저장 중...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': '아직 결제 확인이 완료되지 않았습니다.',
   'planUpdated.retry': '다시 시도해 보세요',
 {{/feature}}
-}
+} satisfies UiTranslations

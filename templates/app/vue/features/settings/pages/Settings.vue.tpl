@@ -116,7 +116,7 @@ const fields = computed(() => {
 <template>
   <section :class="cm.cn(cm.sp('py', 8), cm.sp('px', 4))">
     <h1 :class="cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))">
-      {{ t('settings.title', undefined, { defaultValue: 'Your settings' }) }}
+      {{ t('nav.settings', undefined, { defaultValue: 'Settings' }) }}
     </h1>
     <form v-bind="profile.formProps" :class="cm.stack(4)" data-mol-id="settings-form">
       <div>
@@ -133,7 +133,7 @@ const fields = computed(() => {
       </div>
       <div>
         <label :for="`${id}-username`" :class="cm.formLabelSmall">
-          {{ t('settings.username', undefined, { defaultValue: 'Username' }) }}
+          {{ t('auth.username', undefined, { defaultValue: 'Username' }) }}
         </label>
         <input
           :id="`${id}-username`"
@@ -145,7 +145,7 @@ const fields = computed(() => {
       </div>
       <div>
         <label :for="`${id}-bio`" :class="cm.formLabelSmall">
-          {{ t('settings.bio', undefined, { defaultValue: 'Bio' }) }}
+          {{ t('form.bio', undefined, { defaultValue: 'Bio' }) }}
         </label>
         <textarea
           :id="`${id}-bio`"
@@ -157,7 +157,7 @@ const fields = computed(() => {
       </div>
       <div>
         <label :for="`${id}-avatar`" :class="cm.formLabelSmall">
-          {{ t('settings.avatar', undefined, { defaultValue: 'Avatar URL' }) }}
+          {{ t('ui.avatar.alt', undefined, { defaultValue: 'Avatar' }) }}
         </label>
         <input
           :id="`${id}-avatar`"
@@ -177,7 +177,7 @@ const fields = computed(() => {
           {{
             profile.isSubmitting.value
               ? t('common.saving', undefined, { defaultValue: 'Saving...' })
-              : t('settings.save', undefined, { defaultValue: 'Save changes' })
+              : t('common.saveChanges', undefined, { defaultValue: 'Save changes' })
           }}
         </button>
         <button
@@ -186,11 +186,13 @@ const fields = computed(() => {
           data-mol-id="settings-cancel"
           @click="profile.reset()"
         >
-          {{ t('settings.cancel', undefined, { defaultValue: 'Cancel' }) }}
+          {{ t('common.cancel', undefined, { defaultValue: 'Cancel' }) }}
         </button>
       </div>
       <p v-if="profile.error.value" role="alert" :class="cm.formError" data-mol-id="settings-error">
-        {{ t('settings.saveFailed', undefined, { defaultValue: 'Could not save your changes.' }) }}
+        {{
+          t('common.couldNotSaveChanges', undefined, { defaultValue: 'Could not save changes.' })
+        }}
         <template v-if="reason"> {{ reason }}</template>
       </p>
     </form>

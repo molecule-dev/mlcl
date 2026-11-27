@@ -16,7 +16,7 @@ export function Home() {
         {t('home.title', { appName: APP_NAME }, { defaultValue: '{{appName}}' })}
       </h1>
       <p className={cm.cn(cm.sp('pt', 4), cm.textMuted)}>
-        {t('home.tagline', undefined, { defaultValue: APP_DESCRIPTION })}
+        {t('home.tagline', { description: APP_DESCRIPTION }, { defaultValue: '{{description}}' })}
       </p>
     </div>
   )

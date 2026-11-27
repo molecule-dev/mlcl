@@ -2,9 +2,15 @@
  * Uzbek translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Seansingizni tasdiqlab bo‘lmadi.',
+  'about.visitWebsite': 'Veb-saytimizga tashrif buyuring →',
+  'notFound.title': 'Sahifa topilmadi',
+
   // Common
   'common.loading': 'Yuklanmoqda...',
   'common.saving': 'Saqlanmoqda...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
   'planUpdated.retry': "Qayta urinib ko'ring",
 {{/feature}}
-}
+} satisfies UiTranslations

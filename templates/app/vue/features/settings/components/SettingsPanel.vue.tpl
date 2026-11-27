@@ -35,7 +35,7 @@ const { t } = useTranslation()
       data-mol-id="settings-page-link"
       @click="props.onClose"
     >
-      {{ t('settings.openProfilePage', undefined, { defaultValue: 'Edit your profile' }) }}
+      {{ t('nav.editProfile', undefined, { defaultValue: 'Edit profile' }) }}
     </Link>
     <AccountSection />
 {{#feature two-factor}}

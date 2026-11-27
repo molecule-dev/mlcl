@@ -2,9 +2,15 @@
  * Arabic translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'تعذّر التحقق من جلستك.',
+  'about.visitWebsite': 'تفضل بزيارة موقعنا الإلكتروني →',
+  'notFound.title': 'الصفحة غير موجودة',
+
   // Common
   'common.loading': 'جارٍ التحميل...',
   'common.saving': 'جارٍ الحفظ...',
@@ -264,4 +270,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'لم نتمكن من تأكيد دفعتك بعد.',
   'planUpdated.retry': 'حاول ثانية',
 {{/feature}}
-}
+} satisfies UiTranslations

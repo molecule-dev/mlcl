@@ -123,5 +123,7 @@ export class AuthGuardComponent {
   }
 
   /** Re-runs the auth client's session validation (the banner's Retry). */
-  protected readonly retry = (): Promise<unknown> | undefined => this.client.validateSession?.()
+  protected readonly retry = async (): Promise<void> => {
+    await this.client.validateSession?.()
+  }
 }

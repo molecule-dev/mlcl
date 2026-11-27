@@ -18,7 +18,9 @@ export function Header() {
       logoSize={LOGO_SIZE}
       dataMolId="site-header"
       extraActions={
-        <nav aria-label={t('nav.label', undefined, { defaultValue: 'Site' })}>
+        <nav
+          aria-label={t('nav.primaryNavigation', undefined, { defaultValue: 'Primary navigation' })}
+        >
           <Link className={cm.link} to="/about/" data-mol-id="nav-about">
             {t('nav.about', undefined, { defaultValue: 'About' })}
           </Link>

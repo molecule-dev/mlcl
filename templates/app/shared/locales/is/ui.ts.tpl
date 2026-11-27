@@ -2,9 +2,15 @@
  * Icelandic translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Ekki tókst að staðfesta lotuna þína.',
+  'about.visitWebsite': 'Farðu á vefsíðuna okkar →',
+  'notFound.title': 'Síðan fannst ekki',
+
   // Common
   'common.loading': 'Hleð...',
   'common.saving': 'Vista...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
   'planUpdated.retry': 'Reyndu aftur',
 {{/feature}}
-}
+} satisfies UiTranslations

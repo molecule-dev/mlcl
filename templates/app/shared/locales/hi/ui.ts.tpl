@@ -2,9 +2,15 @@
  * Hindi translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'आपके सत्र की पुष्टि नहीं की जा सकी।',
+  'about.visitWebsite': 'हमारी वेबसाइट देखें →',
+  'notFound.title': 'पृष्ठ नहीं मिला',
+
   // Common
   'common.loading': 'लोड हो रहा है...',
   'common.saving': 'सहेजा जा रहा है...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'हम अभी तक आपके भुगतान की पुष्टि नहीं कर पाए हैं।',
   'planUpdated.retry': 'पुनः प्रयास करें',
 {{/feature}}
-}
+} satisfies UiTranslations

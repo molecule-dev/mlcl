@@ -2,9 +2,15 @@
  * Albanian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Nuk u arrit të konfirmohej sesioni juaj.',
+  'about.visitWebsite': 'Vizitoni faqen tonë të internetit →',
+  'notFound.title': 'Faqja nuk u gjet',
+
   // Common
   'common.loading': 'Duke ngarkuar...',
   'common.saving': 'Duke ruajtur...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
   'planUpdated.retry': 'Provo përsëri',
 {{/feature}}
-}
+} satisfies UiTranslations

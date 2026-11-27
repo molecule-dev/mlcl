@@ -2,9 +2,15 @@
  * Romanian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Nu am putut confirma sesiunea dvs.',
+  'about.visitWebsite': 'Vizitați site-ul nostru →',
+  'notFound.title': 'Pagina nu a fost găsită',
+
   // Common
   'common.loading': 'Se încarcă...',
   'common.saving': 'Se salvează...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
   'planUpdated.retry': 'Încearcă din nou',
 {{/feature}}
-}
+} satisfies UiTranslations

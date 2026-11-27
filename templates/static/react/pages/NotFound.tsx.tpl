@@ -25,7 +25,7 @@ export function NotFound() {
       </h1>
       <p className={cm.sp('pt', 6)}>
         <Link className={cm.link} to="/" data-mol-id="not-found-home">
-          {t('notFound.home', undefined, { defaultValue: 'Back to the front page' })}
+          {t('auth.backToHome', undefined, { defaultValue: 'Back to home' })}
         </Link>
       </p>
     </div>

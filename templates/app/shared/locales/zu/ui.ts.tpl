@@ -2,9 +2,15 @@
  * Zulu translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Asikwazanga ukuqinisekisa iseshini yakho.',
+  'about.visitWebsite': 'Vakashela iwebhusayithi yethu →',
+  'notFound.title': 'Ikhasi alitholakalanga',
+
   // Common
   'common.loading': 'Iyalayisha...',
   'common.saving': 'Iyalondoloza...',
@@ -270,4 +276,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
   'planUpdated.retry': 'Zama futhi',
 {{/feature}}
-}
+} satisfies UiTranslations

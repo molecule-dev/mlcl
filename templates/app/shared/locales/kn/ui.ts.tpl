@@ -2,9 +2,15 @@
  * Kannada translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'ನಿಮ್ಮ ಸೆಷನ್ ಅನ್ನು ದೃಢೀಕರಿಸಲಾಗಲಿಲ್ಲ.',
+  'about.visitWebsite': 'ನಮ್ಮ ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಿ →',
+  'notFound.title': 'ಪುಟ ಕಂಡುಬಂದಿಲ್ಲ',
+
   // Common
   'common.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'common.saving': 'ಉಳಿಸುತ್ತಿದೆ...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
 {{/feature}}
-}
+} satisfies UiTranslations

@@ -2,9 +2,15 @@
  * Nepali translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'तपाईंको सत्र पुष्टि गर्न सकिएन।',
+  'about.visitWebsite': 'हाम्रो वेबसाइट हेर्नुहोस् →',
+  'notFound.title': 'पृष्ठ फेला परेन',
+
   // Common
   'common.loading': 'लोड हुँदैछ...',
   'common.saving': 'सुरक्षित गरिँदैछ...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'हामीले तपाईंको भुक्तानी अझै पुष्टि गर्न सकेनौं।',
   'planUpdated.retry': 'फेरि प्रयास गर्नुहोस्',
 {{/feature}}
-}
+} satisfies UiTranslations

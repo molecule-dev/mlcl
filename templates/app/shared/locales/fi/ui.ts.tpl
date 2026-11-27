@@ -2,9 +2,15 @@
  * Finnish translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Istuntoasi ei voitu vahvistaa.',
+  'about.visitWebsite': 'Vieraile verkkosivustollamme →',
+  'notFound.title': 'Sivua ei löytynyt',
+
   // Common
   'common.loading': 'Ladataan...',
   'common.saving': 'Tallennetaan...',
@@ -268,4 +274,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
   'planUpdated.retry': 'Yritä uudelleen',
 {{/feature}}
-}
+} satisfies UiTranslations

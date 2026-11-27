@@ -2,9 +2,15 @@
  * Serbian (Latin script) translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Није било могуће потврдити вашу сесију.',
+  'about.visitWebsite': 'Посетите наш веб-сајт →',
+  'notFound.title': 'Страница није пронађена',
+
   // Common
   'common.loading': 'Učitavanje...',
   'common.saving': 'Čuvanje...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Још увек нисмо могли да потврдимо вашу уплату.',
   'planUpdated.retry': 'Покушај поново',
 {{/feature}}
-}
+} satisfies UiTranslations

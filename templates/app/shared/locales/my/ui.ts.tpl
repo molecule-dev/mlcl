@@ -2,9 +2,15 @@
  * Burmese translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'သင့်ဆက်ရှင်ကို အတည်မပြုနိုင်ပါ။',
+  'about.visitWebsite': 'ကျွန်ုပ်တို့၏ ဝဘ်ဆိုက်သို့ ဝင်ကြည့်ပါ →',
+  'notFound.title': 'စာမျက်နှာကို ရှာမတွေ့ပါ',
+
   // Common
   'common.loading': 'ဖွင့်နေသည်...',
   'common.saving': 'သိမ်းဆည်းနေသည်...',
@@ -276,4 +282,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
   'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
 {{/feature}}
-}
+} satisfies UiTranslations

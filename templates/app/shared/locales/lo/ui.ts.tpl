@@ -2,9 +2,15 @@
  * Lao translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'ບໍ່ສາມາດຢືນຢັນເຊສຊັນຂອງທ່ານໄດ້.',
+  'about.visitWebsite': 'ເຂົ້າຊົມເວັບໄຊຂອງພວກເຮົາ →',
+  'notFound.title': 'ບໍ່ພົບໜ້າ',
+
   // Common
   'common.loading': 'ກຳລັງໂຫລດ...',
   'common.saving': 'ກຳລັງບັນທຶກ...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'ພວກເຮົາບໍ່ສາມາດຢືນຢັນການຈ່າຍເງິນຂອງທ່ານໄດ້ເທື່ອ.',
   'planUpdated.retry': 'ລອງໃໝ່ອີກຄັ້ງ',
 {{/feature}}
-}
+} satisfies UiTranslations

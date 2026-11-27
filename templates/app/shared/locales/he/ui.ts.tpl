@@ -2,9 +2,15 @@
  * Hebrew translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'לא ניתן היה לאמת את ההפעלה שלך.',
+  'about.visitWebsite': 'בקרו באתר שלנו →',
+  'notFound.title': 'הדף לא נמצא',
+
   // Common
   'common.loading': 'טוען...',
   'common.saving': 'שומר...',
@@ -262,4 +268,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'עדיין לא הצלחנו לאשר את התשלום שלך.',
   'planUpdated.retry': 'נסה שוב',
 {{/feature}}
-}
+} satisfies UiTranslations

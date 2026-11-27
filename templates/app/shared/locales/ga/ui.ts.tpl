@@ -2,9 +2,15 @@
  * Irish translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Níorbh fhéidir do sheisiún a dheimhniú.',
+  'about.visitWebsite': 'Tabhair cuairt ar ár suíomh gréasáin →',
+  'notFound.title': 'Níor aimsíodh an leathanach',
+
   // Common
   'common.loading': 'Ag lódáil...',
   'common.saving': 'Ag sábháil...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
   'planUpdated.retry': 'Déan iarracht arís',
 {{/feature}}
-}
+} satisfies UiTranslations

@@ -2,9 +2,15 @@
  * Georgian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'თქვენი სესიის დადასტურება ვერ მოხერხდა.',
+  'about.visitWebsite': 'ეწვიეთ ჩვენს ვებსაიტს →',
+  'notFound.title': 'გვერდი ვერ მოიძებნა',
+
   // Common
   'common.loading': 'იტვირთება...',
   'common.saving': 'ინახება...',
@@ -275,4 +281,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
   'planUpdated.retry': 'ხელახლა სცადეთ',
 {{/feature}}
-}
+} satisfies UiTranslations

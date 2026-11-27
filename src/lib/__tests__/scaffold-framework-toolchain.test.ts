@@ -168,7 +168,7 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
   it('type-checks before it bundles', async () => {
     const { scripts } = await manifest(framework)
     expect(scripts.build, 'build must run a type checker before vite build').toMatch(
-      /(tsc|vue-tsc|svelte-check)[^&]*&&\s*vite build$/,
+      /(tsc|vue-tsc|svelte-check|ngc)[^&]*&&\s*vite build$/,
     )
   })
 

@@ -51,11 +51,15 @@ export class AboutComponent {
    * interpolation delimiters if it appeared in them.
    */
   protected get title(): string {
-    return this.i18n.t('about.title', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })
+    return this.i18n.t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })
   }
 
   /** The app description (the branding default, translated when a locale has it). */
   protected get description(): string {
-    return this.i18n.t('about.description', undefined, { defaultValue: APP_DESCRIPTION })
+    return this.i18n.t(
+      'about.description',
+      { description: APP_DESCRIPTION },
+      { defaultValue: '{{description}}' },
+    )
   }
 }

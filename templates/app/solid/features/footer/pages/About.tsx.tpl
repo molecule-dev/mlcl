@@ -19,10 +19,14 @@ export function About() {
   return (
     <div class={cm.cn(cm.textCenter, cm.sp('py', 12))}>
       <h1 class={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
-        {t('about.title', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
+        {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}
       </h1>
       <p class={cm.cn(cm.sp('pt', 4), cm.textMuted)}>
-        {t('about.description', undefined, { defaultValue: APP_DESCRIPTION })}
+        {t(
+          'about.description',
+          { description: APP_DESCRIPTION },
+          { defaultValue: '{{description}}' },
+        )}
       </p>
       <Show when={WEBSITE_URL}>
         <p class={cm.sp('pt', 6)}>

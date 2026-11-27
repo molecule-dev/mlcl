@@ -2,9 +2,15 @@
  * Bulgarian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Не успяхме да потвърдим сесията ви.',
+  'about.visitWebsite': 'Посетете нашия уебсайт →',
+  'notFound.title': 'Страницата не е намерена',
+
   // Common
   'common.loading': 'Зареждане...',
   'common.saving': 'Запазване...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Все още не успяхме да потвърдим плащането ви.',
   'planUpdated.retry': 'Опитай отново',
 {{/feature}}
-}
+} satisfies UiTranslations

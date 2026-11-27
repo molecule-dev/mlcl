@@ -2,9 +2,15 @@
  * Czech translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Vaši relaci se nepodařilo ověřit.',
+  'about.visitWebsite': 'Navštivte náš web →',
+  'notFound.title': 'Stránka nebyla nalezena',
+
   // Common
   'common.loading': 'Načítání...',
   'common.saving': 'Ukládání...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Vaši platbu jsme zatím nemohli potvrdit.',
   'planUpdated.retry': 'Zkuste to znovu',
 {{/feature}}
-}
+} satisfies UiTranslations

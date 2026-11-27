@@ -2,9 +2,15 @@
  * Amharic translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'ክፍለ ጊዜዎን ማረጋገጥ አልተቻለም።',
+  'about.visitWebsite': 'ድረ ጣቢያችንን ይጎብኙ →',
+  'notFound.title': 'ገጹ አልተገኘም',
+
   // Common
   'common.loading': 'በመጫን ላይ...',
   'common.saving': 'በማስቀመጥ ላይ...',
@@ -262,4 +268,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'ክፍያዎን እስካሁን ማረጋገጥ አልቻልንም።',
   'planUpdated.retry': 'እንደገና ሞክር',
 {{/feature}}
-}
+} satisfies UiTranslations

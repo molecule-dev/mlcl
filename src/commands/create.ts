@@ -7,6 +7,7 @@ import { CLI_COMMAND } from '#cli-command'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { parseAppLocales } from '../lib/app-locales.js'
 import { AUTH_PRECONFIGURATION_GUIDANCE, readOpenApiAuthContract } from '../lib/auth-contract.js'
 import { readProjectCapabilityMap } from '../lib/capability-map.js'
 import { runRecordedCheck } from '../lib/check-stop-hook.js'
@@ -314,6 +315,9 @@ export default class Create extends Command {
     framework: Flags.string({
       description: t('commands.create.flags.framework'),
     }),
+    locales: Flags.string({
+      description: 'Comma-separated custom app locales (default en). The first locale is primary.',
+    }),
     packages: Flags.string({
       description: t('commands.create.flags.packages'),
       multiple: true,
@@ -425,6 +429,11 @@ export default class Create extends Command {
     // `@molecule/api-payments-stripe`), which then crash at runtime with
     // "Entitlements provider not configured" or 503 on /billing/checkout.
     if (flags.template) {
+      if (flags.locales !== undefined) {
+        this.error(
+          'Flagship templates keep their own locale sets. Use --locales with a custom app.',
+        )
+      }
       // The slug is joined into filesystem paths below (and again for the
       // fast-path template-instance copy) — reject anything that is not a
       // plain slug BEFORE those joins, or `--template ../../foo` reads its
@@ -843,6 +852,13 @@ export default class Create extends Command {
       projectType === 'full-stack' ||
       projectType === 'static' ||
       projectType === 'status-page'
+    if (!needsFramework && flags.locales !== undefined) {
+      this.error('--locales requires a project with an app.')
+    }
+    const locales =
+      needsFramework && !flags.template
+        ? parseAppLocales(flags.locales ?? 'en', getTemplatesDir())
+        : null
     let framework: string | undefined
     if (needsFramework) {
       if (nonInteractive) {
@@ -1216,6 +1232,7 @@ export default class Create extends Command {
         'express',
         npmOverrides,
         fontAssetMode,
+        locales,
         selectedFeatures,
       )
     } else if (isStatic) {
@@ -1229,6 +1246,7 @@ export default class Create extends Command {
         buildTooling,
         npmOverrides,
         fontAssetMode,
+        locales,
         selectedFeatures,
       )
     } else if (projectType === 'app') {
@@ -1243,6 +1261,7 @@ export default class Create extends Command {
         buildTooling,
         npmOverrides,
         fontAssetMode,
+        locales,
         selectedFeatures,
       )
     } else {

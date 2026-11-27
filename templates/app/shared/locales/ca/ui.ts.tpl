@@ -2,9 +2,15 @@
  * Catalan translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'No s’ha pogut confirmar la teva sessió.',
+  'about.visitWebsite': 'Visita el nostre lloc web →',
+  'notFound.title': 'No s’ha trobat la pàgina',
+
   // Common
   'common.loading': 'Carregant...',
   'common.saving': 'Desant...',
@@ -268,4 +274,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
   'planUpdated.retry': 'Torna-ho a intentar',
 {{/feature}}
-}
+} satisfies UiTranslations

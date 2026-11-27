@@ -939,6 +939,11 @@ server.registerTool(
         .string()
         .optional()
         .describe('Frontend framework (default react; templates carry their own)'),
+      locales: z
+        .array(z.string())
+        .min(1)
+        .optional()
+        .describe('Custom app locale codes, with the primary locale first (default ["en"])'),
       packages: z
         .string()
         .optional()
@@ -964,6 +969,21 @@ server.registerTool(
     const start = out.indexOf('{')
     return text(start === -1 ? out : out.slice(start))
   }),
+)
+
+server.registerTool(
+  'add_locale',
+  {
+    title: 'Add an app locale',
+    description: 'Add a language to a custom scaffold and update its locale files and loaders.',
+    inputSchema: {
+      locale: z.string().describe('Locale code from the scaffold, such as fr or zh-TW'),
+      directory: z.string().optional().describe('Project root or app workspace (default cwd)'),
+    },
+  },
+  tracked('add_locale', async ({ locale, directory }) =>
+    text(await runCli(['locale', 'add', '--', locale], directory)),
+  ),
 )
 
 // ── Self-installation surface ────────────────────────────────────────────────

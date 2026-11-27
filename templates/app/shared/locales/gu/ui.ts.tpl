@@ -2,9 +2,15 @@
  * Gujarati translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'તમારા સત્રની પુષ્ટિ થઈ શકી નથી.',
+  'about.visitWebsite': 'અમારી વેબસાઇટની મુલાકાત લો →',
+  'notFound.title': 'પૃષ્ઠ મળ્યું નથી',
+
   // Common
   'common.loading': 'લોડ થઈ રહ્યું છે...',
   'common.saving': 'સાચવી રહ્યું છે...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'અમે હજુ સુધી તમારી ચુકવણીની પુષ્ટિ કરી શક્યા નથી.',
   'planUpdated.retry': 'ફરી પ્રયાસ કરો',
 {{/feature}}
-}
+} satisfies UiTranslations

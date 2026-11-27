@@ -2,9 +2,15 @@
  * Swahili translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Hatukuweza kuthibitisha kipindi chako.',
+  'about.visitWebsite': 'Tembelea tovuti yetu →',
+  'notFound.title': 'Ukurasa haukupatikana',
+
   // Common
   'common.loading': 'Inapakia...',
   'common.saving': 'Inahifadhi...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
   'planUpdated.retry': 'Jaribu tena',
 {{/feature}}
-}
+} satisfies UiTranslations

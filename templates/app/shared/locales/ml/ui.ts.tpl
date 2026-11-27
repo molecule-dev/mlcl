@@ -2,9 +2,15 @@
  * Malayalam translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'നിങ്ങളുടെ സെഷൻ സ്ഥിരീകരിക്കാനായില്ല.',
+  'about.visitWebsite': 'ഞങ്ങളുടെ വെബ്‌സൈറ്റ് സന്ദർശിക്കുക →',
+  'notFound.title': 'പേജ് കണ്ടെത്തിയില്ല',
+
   // Common
   'common.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'common.saving': 'സേവ് ചെയ്യുന്നു...',
@@ -268,4 +274,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
   'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
 {{/feature}}
-}
+} satisfies UiTranslations

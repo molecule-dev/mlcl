@@ -2,9 +2,15 @@
  * Japanese translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'セッションを確認できませんでした。',
+  'about.visitWebsite': 'ウェブサイトを見る →',
+  'notFound.title': 'ページが見つかりません',
+
   // Common
   'common.loading': '読み込み中...',
   'common.saving': '保存中...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'お支払いの確認がまだできていません。',
   'planUpdated.retry': 'もう一度やり直してください',
 {{/feature}}
-}
+} satisfies UiTranslations

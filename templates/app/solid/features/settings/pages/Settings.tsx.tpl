@@ -106,7 +106,7 @@ export function Settings(props: SettingsProps) {
   return (
     <section class={cm.cn(cm.sp('py', 8), cm.sp('px', 4))}>
       <h1 class={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
-        {t('settings.title', undefined, { defaultValue: 'Your settings' })}
+        {t('nav.settings', undefined, { defaultValue: 'Settings' })}
       </h1>
       <form {...profile.formProps} class={cm.stack(4)} data-mol-id="settings-form">
         <div>
@@ -123,7 +123,7 @@ export function Settings(props: SettingsProps) {
         </div>
         <div>
           <label class={cm.formLabelSmall} for={`${id}-username`}>
-            {t('settings.username', undefined, { defaultValue: 'Username' })}
+            {t('auth.username', undefined, { defaultValue: 'Username' })}
           </label>
           <input
             id={`${id}-username`}
@@ -135,7 +135,7 @@ export function Settings(props: SettingsProps) {
         </div>
         <div>
           <label class={cm.formLabelSmall} for={`${id}-bio`}>
-            {t('settings.bio', undefined, { defaultValue: 'Bio' })}
+            {t('form.bio', undefined, { defaultValue: 'Bio' })}
           </label>
           <textarea
             id={`${id}-bio`}
@@ -147,7 +147,7 @@ export function Settings(props: SettingsProps) {
         </div>
         <div>
           <label class={cm.formLabelSmall} for={`${id}-avatar`}>
-            {t('settings.avatar', undefined, { defaultValue: 'Avatar URL' })}
+            {t('ui.avatar.alt', undefined, { defaultValue: 'Avatar' })}
           </label>
           <input
             id={`${id}-avatar`}
@@ -166,7 +166,7 @@ export function Settings(props: SettingsProps) {
           >
             {profile.isSubmitting()
               ? t('common.saving', undefined, { defaultValue: 'Saving...' })
-              : t('settings.save', undefined, { defaultValue: 'Save changes' })}
+              : t('common.saveChanges', undefined, { defaultValue: 'Save changes' })}
           </button>
           <button
             type="button"
@@ -174,12 +174,14 @@ export function Settings(props: SettingsProps) {
             onClick={profile.reset}
             data-mol-id="settings-cancel"
           >
-            {t('settings.cancel', undefined, { defaultValue: 'Cancel' })}
+            {t('common.cancel', undefined, { defaultValue: 'Cancel' })}
           </button>
         </div>
         <Show when={profile.error()}>
           <p role="alert" class={cm.formError} data-mol-id="settings-error">
-            {t('settings.saveFailed', undefined, { defaultValue: 'Could not save your changes.' })}
+            {t('common.couldNotSaveChanges', undefined, {
+              defaultValue: 'Could not save changes.',
+            })}
             {reason() ? ` ${reason()}` : null}
           </p>
         </Show>

@@ -2,9 +2,15 @@
  * Danish translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Din session kunne ikke bekræftes.',
+  'about.visitWebsite': 'Besøg vores websted →',
+  'notFound.title': 'Siden blev ikke fundet',
+
   // Common
   'common.loading': 'Indlæser...',
   'common.saving': 'Gemmer...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Vi kunne ikke bekræfte din betaling endnu.',
   'planUpdated.retry': 'Prøv igen',
 {{/feature}}
-}
+} satisfies UiTranslations

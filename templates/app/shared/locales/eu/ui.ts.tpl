@@ -2,9 +2,15 @@
  * Basque translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Ezin izan da zure saioa berretsi.',
+  'about.visitWebsite': 'Bisitatu gure webgunea →',
+  'notFound.title': 'Ez da orria aurkitu',
+
   // Common
   'common.loading': 'Kargatzen...',
   'common.saving': 'Gordetzen...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
   'planUpdated.retry': 'Saiatu berriro',
 {{/feature}}
-}
+} satisfies UiTranslations

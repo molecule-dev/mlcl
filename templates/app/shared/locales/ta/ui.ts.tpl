@@ -2,9 +2,15 @@
  * Tamil translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'உங்கள் அமர்வை உறுதிப்படுத்த முடியவில்லை.',
+  'about.visitWebsite': 'எங்கள் இணையதளத்தைப் பார்வையிடவும் →',
+  'notFound.title': 'பக்கம் கிடைக்கவில்லை',
+
   // Common
   'common.loading': 'ஏற்றுகிறது...',
   'common.saving': 'சேமிக்கிறது...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
   'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
 {{/feature}}
-}
+} satisfies UiTranslations

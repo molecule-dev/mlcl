@@ -18,7 +18,10 @@ const cm = getClassMap()
 // `{{appName}}`, and a `{{ … }}` inside a template interpolation would close
 // the Vue mustache early (a template parse error).
 const title = computed(() =>
-  t('about.title', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' }),
+  t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' }),
+)
+const description = computed(() =>
+  t('about.description', { description: APP_DESCRIPTION }, { defaultValue: '{{description}}' }),
 )
 </script>
 
@@ -26,7 +29,7 @@ const title = computed(() =>
   <div :class="cm.cn(cm.textCenter, cm.sp('py', 12))">
     <h1 :class="cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))">{{ title }}</h1>
     <p :class="cm.cn(cm.sp('pt', 4), cm.textMuted)">
-      {{ t('about.description', undefined, { defaultValue: APP_DESCRIPTION }) }}
+      {{ description }}
     </p>
     <p v-if="WEBSITE_URL" :class="cm.sp('pt', 6)">
       <a :class="cm.link" :href="WEBSITE_URL" target="_blank" rel="noopener noreferrer">

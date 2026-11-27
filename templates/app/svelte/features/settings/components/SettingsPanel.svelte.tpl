@@ -49,7 +49,7 @@
     class={cm.cn(cm.button({ variant: 'outline' }), cm.sp('mb', 3))}
     data-mol-id="settings-page-link"
   >
-    {t('settings.openProfilePage', undefined, { defaultValue: 'Edit your profile' })}
+    {t('nav.editProfile', undefined, { defaultValue: 'Edit profile' })}
   </Link>
   <AccountSection />
 {{#feature two-factor}}

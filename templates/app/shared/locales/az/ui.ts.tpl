@@ -2,9 +2,15 @@
  * Azerbaijani translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Sessiyanızı təsdiqləmək mümkün olmadı.',
+  'about.visitWebsite': 'Veb saytımıza daxil olun →',
+  'notFound.title': 'Səhifə tapılmadı',
+
   // Common
   'common.loading': 'Yüklənir...',
   'common.saving': 'Saxlanılır...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Ödənişinizi hələ təsdiqləyə bilmədik.',
   'planUpdated.retry': 'Yenidən cəhd edin',
 {{/feature}}
-}
+} satisfies UiTranslations

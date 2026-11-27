@@ -2,9 +2,15 @@
  * Swedish translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Det gick inte att bekräfta din session.',
+  'about.visitWebsite': 'Besök vår webbplats →',
+  'notFound.title': 'Sidan hittades inte',
+
   // Common
   'common.loading': 'Laddar...',
   'common.saving': 'Sparar...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Vi kunde inte bekräfta din betalning ännu.',
   'planUpdated.retry': 'Försök igen',
 {{/feature}}
-}
+} satisfies UiTranslations

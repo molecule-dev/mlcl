@@ -123,7 +123,7 @@ function evaluateConfig(source: string): {
 }
 
 describe('API-derived app-auth configuration', () => {
-  it('keeps the default registry contract byte-identical to the previous generated config', async () => {
+  it('writes the default registry contract into the generated config byte for byte', async () => {
     const root = await mkdtemp(join(tmpdir(), 'mlcl-default-auth-'))
     try {
       // With OAuth in the stack, as the golden was generated; without it `oauthConfig` is left out.

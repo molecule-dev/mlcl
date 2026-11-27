@@ -2,9 +2,15 @@
  * Telugu translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'మీ సెషన్‌ను నిర్ధారించలేకపోయాము.',
+  'about.visitWebsite': 'మా వెబ్‌సైట్‌ను సందర్శించండి →',
+  'notFound.title': 'పేజీ కనబడలేదు',
+
   // Common
   'common.loading': 'లోడ్ అవుతోంది...',
   'common.saving': 'సేవ్ చేస్తోంది...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
   'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
 {{/feature}}
-}
+} satisfies UiTranslations

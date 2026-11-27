@@ -2,9 +2,15 @@
  * Armenian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Չհաջողվեց հաստատել ձեր աշխատաշրջանը։',
+  'about.visitWebsite': 'Այցելեք մեր կայքը →',
+  'notFound.title': 'Էջը չի գտնվել',
+
   // Common
   'common.loading': '\u0532\u0565\u057C\u0576\u057E\u0578\u0582\u0574 \u0567...',
   'common.saving': '\u054A\u0561\u0570\u057A\u0561\u0576\u057E\u0578\u0582\u0574 \u0567...',
@@ -306,4 +312,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
   'planUpdated.retry': 'Փորձեք կրկին',
 {{/feature}}
-}
+} satisfies UiTranslations

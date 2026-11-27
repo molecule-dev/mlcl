@@ -35,6 +35,7 @@ import {
   renderSkillIndex,
   writeAgentSkillFiles,
 } from './agent-skills.js'
+import { writeAppLocaleLoaders, writeAppLocaleTypes } from './app-locales.js'
 import { factoryIsDeclared, planAppResourceModules } from './app-resource-modules.js'
 import {
   type AuthContract,
@@ -3709,6 +3710,7 @@ export async function createFullStackProject(
   apiFramework: string = 'express',
   npmOverrides: Record<string, string> = {},
   fontAssetMode: 'copy' | 'module' = 'copy',
+  locales: readonly string[] | null = ['en'],
   selectedFeatures: readonly string[] = [],
 ): Promise<void> {
   await mkdir(projectPath, { recursive: true })
@@ -3781,6 +3783,7 @@ export async function createFullStackProject(
     buildTooling,
     {},
     fontAssetMode,
+    locales,
     selectedFeatures,
   )
 
@@ -3881,6 +3884,7 @@ export async function createStaticProject(
   buildTooling?: BuildTooling,
   npmOverrides: Record<string, string> = {},
   fontAssetMode: 'copy' | 'module' = 'copy',
+  locales: readonly string[] | null = ['en'],
   selectedFeatures: readonly string[] = [],
 ): Promise<void> {
   if (framework !== 'react') {
@@ -3923,9 +3927,15 @@ export async function createStaticProject(
     buildTooling,
     {},
     fontAssetMode,
+    locales,
     selectedFeatures,
   )
   await applyStaticSiteOverlay(appPath, projectName, extraVars, buildTooling)
+  if (locales) {
+    const dir = join(appPath, 'src', 'locales')
+    await writeAppLocaleLoaders(dir, locales)
+    await writeAppLocaleTypes(dir, locales)
+  }
   await syncIdentityFromBranding(projectPath, projectName)
 }
 
@@ -4827,6 +4837,7 @@ export async function createAppProject(
   buildTooling?: BuildTooling,
   npmOverrides: Record<string, string> = {},
   fontAssetMode: 'copy' | 'module' = 'copy',
+  locales: readonly string[] | null = ['en'],
   selectedFeatures: readonly string[] = [],
 ): Promise<void> {
   mlclDebug(`[scaffold] createAppProject: ${projectPath} (framework: ${framework})`)
@@ -4844,6 +4855,7 @@ export async function createAppProject(
       extraVars,
       selectedPackages,
       buildTooling,
+      locales,
     )
     return
   }
@@ -4997,6 +5009,7 @@ export async function createAppProject(
     molecule: {
       projectType: 'app',
       framework,
+      ...(locales ? { locales } : {}),
       // Persist the caller's asset contract; inject/swap must not infer it from
       // framework dependencies or recreate public copies on a later sync.
       ...(fontAssetMode === 'module' ? { fontAssetMode } : {}),
@@ -5036,7 +5049,17 @@ export async function createAppProject(
     exclude: ['node_modules', 'dist'],
   }
 
-  await writeFile(join(projectPath, 'tsconfig.json'), formatJson(tsconfig))
+  await writeFile(
+    join(projectPath, 'tsconfig.json'),
+    formatJson(
+      locales
+        ? {
+            ...tsconfig,
+            compilerOptions: { ...(tsconfig.compilerOptions as object), noErrorTruncation: true },
+          }
+        : tsconfig,
+    ),
+  )
 
   // vite.config.ts (framework-specific, from registry)
   mlclDebug(`[scaffold] Generating vite.config.ts + package.json`)
@@ -5118,7 +5141,7 @@ export async function createAppProject(
   await writeFile(join(projectPath, '.editorconfig'), await loadTemplate('shared/editorconfig.tpl'))
 
   // Framework-specific entry point and App component (from templates)
-  await copyTemplateFiles(projectPath, framework, projectName, extraVars, templateFeatures)
+  await copyTemplateFiles(projectPath, framework, projectName, extraVars, templateFeatures, locales)
 
   // Replace the default Molecule glyph at public/logo.svg with a deterministic
   // per-app glyph tinted with the brand color from branding.ts. Skips silently
@@ -5248,6 +5271,7 @@ async function copySharedAppFiles(
   projectName: string,
   extraVars: Record<string, string> = {},
   features: ReadonlySet<string> = new Set(),
+  locales: readonly string[] | null = ['en'],
 ): Promise<void> {
   const templatesDir = join(getTemplatesDir(), 'app')
   const configContent = applyFeatureSections(
@@ -5267,7 +5291,12 @@ async function copySharedAppFiles(
     PROJECT_NAME: projectName,
     OAUTH_PROVIDERS: '',
     API_BASE_URL_EXPR: fwCfg.apiBaseUrlExpr ?? DEFAULT_API_BASE_URL_EXPR,
-    LOCALE_CONTENT_MODULE: LOCALE_CONTENT_MODULE[fwCfg.bundler ?? 'vite'],
+    LOCALE_CONTENT_IMPORT: locales
+      ? "import { loadLocaleContent } from './locales/project.js'\n"
+      : '',
+    LOCALE_CONTENT_LOAD: locales
+      ? 'provider.addTranslations(loc, await loadLocaleContent(loc, module))'
+      : `const content = ${LOCALE_CONTENT_MODULE[fwCfg.bundler ?? 'vite']}\n    provider.addTranslations(loc, content[module])`,
     AUTH_CONFIG_GUIDANCE: auth.guidance,
     AUTH_ROUTE_CONFIG: auth.routeFields,
     CURRENT_USER_ROUTE_CONFIG: auth.currentUserField,
@@ -5281,7 +5310,10 @@ async function copySharedAppFiles(
   const configDir = configSubdir ? join(projectPath, 'src', configSubdir) : join(projectPath, 'src')
   await mkdir(configDir, { recursive: true })
   const configPath = join(configDir, 'config.ts')
-  const generatedConfig = processTemplate(configContent, vars)
+  const processedConfig = processTemplate(configContent, vars)
+  const generatedConfig = locales
+    ? sortImportStatements(processedConfig, configPath)
+    : processedConfig
   await writeFile(
     configPath,
     isDefaultAuthContract(contract)
@@ -5298,10 +5330,21 @@ async function copySharedAppFiles(
     withHeader(processTemplate(brandingContent, vars), BRANDING_HEADER),
   )
 
-  // Copy shared locales/ directory (i18n translations)
-  await copyTemplateDir(join(templatesDir, 'shared', 'locales'), join(configDir, 'locales'), vars, {
+  const source = join(templatesDir, 'shared', 'locales')
+  const destination = join(configDir, 'locales')
+  const entries = await readdir(source, { withFileTypes: true })
+  await copyTemplateDir(source, destination, vars, {
     features,
+    skip: locales
+      ? entries
+          .filter((entry) => entry.isDirectory() && !locales.includes(entry.name))
+          .map((entry) => entry.name)
+      : undefined,
   })
+  if (locales) {
+    await writeAppLocaleLoaders(destination, locales)
+    await writeAppLocaleTypes(destination, locales)
+  }
 }
 
 /**
@@ -5324,6 +5367,7 @@ export async function copyTemplateFiles(
   projectName: string,
   extraVars: Record<string, string> = {},
   features: ReadonlySet<string> = new Set(),
+  locales: readonly string[] | null = ['en'],
 ): Promise<void> {
   const templatesDir = join(getTemplatesDir(), 'app')
   const vars: Record<string, string> = {
@@ -5332,7 +5376,7 @@ export async function copyTemplateFiles(
     PUBLIC_DIR: loadAppFrameworks()[framework]?.publicDir ?? 'public',
     ...extraVars,
   }
-  await copySharedAppFiles(projectPath, framework, projectName, extraVars, features)
+  await copySharedAppFiles(projectPath, framework, projectName, extraVars, features, locales)
 
   // Copy framework-specific files, then the whole files of each feature the stack brings.
   const frameworkDir = join(templatesDir, framework)
@@ -7975,6 +8019,7 @@ export async function createReactNativeAppProject(
   extraVars: Record<string, string> = {},
   selectedPackages: string[] = [],
   _buildTooling?: BuildTooling,
+  locales: readonly string[] | null = ['en'],
 ): Promise<void> {
   const toolchain = loadToolchain()
   const appFrameworks = loadAppFrameworks()
@@ -8034,6 +8079,7 @@ export async function createReactNativeAppProject(
     molecule: {
       projectType: 'app',
       framework: 'react-native',
+      ...(locales ? { locales } : {}),
     },
   }
 
@@ -8069,6 +8115,7 @@ export async function createReactNativeAppProject(
       forceConsistentCasingInFileNames: true,
       lib: ['ES2022'],
       ...(fwConfig.tsconfig ?? {}),
+      ...(locales ? { noErrorTruncation: true } : {}),
     },
     // NativeWind names its env file here itself (rewriting the file) when the list lacks it.
     include: ['src/**/*', '*.ts', '*.tsx', 'nativewind-env.d.ts'],
@@ -8306,9 +8353,9 @@ export function HomeScreen(): React.ReactElement {
 
   // ---- shared config.ts, branding.ts, locales/ ----
   // The same generator every web scaffold uses (`copyTemplateFiles`), so the
-  // generated bonds' `../config.js` and `../locales/en/ui.js` imports name files
+  // generated bonds' `../config.js` and `../locales/project.js` imports name files
   // that exist. Written here, before `mlcl inject` runs in this same create.
-  await copySharedAppFiles(projectPath, 'react-native', projectName, extraVars)
+  await copySharedAppFiles(projectPath, 'react-native', projectName, extraVars, undefined, locales)
 
   // The format scripts cover every source extension written under src/ (App.tsx included). Read
   // back from disk: scaffoldEslint added its devDependencies to the file written above.

@@ -2,9 +2,15 @@
  * Estonian translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Teie seanssi ei saanud kinnitada.',
+  'about.visitWebsite': 'Külastage meie veebisaiti →',
+  'notFound.title': 'Lehte ei leitud',
+
   // Common
   'common.loading': 'Laadimine...',
   'common.saving': 'Salvestamine...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Me ei saanud teie makset veel kinnitada.',
   'planUpdated.retry': 'Proovi uuesti',
 {{/feature}}
-}
+} satisfies UiTranslations

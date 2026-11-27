@@ -2,9 +2,15 @@
  * Greek translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Δεν ήταν δυνατή η επιβεβαίωση της συνεδρίας σας.',
+  'about.visitWebsite': 'Επισκεφτείτε τον ιστότοπό μας →',
+  'notFound.title': 'Η σελίδα δεν βρέθηκε',
+
   // Common
   'common.loading': 'Φόρτωση...',
   'common.saving': 'Αποθήκευση...',
@@ -267,4 +273,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
   'planUpdated.retry': 'Δοκιμάστε ξανά',
 {{/feature}}
-}
+} satisfies UiTranslations

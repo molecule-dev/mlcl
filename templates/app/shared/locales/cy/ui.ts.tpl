@@ -2,9 +2,15 @@
  * Welsh translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Nid oedd modd cadarnhau eich sesiwn.',
+  'about.visitWebsite': 'Ewch i’n gwefan →',
+  'notFound.title': 'Ni chanfuwyd y dudalen',
+
   // Common
   'common.loading': 'Yn llwytho...',
   'common.saving': 'Yn cadw...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
   'planUpdated.retry': 'Rhowch gynnig arall arni',
 {{/feature}}
-}
+} satisfies UiTranslations

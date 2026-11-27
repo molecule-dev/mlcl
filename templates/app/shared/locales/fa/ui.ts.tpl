@@ -2,9 +2,15 @@
  * Persian (Farsi) translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'تأیید نشست شما ممکن نشد.',
+  'about.visitWebsite': 'از وب‌سایت ما دیدن کنید →',
+  'notFound.title': 'صفحه پیدا نشد',
+
   // Common
   'common.loading': 'در حال بارگذاری...',
   'common.saving': 'در حال ذخیره...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'ما هنوز نتوانستیم پرداخت شما را تأیید کنیم.',
   'planUpdated.retry': 'دوباره امتحان کنید',
 {{/feature}}
-}
+} satisfies UiTranslations

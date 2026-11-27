@@ -2,9 +2,15 @@
  * Slovak translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'Vašu reláciu sa nepodarilo overiť.',
+  'about.visitWebsite': 'Navštívte náš web →',
+  'notFound.title': 'Stránka sa nenašla',
+
   // Common
   'common.loading': 'Načítanie...',
   'common.saving': 'Ukladanie...',
@@ -266,4 +272,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'Vašu platbu sme zatiaľ nemohli potvrdiť.',
   'planUpdated.retry': 'Skúste to znova',
 {{/feature}}
-}
+} satisfies UiTranslations

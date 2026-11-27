@@ -2,9 +2,15 @@
  * Marathi translations.
  */
 
+import { brandText } from '../brand.js'
 import type { UiTranslations } from '../types.js'
 
-export const ui: UiTranslations = {
+export const ui = {
+  ...brandText,
+  'auth.sessionUnavailable': 'तुमच्या सत्राची पुष्टी करता आली नाही.',
+  'about.visitWebsite': 'आमच्या वेबसाइटला भेट द्या →',
+  'notFound.title': 'पृष्ठ सापडले नाही',
+
   // Common
   'common.loading': 'लोड होत आहे...',
   'common.saving': 'जतन होत आहे...',
@@ -265,4 +271,4 @@ export const ui: UiTranslations = {
   'planUpdated.verifyFailed': 'आम्ही अद्याप तुमच्या पेमेंटची पुष्टी करू शकलो नाही.',
   'planUpdated.retry': 'पुन्हा प्रयत्न करा',
 {{/feature}}
-}
+} satisfies UiTranslations

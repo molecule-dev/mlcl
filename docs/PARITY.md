@@ -152,7 +152,8 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 
 | Capability               | Route(s)       | Decision                            | CLI                              | MCP                         | Status |
 | ------------------------ | -------------- | ----------------------------------- | -------------------------------- | --------------------------- | ------ |
-| Scaffold project         | —              | local-equivalent                    | `create`                         | `scaffold_project`          | ✅     |
+| Scaffold project         | —              | local-equivalent                    | `create`, `create --locales`     | `scaffold_project`          | ✅     |
+| Add app locale           | —              | local-equivalent                    | `locale add <code>`              | `add_locale`                | ✅     |
 | Template gallery         | GET /templates | local-equivalent (bundled registry) | `templates`                      | `list_templates`            | ✅     |
 | Package search           | —              | local-equivalent                    | `search`                         | `search_packages`           | ✅     |
 | Add/inject/swap packages | —              | local-equivalent                    | `add/inject/swap`                | `add_package/swap_provider` | ✅     |
