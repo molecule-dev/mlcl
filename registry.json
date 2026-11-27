@@ -36756,7 +36756,37 @@
         "UseAuthResult": "interface UseAuthResult<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  readonly status: Signal<AuthState<T>['status']>;\n  readonly state: Signal<AuthState<T>>;\n  readonly user: Signal<T | null>;\n  readonly isAuthenticated: Signal<boolean>;\n  readonly isLoading: Signal<boolean>;\n  login: (credentials: LoginCredentials) => Promise<AuthResult<T>>;\n  logout: () => Promise<void>;\n  register: (data: RegisterData<TRegister>) => Promise<AuthResult<T>>;\n  refresh: () => Promise<AuthResult<T>>;\n  updateProfile: (data: Partial<T>) => Promise<T>;\n  setUser: (user: T | null) => void;\n  setSession: (session: AuthSessionSeed<T>) => void;\n}",
         "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: MaybeSignal<UseAuthOptions>): UseAuthResult<T, TRegister>;"
       },
-      "quickStart": "// main.ts — wire concrete providers into Angular DI:\nimport { Component, inject } from '@angular/core'\nimport { bootstrapApplication } from '@angular/platform-browser'\nimport {\n  MoleculeAuthService,\n  MoleculeThemeService,\n  provideMolecule,\n  t,\n} from '@molecule/app-angular'\nimport { createJWTAuthClient } from '@molecule/app-auth'\nimport { provider as stateProvider } from '@molecule/app-state-zustand'\nimport { provider as themeProvider } from '@molecule/app-theme-css-variables'\n\nconst authClient = createJWTAuthClient({ baseURL: '/api' })\n\n// dashboard.component.ts — inject the Molecule services:\n@Component({\n  selector: 'app-dashboard',\n  template: `\n    <div [style.background]=\"(theme$ | async)?.colors.background\">\n      <h1>{{ t('dashboard.welcome', {}, { defaultValue: 'Welcome!' }) }}</h1>\n      <p>{{ (user$ | async)?.name }}</p>\n      <button (click)=\"logout()\">\n        {{ t('auth.logout', {}, { defaultValue: 'Log out' }) }}\n      </button>\n    </div>\n  `,\n})\nexport class DashboardComponent {\n  // Expose the reactive t() so template bindings re-evaluate on locale change.\n  protected readonly t = t\n\n  private authService = inject(MoleculeAuthService)\n  private themeService = inject(MoleculeThemeService)\n\n  user$ = this.authService.user$ // Observable<UserProfile | null>\n  theme$ = this.themeService.theme$ // Observable<Theme>\n\n  logout(): void {\n    void this.authService.logout()\n  }\n}\n\n// app.component.ts — the root that mounts the dashboard:\n@Component({\n  selector: 'app-root',\n  imports: [DashboardComponent],\n  template: '<app-dashboard />',\n})\nexport class AppComponent {}\n\nbootstrapApplication(AppComponent, {\n  providers: [\n    provideMolecule({\n      state: stateProvider,\n      auth: authClient,\n      theme: themeProvider,\n    }),\n  ],\n})"
+      "quickStart": "// main.ts — wire concrete providers into Angular DI:\nimport { Component, inject } from '@angular/core'\nimport { bootstrapApplication } from '@angular/platform-browser'\nimport {\n  MoleculeAuthService,\n  MoleculeThemeService,\n  provideMolecule,\n  t,\n} from '@molecule/app-angular'\nimport { createJWTAuthClient } from '@molecule/app-auth'\nimport { provider as stateProvider } from '@molecule/app-state-zustand'\nimport { provider as themeProvider } from '@molecule/app-theme-css-variables'\n\nconst authClient = createJWTAuthClient({ baseURL: '/api' })\n\n// dashboard.component.ts — inject the Molecule services:\n@Component({\n  selector: 'app-dashboard',\n  template: `\n    <div [style.background]=\"(theme$ | async)?.colors.background\">\n      <h1>{{ t('dashboard.welcome', {}, { defaultValue: 'Welcome!' }) }}</h1>\n      <p>{{ (user$ | async)?.name }}</p>\n      <button (click)=\"logout()\">\n        {{ t('auth.logout', {}, { defaultValue: 'Log out' }) }}\n      </button>\n    </div>\n  `,\n})\nexport class DashboardComponent {\n  // Expose the reactive t() so template bindings re-evaluate on locale change.\n  protected readonly t = t\n\n  private authService = inject(MoleculeAuthService)\n  private themeService = inject(MoleculeThemeService)\n\n  user$ = this.authService.user$ // Observable<UserProfile | null>\n  theme$ = this.themeService.theme$ // Observable<Theme>\n\n  logout(): void {\n    void this.authService.logout()\n  }\n}\n\n// app.component.ts — the root that mounts the dashboard:\n@Component({\n  selector: 'app-root',\n  imports: [DashboardComponent],\n  template: '<app-dashboard />',\n})\nexport class AppComponent {}\n\nbootstrapApplication(AppComponent, {\n  providers: [\n    provideMolecule({\n      state: stateProvider,\n      auth: authClient,\n      theme: themeProvider,\n    }),\n  ],\n})",
+      "subpathExports": {
+        "./chat": [
+          "AgentIdentity",
+          "CHAT_PROVIDER",
+          "DEFAULT_AGENT_IDENTITY",
+          "DEFAULT_AGENT_NAME",
+          "DEFAULT_PRODUCT_NAME",
+          "SendMessageOptions",
+          "UseChatOptions",
+          "UseChatResult",
+          "convergeHistory",
+          "localOnlyMessages",
+          "provideChat",
+          "resetChatStoresForTests",
+          "useChat",
+          "useChatProvider"
+        ],
+        "./ai-models": [
+          "UseAIModelsResult",
+          "resetAIModelsCache",
+          "useAIModels"
+        ],
+        "./push": [
+          "PushService",
+          "UsePushOptions",
+          "UsePushResult",
+          "createPushService",
+          "usePush"
+        ]
+      }
     },
     "@molecule/app-annotation-pin-angular": {
       "language": "typescript",
@@ -96897,6 +96927,33 @@
           "OverlayLayer",
           "OverlayPlatform",
           "OverlayPortalProps"
+        ],
+        "./chat": [
+          "AgentIdentity",
+          "ChatContext",
+          "ChatProvider",
+          "ChatProviderProps",
+          "DEFAULT_AGENT_IDENTITY",
+          "DEFAULT_AGENT_NAME",
+          "DEFAULT_PRODUCT_NAME",
+          "SendMessageOptions",
+          "UseChatOptions",
+          "UseChatResult",
+          "convergeHistory",
+          "localOnlyMessages",
+          "resetChatStoresForTests",
+          "useChat",
+          "useChatProvider"
+        ],
+        "./ai-models": [
+          "UseAIModelsResult",
+          "resetAIModelsCache",
+          "useAIModels"
+        ],
+        "./push": [
+          "UsePushOptions",
+          "UsePushResult",
+          "usePush"
         ]
       }
     },
@@ -103084,7 +103141,38 @@
         "UseAuthResult": "interface UseAuthResult<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  status: Accessor<AuthState<T>['status']>;\n  state: Accessor<AuthState<T>>;\n  login: AuthClient<T>['login'];\n  logout: AuthClient<T>['logout'];\n  register: AuthClient<T, TRegister>['register'];\n  refresh: AuthClient<T>['refresh'];\n  updateProfile: AuthClient<T>['updateProfile'];\n  setUser: AuthClient<T>['setUser'];\n  setSession: AuthClient<T>['setSession'];\n  isAuthenticated: Accessor<boolean>;\n  isLoading: Accessor<boolean>;\n  user: Accessor<T | null>;\n}",
         "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: MaybeAccessor<UseAuthOptions>): UseAuthResult<T, TRegister>;"
       },
-      "quickStart": "import { Link, MoleculeProvider, createAuth, createTheme } from '@molecule/app-solid'\nimport { Show } from 'solid-js'\nimport { provider as stateProvider } from '@molecule/app-state-zustand'\nimport { provider as themeProvider } from '@molecule/app-theme-css-variables'\nimport { createJWTAuthClient } from '@molecule/app-auth'\n\nconst authClient = createJWTAuthClient({ baseURL: '/api' })\n\nfunction UserProfile() {\n  const { user, isAuthenticated, logout } = createAuth<{ name?: string }>()\n  const { theme, toggleTheme } = createTheme()\n\n  return (\n    <Show when={isAuthenticated()} fallback={<Link to=\"/login\">Log in</Link>}>\n      <div style={{ background: theme().colors.background }}>\n        <h1>Welcome, {user()?.name}</h1>\n        <button onClick={toggleTheme}>Toggle Theme</button>\n        <button onClick={() => logout()}>Logout</button>\n      </div>\n    </Show>\n  )\n}\n\nfunction App() {\n  return (\n    <MoleculeProvider state={stateProvider} auth={authClient} theme={themeProvider}>\n      <UserProfile />\n    </MoleculeProvider>\n  )\n}"
+      "quickStart": "import { Link, MoleculeProvider, createAuth, createTheme } from '@molecule/app-solid'\nimport { Show } from 'solid-js'\nimport { provider as stateProvider } from '@molecule/app-state-zustand'\nimport { provider as themeProvider } from '@molecule/app-theme-css-variables'\nimport { createJWTAuthClient } from '@molecule/app-auth'\n\nconst authClient = createJWTAuthClient({ baseURL: '/api' })\n\nfunction UserProfile() {\n  const { user, isAuthenticated, logout } = createAuth<{ name?: string }>()\n  const { theme, toggleTheme } = createTheme()\n\n  return (\n    <Show when={isAuthenticated()} fallback={<Link to=\"/login\">Log in</Link>}>\n      <div style={{ background: theme().colors.background }}>\n        <h1>Welcome, {user()?.name}</h1>\n        <button onClick={toggleTheme}>Toggle Theme</button>\n        <button onClick={() => logout()}>Logout</button>\n      </div>\n    </Show>\n  )\n}\n\nfunction App() {\n  return (\n    <MoleculeProvider state={stateProvider} auth={authClient} theme={themeProvider}>\n      <UserProfile />\n    </MoleculeProvider>\n  )\n}",
+      "subpathExports": {
+        "./chat": [
+          "AgentIdentity",
+          "ChatContext",
+          "ChatProvider",
+          "ChatProviderProps",
+          "DEFAULT_AGENT_IDENTITY",
+          "DEFAULT_AGENT_NAME",
+          "DEFAULT_PRODUCT_NAME",
+          "SendMessageOptions",
+          "UseChatOptions",
+          "UseChatResult",
+          "convergeHistory",
+          "localOnlyMessages",
+          "resetChatStoresForTests",
+          "useChat",
+          "useChatProvider"
+        ],
+        "./ai-models": [
+          "UseAIModelsResult",
+          "resetAIModelsCache",
+          "useAIModels"
+        ],
+        "./push": [
+          "PushPrimitives",
+          "UsePushOptions",
+          "UsePushResult",
+          "createPush",
+          "usePush"
+        ]
+      }
     },
     "@molecule/app-sort-picker-angular": {
       "language": "typescript",
@@ -106768,7 +106856,37 @@
         "UseAuthResult": "interface UseAuthResult<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  status: Readable<AuthState<T>['status']>;\n  state: Readable<AuthState<T>>;\n  login: AuthClient<T>['login'];\n  logout: AuthClient<T>['logout'];\n  register: AuthClient<T, TRegister>['register'];\n  refresh: AuthClient<T>['refresh'];\n  updateProfile: AuthClient<T>['updateProfile'];\n  setUser: AuthClient<T>['setUser'];\n  setSession: AuthClient<T>['setSession'];\n  isAuthenticated: Readable<boolean>;\n  isLoading: Readable<boolean>;\n  user: Readable<T | null>;\n}",
         "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: MaybeReadable<UseAuthOptions | undefined>): UseAuthResult<T, TRegister>;"
       },
-      "quickStart": "<!-- +layout.svelte — wire providers ONCE, during component init -->\n<script lang=\"ts\">\n  import type { Snippet } from 'svelte'\n  import { setMoleculeContext } from '@molecule/app-svelte'\n  import { provider as stateProvider } from '@molecule/app-state-zustand'\n  import { provider as themeProvider } from '@molecule/app-theme-css-variables'\n  import { createJWTAuthClient } from '@molecule/app-auth'\n\n  setMoleculeContext({\n    state: stateProvider,\n    auth: createJWTAuthClient({ baseURL: '/api' }),\n    theme: themeProvider,\n  })\n\n  let { children }: { children: Snippet } = $props()\n</script>\n\n{@render children()}"
+      "quickStart": "<!-- +layout.svelte — wire providers ONCE, during component init -->\n<script lang=\"ts\">\n  import type { Snippet } from 'svelte'\n  import { setMoleculeContext } from '@molecule/app-svelte'\n  import { provider as stateProvider } from '@molecule/app-state-zustand'\n  import { provider as themeProvider } from '@molecule/app-theme-css-variables'\n  import { createJWTAuthClient } from '@molecule/app-auth'\n\n  setMoleculeContext({\n    state: stateProvider,\n    auth: createJWTAuthClient({ baseURL: '/api' }),\n    theme: themeProvider,\n  })\n\n  let { children }: { children: Snippet } = $props()\n</script>\n\n{@render children()}",
+      "subpathExports": {
+        "./chat": [
+          "AgentIdentity",
+          "ChatProvider",
+          "ChatProviderProps",
+          "DEFAULT_AGENT_IDENTITY",
+          "DEFAULT_AGENT_NAME",
+          "DEFAULT_PRODUCT_NAME",
+          "SendMessageOptions",
+          "UseChatOptions",
+          "UseChatResult",
+          "convergeHistory",
+          "localOnlyMessages",
+          "resetChatStoresForTests",
+          "setChatContext",
+          "useChat",
+          "useChatProvider"
+        ],
+        "./ai-models": [
+          "UseAIModelsResult",
+          "resetAIModelsCache",
+          "useAIModels"
+        ],
+        "./push": [
+          "UsePushOptions",
+          "UsePushResult",
+          "createPushStores",
+          "usePush"
+        ]
+      }
     },
     "@molecule/app-tab-filter-angular": {
       "language": "typescript",
@@ -113133,7 +113251,38 @@
         "UseAuthResult": "interface UseAuthResult<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  status: ComputedRef<AuthState<T>['status']>;\n  state: ComputedRef<AuthState<T>>;\n  user: ComputedRef<T | null>;\n  isAuthenticated: ComputedRef<boolean>;\n  isLoading: ComputedRef<boolean>;\n  login: AuthClient<T>['login'];\n  logout: AuthClient<T>['logout'];\n  register: AuthClient<T, TRegister>['register'];\n  refresh: AuthClient<T>['refresh'];\n  updateProfile: AuthClient<T>['updateProfile'];\n  setUser: AuthClient<T>['setUser'];\n  setSession: AuthClient<T>['setSession'];\n}",
         "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: MaybeRefOrGetter<UseAuthOptions | undefined>): UseAuthResult<T, TRegister>;"
       },
-      "quickStart": "import { createApp, defineComponent, h } from 'vue'\nimport { Link, moleculePlugin, useAuth, useTheme } from '@molecule/app-vue'\nimport { provider as stateProvider } from '@molecule/app-state-zustand'\nimport { provider as themeProvider } from '@molecule/app-theme-css-variables'\nimport { createJWTAuthClient } from '@molecule/app-auth'\n\nconst Dashboard = defineComponent({\n  setup() {\n    // Composables are inject()-based: call them here in setup(), nowhere else.\n    const { user, isAuthenticated, logout } = useAuth<{ name?: string }>()\n    const { theme, toggleTheme } = useTheme()\n    return () =>\n      isAuthenticated.value\n        ? h('div', { style: { background: theme.value.colors.background } }, [\n            h('h1', `Welcome, ${user.value?.name ?? ''}!`),\n            h('button', { onClick: toggleTheme }, 'Toggle theme'),\n            h('button', { onClick: () => logout() }, 'Log out'),\n          ])\n        : h(Link, { to: '/login' }, () => 'Log in')\n  },\n})\n\nconst app = createApp(Dashboard)\napp.use(moleculePlugin, {\n  state: stateProvider,\n  auth: createJWTAuthClient({ baseURL: '/api' }),\n  theme: themeProvider,\n})\napp.mount('#app')"
+      "quickStart": "import { createApp, defineComponent, h } from 'vue'\nimport { Link, moleculePlugin, useAuth, useTheme } from '@molecule/app-vue'\nimport { provider as stateProvider } from '@molecule/app-state-zustand'\nimport { provider as themeProvider } from '@molecule/app-theme-css-variables'\nimport { createJWTAuthClient } from '@molecule/app-auth'\n\nconst Dashboard = defineComponent({\n  setup() {\n    // Composables are inject()-based: call them here in setup(), nowhere else.\n    const { user, isAuthenticated, logout } = useAuth<{ name?: string }>()\n    const { theme, toggleTheme } = useTheme()\n    return () =>\n      isAuthenticated.value\n        ? h('div', { style: { background: theme.value.colors.background } }, [\n            h('h1', `Welcome, ${user.value?.name ?? ''}!`),\n            h('button', { onClick: toggleTheme }, 'Toggle theme'),\n            h('button', { onClick: () => logout() }, 'Log out'),\n          ])\n        : h(Link, { to: '/login' }, () => 'Log in')\n  },\n})\n\nconst app = createApp(Dashboard)\napp.use(moleculePlugin, {\n  state: stateProvider,\n  auth: createJWTAuthClient({ baseURL: '/api' }),\n  theme: themeProvider,\n})\napp.mount('#app')",
+      "subpathExports": {
+        "./chat": [
+          "AgentIdentity",
+          "ChatKey",
+          "ChatProvider",
+          "ChatProviderProps",
+          "DEFAULT_AGENT_IDENTITY",
+          "DEFAULT_AGENT_NAME",
+          "DEFAULT_PRODUCT_NAME",
+          "SendMessageOptions",
+          "UseChatOptions",
+          "UseChatResult",
+          "convergeHistory",
+          "createChatPlugin",
+          "localOnlyMessages",
+          "resetChatStoresForTests",
+          "useChat",
+          "useChatProvider"
+        ],
+        "./ai-models": [
+          "UseAIModelsResult",
+          "resetAIModelsCache",
+          "useAIModels"
+        ],
+        "./push": [
+          "UsePushOptions",
+          "UsePushResult",
+          "UsePushReturn",
+          "usePush"
+        ]
+      }
     },
     "@molecule/app-weather-card-angular": {
       "language": "typescript",
