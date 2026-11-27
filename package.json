@@ -318,7 +318,7 @@
     "@molecule/app-e2e-preview": "1.1.0",
     "@molecule/app-emoji-reactions-react": "4.1.0",
     "@molecule/app-feature-thread-tree-react": "4.1.0",
-    "@molecule/app-file-dropzone-react": "5.0.0",
+    "@molecule/app-file-dropzone-react": "5.1.0",
     "@molecule/app-filesystem": "1.1.0",
     "@molecule/app-fonts": "1.4.1",
     "@molecule/app-fonts-arimo": "1.0.6",

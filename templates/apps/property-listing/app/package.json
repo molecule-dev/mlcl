@@ -45,7 +45,7 @@
     "@molecule/app-icons": "1.0.4",
     "@molecule/app-icons-molecule": "1.0.3",
     "@molecule/app-ide": "1.1.0",
-    "@molecule/app-image-gallery-editor-react": "5.0.0",
+    "@molecule/app-image-gallery-editor-react": "5.1.0",
     "@molecule/app-legal-pages-react": "4.2.0",
     "@molecule/app-lifecycle": "1.0.3",
     "@molecule/app-live-preview": "1.0.3",

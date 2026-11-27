@@ -37200,41 +37200,6 @@
       ],
       "quickStart": "import { requireProvider, setProvider } from '@molecule/app-audio'\nimport { provider } from '@molecule/app-audio-howler'\n\nsetProvider(provider) // at startup\n\nconst player = requireProvider().createPlayer({\n  src: '/audio/track.mp3',\n  volume: 0.8,\n  onEnd: () => console.log('Playback finished'),\n})\nplayButton.onclick = () => player.play() // user gesture — autoplay is blocked"
     },
-    "@molecule/app-audio-expo": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "audio",
-      "label": "Expo Audio",
-      "description": "Expo audio playback provider for molecule.dev.",
-      "stack": "app",
-      "implements": "@molecule/app-audio",
-      "autoInstallRequires": [
-        "expo"
-      ],
-      "exports": [
-        "provider"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/app-audio",
-        "@molecule/app-logger",
-        "expo-audio"
-      ],
-      "moleculePeers": [
-        "@molecule/app-audio",
-        "@molecule/app-logger"
-      ],
-      "thirdPartyDependencies": {
-        "dependencies": {},
-        "peerDependencies": {
-          "expo-audio": "0.4.9"
-        }
-      },
-      "framework": "react-native",
-      "path": "packages/app/bonds/audio/expo",
-      "quickStart": "import { setProvider } from '@molecule/app-audio'\nimport { provider } from '@molecule/app-audio-expo'\n\nsetProvider(provider)"
-    },
     "@molecule/app-audio-howler": {
       "language": "typescript",
       "runtime": "node",
@@ -117504,7 +117469,7 @@
       "@molecule/app-feature-video-scrubber-react": "4.1.0",
       "@molecule/app-feature-video-timeline-react": "4.1.0",
       "@molecule/app-file-card-react": "5.0.0",
-      "@molecule/app-file-dropzone-react": "5.0.0",
+      "@molecule/app-file-dropzone-react": "5.1.0",
       "@molecule/app-file-upload": "1.1.0",
       "@molecule/app-file-upload-filepond": "1.1.0",
       "@molecule/app-filesystem": "1.1.0",
@@ -117561,7 +117526,7 @@
       "@molecule/app-ide-react": "4.4.1",
       "@molecule/app-image-crop": "1.0.3",
       "@molecule/app-image-crop-cropperjs": "1.0.3",
-      "@molecule/app-image-gallery-editor-react": "5.0.0",
+      "@molecule/app-image-gallery-editor-react": "5.1.0",
       "@molecule/app-image-gallery-react": "4.1.0",
       "@molecule/app-inbox-row-react": "4.1.0",
       "@molecule/app-info-display-react": "4.1.0",
@@ -118884,6 +118849,43 @@
       "@molecule/app-pointer-events-dom": "1.1.0",
       "@molecule/app-file-picker-expo": "1.1.0",
       "@molecule/app-file-picker": "1.1.0"
+    }
+  },
+  "pendingPackages": {
+    "@molecule/app-audio-expo": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "audio",
+      "label": "Expo Audio",
+      "description": "Expo audio playback provider for molecule.dev.",
+      "stack": "app",
+      "implements": "@molecule/app-audio",
+      "autoInstallRequires": [
+        "expo"
+      ],
+      "exports": [
+        "provider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-audio",
+        "@molecule/app-logger",
+        "expo-audio"
+      ],
+      "moleculePeers": [
+        "@molecule/app-audio",
+        "@molecule/app-logger"
+      ],
+      "thirdPartyDependencies": {
+        "dependencies": {},
+        "peerDependencies": {
+          "expo-audio": "0.4.9"
+        }
+      },
+      "framework": "react-native",
+      "path": "packages/app/bonds/audio/expo",
+      "quickStart": "import { setProvider } from '@molecule/app-audio'\nimport { provider } from '@molecule/app-audio-expo'\n\nsetProvider(provider)"
     }
   }
 }
