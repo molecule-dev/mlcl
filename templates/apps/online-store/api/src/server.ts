@@ -14,7 +14,7 @@ import { runMigrations } from './scripts/migrate.js'
 import { seedProductsIfEmpty } from './seed.js'
 
 // The molecule.dev IDE sets MOL_API_ERROR_LOG to the file it reads fatal API errors from.
-const ERROR_LOG = process.env.MOL_API_ERROR_LOG
+const ERROR_LOG = process.env.MOL_API_ERROR_LOG ?? ''
 process.on('uncaughtExceptionMonitor', (error) => {
   const entry = `[${new Date().toISOString()}] Uncaught exception: ${error.stack || error.message}\n`
   if (ERROR_LOG) {
@@ -99,7 +99,7 @@ export const create = async (
 
   server.listen(port, () => {
     logger.info(
-      `Started ${process.env.NODE_ENV} ${process.env.HTTPS ? 'HTTPS' : 'HTTP'} server on port ${port}.`,
+      `Started ${process.env.NODE_ENV || 'development'} ${process.env.HTTPS ? 'HTTPS' : 'HTTP'} server on port ${port}.`,
     )
   })
 

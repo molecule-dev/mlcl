@@ -5164,7 +5164,7 @@ function generateServerContentHeuristic(
   lines.push(
     `// The molecule.dev IDE sets MOL_API_ERROR_LOG to the file it reads fatal API errors from.`,
   )
-  lines.push(`const ERROR_LOG = process.env.MOL_API_ERROR_LOG`)
+  lines.push(`const ERROR_LOG = process.env.MOL_API_ERROR_LOG ?? ''`)
   lines.push(`process.on('uncaughtExceptionMonitor', (error) => {`)
   lines.push(
     `  const entry = \`[\${new Date().toISOString()}] Uncaught exception: \${error.stack || error.message}\\n\``,
@@ -5341,7 +5341,7 @@ function generateServerContentHeuristic(
   if (hasLifecycle) {
     lines.push(`    lifecycle.markReady()`)
   }
-  const startedMessage = `\`Started \${process.env.NODE_ENV} \${process.env.HTTPS ? 'HTTPS' : 'HTTP'} server on port \${port}.\``
+  const startedMessage = `\`Started \${process.env.NODE_ENV || 'development'} \${process.env.HTTPS ? 'HTTPS' : 'HTTP'} server on port \${port}.\``
   const startedOneLine = `    ${logInfo}(${startedMessage})`
   if (startedOneLine.length <= PRETTIER_PRINT_WIDTH) {
     lines.push(startedOneLine)

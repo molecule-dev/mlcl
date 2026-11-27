@@ -33,6 +33,17 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 
+import {
+  assignedVariable,
+  COMMENT_LINE,
+  envRefMatcher,
+  isToolingPath,
+  MAX_COMMENT,
+  NOISE_KEYS,
+  readIsGuarded,
+  TRAILING_COMMENT,
+  variableIsGuarded,
+} from './env-read-guards.js'
 import { findRegistryPackage } from './registry.js'
 import type { MoleculeSecret } from './schema.js'
 
@@ -88,151 +99,6 @@ const MAX_KEYS = 100
 /** Max referencing lines reported per key. */
 const MAX_FILES_PER_KEY = 5
 
-/**
- * Pure noise: env keys every toolchain reads that are NEVER a user-settable
- * integration credential (Vite's `import.meta.env` builtins). `NODE_ENV` is
- * deliberately NOT here — the scaffold writes it, so it reports as set.
- */
-const NOISE_KEYS = new Set(['MODE', 'DEV', 'PROD', 'SSR', 'BASE_URL'])
-
-/** Every `process.env.KEY` / `import.meta.env.KEY` in a line. Fresh per call: a `/g` regex carries `lastIndex` between uses. */
-const envRefMatcher = (): RegExp => /(?:process\.env|import\.meta\.env)\.([A-Za-z_][A-Za-z0-9_]*)/g
-
-/** A line that is entirely a comment — its `process.env.X` is prose, not a read. */
-const COMMENT_LINE = /^\s*(\/\/|\/\*|\*)/
-
-/** A trailing `//` comment, captured as the var's own documentation. */
-const TRAILING_COMMENT = /\/\/\s*(.+?)\s*$/
-
-/** Longest author comment carried into the report. */
-const MAX_COMMENT = 120
-
-/**
- * A chain the reference may be wrapped in before its fallback appears —
- * `process.env.X?.replace(/\/$/, '') || y`. Consumed so the operator after it is
- * still recognised.
- */
-const TRAILING_CHAIN = /^(?:\??\.[A-Za-z_$][\w$]*(?:\([^()]*\))?|\[[^\]]*\])*/
-
-/** `?? v`, `|| v`, a comparison, or a ternary test — all mean "absence is handled". */
-const GUARD = /^\s*(\?\?|\|\||[!=]==?|\?(?!\.))/
-
-/** Longest fallback literal carried into the report. */
-const MAX_DEFAULT_VALUE = 60
-
-/** A plain literal fallback, so the report can show what the code uses instead. */
-const LITERAL =
-  /^\s*(?:'([^']*)'|"([^"]*)"|`([^`$]*)`|(-?\d+(?:\.\d+)?)|(true|false|null|undefined))/
-
-/**
- * Directory segments that are unambiguously tooling wherever they appear.
- */
-const TOOLING_DIRS = new Set([
-  'e2e',
-  '__tests__',
-  '__mocks__',
-  '__setup__',
-  'cypress',
-  '.storybook',
-  'playwright',
-])
-
-/**
- * Directory segments that mean tooling only OUTSIDE `src/`. `scripts/seed.ts`
- * is tooling; `src/scripts/migrate.ts` is the migration runner the app ships,
- * and calling that tooling would hide a real `DATABASE_URL` reference.
- */
-const TOOLING_DIRS_OUTSIDE_SRC = new Set(['scripts', 'test', 'tests', 'fixtures', 'benchmarks'])
-
-/** `foo.test.ts`, `foo.spec.tsx`. */
-const TEST_FILE = /\.(test|spec)\.[cm]?[jt]sx?$/
-
-/** `vite.config.ts`, `playwright.config.ts`, `eslint.config.js`. */
-const CONFIG_FILE = /\.config\.[cm]?[jt]sx?$/
-
-/**
- * Is this reference from tooling rather than from the app the user ships?
- * (Kept in lockstep with the IDE scan's `isToolingPath`.)
- *
- * @param file - Repo-relative path.
- * @returns True for tests, e2e specs, build/test config, and scripts outside src/.
- */
-export function isToolingPath(file: string): boolean {
-  const segments = file.split('/')
-  const name = segments[segments.length - 1] ?? ''
-  const dirs = segments.slice(0, -1)
-  const underSrc = dirs.includes('src')
-  if (dirs.some((d) => TOOLING_DIRS.has(d))) return true
-  if (!underSrc && dirs.some((d) => TOOLING_DIRS_OUTSIDE_SRC.has(d))) return true
-  if (TEST_FILE.test(name)) return true
-  // A build-tool config at a workspace root (`app/vite.config.ts`). Under
-  // `src/` a `*.config.ts` is app code, not toolchain configuration.
-  if (!underSrc && CONFIG_FILE.test(name)) return true
-  return false
-}
-
-/**
- * Does this particular read of the key tolerate the var being unset?
- * (Mirrors the IDE scan's `readIsGuarded`.)
- *
- * @param rest - The source text immediately following the reference.
- * @returns Whether absence is handled, and the literal fallback when there is one.
- */
-export function readIsGuarded(rest: string): { guarded: boolean; defaultValue?: string } {
-  const afterChain = rest.slice(TRAILING_CHAIN.exec(rest)?.[0].length ?? 0)
-  const guard = GUARD.exec(afterChain)
-  if (!guard) return { guarded: false }
-  const operator = guard[1]
-  if (operator !== '??' && operator !== '||') return { guarded: true }
-  const literal = LITERAL.exec(afterChain.slice(guard[0].length))
-  if (!literal) return { guarded: true }
-  const value = literal.slice(1).find((group) => group !== undefined)
-  return { guarded: true, defaultValue: value?.slice(0, MAX_DEFAULT_VALUE) }
-}
-
-/**
- * When a line is a bare `const|let|var V = process.env.KEY` (no inline guard),
- * the variable name the read was assigned to — so a guard on `V` a few lines
- * later can still be found. (Mirrors the IDE scan's `assignedVariable`.)
- *
- * @param text - The source line.
- * @param key - The env key read on it.
- * @returns The assigned variable name, or null.
- */
-export function assignedVariable(text: string, key: string): string | null {
-  const re = new RegExp(
-    `\\b(?:const|let|var)\\s+([A-Za-z_$][\\w$]*)\\s*=\\s*(?:process\\.env|import\\.meta\\.env)\\.${key}\\b`,
-  )
-  return re.exec(text)?.[1] ?? null
-}
-
-/**
- * Does this line apply a default to (or otherwise tolerate the absence of) the
- * variable `v`? (Mirrors the IDE scan's `variableIsGuarded`; a plain truthiness
- * `if (v)` is deliberately NOT a guard — it branches but supplies no fallback.)
- *
- * @param text - A line following the assignment.
- * @param v - The assigned variable name.
- * @returns Whether the line guards `v`, and the literal fallback when it is one.
- */
-export function variableIsGuarded(
-  text: string,
-  v: string,
-): { guarded: boolean; defaultValue?: string } {
-  const coalesce = new RegExp(`\\b${v}\\s*(?:\\?\\?|\\|\\|)\\s*(.*)$`).exec(text)
-  if (coalesce) {
-    const literal = LITERAL.exec(coalesce[1])
-    const value = literal?.slice(1).find((group) => group !== undefined)
-    return { guarded: true, defaultValue: value?.slice(0, MAX_DEFAULT_VALUE) }
-  }
-  if (new RegExp(`(?:^|[^.\\w$])!\\s*${v}\\b`).test(text)) return { guarded: true }
-  if (new RegExp(`\\b${v}\\s*(?:===|!==|==|!=)\\s*(?:undefined|null|''|""|\`\`)`).test(text)) {
-    return { guarded: true }
-  }
-  if (new RegExp(`\\b${v}\\s*\\?(?!\\.)`).test(text)) return { guarded: true }
-  return { guarded: false }
-}
-
 /** How many lines after a bare assignment a guard on its variable is still credited. */
 const GUARD_WINDOW = 4
 
@@ -255,7 +121,7 @@ function scanFile(file: string, lines: string[]): LocalEnvRef[] {
     while ((ref = matcher.exec(text)) !== null) {
       const key = ref[1]
       const rest = text.slice(ref.index + ref[0].length).split(';')[0]
-      const { guarded, defaultValue } = readIsGuarded(rest)
+      const { guarded, defaultValue } = readIsGuarded(rest, text.slice(0, ref.index))
       const prev = onLine.get(key)
       if (!prev?.guarded) onLine.set(key, { guarded, defaultValue })
       else if (defaultValue !== undefined && prev.defaultValue === undefined) {

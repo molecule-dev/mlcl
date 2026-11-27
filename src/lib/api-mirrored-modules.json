@@ -1,4 +1,10 @@
 {
   "description": "Modules molecule-dev/api/src/ai runs a byte-identical copy of. mlcl owns them; commit the copy in molecule-dev first (../scripts/check-api-mirrored-modules.mjs).",
-  "files": ["example-search.ts", "package-doc-files.ts", "package-doc-search.ts", "text-match.ts"]
+  "files": [
+    "env-read-guards.ts",
+    "example-search.ts",
+    "package-doc-files.ts",
+    "package-doc-search.ts",
+    "text-match.ts"
+  ]
 }

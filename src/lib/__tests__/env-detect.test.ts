@@ -7,12 +7,10 @@ import { afterAll, describe, expect, it } from 'vitest'
 import {
   classifyLocalEnvVars,
   detectLocalEnvVars,
-  isToolingPath,
   localEnvState,
-  readIsGuarded,
   scanEnvRefs,
-  variableIsGuarded,
 } from '../env-detect.js'
+import { isToolingPath, readIsGuarded, variableIsGuarded } from '../env-read-guards.js'
 
 // ---------------------------------------------------------------------------
 // Temp directory management
@@ -43,6 +41,24 @@ describe('readIsGuarded', () => {
   it('recognizes a bare read as unguarded', () => {
     expect(readIsGuarded('')).toEqual({ guarded: false })
     expect(readIsGuarded('.trim()')).toEqual({ guarded: false })
+  })
+
+  it('reads a read that is the whole if-condition as an opt-in flag', () => {
+    // `if (process.env.HTTPS) {` in the scaffold's own server.ts was reported by `mlcl env` as a
+    // key every fresh project had to set up; unset only means the branch is skipped.
+    expect(readIsGuarded(') {', '  if (')).toEqual({ guarded: true })
+    expect(readIsGuarded(') return', 'if (!')).toEqual({ guarded: true })
+    // …but a read used as an argument inside the condition is still a value read.
+    expect(readIsGuarded(')) {', 'if (check(')).toEqual({ guarded: false })
+  })
+
+  it.each([
+    [` as string | undefined) || '/api'`, '/api'],
+    [` as string) ?? 'd'`, 'd'],
+    [`! || 'd'`, 'd'],
+    [`) || 'd'`, 'd'],
+  ])('sees the fallback through a TypeScript wrapper: %s', (rest, expected) => {
+    expect(readIsGuarded(rest)).toEqual({ guarded: true, defaultValue: expected })
   })
 
   it('counts comparisons and ternaries as handled absence', () => {
@@ -91,6 +107,24 @@ describe('scanEnvRefs', () => {
     expect(refs.has('MY_KEY')).toBe(true)
     expect(refs.has('SHOULD_NOT_APPEAR')).toBe(false)
     expect(refs.get('MY_KEY')?.[0]?.file).toBe('src/a.ts')
+  })
+
+  it("finds nothing to set up in the generated server's HTTPS opt-in", async () => {
+    // The lines `mlcl create` writes into api/src/server.ts (injector.ts).
+    const dir = await createTempDir()
+    await mkdir(join(dir, 'src'), { recursive: true })
+    await writeFile(
+      join(dir, 'src', 'server.ts'),
+      [
+        '  if (process.env.HTTPS) {',
+        "    const pem = require('pem')",
+        '  }',
+        "  logger.info(`Started ${process.env.HTTPS ? 'HTTPS' : 'HTTP'} server.`)",
+      ].join('\n'),
+    )
+    const report = classifyLocalEnvVars(scanEnvRefs(dir), new Map(), new Map(), dir, [], [])
+    expect(report.vars.find((v) => v.key === 'HTTPS')?.group).toBe('optional')
+    expect(report.missingCount).toBe(0)
   })
 })
 
