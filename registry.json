@@ -93771,14 +93771,15 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-bond",
         "@molecule/app-lifecycle",
         "@molecule/app-logger",
         "@molecule/app-push"
       ],
       "moleculePeers": [
+        "@molecule/app-bond",
         "@molecule/app-lifecycle",
-        "@molecule/app-logger",
-        "@molecule/app-push"
+        "@molecule/app-logger"
       ],
       "path": "packages/app/core/platform",
       "intentHints": [
