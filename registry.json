@@ -118767,6 +118767,11 @@
       "category": "file-picker",
       "label": "File Picker",
       "description": "Portable file picker interface for molecule.dev.",
+      "intentHints": [
+        "device file chooser",
+        "native file selection",
+        "select local documents"
+      ],
       "stack": "app",
       "defaultProvider": "@molecule/app-file-picker-expo",
       "exports": [
@@ -118796,6 +118801,11 @@
       "category": "file-picker",
       "label": "Expo File Picker",
       "description": "Expo document picker provider for molecule.dev.",
+      "intentHints": [
+        "expo document picker",
+        "expo ios files",
+        "expo android documents"
+      ],
       "stack": "app",
       "implements": "@molecule/app-file-picker",
       "exports": [
