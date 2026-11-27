@@ -76,17 +76,14 @@ function skipped(ctx: { skip: () => void }): boolean {
 function fakeCliWithGrandchild(): { cli: string; pidFile: string } {
   const dir = tempDir('mlcl-mcp-cli-timeout-')
   const pidFile = join(dir, 'grandchild.pid')
-  const script = join(dir, 'fake-mlcl.mjs')
+  const script = join(dir, 'fake-mlcl.sh')
+  // The fixture has to fork before the timeout can exercise descendant cleanup.
   writeFileSync(
     script,
-    '#!/usr/bin/env node\n' +
-      "import { spawn } from 'node:child_process'\n" +
-      "import { writeFileSync } from 'node:fs'\n" +
-      "const child = spawn(process.execPath, ['-e', 'setInterval(() => {}, 1000)'], {\n" +
-      "  stdio: 'ignore',\n" +
-      '})\n' +
-      `writeFileSync(${JSON.stringify(pidFile)}, String(child.pid))\n` +
-      'setInterval(() => {}, 1000)\n',
+    '#!/bin/sh\n' +
+      'sleep 600 </dev/null >/dev/null 2>&1 &\n' +
+      'printf "%s\\n" "$!" > "${0%/*}/grandchild.pid"\n' +
+      'wait\n',
   )
   chmodSync(script, 0o755)
   return { cli: script, pidFile }
@@ -167,13 +164,8 @@ describe('a timed-out mlcl run kills the whole process tree', () => {
 describe('the timeout seam does not replace the ordinary failure path', () => {
   it('still reports a failing CLI that EXITS, not as a timeout', async (ctx) => {
     if (skipped(ctx)) return
-    const script = join(tempDir('mlcl-mcp-cli-exit-'), 'failing-mlcl.mjs')
-    writeFileSync(
-      script,
-      '#!/usr/bin/env node\n' +
-        'process.stderr.write("the CLI said no\\n")\n' +
-        'process.exit(1)\n',
-    )
+    const script = join(tempDir('mlcl-mcp-cli-exit-'), 'failing-mlcl.sh')
+    writeFileSync(script, '#!/bin/sh\nprintf "%s\\n" "the CLI said no" >&2\nexit 1\n')
     chmodSync(script, 0o755)
     const { call, close } = await connect(script)
     try {
