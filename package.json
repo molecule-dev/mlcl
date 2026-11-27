@@ -172,7 +172,6 @@
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:visual": "playwright test",
-    "test:visual:update": "playwright test --update-snapshots",
     "test:watch": "vitest",
     "verify:auth-form-state": "node scripts/verify-auth-form-state.mjs",
     "verify:external-state": "node scripts/check-external-state-coverage.mjs",

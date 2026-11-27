@@ -244,9 +244,12 @@ export async function startShowcaseServer(
   // Symlink @molecule/* packages AFTER npm install (which wipes node_modules)
   await symlinkMoleculePackages(dir)
 
-  // Start Vite dev server
+  // Start Vite dev server, as its own process group: `npx` runs Vite as a child, so stopping
+  // only the npx process left Vite holding the port (2026-11-27: after one failed test the
+  // restarted worker found all six ports taken).
   const viteProcess = spawn('npx', ['vite', '--port', String(port), '--strictPort'], {
     cwd: dir,
+    detached: true,
     stdio: ['ignore', 'pipe', 'pipe'],
     env: { ...process.env, NODE_ENV: 'development' },
   })
@@ -323,11 +326,16 @@ export async function startAllShowcases(baseDir?: string): Promise<ShowcaseProje
   return projects
 }
 
-/** Stop all running showcase dev servers and clean up. */
+/** Stop all running showcase dev servers: each server's whole process group, Vite included. */
 export function stopShowcaseServers(projects: ShowcaseProject[]): void {
   for (const project of projects) {
-    if (project.process && !project.process.killed) {
-      project.process.kill('SIGTERM')
+    const pid = project.process?.pid
+    if (pid === undefined || project.process?.exitCode !== null) continue
+    try {
+      process.kill(-pid, 'SIGTERM')
+    } catch (error) {
+      // The group is already gone.
+      if (!(error instanceof Error && 'code' in error && error.code === 'ESRCH')) throw error
     }
   }
 }
