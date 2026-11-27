@@ -39,6 +39,8 @@ function scaffoldPins(registry: Registry, cliRoot: string): Map<string, [string,
   for (const [name, entry] of Object.entries(registry.packages)) {
     add({ [name]: resolveMoleculeVersion(registry, name) })
     add(entry.buildTooling?.devDependencies)
+    add(entry.thirdPartyDependencies?.dependencies)
+    add(entry.thirdPartyDependencies?.peerDependencies)
   }
   const templates = join(cliRoot, 'templates', 'apps')
   if (existsSync(templates)) {

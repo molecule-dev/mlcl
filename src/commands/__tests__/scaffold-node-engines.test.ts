@@ -142,6 +142,40 @@ const scaffolds = [
   ['flagship', ['--template', 'blog'], ['package.json', 'api/package.json', 'app/package.json']],
 ] as const
 
+it('includes exact injected vendors and prunes stale types from the Node metadata', async () => {
+  await writeJson(join(scratch, 'package-lock.json'), {
+    packages: {
+      'node_modules/@molecule/fixture': { version: '1.0.0' },
+      'node_modules/injected-runtime': { version: '1.0.0', engines: { node: '>=20' } },
+      'node_modules/injected-peer': { version: '2.0.0', engines: { node: '>=22' } },
+    },
+  })
+  const registry = Registry.parse({
+    version: 1,
+    packages: {
+      '@molecule/fixture': {
+        type: 'middleware',
+        stack: 'api',
+        category: 'upload',
+        label: 'Upload fixture',
+        description: 'Inject an upload provider and its runtime dependencies.',
+        path: 'packages/api/middleware/upload-fixture',
+        thirdPartyDependencies: {
+          dependencies: { 'injected-runtime': '1.0.0' },
+          peerDependencies: { 'injected-peer': '2.0.0', 'ranged-peer': '^3.0.0' },
+        },
+      },
+    },
+    toolchainEngines: { pins: { 'obsolete-types@1.0.0': null } },
+  })
+
+  expect(await scaffoldNodePinMetadata(registry, scratch)).toEqual({
+    '@molecule/fixture@1.0.0': null,
+    'injected-runtime@1.0.0': '>=20',
+    'injected-peer@2.0.0': '>=22',
+  })
+})
+
 it.each(scaffolds)(
   'declares the generated Node ranges for a %s project',
   async (_kind, args, paths) => {
