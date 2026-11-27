@@ -2,3 +2,5 @@ import { execa } from 'execa'
 
 await execa('npx', ['vitest', 'run'], { cwd: '.' })
 await execa('npx', ['--no', 'vitest', 'run'], { cwd: '.' })
+await execa('npx', ['--no', 'vite', '--port', '5200', '--strictPort'], { cwd: '.' })
+await execa('npx', ['--no', '--', 'vite', '--port', '5200', '--strictPort'], { cwd: '.' })

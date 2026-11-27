@@ -247,7 +247,14 @@ export async function startShowcaseServer(
   // Start Vite dev server, as its own process group: `npx` runs Vite as a child, so stopping
   // only the npx process left Vite holding the port (2026-11-27: after one failed test the
   // restarted worker found all six ports taken).
-  const viteProcess = spawn('npx', ['--no', 'vite', '--port', String(port), '--strictPort'], {
+  //
+  // `--no` keeps npx from downloading a Vite the showcase does not have, and the `--` after it
+  // leaves `--port` and `--strictPort` for Vite: a flag written right after the package name is
+  // npm's own to read, so without the `--` npm 11.20 drops both (with an "Unknown cli config"
+  // warning) and hands Vite only the number. Every showcase then listens on Vite's default port
+  // while the comparisons go to the showcase ports, and each fails on a refused connection
+  // (2026-11-27, the day `--no` was added; npx-no-download.test.ts checks every such call).
+  const viteProcess = spawn('npx', ['--no', '--', 'vite', '--port', String(port), '--strictPort'], {
     cwd: dir,
     detached: true,
     stdio: ['ignore', 'pipe', 'pipe'],
