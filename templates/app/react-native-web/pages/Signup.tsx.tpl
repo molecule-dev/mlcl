@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { serverErrorMessage } from '@molecule/app-http'
 import { useSignup, useTranslation } from '@molecule/app-react'
-import { Button as SubmitButton } from '@molecule/app-ui-react'
-import { Button, Flex } from '@molecule/app-ui-react-native'
+import { Button, Flex, FormArea } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
@@ -25,8 +24,7 @@ export function Signup() {
 
   const isSigningUp = status === 'pending'
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
     try {
       await signup({ email, password, name: name || undefined })
       navigate('/', { replace: true })
@@ -56,12 +54,13 @@ export function Signup() {
       </header>
       <div className={cm.authPageBody}>
         <div className={cm.authFormWrapper}>
-          <form onSubmit={handleSubmit}>
+          <FormArea as="form" onSubmit={handleSubmit}>
             <div className={cm.authField}>
               <FloatingInput
                 type="email"
+                name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onValueChange={setEmail}
                 autoComplete="email"
                 required
                 placeholder={t('auth.signup.email')}
@@ -70,8 +69,9 @@ export function Signup() {
             <div className={cm.authField}>
               <FloatingInput
                 type="password"
+                name="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onValueChange={setPassword}
                 autoComplete="new-password"
                 required
                 placeholder={t('auth.signup.password')}
@@ -80,8 +80,9 @@ export function Signup() {
             <div className={cm.authField}>
               <FloatingInput
                 type="text"
+                name="name"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onValueChange={setName}
                 autoComplete="name"
                 placeholder={t('auth.signup.name')}
               />
@@ -97,7 +98,7 @@ export function Signup() {
               >
                 <Icon name="arrow-left" size={25} />
               </Button>
-              <SubmitButton
+              <Button
                 type="submit"
                 size="lg"
                 color="success"
@@ -105,7 +106,7 @@ export function Signup() {
                 disabled={isSigningUp}
               >
                 {isSigningUp ? t('auth.signup.signingUp') : t('auth.signup.signUp')}
-              </SubmitButton>
+              </Button>
             </div>
             {error && (
               <div className={cm.authFormError}>
@@ -113,7 +114,7 @@ export function Signup() {
                   t('auth.error.registrationFailed', {}, { defaultValue: 'Registration failed' })}
               </div>
             )}
-          </form>
+          </FormArea>
 {{#feature oauth}}
           <OAuthButtons />
 {{/feature}}

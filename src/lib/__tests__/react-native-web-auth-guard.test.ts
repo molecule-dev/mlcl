@@ -79,15 +79,18 @@ describe('React Native Web scaffold form submission', () => {
     ['features/emails/pages/ResetPassword', 1],
     ['features/two-factor/components/TwoFactorSetting', 1],
     ['components/SettingsPanel', 2],
-  ])('%s uses browser submit controls', (file, count) => {
+  ])('%s submits through FormArea and the native Button', (file, count) => {
     const source = readFileSync(
       join(import.meta.dirname, '../../../templates/app/react-native-web', `${file}.tsx.tpl`),
       'utf8',
     )
     const template = ts.createSourceFile(`${file}.tsx`, source, ts.ScriptTarget.ESNext, true)
+    const formTags: string[] = []
     const submitTags: string[] = []
     function visit(node: ts.Node): void {
       if (ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) {
+        const tag = node.tagName.getText(template)
+        if (tag === 'form' || tag === 'FormArea') formTags.push(tag)
         for (const attribute of node.attributes.properties) {
           if (
             ts.isJsxAttribute(attribute) &&
@@ -96,14 +99,19 @@ describe('React Native Web scaffold form submission', () => {
             ts.isStringLiteral(attribute.initializer) &&
             attribute.initializer.text === 'submit'
           ) {
-            submitTags.push(node.tagName.getText(template))
+            submitTags.push(tag)
           }
         }
       }
       ts.forEachChild(node, visit)
     }
     visit(template)
-    expect(submitTags).toEqual(Array.from({ length: count }, () => 'SubmitButton'))
-    expect(source).toContain("import { Button as SubmitButton } from '@molecule/app-ui-react'")
+    expect(formTags).toEqual(Array.from({ length: count }, () => 'FormArea'))
+    expect(submitTags).toEqual(Array.from({ length: count }, () => 'Button'))
+    expect(source).toMatch(/import \{[^}]*\bButton\b[^}]*\} from '@molecule\/app-ui-react-native'/)
+    expect(source).toMatch(
+      /import \{[^}]*\bFormArea\b[^}]*\} from '@molecule\/app-ui-react-native'/,
+    )
+    expect(source).not.toContain("from '@molecule/app-ui-react'")
   })
 })

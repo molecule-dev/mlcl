@@ -114824,7 +114824,6 @@
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
-        "@molecule/app-ui-react",
         "@molecule/app-ui-react-native",
         "@molecule/app-icons",
         "@molecule/app-routing-react-router"

@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router'
 import { serverErrorMessage } from '@molecule/app-http'
 import { useLogin, useTranslation } from '@molecule/app-react'
-import { Button as SubmitButton } from '@molecule/app-ui-react'
-import { Button, Flex } from '@molecule/app-ui-react-native'
+import { Button, Flex, FormArea } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
@@ -26,8 +25,7 @@ export function Login() {
   const [twoFactorToken, setTwoFactorToken] = useState('')
 {{/feature}}
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
     try {
 {{#feature two-factor}}
       // Only send a code the user typed; an account with two-factor on gets
@@ -72,12 +70,13 @@ export function Login() {
       </header>
       <div className={cm.authPageBody}>
         <div className={cm.authFormWrapper}>
-          <form onSubmit={handleSubmit}>
+          <FormArea as="form" onSubmit={handleSubmit}>
             <div className={cm.authField}>
               <FloatingInput
                 type="email"
+                name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onValueChange={setEmail}
                 autoComplete="email"
                 required
                 placeholder={t('auth.login.email')}
@@ -86,8 +85,9 @@ export function Login() {
             <div className={cm.authField}>
               <FloatingInput
                 type="password"
+                name="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onValueChange={setPassword}
                 autoComplete="current-password"
                 required
                 placeholder={t('auth.login.password')}
@@ -97,8 +97,9 @@ export function Login() {
             <div className={cm.authField}>
               <FloatingInput
                 type="number"
+                name="twoFactorToken"
                 value={twoFactorToken}
-                onChange={(e) => setTwoFactorToken(e.target.value)}
+                onValueChange={setTwoFactorToken}
                 autoComplete="one-time-code"
                 placeholder={t('auth.login.twoFactor')}
               />
@@ -114,7 +115,7 @@ export function Login() {
               >
                 {t('auth.login.signUp')}
               </Button>
-              <SubmitButton
+              <Button
                 type="submit"
                 size="lg"
                 color="success"
@@ -122,7 +123,7 @@ export function Login() {
                 disabled={isLoggingIn}
               >
                 {isLoggingIn ? t('auth.login.loggingIn') : t('auth.login.logIn')}
-              </SubmitButton>
+              </Button>
             </div>
             {error && (
               <div className={cm.authFormError}>
@@ -130,7 +131,7 @@ export function Login() {
                   t('auth.error.loginFailed', {}, { defaultValue: 'Login failed' })}
               </div>
             )}
-          </form>
+          </FormArea>
 {{#feature emails}}
           <div className={cm.authAfterSubmit}>
             <button

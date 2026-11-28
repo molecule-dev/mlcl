@@ -24,9 +24,10 @@ import {
   Spinner,
   Modal,
   Flex,
+  FormArea,
+  TextField,
 } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
-import { Button as SubmitButton } from '@molecule/app-ui-react'
 {{#feature devices}}
 import { Icon } from './Icon.js'
 {{/feature}}
@@ -119,8 +120,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
     }
   }
 
-  const handlePasswordChange = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handlePasswordChange = async () => {
     try {
       await changePassword(currentPassword, newPassword)
       setShowPasswordModal(false)
@@ -153,8 +153,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
     navigate('/login')
   }
 
-  const handleDeleteAccount = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleDeleteAccount = async () => {
     setDeleteLoading(true)
     setDeleteError('')
     try {
@@ -302,14 +301,17 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             {pwError.message || t('settings.changePasswordModal.error')}
           </Alert>
         )}
-        <form onSubmit={handlePasswordChange} className={cm.stack(4)}>
+        <FormArea as="form" onSubmit={handlePasswordChange} className={cm.stack(4)}>
           <div>
             <label htmlFor="current-pw" className={cm.formLabel}>
               {t('settings.changePasswordModal.currentPassword')}
             </label>
-            <Input
+            <TextField
+              as="input"
+              className={cm.input()}
               id="current-pw"
               type="password"
+              name="currentPassword"
               value={currentPassword}
               onValueChange={setCurrentPassword}
               autoComplete="current-password"
@@ -320,21 +322,24 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             <label htmlFor="new-pw" className={cm.formLabel}>
               {t('settings.changePasswordModal.newPassword')}
             </label>
-            <Input
+            <TextField
+              as="input"
+              className={cm.input()}
               id="new-pw"
               type="password"
+              name="newPassword"
               value={newPassword}
               onValueChange={setNewPassword}
               autoComplete="new-password"
               required
             />
           </div>
-          <SubmitButton type="submit" fullWidth loading={pwStatus === 'pending'}>
+          <Button type="submit" fullWidth loading={pwStatus === 'pending'}>
             {pwStatus === 'pending'
               ? t('settings.changePasswordModal.changing')
               : t('settings.changePassword')}
-          </SubmitButton>
-        </form>
+          </Button>
+        </FormArea>
       </Modal>
 
       {/* Delete Account Modal */}
@@ -351,25 +356,28 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             {deleteError}
           </Alert>
         )}
-        <form onSubmit={handleDeleteAccount} className={cm.stack(4)}>
+        <FormArea as="form" onSubmit={handleDeleteAccount} className={cm.stack(4)}>
           <div>
             <label htmlFor="delete-pw" className={cm.formLabel}>
               {t('settings.deleteAccountModal.password')}
             </label>
-            <Input
+            <TextField
+              as="input"
+              className={cm.input()}
               id="delete-pw"
               type="password"
+              name="password"
               value={deletePassword}
               onValueChange={setDeletePassword}
               required
             />
           </div>
-          <SubmitButton type="submit" color="error" fullWidth loading={deleteLoading}>
+          <Button type="submit" color="error" fullWidth loading={deleteLoading}>
             {deleteLoading
               ? t('settings.deleteAccountModal.deleting')
               : t('settings.deleteAccount')}
-          </SubmitButton>
-        </form>
+          </Button>
+        </FormArea>
       </Modal>
     </div>
   )

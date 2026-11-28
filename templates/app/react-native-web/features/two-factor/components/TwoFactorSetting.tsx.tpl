@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import type { UserProfile } from '@molecule/app-auth'
 import { serverErrorMessage } from '@molecule/app-http'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
-import { Button as SubmitButton } from '@molecule/app-ui-react'
-import { Alert, Button, Flex, Input, Modal } from '@molecule/app-ui-react-native'
+import { Alert, Button, Flex, FormArea, Modal, TextField } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 
 /** The enrollment data `POST /users/:id/verify-two-factor` answers `{ action: 'setup' }` with. */
@@ -77,8 +76,7 @@ export function TwoFactorSetting() {
     }
   }
 
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const submit = async () => {
     if (!mode) return
     setError('')
     setLoading(true)
@@ -154,21 +152,24 @@ export function TwoFactorSetting() {
           </div>
         )}
         {!!mode && (mode === 'disable' || setup) && (
-          <form onSubmit={submit} className={cm.stack(4)}>
+          <FormArea as="form" onSubmit={submit} className={cm.stack(4)}>
             <div>
               <label htmlFor="two-factor-code" className={cm.formLabel}>
                 {t('settings.twoFactorCode', undefined, { defaultValue: 'Authentication code' })}
               </label>
-              <Input
+              <TextField
+                as="input"
+                className={cm.input()}
                 id="two-factor-code"
                 type="number"
+                name="token"
                 value={token}
                 onValueChange={setToken}
                 autoComplete="one-time-code"
                 required
               />
             </div>
-            <SubmitButton
+            <Button
               type="submit"
               color={mode === 'disable' ? 'error' : undefined}
               fullWidth
@@ -177,8 +178,8 @@ export function TwoFactorSetting() {
               {mode === 'disable'
                 ? t('settings.twoFactorDisable', undefined, { defaultValue: 'Disable' })
                 : t('settings.twoFactorVerify', undefined, { defaultValue: 'Verify & enable' })}
-            </SubmitButton>
-          </form>
+            </Button>
+          </FormArea>
         )}
       </Modal>
     </>

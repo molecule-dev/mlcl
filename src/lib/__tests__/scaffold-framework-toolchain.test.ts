@@ -19,8 +19,8 @@ import { extname, join } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
-import { getRawRegistry, loadAppFrameworks } from '../registry.js'
-import { createAppProject } from '../scaffold.js'
+import { getRawRegistry, loadAppFrameworks, loadRegistry } from '../registry.js'
+import { createAppProject, getTemplateRequiredPackages } from '../scaffold.js'
 import { importOrderProblems } from './import-order-lint.js'
 
 /** Web frameworks scaffolded through `createAppProject` (react-native has its own scaffolder). */
@@ -253,4 +253,47 @@ it('scaffolds React Native Web with its real runtime and web ClassMap CSS', asyn
   const css = await readFile(join(root, 'src', 'index.css'), 'utf8')
   expect(css).toMatch(/^@import 'tailwindcss\/utilities\.css';$/m)
   expect(css).toContain('/node_modules/@molecule/app-ui-tailwind/dist')
+})
+
+it('writes React Native Web forms using the native kit with and without optional auth', async () => {
+  const framework = 'react-native-web'
+  const featureRoot = await mkdtemp(join(tmpdir(), 'scaffold-rnw-auth-'))
+  try {
+    const registry = getRawRegistry()
+    const styling = registry.packages?.['@molecule/app-styling-tailwind']?.buildTooling
+    const features = loadRegistry()
+      .filter(
+        ({ molecule }) =>
+          molecule?.optionalFeature === 'emails' || molecule?.optionalFeature === 'two-factor',
+      )
+      .map(({ name }) => name)
+    await createAppProject(featureRoot, 'app', framework, false, '', {}, features, styling)
+
+    const baseForms = ['pages/Login.tsx', 'pages/Signup.tsx', 'components/SettingsPanel.tsx']
+    const extraForms = [
+      'pages/ForgotPassword.tsx',
+      'pages/ResetPassword.tsx',
+      'components/TwoFactorSetting.tsx',
+    ]
+    for (const { root, forms } of [
+      { root: roots[framework], forms: baseForms },
+      { root: featureRoot, forms: [...baseForms, ...extraForms] },
+    ]) {
+      for (const file of forms) {
+        const source = await readFile(join(root, 'src', file), 'utf8')
+        expect(source, file).toMatch(/<FormArea as="form" onSubmit=/)
+        expect(source, file).toMatch(/<Button\s+type="submit"/)
+        expect(source, file).not.toMatch(/<form\b|from '@molecule\/app-ui-react'/)
+      }
+    }
+    const required = getTemplateRequiredPackages(
+      framework,
+      undefined,
+      loadAppFrameworks()[framework],
+    )
+    expect(required).toContain('@molecule/app-ui-react-native')
+    expect(required).not.toContain('@molecule/app-ui-react')
+  } finally {
+    await rm(featureRoot, { recursive: true, force: true })
+  }
 })

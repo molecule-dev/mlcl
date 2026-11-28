@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { usePasswordReset, useTranslation } from '@molecule/app-react'
-import { Button as SubmitButton } from '@molecule/app-ui-react'
-import { Button, Flex } from '@molecule/app-ui-react-native'
+import { Button, Flex, FormArea } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
@@ -21,8 +20,7 @@ export function ForgotPassword() {
 
   const isSubmitting = requestStatus === 'pending'
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
     try {
       await requestReset({ email })
       setMessage(t('auth.forgotPassword.success'))
@@ -55,12 +53,13 @@ export function ForgotPassword() {
         <div className={cm.authFormWrapper}>
           {!submitted ? (
             <>
-              <form onSubmit={handleSubmit}>
+              <FormArea as="form" onSubmit={handleSubmit}>
                 <div className={cm.authField}>
                   <FloatingInput
                     type="email"
+                    name="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onValueChange={setEmail}
                     autoComplete="email"
                     required
                     placeholder={t('auth.forgotPassword.email')}
@@ -77,7 +76,7 @@ export function ForgotPassword() {
                   >
                     <Icon name="arrow-left" size={25} />
                   </Button>
-                  <SubmitButton
+                  <Button
                     type="submit"
                     size="lg"
                     color="success"
@@ -85,9 +84,9 @@ export function ForgotPassword() {
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? t('auth.forgotPassword.submitting') : t('common.submit')}
-                  </SubmitButton>
+                  </Button>
                 </div>
-              </form>
+              </FormArea>
               {requestError && <div className={cm.authFormError}>{requestError.message}</div>}
             </>
           ) : (

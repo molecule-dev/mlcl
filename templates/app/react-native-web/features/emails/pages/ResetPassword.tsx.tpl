@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 import { usePasswordReset, useLogin, useTranslation } from '@molecule/app-react'
-import { Button as SubmitButton } from '@molecule/app-ui-react'
-import { Button, Flex } from '@molecule/app-ui-react-native'
+import { Button, Flex, FormArea } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
@@ -27,8 +26,7 @@ export function ResetPassword() {
 
   const isLoggingIn = confirmStatus === 'pending'
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
     try {
       await confirmReset({ token, password })
 {{#feature two-factor}}
@@ -70,12 +68,13 @@ export function ResetPassword() {
       </header>
       <div className={cm.authPageBody}>
         <div className={cm.authFormWrapper}>
-          <form onSubmit={handleSubmit}>
+          <FormArea as="form" onSubmit={handleSubmit}>
             <div className={cm.authField}>
               <FloatingInput
                 type="email"
+                name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onValueChange={setEmail}
                 autoComplete="email"
                 required
                 placeholder={t('auth.resetPassword.email')}
@@ -84,8 +83,9 @@ export function ResetPassword() {
             <div className={cm.authField}>
               <FloatingInput
                 type="password"
+                name="token"
                 value={token}
-                onChange={(e) => setToken(e.target.value)}
+                onValueChange={setToken}
                 required
                 placeholder={t('auth.resetPassword.token')}
               />
@@ -93,8 +93,9 @@ export function ResetPassword() {
             <div className={cm.authField}>
               <FloatingInput
                 type="password"
+                name="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onValueChange={setPassword}
                 autoComplete="new-password"
                 required
                 placeholder={t('auth.resetPassword.newPassword')}
@@ -104,8 +105,9 @@ export function ResetPassword() {
             <div className={cm.authField}>
               <FloatingInput
                 type="number"
+                name="twoFactorToken"
                 value={twoFactorToken}
-                onChange={(e) => setTwoFactorToken(e.target.value)}
+                onValueChange={setTwoFactorToken}
                 autoComplete="one-time-code"
                 placeholder={t('auth.resetPassword.twoFactor')}
               />
@@ -122,7 +124,7 @@ export function ResetPassword() {
               >
                 <Icon name="arrow-left" size={25} />
               </Button>
-              <SubmitButton
+              <Button
                 type="submit"
                 size="lg"
                 color="success"
@@ -130,9 +132,9 @@ export function ResetPassword() {
                 disabled={isLoggingIn}
               >
                 {isLoggingIn ? t('auth.resetPassword.loggingIn') : t('auth.resetPassword.submit')}
-              </SubmitButton>
+              </Button>
             </div>
-          </form>
+          </FormArea>
           {confirmError && <div className={cm.authFormError}>{confirmError.message}</div>}
         </div>
       </div>
