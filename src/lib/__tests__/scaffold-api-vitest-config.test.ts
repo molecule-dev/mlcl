@@ -52,4 +52,31 @@ describe('scaffolded API vitest config', () => {
     const [common] = [...counts].sort((a, b) => b[1] - a[1])[0]!
     expect(scaffolded).toBe(common)
   })
+
+  // A `beforeAll` that creates the server and migrates does a test's work. Tests had 30 s and hooks
+  // vitest's 10 s default, so an agent's server hook timed out under `mlcl check`'s parallel steps
+  // (harness smoke run 4, 2026-11-28) while the same tests passed once fewer steps ran.
+  it('gives hooks the time it gives tests, in the skeleton and every flagship API', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-api-vitest-'))
+    await createApiProject(dir, 'demo-api')
+    const configs: [string, string][] = [
+      ['the api skeleton', await readFile(join(dir, 'vitest.config.ts'), 'utf-8')],
+    ]
+    for (const name of readdirSync(TEMPLATES_DIR)) {
+      try {
+        configs.push([
+          name,
+          readFileSync(join(TEMPLATES_DIR, name, 'api', 'vitest.config.ts'), 'utf-8'),
+        ])
+      } catch (_error) {
+        continue // A template without an API.
+      }
+    }
+    expect(configs.length).toBeGreaterThan(100)
+    for (const [name, config] of configs) {
+      const test = /testTimeout:\s*([\d_]+)/.exec(config)?.[1]
+      expect(test, `${name} sets a test timeout`).toBeDefined()
+      expect(/hookTimeout:\s*([\d_]+)/.exec(config)?.[1], `${name} hook timeout`).toBe(test)
+    }
+  })
 })
