@@ -48,7 +48,9 @@ await import('../handlers/vaults.js')
 
 const cfg = (limitType: string) => configs.find((c) => c.limitType === limitType)
 
-beforeEach(() => count.mockClear())
+beforeEach(() => {
+  count.mockClear()
+})
 
 describe('vault-item create enforces maxItems', () => {
   it('registers the gate and reads limits.maxItems', () => {

@@ -699,7 +699,7 @@ describe('flagship list controls restore their values on initial load and Back',
 })
 
 describe('food-delivery URL-owned category selection', () => {
-  beforeEach(() =>
+  beforeEach(() => {
     mocks.get.mockImplementation(async (request: string) => ({
       data:
         request === '/api/restaurants'
@@ -708,8 +708,8 @@ describe('food-delivery URL-owned category selection', () => {
               { id: 'sushi', name: 'Sushi place', category: 'sushi' },
             ]
           : [],
-    })),
-  )
+    }))
+  })
   it('food-delivery follows same-page query navigation and Back', async () => {
     const router = await mount(
       '/restaurants',

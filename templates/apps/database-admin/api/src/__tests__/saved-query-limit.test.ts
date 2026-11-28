@@ -48,7 +48,9 @@ await import('../handlers/queries.js')
 
 const cfg = (limitType: string) => configs.find((c) => c.limitType === limitType)
 
-beforeEach(() => count.mockClear())
+beforeEach(() => {
+  count.mockClear()
+})
 
 describe('saved-query create enforces maxQueries', () => {
   it('registers the gate and reads limits.maxQueries', () => {

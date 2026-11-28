@@ -13,7 +13,9 @@ vi.mock('@molecule/api-database', () => ({
 
 import { notificationEnabled } from '../handlers/_notify.js'
 
-beforeEach(() => findById.mockReset())
+beforeEach(() => {
+  findById.mockReset()
+})
 
 describe('notificationEnabled honors stored notifyPrefs', () => {
   it('notifies when the type toggle is unset (default on)', async () => {

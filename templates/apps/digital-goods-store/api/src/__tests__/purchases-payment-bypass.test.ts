@@ -56,7 +56,9 @@ beforeAll(async () => {
   baseUrl = `http://127.0.0.1:${(server.address() as AddressInfo).port}`
 })
 afterAll(() => server?.close())
-beforeEach(() => createMock.mockClear())
+beforeEach(() => {
+  createMock.mockClear()
+})
 
 const buy = (productId: string) =>
   fetch(`${baseUrl}/api/purchases`, {
