@@ -14,7 +14,8 @@ const fixtureManifest = z.object({ dependencies: pinsSchema, devDependencies: pi
 const packageIdentity = z.object({ name: z.string(), version: z.string() })
 
 /**
- * Set up the published providers and locales that generated smoke tests import in standalone CI.
+ * Set up the published providers and locales that generated smoke tests import in standalone CI,
+ * and the type packages their typechecks need that the CLI's install lacks.
  * Keep the CLI's installed runner and core packages available via the same node_modules links.
  *
  * @param scratch - The fixture suite's private directory.
@@ -54,7 +55,16 @@ export async function featureSmokeModules(
     await rm(join(modules, name), { recursive: true })
     await symlink(installed, join(modules, name))
   }
-  const scopes = ['', '@molecule', '.bin']
+  // Merge every scope the fixture installs into (its `@types` too), so the CLI's other packages in
+  // that scope stay reachable beside the fixture's own.
+  const scopes = [
+    ...new Set([
+      '',
+      '@molecule',
+      '.bin',
+      ...(await readdir(modules)).filter((name) => name.startsWith('@')),
+    ]),
+  ]
   for (const scope of scopes) await mkdir(join(modules, scope), { recursive: true })
   for (const scope of scopes) {
     const source = join(cliModules, scope)
@@ -66,13 +76,18 @@ export async function featureSmokeModules(
 
   // The fixtures intentionally bind these providers to the released versions in the lockfile.
   // The rest of the generated project's packages and all metadata use the current registry.
+  // The type packages it also supplies keep the scaffold's own pins.
   const pins = loadMoleculeVersions()
   const registry = join(root, 'registry.json')
+  const locked = Object.entries(dependencies).filter(([name]) => name.startsWith('@molecule/'))
   await writeFile(
     registry,
     JSON.stringify({
       ...getRawRegistry(),
-      moleculeVersions: { ...pins, overrides: { ...pins.overrides, ...dependencies } },
+      moleculeVersions: {
+        ...pins,
+        overrides: { ...pins.overrides, ...Object.fromEntries(locked) },
+      },
     }),
   )
   return { modules, registry }

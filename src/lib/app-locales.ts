@@ -114,6 +114,11 @@ export async function appBondLocaleKeys(
       }
       const entry = manifest.exports?.['./loader.js']?.import
       if (!entry) throw new Error(`${name} does not export its locale loader.`)
+      // A source checkout found through the registry path has no build output until it is built.
+      if (!existsSync(join(root, entry)))
+        throw new Error(
+          `${name} at ${root} has no ${entry.replace(/^\.\//, '')}: install the package (npm install) or build that copy, then run this again.`,
+        )
       const { loadLocaleModule } = (await import(pathToFileURL(join(root, entry)).href)) as {
         loadLocaleModule: LoadDictionary
       }

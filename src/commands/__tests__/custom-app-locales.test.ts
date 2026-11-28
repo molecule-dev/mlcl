@@ -4,7 +4,9 @@ import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 
-import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
+
+import { featureSmokeModules } from '../../lib/__tests__/feature-smoke-modules.js'
 
 const cli = resolve(import.meta.dirname, '../../../bin/run.js')
 const require = createRequire(import.meta.url)
@@ -13,12 +15,16 @@ let root: string
 
 beforeAll(async () => {
   root = await mkdtemp(join(tmpdir(), 'mlcl-app-locales-'))
-  // Resolve exactly the dependency installation that runs this suite. The projects
-  // live outside the checkout, so an unrelated ancestor install cannot satisfy imports.
-  await symlink(dependencies, join(root, 'node_modules'), 'junction')
-})
+  // Resolve exactly the dependency installation that runs this suite, plus the locked locale
+  // bonds a generated app imports that mlcl's own install lacks. The projects live outside the
+  // checkout, so an unrelated ancestor install cannot satisfy imports.
+  const fixture = await featureSmokeModules(root, dependencies)
+  await symlink(fixture.modules, join(root, 'node_modules'), 'junction')
+  vi.stubEnv('MLCL_REGISTRY_PATH', fixture.registry)
+}, 150_000)
 
 afterAll(async () => {
+  vi.unstubAllEnvs()
   if (root) await rm(root, { recursive: true, force: true })
 })
 

@@ -9,7 +9,12 @@
     "@molecule/api-locales-database": "1.0.3",
     "@molecule/api-locales-emails": "1.0.3",
     "@molecule/api-locales-secrets": "1.0.3",
-    "@molecule/api-oauth-github": "1.2.3"
+    "@molecule/api-oauth-github": "1.2.3",
+    "@molecule/api-rate-limit-memory": "1.0.3",
+    "@molecule/app-locales-clipboard": "1.0.5",
+    "@molecule/app-locales-filesystem": "1.0.5",
+    "@molecule/app-locales-lifecycle": "1.1.2",
+    "@types/react-dom": "19.3.0"
   },
   "devDependencies": {
     "@molecule/api-analytics": "1.1.2",
@@ -18,6 +23,11 @@
     "@molecule/api-http": "1.0.5",
     "@molecule/api-i18n": "1.0.6",
     "@molecule/api-oauth": "1.1.2",
-    "@molecule/api-secrets": "1.0.2"
+    "@molecule/api-rate-limit": "1.0.4",
+    "@molecule/api-secrets": "1.0.2",
+    "@molecule/app-bond": "1.0.5",
+    "@molecule/app-i18n": "1.4.0",
+    "@molecule/app-logger": "1.1.0",
+    "@types/react": "19.3.0"
   }
 }

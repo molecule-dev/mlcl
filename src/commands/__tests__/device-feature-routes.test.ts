@@ -11,11 +11,13 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 
-import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
+
+import { featureSmokeModules } from '../../lib/__tests__/feature-smoke-modules.js'
 
 const exec = promisify(execFile)
 const ROOT = join(import.meta.dirname, '..', '..', '..')
-const modules = dirname(dirname(fileURLToPath(import.meta.resolve('vitest/package.json'))))
+const cliModules = dirname(dirname(fileURLToPath(import.meta.resolve('vitest/package.json'))))
 const device = '@molecule/api-resource-device'
 const user = '@molecule/api-resource-user'
 const settings = '@molecule/app-settings-panel-react'
@@ -32,10 +34,18 @@ const management = [
 ] as const
 
 let scratch: string
+let modules: string
 beforeAll(async () => {
   scratch = await mkdtemp(join(tmpdir(), 'mlcl-device-features-'))
-})
+  // The generated projects import providers and locales mlcl's own install lacks, and create's
+  // injection reads the locale bonds' loaders before a project has a node_modules of its own.
+  const fixture = await featureSmokeModules(scratch, cliModules)
+  modules = fixture.modules
+  await symlink(modules, join(scratch, 'node_modules'))
+  vi.stubEnv('MLCL_REGISTRY_PATH', fixture.registry)
+}, 150_000)
 afterAll(async () => {
+  vi.unstubAllEnvs()
   await rm(scratch, { recursive: true, force: true })
 })
 
