@@ -636,6 +636,8 @@ describe('runCheckLocal', () => {
         'echo "Molecule browser setup: playwright install --only-shell chromium"',
         "echo 'Downloading Chrome Headless Shell 148.0.7778.5 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/x.zip'",
         "echo '|■■■■■■■■■■■■■■■■                                                                |  40% of 119.9 MiB'",
+        // The check writes each note to the log as it reads the line, so wait for it (up to 10 s).
+        'n=0; until grep -q "downloaded 40%" node_modules/.cache/mlcl-check/e2e.log || [ $n -ge 200 ]; do n=$((n + 1)); sleep 0.05; done',
         'cat node_modules/.cache/mlcl-check/e2e.log > seen.txt',
         'echo "  1 passed (1.0s)"',
         '',
