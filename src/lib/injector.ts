@@ -5156,6 +5156,7 @@ function generateServerContentHeuristic(
     `import { appendFileSync } from 'fs'`,
     `import http from 'http'`,
     `import https from 'https'`,
+    `import { createRequire } from 'module'`,
     `import process from 'process'`,
     `import { fileURLToPath } from 'url'`,
   ].sort()
@@ -5221,6 +5222,41 @@ function generateServerContentHeuristic(
   lines.push(`  }`)
   lines.push(`  ${logError}`)
   lines.push(`})`)
+  lines.push('')
+
+  // `pem` is CommonJS and the API is an ES module, where a bare `require` is undefined: the
+  // generated HTTPS branch threw "require is not defined" from mlcl 2.0.0 on. The same loader
+  // as `@molecule/api-server-default-express`, which the flagship templates use.
+  lines.push(
+    `/** The slice of the optional \`pem\` package used for self-signed dev certificates. */`,
+  )
+  lines.push(`interface PemModule {`)
+  lines.push(`  createCertificate(`)
+  lines.push(`    options: { days: number; selfSigned: boolean },`)
+  lines.push(
+    `    callback: (error: Error | null, keys: { serviceKey: string; certificate: string }) => void,`,
+  )
+  lines.push(`  ): void`)
+  lines.push(`}`)
+  lines.push('')
+  lines.push(`/**`)
+  lines.push(` * Load the optional \`pem\` dependency (CommonJS) from this ES module.`)
+  lines.push(` *`)
+  lines.push(` * @returns The \`pem\` module.`)
+  lines.push(` * @throws {Error} With an install hint when \`pem\` is not installed.`)
+  lines.push(` */`)
+  lines.push(`function loadPem(): PemModule {`)
+  lines.push(`  try {`)
+  lines.push(`    return createRequire(import.meta.url)('pem') as PemModule`)
+  lines.push(`  } catch (error) {`)
+  lines.push(`    throw new Error(`)
+  lines.push(
+    `      'HTTPS mode needs the optional dependency \`pem\` to create a self-signed certificate. Install it with \`npm install pem\`, or unset HTTPS.',`,
+  )
+  lines.push(`      { cause: error },`)
+  lines.push(`    )`)
+  lines.push(`  }`)
+  lines.push(`}`)
   lines.push('')
 
   // The create signature as prettier prints it: over the print width on one line, so one
@@ -5337,17 +5373,8 @@ function generateServerContentHeuristic(
 
   lines.push(`  let server: http.Server | https.Server = http.createServer(app)`)
   lines.push(`  if (process.env.HTTPS) {`)
-  lines.push(`    // Create a self-signed SSL certificate for local HTTPS development.`)
-  lines.push(`    // pem is an optional dependency for local HTTPS development.`)
-  lines.push(`    // eslint-disable-next-line @typescript-eslint/no-require-imports`)
-  lines.push(`    const pem = require('pem') as {`)
-  lines.push(`      createCertificate(`)
-  lines.push(`        options: { days: number; selfSigned: boolean },`)
-  lines.push(
-    `        callback: (error: Error | null, keys: { serviceKey: string; certificate: string }) => void,`,
-  )
-  lines.push(`      ): void`)
-  lines.push(`    }`)
+  lines.push(`    // A self-signed certificate for local HTTPS development.`)
+  lines.push(`    const pem = loadPem()`)
   lines.push(`    server = await new Promise<https.Server>((resolve, reject) => {`)
   lines.push(`      pem.createCertificate({ days: 1, selfSigned: true }, (error, keys) => {`)
   lines.push(`        if (error) reject(error)`)

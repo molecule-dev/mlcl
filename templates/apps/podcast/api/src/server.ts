@@ -1,6 +1,7 @@
 import express from 'express'
 import { appendFileSync } from 'fs'
 import https from 'https'
+import { createRequire } from 'module'
 import process from 'process'
 import { fileURLToPath } from 'url'
 
@@ -26,6 +27,31 @@ process.on('uncaughtExceptionMonitor', (error) => {
   }
   logger.error(error)
 })
+
+/** The slice of the optional `pem` package used for self-signed dev certificates. */
+interface PemModule {
+  createCertificate(
+    options: { days: number; selfSigned: boolean },
+    callback: (error: Error | null, keys: { serviceKey: string; certificate: string }) => void,
+  ): void
+}
+
+/**
+ * Load the optional `pem` dependency (CommonJS) from this ES module.
+ *
+ * @returns The `pem` module.
+ * @throws {Error} With an install hint when `pem` is not installed.
+ */
+function loadPem(): PemModule {
+  try {
+    return createRequire(import.meta.url)('pem') as PemModule
+  } catch (error) {
+    throw new Error(
+      'HTTPS mode needs the optional dependency `pem` to create a self-signed certificate. Install it with `npm install pem`, or unset HTTPS.',
+      { cause: error },
+    )
+  }
+}
 
 export const create = async (
   port: number = Number(process.env.PORT) || 4000,
@@ -94,15 +120,8 @@ export const create = async (
 
   let server: express.Express | https.Server = app
   if (process.env.HTTPS) {
-    // Create a self-signed SSL certificate for local HTTPS development.
-    // pem is an optional dependency for local HTTPS development.
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const pem = require('pem') as {
-      createCertificate(
-        options: { days: number; selfSigned: boolean },
-        callback: (error: Error | null, keys: { serviceKey: string; certificate: string }) => void,
-      ): void
-    }
+    // A self-signed certificate for local HTTPS development.
+    const pem = loadPem()
     server = await new Promise<https.Server>((resolve, reject) => {
       pem.createCertificate({ days: 1, selfSigned: true }, (error, keys) => {
         if (error) reject(error)

@@ -117,7 +117,7 @@ describe('scanEnvRefs', () => {
       join(dir, 'src', 'server.ts'),
       [
         '  if (process.env.HTTPS) {',
-        "    const pem = require('pem')",
+        '    const pem = loadPem()',
         '  }',
         "  logger.info(`Started ${process.env.HTTPS ? 'HTTPS' : 'HTTP'} server.`)",
       ].join('\n'),
