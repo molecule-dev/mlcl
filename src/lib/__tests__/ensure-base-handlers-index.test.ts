@@ -103,6 +103,23 @@ describe('ensureBaseHandlersIndex', () => {
     expect(after.trimEnd().endsWith('router.use(handlers)')).toBe(true)
   })
 
+  it('separates the handlers import from a lone package import, as simple-import-sort does', async () => {
+    // A router with no resource routes imports only `express`: the import inserted right
+    // after it sat in the package group and failed the scaffold's own lint.
+    await writeFile(
+      routerPath,
+      `import { Router } from 'express'\n\nexport const router = Router()\n`,
+    )
+    await ensureBaseHandlersIndex(apiPath)
+
+    const after = await readFile(routerPath, 'utf-8')
+    expect(
+      after.startsWith(
+        `import { Router } from 'express'\n\nimport handlers from '../handlers/index.js'\n`,
+      ),
+    ).toBe(true)
+  })
+
   it('does not overwrite an existing handlers/index.ts', async () => {
     await mkdir(join(apiPath, 'src', 'handlers'), { recursive: true })
     await writeFile(handlersIndexPath, '// template-supplied handlers\nexport default {}\n')

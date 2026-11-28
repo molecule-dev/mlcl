@@ -4746,6 +4746,12 @@ export async function ensureBaseHandlersIndex(apiPath: string): Promise<void> {
     routerContent += `\n${mount}`
   }
 
+  // The insertion above places the import; the sort groups it as the project's own
+  // simple-import-sort does. A router whose only import was `express` otherwise put the
+  // relative import in the package group, a lint warning the scaffold's `--max-warnings 0`
+  // fails (every API with no resource routes).
+  routerContent = sortImportStatements(routerContent, apiRouterPath)
+
   // Guarded, same policy as wireTemplateApiRouters above: the router pre-exists,
   // and a failed write must not leave a truncated route table behind.
   await writeGuarded(apiRouterPath, routerContent)
@@ -8090,8 +8096,8 @@ export async function createReactNativeAppProject(
       // a release build compiles itself and whose compiler has no Linux arm64 binary.
       build: 'tsc --noEmit && expo export --no-bytecode',
       typecheck: 'tsc --noEmit',
-      // The generated bonds smoke test is a vitest test (vi.mock/import.meta.glob)
-      // — the same generator every web scaffold runs under `vitest run`.
+      // The app's own tests, under the vitest.config.ts written below: with none yet a plain
+      // run passes and says so, as on every web scaffold.
       test: 'vitest run',
       lint: 'eslint src/',
       'lint:fix': 'eslint src/ --fix',
@@ -8122,6 +8128,14 @@ export async function createReactNativeAppProject(
     await loadTemplate('app/shared/prettierignore.tpl'),
   )
   await writeFile(join(projectPath, '.editorconfig'), await loadTemplate('shared/editorconfig.tpl'))
+  // The API's vitest config: a plain `vitest run` passes while the app has no tests yet, and a
+  // run that names a missing file still fails. Without it an Expo app with no tests failed its
+  // own `npm test` ("No test files found, exiting with code 1"), and vitest would take the
+  // nearest config above the project instead.
+  await writeFile(
+    join(projectPath, 'vitest.config.ts'),
+    await loadTemplate('api/vitest.config.ts.tpl'),
+  )
 
   // ---- tsconfig.json (framework-driven from registry) ----
   const tsconfig = {
