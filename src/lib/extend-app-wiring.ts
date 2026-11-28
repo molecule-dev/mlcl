@@ -15,6 +15,13 @@ import { getRawRegistry, requirePackageByRole } from './registry.js'
 /** The property of the i18n setup call that lists the companion locale bonds' loaders. */
 const LOADERS = 'packageLocaleLoaders'
 
+/** What an app with managed locales loads its locale bonds through, and where it comes from. */
+const PACKAGE_LOCALES = 'loadPackageLocales'
+const PACKAGE_LOCALES_MODULE = '../locales/packages.js'
+
+/** A locale bond's own loader, which lists all of its languages: `@molecule/app-locales-auth/loader.js`. */
+const BOND_LOADER = /^@molecule\/app-locales-[^/]+\/loader\.js$/
+
 /**
  * The file name of an app's i18n bond (`i18n-default.ts`): the `defaultBond` the registry gives
  * the app i18n core, which is the name inject writes the bond under.
@@ -29,7 +36,10 @@ export function appI18nBondFile(): string {
   return `${bond}.ts`
 }
 
-/** The object literal passed to the i18n setup call: the one that has an `enUi` property. */
+/**
+ * The object literal passed to the i18n setup call: the one that has an `enUi` property, or the
+ * `primaryUi` an app with managed locales passes when its primary language is not English.
+ */
 function setupOptions(file: ts.SourceFile): ts.ObjectLiteralExpression | undefined {
   let found: ts.ObjectLiteralExpression | undefined
   const visit = (node: ts.Node): void => {
@@ -38,9 +48,10 @@ function setupOptions(file: ts.SourceFile): ts.ObjectLiteralExpression | undefin
       ts.isObjectLiteralExpression(node) &&
       node.properties.some(
         (property) =>
-          ts.isPropertyAssignment(property) &&
-          ts.isIdentifier(property.name) &&
-          property.name.text === 'enUi',
+          (ts.isPropertyAssignment(property) &&
+            ts.isIdentifier(property.name) &&
+            property.name.text === 'enUi') ||
+          (ts.isShorthandPropertyAssignment(property) && property.name.text === 'primaryUi'),
       )
     ) {
       found = node
@@ -87,6 +98,7 @@ export function extendAppLocales(existing: string, generated: string): string {
       .map((element) => element.text) ?? [],
   )
   if (wanted.size === 0) return existing
+  if (wanted.has(PACKAGE_LOCALES)) return usePackageLocales(existing)
   const options = setupOptions(current)
   if (!options)
     throw new Error(
@@ -139,4 +151,89 @@ export function extendAppLocales(existing: string, generated: string): string {
     { at: lastImport?.end ?? 0, text: `\n${imports.join('\n')}` },
     entries,
   ])
+}
+
+/**
+ * Point the i18n bond of an app with managed locales at `loadPackageLocales` from its generated
+ * locales/packages.ts, which imports only the languages the app offers. A bond mlcl 2.2.15 wrote
+ * imports each locale bond's `loader.js`, which lists all 79 languages, so its build carries 79
+ * chunks for every bond: those imports and their `packageLocaleLoaders` entries go, and any
+ * other loader in the list stays. A bond that already uses it comes back unchanged.
+ *
+ * @param existing - The project's current i18n bond.
+ * @returns The bond loading its locale bonds through `loadPackageLocales`.
+ * @throws When the file has no i18n setup call options to change, or its
+ *   `packageLocaleLoaders` is not an array.
+ */
+export function usePackageLocales(existing: string): string {
+  const current = parse('i18n.ts', existing)
+  const options = setupOptions(current)
+  if (!options)
+    throw new Error(
+      `Cannot update src/bonds/${appI18nBondFile()}: it has no i18n setup call to load the locale bonds in.`,
+    )
+  const imports = current.statements.filter(ts.isImportDeclaration)
+  const bondImports = imports.filter((node) => BOND_LOADER.test(specifierOf(node)))
+  const hasModule = imports.some((node) => specifierOf(node) === PACKAGE_LOCALES_MODULE)
+  if (bondImports.length === 0 && hasModule) return existing
+  const removed = new Set(
+    bondImports.flatMap((node) => {
+      const bindings = node.importClause?.namedBindings
+      return bindings && ts.isNamedImports(bindings)
+        ? bindings.elements.map((element) => element.name.text)
+        : []
+    }),
+  )
+  const list = loadersOf(options)
+  if (
+    !list &&
+    options.properties.some(
+      (property) =>
+        ts.isPropertyAssignment(property) &&
+        ts.isIdentifier(property.name) &&
+        property.name.text === LOADERS,
+    )
+  )
+    throw new Error(
+      `Cannot update src/bonds/${appI18nBondFile()}: its ${LOADERS} is not an array literal.`,
+    )
+  const kept = (list?.elements ?? [])
+    .filter((element) => !(ts.isIdentifier(element) && removed.has(element.text)))
+    .map((element) => element.getText(current))
+  if (!kept.includes(PACKAGE_LOCALES)) kept.unshift(PACKAGE_LOCALES)
+  const replacements: Array<{ start: number; end: number; text: string }> = bondImports.map(
+    (node) => ({
+      start: node.getStart(current),
+      end: node.end + (existing[node.end] === '\n' ? 1 : 0),
+      text: '',
+    }),
+  )
+  const lastProperty = options.properties.at(-1)
+  replacements.push(
+    list
+      ? { start: list.getStart(current), end: list.end, text: `[${kept.join(', ')}]` }
+      : {
+          start: lastProperty ? lastProperty.end : options.getStart(current) + 1,
+          end: lastProperty ? lastProperty.end : options.getStart(current) + 1,
+          text: `${lastProperty ? ',' : ''}\n  ${LOADERS}: [${kept.join(', ')}]`,
+        },
+  )
+  if (!hasModule) {
+    const last = imports.filter((node) => !bondImports.includes(node)).at(-1)
+    const at = last ? last.end : 0
+    replacements.push({
+      start: at,
+      end: at,
+      text: `\nimport { ${PACKAGE_LOCALES} } from '${PACKAGE_LOCALES_MODULE}'`,
+    })
+  }
+  let text = existing
+  for (const { start, end, text: insert } of replacements.sort((a, b) => b.start - a.start))
+    text = text.slice(0, start) + insert + text.slice(end)
+  // The header mlcl 2.2.15 wrote names the list this replaces.
+  return text.replace(
+    /( \* Every other language) loads when the app switches to it, from the app's\n \* locales\/<code>\/ui\.ts and from each companion locale bond the app installs, listed below\.\n \* `([^`\n]+) add <package> --inject` \(or `[^`\n]+ inject`\) rewrites this file with the new list\.\n \* Swap/,
+    (_match, start: string, command: string) =>
+      `${start} this app offers loads when the app switches to it, from the app's\n * locales/<code>/ui.ts and from the companion locale bonds in locales/packages.ts.\n * \`${command} locale add <code>\` adds a language, and \`${command} add <package> --inject\`\n * a locale bond, to both. Swap`,
+  )
 }

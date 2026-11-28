@@ -1,4 +1,5 @@
 import { spawnSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import { mkdtemp, readdir, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
@@ -7,6 +8,8 @@ import { dirname, join, resolve } from 'node:path'
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 
 import { featureSmokeModules } from '../../lib/__tests__/feature-smoke-modules.js'
+import { installedPackageDir } from '../../lib/add-guidance.js'
+import { offeredSetupEntry } from '../../lib/app-locales.js'
 
 const cli = resolve(import.meta.dirname, '../../../bin/run.js')
 const require = createRequire(import.meta.url)
@@ -119,6 +122,52 @@ describe('custom app locales', () => {
     ])
     const built = run('npm', ['run', 'build'], app)
     expect(built.status, built.output).toBe(0)
+
+    // The build carries the locale bonds' strings in the two offered languages and no others.
+    // Through each bond's loader.js, which lists all 79, it carried a chunk for every language of
+    // every bond: 1,185 chunks for an English-only app with 15 bonds (harness smoke run 4). A bond
+    // whose installed version does not publish its languages one by one still loads that way.
+    const assets = join(app, 'dist', 'assets')
+    const scripts = (await readdir(assets)).filter((file) => file.endsWith('.js'))
+    const output = await Promise.all(scripts.map((file) => readFile(join(assets, file), 'utf-8')))
+    const exportsOf = (name: string): Record<string, unknown> =>
+      (
+        JSON.parse(
+          readFileSync(join(installedPackageDir(name, app)!, 'package.json'), 'utf-8'),
+        ) as {
+          exports: Record<string, unknown>
+        }
+      ).exports
+    const offered = Boolean(exportsOf('@molecule/app-i18n-default')['./offered.js'])
+    // The ui bond, which the app's i18n bond loads, and the common bond, which the setup package
+    // loads itself unless the app takes its offered.js entry.
+    let whole = 0
+    for (const name of ['@molecule/app-locales-ui', '@molecule/app-locales-common']) {
+      const bond = (await import(name)) as Record<'en' | 'fr' | 'de', Record<string, string>>
+      const key = Object.keys(bond.de).find(
+        (each) =>
+          /^[ -~]{6,}$/.test(bond.de[each]!) &&
+          /^[ -~]{6,}$/.test(bond.fr[each]!) &&
+          new Set([bond.en[each], bond.fr[each], bond.de[each]]).size === 3,
+      )!
+      expect(key, name).toBeDefined()
+      expect(
+        output.some((source) => source.includes(bond.fr[key]!)),
+        name,
+      ).toBe(true)
+      const german = scripts.filter((_file, index) => output[index]!.includes(bond.de[key]!))
+      const byLanguage =
+        Boolean(exportsOf(name)['./*.js']) && (name !== '@molecule/app-locales-common' || offered)
+      expect(german, name).toHaveLength(byLanguage ? 0 : 1)
+      if (!byLanguage) whole++
+    }
+    // Every other bond that still loads through its loader.js is listed in packages.ts.
+    whole +=
+      /const loaders = \[([^\]]*)\]/
+        .exec(await readFile(join(locales, 'packages.ts'), 'utf-8'))?.[1]
+        ?.split(',')
+        .filter((name) => name.trim() && !/^(ui|common)Locales$/.test(name.trim())).length ?? 0
+    expect(scripts.length, scripts.join(' ')).toBeLessThan(25 + 79 * whole)
   }, 120_000)
 
   it('scaffolds and typechecks a French-only app', async () => {
@@ -128,7 +177,13 @@ describe('custom app locales', () => {
       "export const primaryLocale = 'fr'",
     )
     const bond = await readFile(join(app, 'src/bonds/i18n-default.ts'), 'utf-8')
-    expect(bond).toContain("from '@molecule/app-i18n-default/setup.js'")
+    // The installed setup package's entry that loads no locale bond, else the one for a primary
+    // language other than English (the root assumes English common strings).
+    expect(bond).toContain(
+      offeredSetupEntry('@molecule/app-i18n-default', app)
+        ? "from '@molecule/app-i18n-default/offered.js'"
+        : "from '@molecule/app-i18n-default/setup.js'",
+    )
     expect(bond).toContain('primaryLocale,')
     expect(bond).not.toContain("'/en/ui.js'")
     const checked = run('npm', ['run', 'typecheck'], app)

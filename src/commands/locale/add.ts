@@ -10,6 +10,8 @@ import {
   projectAppLocales,
   writeAppLocaleLoaders,
 } from '../../lib/app-locales.js'
+import { appI18nBondFile, usePackageLocales } from '../../lib/extend-app-wiring.js'
+import { sortImportStatements } from '../../lib/format.js'
 import { refreshAppTranslationCatalogs } from '../../lib/injector.js'
 import { npmInstallRoot } from '../../lib/npm-install-root.js'
 import { withProjectLock } from '../../lib/project-lock.js'
@@ -61,6 +63,14 @@ export default class LocaleAdd extends Command {
       )
       await refreshAppTranslationCatalogs(app, locales)
       await writeAppLocaleLoaders(dir, locales)
+      // A bond mlcl 2.2.15 wrote loads every language of each locale bond; the generated
+      // locales/packages.ts the refresh just wrote holds only the ones the app offers.
+      const bond = join(dir, '..', 'bonds', appI18nBondFile())
+      if (existsSync(bond)) {
+        const current = await readFile(bond, 'utf-8')
+        const next = usePackageLocales(current)
+        if (next !== current) await writeFile(bond, sortImportStatements(next, bond))
+      }
       manifest.molecule.locales = locales
       await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
     })

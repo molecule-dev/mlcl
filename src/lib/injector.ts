@@ -94,8 +94,10 @@ import { buildPackageContext, loadMoleculeMdBatch } from './ai-context.js'
 import {
   appBondLocaleKeys,
   appLocaleDirectory,
+  offeredSetupEntry,
   projectAppLocales,
   writeAppLocaleTypes,
+  writeAppPackageLocales,
 } from './app-locales.js'
 import {
   type AuthContract,
@@ -2747,6 +2749,7 @@ function generateAppI18nBondSetup(
       {
         primary: locales[0],
         factory: { package: pkg.name, name: createFn },
+        offered: offeredSetupEntry(setup, projectPath),
       },
     )
   }
@@ -3851,6 +3854,7 @@ export function synthesizeAppProjectFiles(
           allMolecules,
           loadAppFrameworks()[getProjectAppFramework(projectPath) ?? '']?.bundler,
           projectLocales?.[0],
+          projectPath,
         ),
         description: `Generate default ${cat} bond setup`,
       })
@@ -4165,12 +4169,46 @@ export async function refreshAppTranslationCatalogs(
   const manifest = readRendererManifest(projectPath)
   const dependencies = { ...manifest.dependencies, ...manifest.devDependencies }
   const bonds = installedLocaleBonds(Object.keys(dependencies), 'app')
+  const resolvePackage = async (name: string): Promise<string | null> =>
+    (await resolveMoleculePackage(name, projectPath)).path
   const keys = await appBondLocaleKeys(
     locales,
     bonds.map(({ pkg }) => pkg),
-    async (name) => (await resolveMoleculePackage(name, projectPath)).path,
+    resolvePackage,
   )
   await writeAppLocaleTypes(appLocaleDirectory(projectPath), locales, keys)
+  // The bonds the i18n bond loads: those its setup package does not already merge itself.
+  const setup = packagesByRole('app', 'feature', 'i18n-default').find(
+    (name) => name in dependencies,
+  )
+  await writeAppPackageLocales(
+    appLocaleDirectory(projectPath),
+    locales,
+    installedLocaleBonds(
+      Object.keys(dependencies),
+      'app',
+      setup && !offeredSetupEntry(setup, projectPath) ? setup : undefined,
+    ),
+    resolvePackage,
+  )
+}
+
+/**
+ * The header of the i18n bond of an app with managed locales (package.json `molecule.locales`).
+ *
+ * @param setupPackage - The package exporting `setupI18nDefault`.
+ * @returns The doc comment.
+ */
+function managedBondHeader(setupPackage: string): string {
+  return `/**
+ * Default i18n bond setup
+ *
+ * Uses setupI18nDefault from ${setupPackage}. The primary dictionary loads at startup.
+ * Every other language this app offers loads when the app switches to it, from the app's
+ * locales/<code>/ui.ts and from the companion locale bonds in locales/packages.ts.
+ * \`${CLI_COMMAND} locale add <code>\` adds a language, and \`${CLI_COMMAND} add <package> --inject\`
+ * a locale bond, to both. Swap to a different i18n provider by replacing this bond.
+ */`
 }
 
 /**
@@ -4180,8 +4218,10 @@ export async function refreshAppTranslationCatalogs(
  * every other locale: the bond is installed and nothing reads it.
  *
  * The loaders are imported from each bond's `/loader.js` entry, which fetches one language
- * at a time; importing the bond itself would put every language in the entry chunk. Written
- * the way the app's prettier config prints it, so the scaffold's own format check passes.
+ * at a time; importing the bond itself would put every language in the entry chunk. An app
+ * with managed locales (`project`) instead takes `loadPackageLocales` from its generated
+ * locales/packages.ts, which imports only the languages it offers. Written the way the app's
+ * prettier config prints it, so the scaffold's own format check passes.
  *
  * @param capabilityHeader - The capability doc comment the registry gives this bond, if any;
  *   otherwise the file says what it loads and what rewrites it.
@@ -4202,7 +4242,7 @@ export function generateI18nDefaultSetupBond(
   pascal: string,
   bindings: readonly string[],
   bundler: 'vite' | 'metro' = 'vite',
-  project?: { primary: string; factory?: { package: string; name: string } },
+  project?: { primary: string; factory?: { package: string; name: string }; offered?: string },
 ): string {
   const bonds = installedLocaleBonds(bindings, 'app', setupPackage)
   const bondHeader =
@@ -4238,16 +4278,32 @@ export function generateI18nDefaultSetupBond(
         ? 'lazyLoadUi, primaryUi, supportedLocales'
         : 'lazyLoadUi, primaryLocale, primaryUi, supportedLocales'
     const factory = project.factory
-    if (factory) imports.push(`import { ${factory.name} } from '${factory.package}'`)
-    imports.push(`import { ${names} } from '../locales/project.js'`)
-    return `${bondHeader}
+    // The app offers the languages in its package.json `molecule.locales`, so the bonds' strings
+    // come from locales/packages.ts, one module per offered language (writeAppPackageLocales).
+    // Each bond's loader.js lists all 79 languages, and a bundler builds a chunk for each.
+    // An installed setup package with an entry that loads no locale bond leaves the common bond's
+    // strings to locales/packages.ts as well (offeredSetupEntry).
+    const managedBonds = project.offered ? installedLocaleBonds(bindings, 'app') : bonds
+    const managedImports = [
+      project.offered
+        ? `import { setupI18nDefault as setupI18nProvider } from '${project.offered}'`
+        : imports[0]!,
+      ...(factory ? [`import { ${factory.name} } from '${factory.package}'`] : []),
+      ...(managedBonds.length > 0
+        ? [`import { loadPackageLocales } from '../locales/packages.js'`]
+        : []),
+      `import { ${names} } from '../locales/project.js'`,
+    ]
+    const managedLoaders =
+      managedBonds.length > 0 ? '\n  packageLocaleLoaders: [loadPackageLocales],' : ''
+    return `${capabilityHeader ?? managedBondHeader(setupPackage)}
 
-${imports.join('\n')}
+${managedImports.join('\n')}
 
 export const ${exportName} = setupI18nProvider({
 ${primary}
   lazyLoadUi,
-  supportedLocales,${loaders}${
+  supportedLocales,${managedLoaders}${
     factory
       ? `\n  createProvider: (code, locales) =>
     ${factory.name}({ defaultLocale: code, fallbackLocale: code, detection: false, locales }),`
@@ -4355,6 +4411,7 @@ function generateDefaultBondSetup(
   bindings: readonly string[] = [],
   bundler: 'vite' | 'metro' = 'vite',
   primaryLocale?: string,
+  projectPath?: string,
 ): string {
   const imports: string[] = []
   // An extraImport FROM the bond's own package is not a second module: it names
@@ -4443,7 +4500,14 @@ function generateDefaultBondSetup(
         pascal,
         bindings,
         bundler,
-        primaryLocale ? { primary: primaryLocale } : undefined,
+        primaryLocale
+          ? {
+              primary: primaryLocale,
+              offered: projectPath
+                ? offeredSetupEntry(defaultSetupPackage, projectPath)
+                : undefined,
+            }
+          : undefined,
       )
     }
     const storagePkg = requirePackageByRole('app', 'core', 'storage')

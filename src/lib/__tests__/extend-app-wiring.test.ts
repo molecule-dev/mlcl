@@ -7,7 +7,7 @@
 import ts from 'typescript'
 import { describe, expect, it } from 'vitest'
 
-import { appI18nBondFile, extendAppLocales } from '../extend-app-wiring.js'
+import { appI18nBondFile, extendAppLocales, usePackageLocales } from '../extend-app-wiring.js'
 import { generateI18nDefaultSetupBond } from '../injector.js'
 
 const SETUP = '@molecule/app-i18n-default'
@@ -115,5 +115,102 @@ describe('extendAppLocales', () => {
         bond(['@molecule/app-locales-billing']),
       ),
     ).toThrow('Cannot extend src/bonds/i18n-default.ts')
+  })
+})
+
+/**
+ * The i18n bond mlcl 2.2.15 wrote for an app with managed locales: each locale bond's loader.js,
+ * which lists all 79 languages, so the build carried a chunk for every language of every bond.
+ */
+const MANAGED_2_2_15 = `/**
+ * Default i18n bond setup
+ *
+ * Uses setupI18nDefault from @molecule/app-i18n-default. The primary dictionary loads at startup.
+ * Every other language loads when the app switches to it, from the app's
+ * locales/<code>/ui.ts and from each companion locale bond the app installs, listed below.
+ * \`npx mlcl add <package> --inject\` (or \`npx mlcl inject\`) rewrites this file with the new list.
+ * Swap to a different i18n provider by replacing this bond.
+ */
+
+import { setupI18nDefault as setupI18nProvider } from '@molecule/app-i18n-default'
+import { loadLocaleModule as authLocales } from '@molecule/app-locales-auth/loader.js'
+import { loadLocaleModule as uiLocales } from '@molecule/app-locales-ui/loader.js'
+
+import { lazyLoadUi, primaryUi, supportedLocales } from '../locales/project.js'
+
+export const i18nProvider = setupI18nProvider({
+  enUi: primaryUi,
+  lazyLoadUi,
+  supportedLocales,
+  packageLocaleLoaders: [
+    authLocales,
+    uiLocales,
+  ],
+})
+
+export function setupI18nDefault(): void {
+  // The provider above is already bonded.
+}
+`
+
+/** The bond the generator writes for an app with managed locales. */
+const managed = (bindings: string[], project: { primary: string; offered?: string }): string =>
+  generateI18nDefaultSetupBond(
+    undefined,
+    SETUP,
+    'i18nProvider',
+    'I18nDefault',
+    [SETUP, ...bindings],
+    'vite',
+    project,
+  )
+
+describe('usePackageLocales', () => {
+  it('moves a bond mlcl 2.2.15 wrote onto locales/packages.ts', () => {
+    const migrated = usePackageLocales(MANAGED_2_2_15)
+    expect(loads(migrated)).toEqual({
+      imports: ['../locales/packages.js', '../locales/project.js', SETUP],
+      loaders: ['loadPackageLocales'],
+    })
+    expect(migrated).toContain('from the companion locale bonds in locales/packages.ts.')
+    expect(migrated).not.toContain('listed below')
+    expectParses(migrated)
+    expect(usePackageLocales(migrated)).toBe(migrated)
+  })
+
+  it('keeps a loader the app added itself', () => {
+    const own = MANAGED_2_2_15.replace(
+      "import { lazyLoadUi, primaryUi, supportedLocales } from '../locales/project.js'",
+      "import { lazyLoadUi, primaryUi, supportedLocales } from '../locales/project.js'\nimport { loadMine } from './mine.js'",
+    ).replace('    uiLocales,\n', '    uiLocales,\n    loadMine,\n')
+    expect(loads(usePackageLocales(own)).loaders).toEqual(['loadMine', 'loadPackageLocales'])
+  })
+
+  it('is what `mlcl add --inject` does to a managed bond, also when French is primary', () => {
+    const french = MANAGED_2_2_15.replace(
+      "import { setupI18nDefault as setupI18nProvider } from '@molecule/app-i18n-default'",
+      "import { setupI18nDefault as setupI18nProvider } from '@molecule/app-i18n-default/setup.js'",
+    )
+      .replace('lazyLoadUi, primaryUi,', 'lazyLoadUi, primaryLocale, primaryUi,')
+      .replace('  enUi: primaryUi,\n', '  primaryLocale,\n  primaryUi,\n')
+    const generated = managed(['@molecule/app-locales-billing'], { primary: 'fr' })
+    expect(loads(generated).loaders).toEqual(['loadPackageLocales'])
+    const merged = extendAppLocales(french, generated)
+    expect(loads(merged).loaders).toEqual(['loadPackageLocales'])
+    expect(loads(merged).imports).not.toContain('@molecule/app-locales-auth/loader.js')
+  })
+
+  it('takes the setup entry that loads no locale bond when the installed package has it', () => {
+    const offered = managed(['@molecule/app-locales-auth'], {
+      primary: 'en',
+      offered: `${SETUP}/offered.js`,
+    })
+    expect(offered).toContain(
+      "import { setupI18nDefault as setupI18nProvider } from '@molecule/app-i18n-default/offered.js'",
+    )
+    expect(loads(offered).loaders).toEqual(['loadPackageLocales'])
+    expect(loads(managed(['@molecule/app-locales-auth'], { primary: 'fr' })).imports).toContain(
+      `${SETUP}/setup.js`,
+    )
   })
 })
