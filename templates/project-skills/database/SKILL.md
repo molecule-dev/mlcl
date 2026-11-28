@@ -147,21 +147,37 @@ section).
 
 Tables are defined as numbered `.sql` files in `api/migrations/`, NOT in code. The
 migration runner (`api/src/scripts/migrate.ts`, which already exists and uses
-`createMigrator`) applies every `*.sql` file in order. To add a table, create a new
-file like `api/migrations/0010_create_todos.sql` — `migrate.ts` picks it up with no
-change, and a table created with an ad-hoc `query()` never reaches another database.
+`createMigrator`) applies every `*.sql` file in NAME order. To add a table, create a new
+file named with the current time in milliseconds, as the scaffold's own migrations are
+(`node -p Date.now()` prints it), so it applies after the tables it references:
+`api/migrations/<that number>_create_todos.sql`. `migrate.ts` picks it up with no change,
+and a table created with an ad-hoc `query()` never reaches another database. A file named
+`0010_…` sorts BEFORE the scaffold's `users` migration, and on Postgres its reference to
+`users` fails because that table does not exist yet.
 
 ```sql
--- api/migrations/0010_create_todos.sql  (PostgreSQL dialect; for SQLite see the table above)
+-- api/migrations/<node -p Date.now()>_create_todos.sql  (PostgreSQL dialect; for SQLite see the table above)
 CREATE TABLE IF NOT EXISTS "todos" (
   "id" UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  "user_id" UUID NOT NULL,
+  "userId" UUID NOT NULL REFERENCES "users" ("id") ON DELETE CASCADE,
   "title" TEXT NOT NULL,
   "completed" BOOLEAN NOT NULL DEFAULT false,
-  "created_at" TIMESTAMPTZ NOT NULL DEFAULT now()
+  "priority" TEXT NOT NULL DEFAULT 'normal' CHECK ("priority" IN ('low', 'normal', 'high')),
+  "createdAt" TIMESTAMPTZ NOT NULL DEFAULT now()
 );
-CREATE INDEX IF NOT EXISTS "idx_todos_user_id" ON "todos" ("user_id");
+CREATE INDEX IF NOT EXISTS "todos_userId_index" ON "todos" ("userId");
 ```
+
+The column names are the ones the code reads and writes (`userId`, `createdAt` in the CRUD
+examples above), quoted so their case is kept.
+
+**Let the table hold every rule it can**, so a handler bug cannot break it:
+
+- a `REFERENCES` on each column that holds another row's id (the SQLite bond turns foreign
+  keys on, so they hold there too);
+- a `CHECK` on a column with a fixed set of values;
+- a unique index for "at most one of these", partial when the rule holds only in one state:
+  `CREATE UNIQUE INDEX IF NOT EXISTS "requests_one_pending" ON "requests" ("itemId", "userId") WHERE "status" = 'pending';`
 
 Write the SQL in YOUR project's dialect (for SQLite use the left-column forms above —
 no `gen_random_uuid()`/`now()`/`public.`). The id column's DB default means `create()`
