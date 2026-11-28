@@ -11,9 +11,9 @@ import {
   useDevice,
   useForm,
   useHttpClient,
-  usePush,
   useTranslation,
 } from '@molecule/app-react'
+import { usePush } from '@molecule/app-react/push'
 import { getClassMap } from '@molecule/app-ui'
 import { Alert, Button, Input, LanguagePicker, Modal, ThemeToggle } from '@molecule/app-ui-react'
 

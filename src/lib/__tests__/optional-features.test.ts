@@ -257,7 +257,9 @@ describe('optional features in the registry', () => {
       const dir = join(APP_TEMPLATES, framework, FEATURE_TEMPLATES_DIR)
       if (existsSync(dir)) for (const name of readdirSync(dir)) used.add(name)
     }
-    expect([...used].sort()).toEqual([...Object.keys(FEATURE_TEXT), 'devices'].sort())
+    expect([...used].sort()).toEqual(
+      [...Object.keys(FEATURE_TEXT), 'devices', 'push-client'].sort(),
+    )
     for (const name of used) expect(declared, `no package declares ${name}`).toContain(name)
   })
 
@@ -281,7 +283,7 @@ describe('optional features in the registry', () => {
     }
     for (const framework of FRAMEWORKS) {
       const expected = gatedFeatures(framework)
-      if (framework === 'react-native-web') expected.push('devices')
+      if (framework === 'react-native-web') expected.push('devices', 'push-client')
       expect(shape(framework), framework).toBe(JSON.stringify(expected.sort()))
     }
     expect(gatedFeatures('react')).toEqual(Object.keys(FEATURE_TEXT).sort())

@@ -1,13 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import {
-  useAuth,
-  useChangePassword,
-  useHttpClient,
-  usePush,
-  useTranslation,
-} from '@molecule/app-react'
+import { useAuth, useChangePassword, useHttpClient, useTranslation } from '@molecule/app-react'
+import { usePush } from '@molecule/app-react/push'
 import { getClassMap } from '@molecule/app-ui'
 import {
   Alert,

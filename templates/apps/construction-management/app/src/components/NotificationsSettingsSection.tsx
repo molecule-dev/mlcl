@@ -1,7 +1,8 @@
 /** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
-import { useForm, useHttpClient, usePush, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
+import { usePush } from '@molecule/app-react/push'
 import { getClassMap } from '@molecule/app-ui'
 
 interface ProfileResponse {

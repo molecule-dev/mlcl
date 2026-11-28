@@ -10,15 +10,17 @@ import {
   useAuth,
   useChangePassword,
   useHttpClient,
-  usePush,
   useDevice,
   useVersion,
   useTranslation,
 } from '@molecule/app-react'
+{{#feature push-client}}
+import { usePush } from '@molecule/app-react/push'
+import { Switch } from '@molecule/app-ui-react-native'
+{{/feature}}
 import {
   Button,
   Input,
-  Switch,
   Alert,
   Separator,
   Spinner,
@@ -55,12 +57,14 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   const { user, logout } = useAuth<UserProfile>()
   const http = useHttpClient()
   useVersion()
+{{#feature push-client}}
   const {
     permission,
     requestPermission,
     register: registerPush,
     unregister: unregisterPush,
   } = usePush()
+{{/feature}}
   const { deviceInfo } = useDevice()
   const { status: pwStatus, error: pwError, changePassword, reset: resetPw } = useChangePassword()
 
@@ -86,8 +90,10 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   const [deleteLoading, setDeleteLoading] = useState(false)
   const [deleteError, setDeleteError] = useState('')
 
+{{#feature push-client}}
   // Push notifications
   const [pushEnabled, setPushEnabled] = useState(permission === 'granted')
+{{/feature}}
 
 {{#feature devices}}
   const loadDevices = useCallback(async () => {
@@ -132,6 +138,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
     }
   }
 
+{{#feature push-client}}
   const handleTogglePush = async (enabled: boolean) => {
     try {
       if (enabled) {
@@ -146,6 +153,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       // Permission may be denied
     }
   }
+{{/feature}}
 
   const handleLogout = async () => {
     await logout()
@@ -211,6 +219,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
         </section>
       )}
 
+{{#feature push-client}}
       {/* Notifications */}
       <section>
         <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.notifications')}</h3>
@@ -219,6 +228,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
           <Switch checked={pushEnabled} onCheckedChange={handleTogglePush} size="sm" />
         </Flex>
       </section>
+{{/feature}}
 
 {{#feature billing}}
       <BillingSection />

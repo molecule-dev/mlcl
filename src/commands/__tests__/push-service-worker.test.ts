@@ -62,12 +62,13 @@ describe('the service worker comes with push, not with every framework binding',
   })
 
   /**
-   * Scaffold a React app with the given packages.
+   * Scaffold an app with the given packages.
    *
    * @param packages - The `--packages` list.
+   * @param framework - The app renderer.
    * @returns The names `app/package.json` declares.
    */
-  async function create(packages: string[]): Promise<string[]> {
+  async function create(packages: string[], framework = 'react'): Promise<string[]> {
     const config = await Config.load(MLCL_ROOT)
     const cmd = new Create(
       [
@@ -75,7 +76,7 @@ describe('the service worker comes with push, not with every framework binding',
         '--type',
         'app',
         '--framework',
-        'react',
+        framework,
         '--packages',
         packages.join(','),
         '--no-interactive',
@@ -112,6 +113,17 @@ describe('the service worker comes with push, not with every framework binding',
 
     expect(deps).toContain(PUSH)
     expect(deps).toContain(PWA)
+  })
+
+  it('uses the push entry point in Native Web settings', async () => {
+    const deps = await create(['@molecule/app-auth', PUSH], 'react-native-web')
+    const component = await readFile(join(dir, 'proj', 'src/components/SettingsPanel.tsx'), 'utf8')
+
+    expect(deps).toContain(PUSH)
+    expect(component).toContain("import { usePush } from '@molecule/app-react/push'")
+    expect(component).toContain('handleTogglePush')
+    expect(component).toContain('handleLogout')
+    expect(component).not.toContain('loadDevices')
   })
 
   it('mlcl add of push declares the PWA and its own peers', async () => {

@@ -7,9 +7,9 @@ import {
   useChangePassword,
   useForm,
   useHttpClient,
-  usePush,
   useTranslation,
 } from '@molecule/app-react'
+import { usePush } from '@molecule/app-react/push'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 

@@ -415,7 +415,6 @@ vi.mock('@molecule/app-platform', async (importOriginal) => ({
 
 vi.mock('@molecule/app-react', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
-  useAIModels: vi.fn(),
   useAsyncState: vi.fn(),
   useAuthClient: vi.fn(),
   useAuth: vi.fn(),
@@ -423,8 +422,6 @@ vi.mock('@molecule/app-react', async (importOriginal) => ({
   useIsAuthenticated: vi.fn(),
   useCapacitorApp: vi.fn(),
   useChangePassword: vi.fn(),
-  useChatProvider: vi.fn(),
-  useChat: vi.fn(),
   useDevice: vi.fn(),
   useEditorProvider: vi.fn(),
   useEditor: vi.fn(),
@@ -449,7 +446,6 @@ vi.mock('@molecule/app-react', async (importOriginal) => ({
   usePreviewProvider: vi.fn(),
   usePreview: vi.fn(),
   usePromise: vi.fn(),
-  usePush: vi.fn(),
   useRouterInstance: vi.fn(),
   useRouter: vi.fn(),
   useLocation: vi.fn(),
@@ -482,6 +478,22 @@ vi.mock('@molecule/app-react', async (importOriginal) => ({
   useWorkspaceProvider: vi.fn(),
   useWorkspace: vi.fn(),
   useProfileForm: vi.fn(),
+}))
+
+vi.mock('@molecule/app-react/push', async (importOriginal) => ({
+  ...(await importOriginal<Record<string, unknown>>()),
+  usePush: vi.fn(),
+}))
+
+vi.mock('@molecule/app-react/chat', async (importOriginal) => ({
+  ...(await importOriginal<Record<string, unknown>>()),
+  useChatProvider: vi.fn(),
+  useChat: vi.fn(),
+}))
+
+vi.mock('@molecule/app-react/ai-models', async (importOriginal) => ({
+  ...(await importOriginal<Record<string, unknown>>()),
+  useAIModels: vi.fn(),
 }))
 
 vi.mock('@molecule/app-routing', async (importOriginal) => ({

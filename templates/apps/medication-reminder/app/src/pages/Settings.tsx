@@ -2,7 +2,8 @@
 import { type FormEvent, useEffect, useState } from 'react'
 
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useForm, useHttpClient, usePush, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
+import { usePush } from '@molecule/app-react/push'
 import type { PushToggleResult } from '@molecule/app-settings-panel-react'
 import {
   disablePushOnCurrentDevice,

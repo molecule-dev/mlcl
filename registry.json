@@ -95130,6 +95130,7 @@
         "@molecule/app-i18n"
       ],
       "bondSetter": "setProvider",
+      "optionalFeature": "push-client",
       "generates": [
         "service-worker-push"
       ],

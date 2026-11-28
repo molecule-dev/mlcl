@@ -8,9 +8,9 @@ import {
   useChangePassword,
   useForm,
   useHttpClient,
-  usePush,
   useTranslation,
 } from '@molecule/app-react'
+import { usePush } from '@molecule/app-react/push'
 import { getClassMap } from '@molecule/app-ui'
 import { Alert, Button, Flex, Input, Modal, Spinner, Switch } from '@molecule/app-ui-react'
 
