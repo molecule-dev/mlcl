@@ -110423,6 +110423,7 @@
         "@molecule/app-overlay-dom",
         "@molecule/app-pointer-events-dom",
         "@molecule/app-react",
+        "@molecule/app-react-ui-kit-components",
         "@molecule/app-ui",
         "@molecule/app-ui-react-native",
         "react",
@@ -110563,6 +110564,7 @@
         "@molecule/app-icons",
         "@molecule/app-logger",
         "@molecule/app-react",
+        "@molecule/app-react-ui-kit-components",
         "@molecule/app-routing",
         "@molecule/app-ui",
         "@react-native-community/slider",
@@ -119084,6 +119086,49 @@
         "play audio with expo"
       ],
       "quickStart": "import { setProvider } from '@molecule/app-audio'\nimport { provider } from '@molecule/app-audio-expo'\n\nsetProvider(provider)"
+    },
+    "@molecule/app-react-ui-kit-components": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "utility",
+      "category": "ui",
+      "label": "Shared React UI kit components",
+      "description": "Shared React UI kit component trees and their DOM hosts for React and React Native.",
+      "stack": "app",
+      "exports": [
+        "ReactSelectProps",
+        "KitComponent",
+        "KitCheckFieldProps",
+        "SwitchButtonProps",
+        "TableRowsProps",
+        "ToastSurfaceProps",
+        "RenderIcon",
+        "KitHosts",
+        "createKit",
+        "ReactKit"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-icons",
+        "@molecule/app-inline-style-dom",
+        "@molecule/app-overlay-dom",
+        "@molecule/app-pointer-events-dom",
+        "@molecule/app-react",
+        "@molecule/app-ui",
+        "react",
+        "react-dom"
+      ],
+      "moleculePeers": [
+        "@molecule/app-react",
+        "@molecule/app-ui"
+      ],
+      "thirdPartyDependencies": {
+        "dependencies": {},
+        "peerDependencies": {
+          "react": "^18.0.0 || ^19.0.0"
+        }
+      },
+      "path": "packages/app/utilities/react-ui-kit-components"
     }
   }
 }
