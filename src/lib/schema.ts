@@ -1127,7 +1127,10 @@ export const RegistryEntry = z.object({
   testMock: z
     .record(z.string(), z.string())
     .optional()
-    .describe('Mock exports for test file generation (export name → mock expression)'),
+    .describe(
+      'Deprecated and ignored: mock exports for the generated test files scaffolds no longer write. ' +
+        'Kept so an older registry still parses.',
+    ),
   capabilityFactories: z
     .record(
       z.string(),

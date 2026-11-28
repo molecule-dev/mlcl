@@ -14,7 +14,7 @@ const fixtureManifest = z.object({ dependencies: pinsSchema, devDependencies: pi
 const packageIdentity = z.object({ name: z.string(), version: z.string() })
 
 /**
- * Set up the published providers and locales that generated smoke tests import in standalone CI,
+ * Set up the published providers and locales that generated test projects import in standalone CI,
  * and the type packages their typechecks need that the CLI's install lacks.
  * Keep the CLI's installed runner and core packages available via the same node_modules links.
  *

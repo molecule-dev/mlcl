@@ -150,7 +150,6 @@ The injector (`src/lib/injector.ts`) takes `InferredPackage[]` and generates:
 - `src/server.ts` — Express app with middleware, bonds, error handling
 - `src/bonds/index.ts` — provider wiring from detected bond packages
 - `src/App/Resource/*/index.ts` — resource wrappers with factory calls
-- `src/__tests__/*.test.ts` — smoke tests for server and routes
 
 ### Locale Bond Packages
 

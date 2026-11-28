@@ -103,12 +103,8 @@ to delete it) — do not "clean it up".
   trusts it in `/hooks`, so in Codex run `{{CLI_COMMAND}} check` yourself.
 - **The tests that came with the template are the app's rules.** When one
   fails after your change, fix the code — do not edit, invert or delete the
-  test to match what you built. Change a shipped test only when the user asks
-  for different behavior, and say which test you changed and why.
-  - The exception is the scaffold's generated smoke tests —
-    `api/src/__tests__/routes.test.ts` and `api/src/__tests__/server.test.ts`,
-    whose first line is `// GENERATED SCAFFOLDING`. They pin the STARTER's
-    resources and routes, so the moment your app owns the route table they are
-    testing the wrong app. Rewrite them for your own routes or delete them —
-    that is not "editing a test to match what you built", and hand-repairing
-    their starter expectations is wasted work.
+  test to match what you built. Preserve shipped behavior tests. When the user
+  changes a contract, update its test and say which test you changed and why.
+- Exercise changed API routes over HTTP and changed screens in their supported
+  runtime. `{{CLI_COMMAND}} check --steps serve --ready <url> --run "<command>"` starts
+  the API, runs your request against it and stops it.

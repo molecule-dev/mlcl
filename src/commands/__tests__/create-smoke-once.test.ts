@@ -1,8 +1,8 @@
 /**
- * An installed `mlcl create` runs the generated smoke tests once, on the final tree, beside its
- * check.
+ * An installed `mlcl create` runs the project's unit tests once, on the final tree, beside its
+ * check, and says "no unit tests yet" for a scaffold that has none instead of calling it a pass.
  *
- * In the r33 scaffold eval (2026-11-25) a create ran the API smoke tests twice: in its api inject
+ * In the r33 scaffold eval (2026-11-25) a create ran the API tests twice: in its api inject
  * (2.7 s), and again itself after the install of what inject declared. Then it ran the check
  * (6.3 s), after the tests. Inject now runs with --no-test, and the one run of the tests overlaps
  * the check.
@@ -29,7 +29,7 @@ type CheckResult = Awaited<ReturnType<typeof runCheckLocal>>
 
 const state = vi.hoisted(() => ({
   spawned: [] as { file: string; args: string[] }[],
-  smokeFails: false,
+  smoke: 'passes' as 'passes' | 'fails' | 'empty' | 'empty-old-config' | 'all-skipped',
   smokePending: false,
   checkStarted: null as (() => void) | null,
   // Whether the smoke run was still going when the check started.
@@ -53,8 +53,19 @@ vi.mock('execa', async (importOriginal) => ({
       setTimeout(resolve, 1000)
     })
     state.smokePending = false
-    if (state.smokeFails) throw new Error('Command failed: npx vitest run\n 1 failed')
-    return { stdout: 'Tests  6 passed (6)', stderr: '' }
+    // An app on the old config exits 1 when it has no test files; the current one exits 0.
+    if (state.smoke === 'fails')
+      throw Object.assign(new Error('Command failed: npx vitest run\n 1 failed'), {
+        stdout: ' Tests  1 failed | 5 passed (6)',
+      })
+    if (state.smoke === 'empty-old-config')
+      throw Object.assign(new Error('Command failed with exit code 1: npx vitest run'), {
+        stdout: 'No test files found, exiting with code 1',
+      })
+    if (state.smoke === 'empty')
+      return { stdout: 'No test files found, exiting with code 0', stderr: '' }
+    if (state.smoke === 'all-skipped') return { stdout: ' Tests  3 skipped (3)', stderr: '' }
+    return { stdout: ' Tests  6 passed (6)', stderr: '' }
   }),
 }))
 vi.mock('../../lib/check-stop-hook.js', async (importOriginal) => ({
@@ -92,7 +103,7 @@ beforeEach(async () => {
   prevCwd = process.cwd()
   process.chdir(dir)
   state.spawned = []
-  state.smokeFails = false
+  state.smoke = 'passes'
   state.smokePending = false
   state.checkStarted = null
   state.overlapped = null
@@ -105,8 +116,10 @@ afterEach(async () => {
   await rm(dir, { recursive: true, force: true })
 })
 
-/** Run an installed full-stack create and return its --json result and its warnings. */
-async function create(): Promise<{ json: Record<string, unknown>; warnings: string[] }> {
+/** Run an installed full-stack create; return its --json result, its warnings and its log. */
+async function create(
+  json = true,
+): Promise<{ json: Record<string, unknown>; warnings: string[]; out: string[] }> {
   const config = await Config.load(MLCL_ROOT)
   const cmd = new Create(
     [
@@ -118,7 +131,7 @@ async function create(): Promise<{ json: Record<string, unknown>; warnings: stri
       '--packages',
       '@molecule/api-resource-user,@molecule/api-database-sqlite,@molecule/app-auth',
       '--no-interactive',
-      '--json',
+      ...(json ? ['--json'] : []),
     ],
     config,
   )
@@ -131,7 +144,8 @@ async function create(): Promise<{ json: Record<string, unknown>; warnings: stri
   const out: string[] = []
   vi.spyOn(cmd, 'log').mockImplementation((line?: string) => void out.push(line ?? ''))
   await cmd.run()
-  return { json: JSON.parse(out.find((line) => line.trimStart().startsWith('{'))!), warnings }
+  const result = out.find((line) => line.trimStart().startsWith('{'))
+  return { json: result ? JSON.parse(result) : {}, warnings, out }
 }
 
 const injects = (): string[][] =>
@@ -139,7 +153,7 @@ const injects = (): string[][] =>
 const smokeRuns = (): number =>
   state.spawned.filter((s) => s.file === 'npx' && s.args.includes('vitest')).length
 
-describe('mlcl create runs the smoke tests once, beside its check', () => {
+describe('mlcl create runs the unit tests once, beside its check', () => {
   it('runs inject without its own smoke tests (OLD MUSTFAIL)', async () => {
     await create()
     expect(injects()).toHaveLength(2)
@@ -153,10 +167,36 @@ describe('mlcl create runs the smoke tests once, beside its check', () => {
     expect(json.verified).toEqual({ typecheck: 'passed', lint: 'passed', build: 'passed' })
   }, 120_000)
 
-  it('still warns about failing smoke tests and reports the check', async () => {
-    state.smokeFails = true
+  it('still warns about failing unit tests and reports the check', async () => {
+    state.smoke = 'fails'
     const { json, warnings } = await create()
-    expect(warnings.some((w) => w.startsWith('Smoke tests failed'))).toBe(true)
+    expect(warnings.some((w) => w.startsWith('Unit tests failed'))).toBe(true)
     expect(json.verified).toEqual({ typecheck: 'passed', lint: 'passed', build: 'passed' })
+  }, 120_000)
+
+  it.each(['empty', 'empty-old-config'] as const)(
+    'says a scaffold with no tests has none yet, neither passed nor failed (%s, OLD MUSTFAIL)',
+    async (smoke) => {
+      state.smoke = smoke
+      const { warnings, out } = await create(false)
+      expect(warnings.filter((w) => w.includes('Unit tests'))).toEqual([])
+      expect(out).toContain('No unit tests yet. Add tests for the behavior you build.')
+      expect(out.some((line) => line.startsWith('Unit tests passed'))).toBe(false)
+    },
+    120_000,
+  )
+
+  it('counterexample: a suite whose every case is skipped is no pass', async () => {
+    state.smoke = 'all-skipped'
+    const { warnings } = await create()
+    expect(warnings.some((w) => w.startsWith('Unit tests failed: No unit test ran'))).toBe(true)
+  }, 120_000)
+
+  it('reports a passing suite with its count', async () => {
+    const { warnings, out } = await create(false)
+    expect(warnings.filter((w) => w.includes('Unit tests'))).toEqual([])
+    expect(
+      out.some((line) => line.startsWith('Unit tests passed') && line.includes('6 passed')),
+    ).toBe(true)
   }, 120_000)
 })

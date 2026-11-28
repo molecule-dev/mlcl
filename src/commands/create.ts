@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, rmSync } from 'node:fs'
 import { basename, isAbsolute, join } from 'node:path'
+import { stripVTControlCharacters } from 'node:util'
 
 import * as p from '@clack/prompts'
 import { Args, Command, Flags } from '@oclif/core'
@@ -10,6 +11,7 @@ import { execa } from 'execa'
 import { parseAppLocales } from '../lib/app-locales.js'
 import { AUTH_PRECONFIGURATION_GUIDANCE, readOpenApiAuthContract } from '../lib/auth-contract.js'
 import { readProjectCapabilityMap } from '../lib/capability-map.js'
+import { unitRunWithoutTests } from '../lib/check.js'
 import { runRecordedCheck } from '../lib/check-stop-hook.js'
 import {
   changeDirectoryStep,
@@ -1852,7 +1854,7 @@ export default class Create extends Command {
     // of every installed create (r18 eval, 2026-11-24). `scaffold-format-clean.test.ts` fails on any
     // file a scaffold leaves for `prettier --write`.
 
-    // The smoke tests run once, here, on the final tree (inject runs with --no-test), and beside the
+    // The unit tests run once, here, on the final tree (inject runs with --no-test), and beside the
     // check: neither reads what the other writes (vitest loads src/, the build writes dist/). In
     // turn they cost 2.7 s and 6.3 s of an installed create (r33 eval). Skipped while the install
     // is still to run (--skip-install, or an install that failed): there are no dependencies to
@@ -1885,7 +1887,15 @@ export default class Create extends Command {
     if (smoke) {
       spinner?.start(t('commands.create.spinners.testing'))
       const tested = await smoke
-      if (tested.ok) {
+      // A scaffold starts with no unit tests of its own: that is said as it is, never as a pass.
+      const output = tested.ok
+        ? tested.stdout
+        : String((tested.error as { stdout?: unknown }).stdout ?? '')
+      const untested = unitRunWithoutTests(stripVTControlCharacters(output), tested.ok ? 0 : 1)
+      if (untested?.status === 'skipped') {
+        spinner?.stop(chalk.gray(t('commands.create.spinners.noTests')))
+        log(t('commands.create.spinners.noTests'))
+      } else if (tested.ok && !untested) {
         const summaryMatch = tested.stdout.match(/Tests\s+(\d+\s+passed[^)]*\))/)
         const passed = t('commands.create.spinners.testsPassed', {
           summary: summaryMatch ? ` (${summaryMatch[0]})` : '',
@@ -1895,8 +1905,12 @@ export default class Create extends Command {
       } else {
         spinner?.stop(chalk.yellow(t('commands.create.spinners.testsFailed')))
         log(t('commands.create.spinners.testsFailed'))
-        const { error } = tested
-        this.warn(`Smoke tests failed: ${error instanceof Error ? error.message : String(error)}`)
+        const reason = tested.ok
+          ? (untested?.errors[0] ?? '')
+          : tested.error instanceof Error
+            ? tested.error.message
+            : String(tested.error)
+        this.warn(`Unit tests failed: ${reason}`)
       }
     }
     if (verification) for (const line of verificationLines(verification)) say(line)
@@ -2133,7 +2147,7 @@ export default class Create extends Command {
     const { dirname } = await import('node:path')
     const { fileURLToPath } = await import('node:url')
     const mlclPath = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'bin', 'run.js')
-    // No smoke tests here: create runs them itself, once, after its last install.
+    // No unit tests here: create runs them itself, once, after its last install.
     const args = [mlclPath, 'inject', '--force', '--no-install', '--no-test', '-p', projectPath]
     if (fast) {
       args.push('--no-format', '--no-ai')

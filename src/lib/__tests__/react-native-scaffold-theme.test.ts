@@ -15,12 +15,7 @@ import { dirname, join, resolve } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { disableAI } from '../ai.js'
-import {
-  generateBondSetupCode,
-  type InjectionPlan,
-  synthesizeAppProjectFiles,
-} from '../injector.js'
-import { loadRegistry } from '../registry.js'
+import { generateBondSetupCode } from '../injector.js'
 import { createReactNativeAppProject } from '../scaffold.js'
 import type { InferredPackage } from '../schema.js'
 
@@ -177,42 +172,5 @@ describe('theme bond file for a framework provider', () => {
       '/tmp/none',
     )
     expect(code).toContain('applyToDocument: false,')
-  })
-
-  it("mocks the provider's factory with the theme methods in the bonds smoke test", async () => {
-    const name = '@molecule/app-theme-nativewind'
-    const projectPath = await mkdtemp(join(tmpdir(), 'mlcl-rn-theme-smoke-'))
-    try {
-      await writeFile(join(projectPath, 'package.json'), '{}')
-      const plan: InjectionPlan = {
-        molecule: name,
-        moleculePackage: themeProvider(name, 'react-native'),
-        files: [],
-        dependencies: [],
-        migrations: [],
-        bondSetup: {
-          providerPackage: name,
-          interfacePackage: '@molecule/app-theme',
-          interfaceType: 'theme',
-          setupCode: 'mock',
-        },
-        conflicts: [],
-      }
-      const files = synthesizeAppProjectFiles(
-        [plan],
-        [name, '@molecule/app-theme'],
-        projectPath,
-        loadRegistry(),
-      )
-      const smoke = files.find((file) => file.targetPath.endsWith('bonds.test.ts'))?.content ?? ''
-      const factory = smoke.slice(smoke.indexOf('createNativeWindThemeProvider: vi.fn('))
-      // The factory's object closes at the mock entry's own indent.
-      const members = factory.slice(0, factory.indexOf('\n  })),'))
-      expect(members).not.toBe('')
-      for (const member of ['getTheme: vi.fn(', 'setTheme: vi.fn(', 'subscribe: vi.fn('])
-        expect(members).toContain(member)
-    } finally {
-      await rm(projectPath, { recursive: true, force: true })
-    }
   })
 })

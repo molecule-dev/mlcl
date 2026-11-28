@@ -314,42 +314,6 @@ const handlersCommentsModule = await import('../handlers/comments.js')
 const handlersFollowsModule = await import('../handlers/follows.js')
 const handlersLibraryModule = await import('../handlers/library.js')
 const handlersNotificationsModule = await import('../handlers/notifications.js')
-const appResourceDeviceModule = await import('../App/Resource/Device/index.js')
-const appResourceUserModule = await import('../App/Resource/User/index.js')
-
-describe('Resource: Device', () => {
-  it('exports requestHandlerMap', () => {
-    const mod = appResourceDeviceModule
-    expect(mod.requestHandlerMap).toBeDefined()
-  })
-
-  it('requestHandlerMap has expected handlers', () => {
-    const { requestHandlerMap } = appResourceDeviceModule
-    const keys = Object.keys(requestHandlerMap)
-    expect(keys).toContain('auth')
-    expect(keys).toContain('query')
-    expect(keys).toContain('authUser')
-    expect(keys).toContain('read')
-    expect(keys).toContain('update')
-  })
-})
-
-describe('Resource: User', () => {
-  it('exports requestHandlerMap', () => {
-    const mod = appResourceUserModule
-    expect(mod.requestHandlerMap).toBeDefined()
-  })
-
-  it('requestHandlerMap has expected handlers', () => {
-    const { requestHandlerMap } = appResourceUserModule
-    const keys = Object.keys(requestHandlerMap)
-    expect(keys).toContain('create')
-    expect(keys).toContain('logIn')
-    expect(keys).toContain('forgotPassword')
-    expect(keys).toContain('authSelf')
-    expect(keys).toContain('read')
-  })
-})
 
 describe('Handlers: videos', () => {
   it('exports a router', () => {

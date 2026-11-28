@@ -498,6 +498,32 @@ function browserSetupFailure(log: string): string | undefined {
 }
 
 /**
+ * What a unit run that tested nothing came to. A run that found no test files proved nothing,
+ * whether the project's config lets it pass or not, so it is not run rather than passed or
+ * failed: a project with no unit tests yet is not broken. A run whose cases were all skipped
+ * or todo ran none of them, and fails.
+ *
+ * @param log - The run's output, without color.
+ * @param exitCode - The run's exit status.
+ * @returns The step's status and its reason or error, or null for a run that tested something.
+ */
+export function unitRunWithoutTests(
+  log: string,
+  exitCode: number | null,
+): Pick<CheckStepResult, 'status' | 'errors' | 'errorTotal' | 'reason'> | null {
+  // vitest: "No test files found, exiting with code 0"; Jest: "No tests found, exiting with code 1".
+  if (/^\s*No tests? (?:files )?found, exiting with code [01]\s*$/m.test(log))
+    return { status: 'skipped', errors: [], errorTotal: 0, reason: '0 unit tests' }
+  if (exitCode !== 0) return null
+  const tally = /^\s*Tests\s+(.+?)\s+\((\d+)\)\s*$/m.exec(log)
+  if (!tally || /\b(passed|failed)\b/.test(tally[1])) return null
+  const error =
+    `No unit test ran: Tests ${tally[1]} (${tally[2]}). Every case is skipped or todo; ` +
+    'remove the .skip or .todo, or the -t filter, so the cases run.'
+  return { status: 'failed', errors: [error], errorTotal: 1 }
+}
+
+/**
  * The first few actionable errors in a step's log, plus a one-line tally when
  * the runner printed one. Tool-shaped patterns first (tsc, eslint, esbuild,
  * vitest, Playwright — whichever appear, whatever the step kind, since a build
@@ -1121,6 +1147,10 @@ async function runStepCapture(
         reason: 'no changed files to lint',
       },
     }
+  }
+  if (step.kind === 'unit') {
+    const unit = unitRunWithoutTests(stripAnsi(log), exitCode)
+    if (unit) return { log, result: { ...base, durationMs, ...unit } }
   }
   const lintFiles = /__MOL_LINT_FILES__ (\d+)/.exec(log)?.[1]
   const cleanLog = log.replace(/^__MOL_LINT_FILES__ \d+\n?/m, '')

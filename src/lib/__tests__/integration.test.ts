@@ -246,19 +246,6 @@ describe('file synthesis (full molecule set)', () => {
     expect(names.some((n) => n.includes('service-device'))).toBe(true)
     expect(names.some((n) => n.includes('service-payment'))).toBe(true)
   })
-
-  it('synthesizes smoke tests', () => {
-    const serverTest = synthesizedFiles.find((f) =>
-      f.targetPath.includes('__tests__/server.test.ts'),
-    )
-    expect(serverTest).toBeDefined()
-    expect(serverTest!.content).toContain('import')
-
-    const routeTest = synthesizedFiles.find((f) =>
-      f.targetPath.includes('__tests__/routes.test.ts'),
-    )
-    expect(routeTest).toBeDefined()
-  })
 })
 
 // ---------------------------------------------------------------------------

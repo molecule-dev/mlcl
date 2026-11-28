@@ -38,7 +38,7 @@ let projectPath: string
 beforeAll(async () => {
   // The suite asserts the HEURISTIC wrapper's text; a configured
   // ANTHROPIC_API_KEY would route the synthesis through the real model
-  // (metered, nondeterministic) — see injector-smoke-mocks.test.ts.
+  // (metered, nondeterministic).
   disableAI()
   projectPath = await mkdtemp(join(tmpdir(), 'mlcl-router-authz-'))
 })

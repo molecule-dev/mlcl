@@ -3,14 +3,11 @@
  * open (`ensureAgentsMd` writes `templates/shared/AGENTS.md.tpl` into the
  * project root).
  *
- * Two of its statements point opposite ways on the scaffold's generated smoke
- * tests. The general rule — "The tests that came with the template are the
- * app's rules … do not edit, invert or delete the test to match what you built"
- * — is exactly what made an executor hand-repair the STARTER's expectations in
- * `api/src/__tests__/routes.test.ts` instead of deleting a file its app had
- * outgrown (X1 flash-m53: three reads and two edit rounds from +02:11 to +04:42,
- * 2,600 lines). The exception has to be in the same place, naming those files
- * and their banner, or the agent reads the rule and repairs.
+ * Scaffolds used to ship generated mock suites (`api/src/__tests__/routes.test.ts`,
+ * `server.test.ts`, `app/src/__tests__/bonds.test.ts`) that pinned the starter's routes, and
+ * AGENTS.md carried an exception telling agents to rewrite or delete them. Scaffolds no longer
+ * write them (harness smoke run 4, 2026-11-28), so the file states one rule for shipped tests
+ * and says how to exercise a change instead.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -18,7 +15,7 @@ import { fileURLToPath } from 'node:url'
 
 import { describe, expect, it } from 'vitest'
 
-import { extractBondName, GENERATED_TEST_MARKER } from '../injector.js'
+import { extractBondName } from '../injector.js'
 import { loadRegistry } from '../registry.js'
 
 const TEMPLATE = join(
@@ -28,25 +25,20 @@ const TEMPLATE = join(
 
 const tpl = readFileSync(TEMPLATE, 'utf-8')
 
-describe('scaffolded AGENTS.md on the generated smoke tests', () => {
+describe('scaffolded AGENTS.md on tests', () => {
   it('still forbids deleting a shipped test by default', () => {
     expect(tpl).toContain('The tests that came with the template are the app')
     expect(tpl).toContain('do not edit, invert or delete the')
+    expect(tpl).toContain('Preserve shipped behavior tests.')
   })
 
-  it('names the generated smoke tests as the exception, by path and by banner', () => {
-    expect(tpl, "the route smoke test's path").toContain('api/src/__tests__/routes.test.ts')
-    expect(tpl, "the server smoke test's path").toContain('api/src/__tests__/server.test.ts')
-    // The marker is the injector's own constant — the phrase the file really
-    // opens with. A template carrying a stale literal would send the agent
-    // looking for a line that is not there.
-    expect(tpl, 'the marker the generated files open with').toContain(GENERATED_TEST_MARKER)
+  it('names no generated test files or their banner', () => {
+    expect(tpl).not.toMatch(/GENERATED SCAFFOLDING|generated smoke tests|routes\.test\.ts/)
   })
 
-  it('says rewriting or deleting them is allowed', () => {
-    const exception = tpl.slice(tpl.indexOf('The exception is the scaffold'))
-    expect(exception.length, 'the exception must be present, not just the rule').toBeGreaterThan(0)
-    expect(exception).toMatch(/Rewrite them for your own routes or delete them/)
+  it('says how to exercise a changed route and a changed screen', () => {
+    expect(tpl).toContain('Exercise changed API routes over HTTP and changed screens')
+    expect(tpl).toContain('check --steps serve --ready <url> --run')
   })
 })
 

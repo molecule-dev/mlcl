@@ -6110,9 +6110,6 @@
       },
       "optionalFeature": "calendar",
       "path": "packages/api/bonds/calendar/google",
-      "testMock": {
-        "provider": "{ listCalendars: vi.fn(), listEvents: vi.fn(), createEvent: vi.fn(), updateEvent: vi.fn(), deleteEvent: vi.fn(), findFreeSlots: vi.fn() }"
-      },
       "intentHints": [
         "google calendar",
         "calendar booking",
@@ -6189,9 +6186,6 @@
       },
       "optionalFeature": "calendar",
       "path": "packages/api/bonds/calendar/microsoft",
-      "testMock": {
-        "provider": "{ listCalendars: vi.fn(), listEvents: vi.fn(), createEvent: vi.fn(), updateEvent: vi.fn(), deleteEvent: vi.fn(), findFreeSlots: vi.fn() }"
-      },
       "intentHints": [
         "microsoft calendar",
         "outlook calendar",
@@ -8397,9 +8391,6 @@
       },
       "providerExportName": "pool",
       "path": "packages/api/bonds/database/postgresql",
-      "testMock": {
-        "deriveSsl": "vi.fn(() => undefined)"
-      },
       "intentHints": [
         "postgres",
         "postgresql",
@@ -16489,9 +16480,6 @@
       },
       "bondSetter": "setLogger",
       "path": "packages/api/core/logger",
-      "testMock": {
-        "logger": "{ info: vi.fn(), warn: vi.fn(), error: vi.fn(), debug: vi.fn(), trace: vi.fn() }"
-      },
       "intentHints": [
         "logging",
         "structured logging",
@@ -18380,10 +18368,6 @@
       },
       "optionalFeature": "oauth",
       "path": "packages/api/bonds/oauth/apple",
-      "testMock": {
-        "verify": "vi.fn()",
-        "serverName": "'apple'"
-      },
       "intentHints": [
         "apple oauth",
         "sign in with apple",
@@ -18536,10 +18520,6 @@
       },
       "optionalFeature": "oauth",
       "path": "packages/api/bonds/oauth/github",
-      "testMock": {
-        "verify": "vi.fn()",
-        "serverName": "'github'"
-      },
       "intentHints": [
         "github oauth",
         "github sign in",
@@ -18611,10 +18591,6 @@
       },
       "optionalFeature": "oauth",
       "path": "packages/api/bonds/oauth/gitlab",
-      "testMock": {
-        "verify": "vi.fn()",
-        "serverName": "'gitlab'"
-      },
       "intentHints": [
         "gitlab oauth",
         "sign in with gitlab",
@@ -18686,10 +18662,6 @@
       },
       "optionalFeature": "oauth",
       "path": "packages/api/bonds/oauth/google",
-      "testMock": {
-        "verify": "vi.fn()",
-        "serverName": "'google'"
-      },
       "intentHints": [
         "google oauth",
         "google sign in",
@@ -18788,10 +18760,6 @@
       },
       "optionalFeature": "oauth",
       "path": "packages/api/bonds/oauth/microsoft",
-      "testMock": {
-        "verify": "vi.fn()",
-        "serverName": "'microsoft'"
-      },
       "intentHints": [
         "microsoft oauth",
         "microsoft sign in",
@@ -18867,10 +18835,6 @@
       },
       "optionalFeature": "oauth",
       "path": "packages/api/bonds/oauth/twitter",
-      "testMock": {
-        "verify": "vi.fn()",
-        "serverName": "'twitter'"
-      },
       "intentHints": [
         "twitter oauth",
         "x oauth",
@@ -22422,9 +22386,6 @@
         "peerDependencies": {}
       },
       "path": "packages/api/infrastructure/resource",
-      "testMock": {
-        "createRequestHandler": "(fn: unknown) => fn"
-      },
       "intentHints": [
         "custom resource response envelope",
         "adapt request body",

@@ -274,9 +274,6 @@ export default Router()
     expect(files.find((file) => file.targetPath.endsWith('/App/router.ts'))?.content).toContain(
       'edit api/src/handlers/articles.ts',
     )
-    expect(
-      files.find((file) => file.targetPath.endsWith('/__tests__/routes.test.ts'))?.content,
-    ).toContain("import articlesRouter from '../handlers/articles.js'")
   })
 
   it('points the declared capability map at the editable article routes', () => {
@@ -300,40 +297,12 @@ export default Router()
     })
   })
 
-  it('generates callable smoke-test mocks for the same configured factory', async () => {
-    const factory = 'createAnnouncementHandlers'
-    const files = await synthesize(plan('@molecule/api-resource-announcement', factory))
-    const test = String(
-      files.find((f) => f.targetPath.endsWith('/__tests__/server.test.ts'))!.content,
-    )
-    const mock = test.match(
-      /vi\.mock\('@molecule\/api-resource-announcement', \(\) => \(\{[\s\S]*?\}\)\)/,
-    )![0]
-    const mocked: Record<string, unknown> = {}
-    const js = ts.transpileModule(mock, {}).outputText
-    new Function('vi', js)({
-      fn: vi.fn,
-      mock: (_name: string, make: () => object) => Object.assign(mocked, make()),
-    })
-    expect(mocked[factory]).toBeTypeOf('function')
-    const map = (mocked[factory] as () => Record<string, unknown>)()
-    expect(map.create).toBeTypeOf('function')
-    expect(mocked.authorization).toBeDefined()
-    expect(mocked.helper).toBeTypeOf('function')
-  })
-
-  it('keeps the declared factory and its mocks consistent when AI generation is available', async () => {
+  it('keeps the declared factory when AI generation is available', async () => {
     vi.spyOn(ai, 'isAIAvailable').mockReturnValue(true)
     vi.spyOn(console, 'warn').mockImplementation(() => undefined)
-    const generate = vi
-      .spyOn(ai, 'generateCode')
-      .mockImplementation(async (_prompt, _context, task) => {
-        // This is a valid answer to the old mock prompt, which only teaches the
-        // legacy wrapper factory/static map. Unrelated generators fall back.
-        if (task.startsWith('Generate vi.mock()'))
-          return "vi.mock('@molecule/api-resource-announcement', () => ({ requestHandlerMap: { create: vi.fn() } }))"
-        throw new Error('fixture uses the normal heuristic fallback')
-      })
+    vi.spyOn(ai, 'generateCode').mockImplementation(async () => {
+      throw new Error('fixture uses the normal heuristic fallback')
+    })
     const factory = 'createAnnouncementHandlers'
     const files = await synthesize(plan('@molecule/api-resource-announcement', factory))
     const wrapper = String(
@@ -342,22 +311,6 @@ export default Router()
     const make = vi.fn(fixtureMap)
     execute(wrapper, { [factory]: make, authorization: {}, helper: {} })
     expect(make).toHaveBeenCalledExactlyOnceWith({})
-    const test = String(
-      files.find((f) => f.targetPath.endsWith('/__tests__/server.test.ts'))!.content,
-    )
-    const mocked: Record<string, unknown> = {}
-    const mock = test.match(
-      /vi\.mock\('@molecule\/api-resource-announcement', \(\) => \(\{[\s\S]*?\}\)\)/,
-    )![0]
-    const js = ts.transpileModule(mock, {}).outputText
-    new Function('vi', js)({
-      fn: vi.fn,
-      mock: (_name: string, make: () => object) => Object.assign(mocked, make()),
-    })
-    expect(mocked[factory]).toBeTypeOf('function')
-    expect(generate.mock.calls.some(([, , task]) => task.startsWith('Generate vi.mock()'))).toBe(
-      false,
-    )
   })
 
   it.each(['notExported', 'factory(); process.exit(1)'])(

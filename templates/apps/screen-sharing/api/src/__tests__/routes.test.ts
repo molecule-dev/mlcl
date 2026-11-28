@@ -179,42 +179,6 @@ vi.mock('@molecule/api-utilities-validation', () => ({}))
 // Loaded while vitest collects the file, not inside a test: an import inside a test counts
 // against vitest's 5 s timeout and timed out on a busy machine.
 const handlersModule = await import('../handlers/index.js')
-const appResourceDeviceModule = await import('../App/Resource/Device/index.js')
-const appResourceUserModule = await import('../App/Resource/User/index.js')
-
-describe('Resource: Device', () => {
-  it('exports requestHandlerMap', () => {
-    const mod = appResourceDeviceModule
-    expect(mod.requestHandlerMap).toBeDefined()
-  })
-
-  it('requestHandlerMap has expected handlers', () => {
-    const { requestHandlerMap } = appResourceDeviceModule
-    const keys = Object.keys(requestHandlerMap)
-    expect(keys).toContain('auth')
-    expect(keys).toContain('query')
-    expect(keys).toContain('authUser')
-    expect(keys).toContain('read')
-    expect(keys).toContain('update')
-  })
-})
-
-describe('Resource: User', () => {
-  it('exports requestHandlerMap', () => {
-    const mod = appResourceUserModule
-    expect(mod.requestHandlerMap).toBeDefined()
-  })
-
-  it('requestHandlerMap has expected handlers', () => {
-    const { requestHandlerMap } = appResourceUserModule
-    const keys = Object.keys(requestHandlerMap)
-    expect(keys).toContain('create')
-    expect(keys).toContain('logIn')
-    expect(keys).toContain('forgotPassword')
-    expect(keys).toContain('authSelf')
-    expect(keys).toContain('read')
-  })
-})
 
 describe('Template handlers', () => {
   it('exports a router', () => {

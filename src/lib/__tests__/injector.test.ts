@@ -1,7 +1,7 @@
 import type * as FsPromises from 'node:fs/promises'
 import { access, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { dirname, join, resolve, sep } from 'node:path'
+import { dirname, join } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 
@@ -20,7 +20,6 @@ import {
   generateBondSetupCode,
   generateBondsIndexContent,
   GENERATED_ROUTER_MARKER,
-  GENERATED_TEST_MARKER,
   planInjection,
   synthesizeAppProjectFiles,
   synthesizeProjectFiles,
@@ -47,8 +46,7 @@ beforeAll(async () => {
   // These suites assert the HEURISTIC generators' output byte-for-byte
   // (`toContain('createRequestHandlerMap')` and friends) — a configured
   // ANTHROPIC_API_KEY would route every synthesis through the real model
-  // (metered, seconds each, nondeterministic), the same hazard
-  // injector-smoke-mocks.test.ts scrubs with this call.
+  // (metered, seconds each, nondeterministic).
   disableAI()
   tempDir = await mkdtemp(join(tmpdir(), 'mlcl-injector-test-'))
   testProject = await createTestProject()
@@ -828,85 +826,17 @@ describe('synthesizeProjectFiles', () => {
     expect(router!.content).toContain('router.use(resourceUserPaymentsRouter)')
   })
 
-  it('generates smoke tests', async () => {
+  it('writes no test files (OLD MUSTFAIL)', async () => {
+    // Scaffolds used to write mocked server and route tests that passed with a throwing bond
+    // setup and failed once an app replaced the starter routes (harness smoke run 4, X1
+    // flash-m53). The project's own tests and the real HTTP check replace them.
     const files = await synthesizeProjectFiles(
       [userPlan],
       ['@molecule/api-resource-user', '@molecule/api-resource'],
       tempDir,
       registryPackages,
     )
-
-    const serverTest = files.find((f) => f.targetPath.includes('server.test.ts'))
-    expect(serverTest).toBeDefined()
-    expect(serverTest!.content).toContain('vi.mock')
-    expect(serverTest!.content).toContain("import { describe, expect, it, vi } from 'vitest'")
-
-    const routeTest = files.find((f) => f.targetPath.includes('routes.test.ts'))
-    expect(routeTest).toBeDefined()
-    expect(routeTest!.content).toContain("import authRouter from '../handlers/auth.js'")
-    expect(routeTest!.content).toContain('authorizers: new Proxy')
-  })
-
-  it('loads every module the API smoke tests read while vitest collects the file (OLD MUSTFAIL)', async () => {
-    // r32 check eval: `exports an Express router` imported the auth handlers with `await import()`
-    // inside the test and timed out at vitest's 5 s beside the same check's e2e run.
-    const files = await synthesizeProjectFiles(
-      [userPlan],
-      ['@molecule/api-resource-user', '@molecule/api-resource'],
-      tempDir,
-      registryPackages,
-    )
-    const content = (name: string): string =>
-      files.find((f) => f.targetPath.endsWith(`__tests__/${name}`))?.content ?? ''
-    for (const name of ['server.test.ts', 'routes.test.ts']) {
-      const bodies = content(name)
-        .split(/\n\s*it\(/)
-        .slice(1)
-      expect(bodies.length, `${name} has tests`).toBeGreaterThan(0)
-      for (const body of bodies)
-        expect(body.split('\n  })')[0], name).not.toMatch(/await import\(|vi\.importActual\(/)
-    }
-    expect(content('server.test.ts')).toContain("import { create } from '../server.js'")
-    expect(content('server.test.ts')).toContain("import { router } from '../App/router.js'")
-    expect(content('routes.test.ts')).toContain("import authRouter from '../handlers/auth.js'")
-  })
-
-  it('opens both generated smoke tests with the GENERATED SCAFFOLDING banner', async () => {
-    // X1 flash-m53: the routes test is one `vi.mock()` per package plus one
-    // `toContain('<starter handler key>')` per starter route, and nothing said
-    // it was scaffold output — so an app whose whole job is replacing that API
-    // surface read it as the project's own suite and hand-repaired thousands of
-    // lines of starter expectations (+02:11 → +04:42, more projected). The
-    // banner is what lets it rewrite or delete the file instead, and
-    // molecule-dev's run_tests note matches this exact phrase (keep the two in
-    // step: `GENERATED_TEST_MARKER` in api/src/ai/run-tests-tool.ts).
-    const files = await synthesizeProjectFiles(
-      [userPlan],
-      ['@molecule/api-resource-user', '@molecule/api-resource'],
-      tempDir,
-      registryPackages,
-    )
-
-    const cases = [
-      ['server.test.ts', files.find((f) => f.targetPath.includes('server.test.ts'))],
-      ['routes.test.ts', files.find((f) => f.targetPath.includes('routes.test.ts'))],
-    ] as const
-    for (const [name, file] of cases) {
-      const content = file?.content ?? ''
-      expect(
-        content.startsWith(`// ${GENERATED_TEST_MARKER}`),
-        `${name} opens with the banner`,
-      ).toBe(true)
-      // And it STAYS first: the import sort must not hoist the imports over it.
-      expect(
-        content.indexOf("from 'vitest'"),
-        `${name}'s banner precedes its imports`,
-      ).toBeGreaterThan(content.indexOf(`// ${GENERATED_TEST_MARKER}`))
-      // The banner says what to do with the file, not just that it is generated.
-      expect(content, `${name} says the file may be rewritten or deleted`).toContain(
-        'rewrite or delete this file',
-      )
-    }
+    expect(files.map((f) => f.targetPath).filter((p) => /__tests__|\.test\./.test(p))).toEqual([])
   })
 
   it('applies User authorization middleware globally', async () => {
@@ -1361,51 +1291,22 @@ describe('synthesizeAppProjectFiles', () => {
     )
   })
 
-  it('keeps every relative specifier of the smoke test under the shared-code root', () => {
-    // `lib` is SvelteKit's `sharedCodeDir` (registry): the scaffold writes
-    // config.ts / branding.ts / locales/ there (copyTemplateFiles) and the bonds
-    // land in `src/lib/bonds`. The smoke test was hardcoded to `src/__tests__`,
-    // one level ABOVE that root, so each `../…` it carries resolved to a module
-    // the run never wrote ('../bonds/index.js' → src/bonds/index.js).
-    const files = synthesizeAppProjectFiles(
-      [makePlan('@molecule/app-version')],
-      ['@molecule/app-version'],
-      '/tmp/test-app',
-      registryPackages,
-      'lib',
-    )
-    const smoke = files.find((f) => f.targetPath.endsWith('bonds.test.ts'))
-    expect(smoke, 'the smoke test is synthesized').toBeDefined()
-
-    const written = new Set(files.map((f) => f.targetPath))
-    const relative = [...(smoke!.content ?? '').matchAll(/'(\.\.?\/[^']+)'/g)].map((m) => m[1]!)
-    // '../bonds/index.js' (imported), '../config.js' and '../locales/en/ui.js'
-    // (mocked) — the references that made the scaffolded app's `npm test` fail.
-    expect(relative.length).toBeGreaterThan(0)
-    for (const spec of relative) {
-      const resolved = resolve(dirname(smoke!.targetPath), spec)
-      expect(
-        resolved.startsWith(join('/tmp/test-app', 'src', 'lib') + sep),
-        `${spec} named ${resolved}, outside the shared-code root`,
-      ).toBe(true)
+  it('writes the bonds under the shared-code root and no test files (OLD MUSTFAIL)', () => {
+    // `lib` is SvelteKit's `sharedCodeDir` (registry): the bonds land in `src/lib/bonds`.
+    for (const shared of ['lib', undefined]) {
+      const files = synthesizeAppProjectFiles(
+        [makePlan('@molecule/app-version')],
+        ['@molecule/app-version'],
+        '/tmp/test-app',
+        registryPackages,
+        shared,
+      )
+      const paths = files.map((f) => f.targetPath)
+      expect(paths).toContain(
+        join('/tmp/test-app', 'src', ...(shared ? [shared] : []), 'bonds', 'index.ts'),
+      )
+      expect(paths.filter((p) => /__tests__|\.test\./.test(p))).toEqual([])
     }
-    // …and the one it IMPORTS is a file this same synthesis writes (the mocks
-    // name files the scaffold copies, so they are not in this set).
-    expect(written).toContain(join('/tmp/test-app', 'src', 'lib', 'bonds', 'index.ts'))
-  })
-
-  it('mocks the HTTP client methods the generated bond setups call', () => {
-    // `http-default.ts` attaches the token with
-    // `createFetchClient(...).addRequestInterceptor(...)`. The factory mock returned only
-    // `onLocaleChange`/`initialize`, so every full-stack scaffold's own bonds.test.ts threw
-    // "addRequestInterceptor is not a function" and the scaffold gate failed on a fresh app.
-    const files = synthesizeAppProjectFiles([], ['@molecule/app-http'], '/tmp/test-app', [
-      ...(registryPackages ?? []),
-    ])
-    const smoke = files.find((f) => f.targetPath.endsWith('bonds.test.ts'))
-    expect(smoke, 'the smoke test is synthesized').toBeDefined()
-    expect(smoke!.content).toContain('addRequestInterceptor')
-    expect(smoke!.content).toContain('addResponseInterceptor')
   })
 
   it('rewrites the named-provider list in the shared config the scaffold writes', async () => {
@@ -1471,19 +1372,6 @@ describe('synthesizeAppProjectFiles', () => {
     expect(index?.content ?? '', 'no import of a file nothing generated').not.toContain(
       './fake-bond.js',
     )
-  })
-
-  it('leaves the default (no shared-code dir) layout on src/__tests__', () => {
-    // The other half: a framework with no sharedCodeDir keeps the paths it has
-    // always had — the fix must not move react/vue/svelte-like layouts around.
-    const files = synthesizeAppProjectFiles(
-      [makePlan('@molecule/app-version')],
-      ['@molecule/app-version'],
-      '/tmp/test-app',
-      registryPackages,
-    )
-    const smoke = files.find((f) => f.targetPath.endsWith('bonds.test.ts'))
-    expect(smoke?.targetPath).toBe(join('/tmp/test-app', 'src', '__tests__', 'bonds.test.ts'))
   })
 
   it('omits the Theme type import when the project has no theme.css color overrides', async () => {

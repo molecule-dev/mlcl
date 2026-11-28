@@ -279,6 +279,15 @@ try {
         // --max-warnings 0, so a warning there fails the user's first build.
         const extra = step === 'lint' ? ['--', '--max-warnings', '0'] : []
         const result = run('npm', ['run', step, ...extra], appDir)
+        // A fresh scaffold has no unit tests yet. Vitest says so and exits 0, or 1 under a config
+        // that predates passWithNoTests; either is "0 unit tests", never a pass or a failure.
+        if (
+          step === 'test' &&
+          /^\s*No test files found, exiting with code [01]\s*$/m.test(result.output)
+        ) {
+          ran.push('test (0 unit tests)')
+          continue
+        }
         ran.push(step)
         if (!result.ok) failures.push({ step, output: result.output })
       }

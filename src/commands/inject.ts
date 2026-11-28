@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs'
-import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join, relative, resolve } from 'node:path'
+import { stripVTControlCharacters } from 'node:util'
 
 import * as p from '@clack/prompts'
 import { Command, Flags, type Interfaces } from '@oclif/core'
@@ -10,6 +11,7 @@ import { execa } from 'execa'
 
 import { addedDeclarations, afterAddGuidance, declaredNames } from '../lib/add-guidance.js'
 import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
+import { unitRunWithoutTests } from '../lib/check.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT } from '../lib/ddl-exit.js'
 import { appendSecretsToEnvFile, type EnvAppendResult } from '../lib/env-file.js'
@@ -31,7 +33,6 @@ import {
   executeInjection,
   type FileOperation,
   filterExcludedPeerDependencies,
-  GENERATED_SMOKE_TEST_PATHS,
   type InjectionPlan,
   installedLocaleBonds,
   planInjection,
@@ -648,11 +649,7 @@ export default class Inject extends Command {
           projectPath,
           registryPackages,
           undefined,
-          {
-            // existingProjectFiles drops every __tests__/ file of such a project.
-            smokeTests: !existingProject,
-            optionalFeatures,
-          },
+          { optionalFeatures },
         )
     // An app loads a companion locale bond in its i18n bond, which is the i18n core's default
     // bond: synthesized from the named packages alone it is not written at all, so an add that
@@ -1034,7 +1031,7 @@ export default class Inject extends Command {
     // multi-molecule inject runs npm ONCE, after every plan + synthesized file
     // has landed and the manifest is final. Without it the `--install` flag
     // (default true) promised an install that never ran — package.json named
-    // packages node_modules did not have, and the smoke tests below failed on
+    // packages node_modules did not have, and the unit tests below failed on
     // the missing modules instead of the injection. A failure warns and
     // continues (the same policy `mlcl add` uses); `--no-install` skips the
     // step and the next-steps hint names the manual install. A run that changed nothing an install
@@ -1142,53 +1139,36 @@ export default class Inject extends Command {
       }
     }
 
-    // Run smoke tests
+    // Run the project's unit tests. A project Molecule did not create keeps its own test routine.
     let testsPassed = false
-    // The generated smoke tests are a scaffold's; a project Molecule did not create gets none.
-    if (flags.test && validation.valid && !existingProject) {
-      const hasTests = await this.hasTestFiles(projectPath)
-      if (hasTests) {
-        spinner.start(t('commands.inject.spinners.testing'))
-        const testResult = await this.runTests(projectPath)
-        if (testResult.success) {
-          testsPassed = true
-          spinner.stop(
-            chalk.green(t('commands.inject.spinners.testsPassed', { summary: testResult.summary })),
-          )
-        } else {
-          spinner.stop(chalk.yellow(t('commands.inject.spinners.testsFailed')))
-          // ALWAYS an error, never only when there is output to quote. A smoke
-          // run that failed WITHOUT captured output — a suite that hung and was
-          // killed at the 60 s timeout having printed nothing, or a child that
-          // never spawned (`runTests` reports both as `output: ''`) — left
-          // `errors` empty, so the `this.exit(1)` at the bottom never ran and
-          // the command exited 0 over a failed injection: exactly the failure
-          // the exit-status check exists to prevent (an agent or CI job reads
-          // the status, not the spinner line).
-          const generatedSmokeFailure = GENERATED_SMOKE_TEST_PATHS.find((path) =>
-            testResult.output?.includes(path),
-          )
-          errors.push(
-            (testResult.output
-              ? `Smoke tests failed:\n${testResult.output}`
-              : 'Smoke tests failed — the test run was killed or produced no output to quote. ' +
-                'Run `npm test` in the project to see why.') +
-              // The run failed either way — that is the point above. But a
-              // failure the GENERATED smoke tests own is not wiring to repair:
-              // they assert the STARTER's resources (see
-              // `generateRouteSmokeTest` in lib/injector.ts), so an app that has
-              // replaced its API surface fails them by existing. Say which
-              // failure this is, or the reader repairs thousands of lines of
-              // starter expectations instead of deleting the file (X1
-              // flash-m53, +02:11 → +04:42).
-              (generatedSmokeFailure
-                ? `\n  ${generatedSmokeFailure} is a GENERATED smoke test — it pins the STARTER's ` +
-                  "resources and routes, not your app's. If your app owns the route table, " +
-                  'rewrite it for your own routes or delete it; that is not an injection ' +
-                  'failure and not a test to repair.'
-                : ''),
-          )
-        }
+    let noTests = false
+    const runsVitest = Boolean(
+      projectPkg.devDependencies?.vitest ?? projectPkg.dependencies?.vitest,
+    )
+    if (flags.test && validation.valid && !existingProject && runsVitest) {
+      spinner.start(t('commands.inject.spinners.testing'))
+      const testResult = await this.runTests(projectPath)
+      if (testResult.noTests) {
+        noTests = true
+        spinner.stop(chalk.gray(t('commands.inject.spinners.noTests')))
+      } else if (testResult.success) {
+        testsPassed = true
+        spinner.stop(
+          chalk.green(t('commands.inject.spinners.testsPassed', { summary: testResult.summary })),
+        )
+      } else {
+        spinner.stop(chalk.yellow(t('commands.inject.spinners.testsFailed')))
+        // ALWAYS an error, never only when there is output to quote. A run that failed WITHOUT
+        // captured output — a suite that hung and was killed at the 60 s timeout having printed
+        // nothing, or a child that never spawned (`runTests` reports both as `output: ''`) —
+        // left `errors` empty, so the `this.exit(1)` at the bottom never ran and the command
+        // exited 0 over a failed injection (an agent or CI job reads the status, not the spinner).
+        errors.push(
+          testResult.output
+            ? `Unit tests failed:\n${testResult.output}`
+            : 'Unit tests failed — the test run was killed or produced no output to quote. ' +
+                'Run `npm test` in the project to see why.',
+        )
       }
     }
 
@@ -1306,7 +1286,7 @@ export default class Inject extends Command {
       this.log(`  ${t('commands.inject.messages.tryServer', { num: stepNum++ })}`)
       this.log(`       ${chalk.cyan(TRY_SERVER)}`)
     }
-    if (!testsPassed && (!existingProject || projectPkg.scripts?.test)) {
+    if (!testsPassed && !noTests && (!existingProject || projectPkg.scripts?.test)) {
       this.log(
         `  ${t('commands.inject.messages.runTest', { num: stepNum, command: chalk.cyan('npm test') })}`,
       )
@@ -1317,19 +1297,9 @@ export default class Inject extends Command {
     if (errors.length > 0) this.exit(1)
   }
 
-  private async hasTestFiles(projectPath: string): Promise<boolean> {
-    try {
-      await access(join(projectPath, 'src', '__tests__', 'server.test.ts'))
-      return true
-    } catch (_error) {
-      // access() throws when the test file is absent — that is the expected signal; return false
-      return false
-    }
-  }
-
   private async runTests(
     projectPath: string,
-  ): Promise<{ success: boolean; summary: string; output?: string }> {
+  ): Promise<{ success: boolean; noTests: boolean; summary: string; output?: string }> {
     try {
       // `--no`: a project without vitest installed (its install failed) gets npm's "missing
       // packages" error, never a download of the newest vitest in place of the project's pin.
@@ -1351,12 +1321,16 @@ export default class Inject extends Command {
       // Extract summary from vitest output (e.g. "Tests  3 passed (3)")
       const summaryMatch = result.stdout.match(/Tests\s+(\d+\s+passed[^)]*\))/)
       const summary = summaryMatch ? summaryMatch[0] : 'all passed'
-
-      return { success: true, summary }
+      const untested = unitRunWithoutTests(stripVTControlCharacters(result.stdout), 0)
+      if (untested?.status === 'failed')
+        return { success: false, noTests: false, summary: 'failed', output: untested.errors[0] }
+      return { success: true, noTests: untested?.status === 'skipped', summary }
     } catch (error: unknown) {
       const execError = error as { stdout?: string; stderr?: string }
-      const output = [execError.stdout, execError.stderr].filter(Boolean).join('\n').slice(-500)
-      return { success: false, summary: 'failed', output }
+      const full = [execError.stdout, execError.stderr].filter(Boolean).join('\n')
+      // A project whose vitest config predates passWithNoTests exits 1 on finding no test files.
+      const noTests = unitRunWithoutTests(stripVTControlCharacters(full), 1)?.status === 'skipped'
+      return { success: false, noTests, summary: 'failed', output: full.slice(-500) }
     }
   }
 

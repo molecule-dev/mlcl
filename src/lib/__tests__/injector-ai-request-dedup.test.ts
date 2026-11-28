@@ -1,12 +1,11 @@
 /**
  * One synthesis makes each generation request ONCE.
  *
- * `generateMoleculeViMocks` builds the `vi.mock()` block shared by both
- * generated smoke tests, and its AI path (`generateMoleculeViMocksAI`) is a
- * METERED model request. Each test builder called it for itself, so every
+ * Each AI generation request is METERED. The generated smoke tests' `vi.mock()`
+ * block (since removed) was built by each test builder for itself, so every
  * `mlcl inject` with AI enabled sent the SAME request twice — same package
  * list, same registry mock data, same task — paying a second model call and its
- * latency for a block the two files must agree on anyway.
+ * latency.
  *
  * The invariant asserted here is stronger than "one call site": NO two requests
  * in one synthesis may be byte-identical, which also catches a future builder
@@ -51,7 +50,7 @@ afterEach(() => {
 })
 
 describe('synthesis makes no duplicate model request', () => {
-  it('asks once for the shared vi.mock block, not once per smoke test', async () => {
+  it('sends each generation request once', async () => {
     const plan = await planInjection('@molecule/api-resource-device', project)
     expect(plan.moleculePackage, 'the resource plan must resolve for this test').toBeTruthy()
 
@@ -60,7 +59,7 @@ describe('synthesis makes no duplicate model request', () => {
     })
 
     // It did ask the model (a stubbed-away AI path would make this vacuous).
-    expect(requests.all.length).toBeGreaterThan(1)
+    expect(requests.all.length).toBeGreaterThan(0)
     const keys = requests.all.map((call) => call.join('\u0000'))
     expect(
       new Set(keys).size,

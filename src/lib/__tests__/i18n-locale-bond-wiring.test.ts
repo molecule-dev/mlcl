@@ -106,18 +106,6 @@ describe("the scaffolded app's i18n bond", () => {
     expect(bond).not.toContain('import(`../locales/')
   })
 
-  it('gives the bonds smoke test a loader for each bond, which the setup call reads at import', () => {
-    // Mocked as an empty module, every generated test failed: vitest throws on reading an
-    // export its mock does not define.
-    const installed = [i18nCore, defaultSetup, commonBond, ...localeBonds.slice(0, 2)]
-    const test = appFile(installed, '__tests__/bonds.test.ts')
-    for (const pkg of localeBonds.slice(0, 2)) {
-      expect(test).toContain(
-        `vi.mock('${pkg}/loader.js', () => ({\n  loadLocaleModule: vi.fn(),\n}))`,
-      )
-    }
-  })
-
   it.each([
     ['two bonds', 2],
     ['every bond', Number.POSITIVE_INFINITY],

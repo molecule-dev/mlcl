@@ -104,20 +104,21 @@ mlcl inject [--dry-run] [--force] [--molecule <name>] [--path <dir>] [--install]
 | `--molecule` / `-m`          | Inject only a specific molecule package         |
 | `--path` / `-p`              | Target project path (default: `.`)              |
 | `--install` / `--no-install` | Run npm install after injection                 |
-| `--test` / `--no-test`       | Run smoke tests after injection                 |
+| `--test` / `--no-test`       | Run the project's unit tests after injection    |
 
 ### What inject generates
 
-| File                           | Content                                                 |
-| ------------------------------ | ------------------------------------------------------- |
-| `src/bonds/index.ts`           | Secret resolution + all `setupXxx()` calls              |
-| `src/bonds/*.ts`               | Individual bond setup files (setter + provider import)  |
-| `src/App/router.ts`            | Route wiring from all resource packages                 |
-| `src/App/Resource/*/index.ts`  | Resource wrappers (re-export requestHandlerMap)         |
-| `src/server.ts`                | Express app with middleware, bonds, error handling      |
-| `src/middleware/*.ts`          | Middleware setup files                                  |
-| `src/__tests__/routes.test.ts` | Route smoke tests with vi.mock for all @molecule/* deps |
-| `src/__tests__/server.test.ts` | Server startup smoke test                               |
+| File                          | Content                                                |
+| ----------------------------- | ------------------------------------------------------ |
+| `src/bonds/index.ts`          | Secret resolution + all `setupXxx()` calls             |
+| `src/bonds/*.ts`              | Individual bond setup files (setter + provider import) |
+| `src/App/router.ts`           | Route wiring from all resource packages                |
+| `src/App/Resource/*/index.ts` | Resource wrappers (re-export requestHandlerMap)        |
+| `src/server.ts`               | Express app with middleware, bonds, error handling     |
+| `src/middleware/*.ts`         | Middleware setup files                                 |
+
+Inject writes no test files. Check a booted API with
+`mlcl check --steps serve --ready <url> --run "<command>"`, and keep tests the app's own.
 
 ---
 
@@ -322,9 +323,6 @@ my-project/
 │   │   │       ├── Device/index.ts
 │   │   │       ├── Project/index.ts
 │   │   │       └── Conversation/index.ts
-│   │   └── __tests__/
-│   │       ├── routes.test.ts     # Resource handler smoke tests
-│   │       └── server.test.ts     # Server startup smoke test
 │   └── setup/
 │       └── *.sql                  # Database migrations from resource packages
 ├── app/
@@ -417,15 +415,12 @@ export { requestHandlerMap } from '@molecule/api-resource-device'
 **Cause:** Registry's export list is stale.
 **Fix:** `mlcl sync-registry --scan-exports` first, then `mlcl sync-docs --generate`.
 
-### Tests time out (5s) in generated smoke tests
+### "No test files found"
 
-**Cause:** `vi.importActual` bypasses mocks and loads real `@molecule/*` modules with heavy dependencies.
-**Fix:** Use regular `import` (which uses mocked modules) instead of `vi.importActual` in generated test files.
-
-### "No test files found" exits with code 1
-
-**Cause:** App project has no test files but vitest runs with `vitest run`.
-**Fix:** Use `vitest run --passWithNoTests` in the app's test script (this is handled by the scaffold).
+A fresh scaffold has no unit tests. A plain `vitest run` passes and prints "No test files found";
+create, inject and `mlcl check` report that as "0 unit tests", not as a pass. A run that names
+files still fails when none match. An app on an older `@molecule/app-vite-config-default` exits 1
+there; create, inject and check still read it as 0 unit tests.
 
 ---
 

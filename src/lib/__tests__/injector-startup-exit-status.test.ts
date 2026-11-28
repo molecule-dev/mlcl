@@ -98,15 +98,19 @@ describe('generated API fatal error exit status', () => {
     expect(result.errorLog).toContain('callback failed')
   }, 15_000)
 
-  it('keeps fatal logging and exit status when AI routing is enabled', async () => {
+  it('keeps fatal logging and exit status when AI generation is enabled', async () => {
+    const heuristic = await generatedServer()
     ai.enabled = true
     try {
       vi.mocked(generateCode).mockClear()
+      const source = await generatedServer()
+      // server.ts is the heuristics' either way, and an API with no resource asks the model nothing.
+      expect(generateCode).not.toHaveBeenCalled()
+      expect(source).toBe(heuristic)
       const result = await runServer(
-        await generatedServer(),
+        source,
         'export async function setupBonds() { await import("missing-ai-startup-provider") }',
       )
-      expect(generateCode).toHaveBeenCalled()
       expect(result.error).toBeUndefined()
       expect(result.status).toBe(1)
       expect(result.errorLog).toContain('missing-ai-startup-provider')

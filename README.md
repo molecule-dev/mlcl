@@ -1898,7 +1898,7 @@ FLAGS
       --dry-run           Show what would be done without making changes
       --[no-]format       Format generated code with Prettier
       --[no-]install      Run npm install after injection
-      --[no-]test         Run smoke tests after injection
+      --[no-]test         Run the project's unit tests after injection
 
 DESCRIPTION
   Execute molecule injection with preview

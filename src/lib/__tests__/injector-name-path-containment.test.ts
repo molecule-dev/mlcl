@@ -31,7 +31,7 @@ import {
 beforeAll(() => {
   // The synthesis below asserts the HEURISTIC wrapper generator's shape; a
   // configured ANTHROPIC_API_KEY would route it through the real model
-  // (metered, nondeterministic) — see injector-smoke-mocks.test.ts.
+  // (metered, nondeterministic).
   disableAI()
 })
 

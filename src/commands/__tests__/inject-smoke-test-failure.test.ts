@@ -1,19 +1,20 @@
 /**
- * `mlcl inject` runs the project's smoke tests by default (`--test`) and turns
- * a failure into an ERROR — which is what makes the command exit 1.
+ * `mlcl inject` runs the project's unit tests by default (`--test`) and turns
+ * a failure into an ERROR — which is what makes the command exit 1. A project with no tests yet
+ * is reported as having none: not a pass, and not a failed injection.
  *
  * The error was pushed only when the failure carried captured output
  * (`if (testResult.output)`), and `runTests` reports a run that was killed or
  * never spawned as `output: ''` (`[stdout, stderr].filter(Boolean).join('\n')`
  * with neither bound — a suite that hangs and is killed at the 60 s timeout
  * having printed nothing, or a child that cannot spawn at all). So a FAILED
- * smoke run left `errors` empty, the `this.exit(1)` at the bottom of `run()`
+ * test run left `errors` empty, the `this.exit(1)` at the bottom of `run()`
  * never ran, and the command exited 0: an agent or CI job reading the exit
  * status took a failed injection for a success — the exact failure that check
  * exists to prevent.
  *
  * The REAL oclif command is driven against a temp project with `execa` and the
- * post-injection validator mocked, so the smoke step is the only variable.
+ * post-injection validator mocked, so the test step is the only variable.
  *
  * @module
  */
@@ -32,7 +33,7 @@ vi.mock('execa', () => ({ execa: vi.fn() }))
 const execaMock = vi.mocked(execa)
 
 // The validator's verdict is not this suite's subject — it only has to be
-// VALID, because an invalid project skips the smoke tests entirely
+// VALID, because an invalid project skips the unit tests entirely
 // (`if (flags.test && validation.valid)`).
 vi.mock('../../lib/validator.js', () => ({
   validateInjectionOutput: vi.fn(async () => ({ valid: true, warnings: [], errors: [] })),
@@ -49,13 +50,12 @@ afterEach(async () => {
 })
 
 /**
- * A project the inject flow plans from, with the generated smoke test the
- * command looks for (`hasTestFiles` checks `src/__tests__/server.test.ts`) —
- * the same fixture `inject-deferred-install.test.ts` uses, plus that file.
+ * A project the inject flow plans from — the fixture `inject-deferred-install.test.ts` uses —
+ * declaring vitest, which is what makes the command run its tests.
  */
-async function writeApiProjectWithTests(): Promise<string> {
+async function writeApiProject({ vitest = true } = {}): Promise<string> {
   dir = await mkdtemp(join(tmpdir(), 'mlcl-inject-smoke-'))
-  await mkdir(join(dir, 'src', '__tests__'), { recursive: true })
+  await mkdir(join(dir, 'src'), { recursive: true })
   await writeFile(
     join(dir, 'package.json'),
     JSON.stringify({
@@ -65,17 +65,16 @@ async function writeApiProjectWithTests(): Promise<string> {
       type: 'module',
       molecule: { projectType: 'api' },
       dependencies: { '@molecule/api-database-postgresql': '1.0.5' },
-      devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
+      devDependencies: {
+        '@molecule/api-database-pglite': '1.0.3',
+        ...(vitest ? { vitest: '4.0.18' } : {}),
+      },
     }),
-  )
-  await writeFile(
-    join(dir, 'src', '__tests__', 'server.test.ts'),
-    "import { describe, expect, it } from 'vitest'\ndescribe('server', () => { it('boots', () => expect(true).toBe(true)) })\n",
   )
   return dir
 }
 
-/** Build the command with every step but the smoke tests turned off. */
+/** Build the command with every step but the unit tests turned off. */
 async function makeCmd(projectPath: string): Promise<{ cmd: Inject; logs: string[] }> {
   const config = await Config.load(MLCL_ROOT)
   const cmd = new Inject(
@@ -108,9 +107,9 @@ async function runToSettlement(cmd: Inject): Promise<unknown> {
   }
 }
 
-describe('mlcl inject reports a smoke-test failure even when it captured no output', () => {
+describe('mlcl inject reports a unit-test failure even when it captured no output', () => {
   it('fails the command when the test run was killed and printed nothing', async () => {
-    const project = await writeApiProjectWithTests()
+    const project = await writeApiProject()
     // `runTests` builds its message from `error.stdout` / `error.stderr`; a
     // plain Error carries NEITHER, which is exactly the killed-hung-suite /
     // never-spawned shape that produced `output: ''`.
@@ -126,16 +125,14 @@ describe('mlcl inject reports a smoke-test failure even when it captured no outp
     )
     // The failure must be REPORTED (it is the printed errors that tell the
     // reader what happened)…
-    expect(logs.join('\n'), 'the smoke-test failure must be reported').toContain(
-      'Smoke tests failed',
-    )
+    expect(logs.join('\n'), 'the unit-test failure must be reported').toContain('Unit tests failed')
     // …and the exit status must say so too, or an agent/CI job reads success.
-    expect(thrown, 'a failed smoke run must fail the command (exit 1), not resolve').toMatchObject({
+    expect(thrown, 'a failed test run must fail the command (exit 1), not resolve').toMatchObject({
       oclif: { exit: 1 },
     })
   })
 
-  it('runs the smoke suite with a timeout that kills the whole process tree', async () => {
+  it('runs the suite with a timeout that kills the whole process tree', async () => {
     // `npx` is a WRAPPER: the vitest runner and its workers are its children.
     // execa's default kill signals the direct child only, so a suite that hangs
     // and is killed at the timeout left those workers running — reparented to
@@ -144,7 +141,7 @@ describe('mlcl inject reports a smoke-test failure even when it captured no outp
     // against the same project. `killDescendants` is what makes the timeout
     // take the tree (execa spawns the child as its own process-group leader and
     // signals the group), so its absence is a leaked suite, not a style choice.
-    const project = await writeApiProjectWithTests()
+    const project = await writeApiProject()
     execaMock.mockRejectedValue(new Error('vitest was killed'))
     const { cmd } = await makeCmd(project)
 
@@ -164,7 +161,7 @@ describe('mlcl inject reports a smoke-test failure even when it captured no outp
   it('keeps quoting the output of a failing run that DID print some', async () => {
     // Non-vacuousness: the ordinary failure shape keeps its diagnostic, so the
     // fix cannot have replaced the quoted output with a generic sentence.
-    const project = await writeApiProjectWithTests()
+    const project = await writeApiProject()
     execaMock.mockRejectedValue(
       Object.assign(new Error('tests failed'), { stdout: 'Tests  2 failed (2)' }),
     )
@@ -176,51 +173,49 @@ describe('mlcl inject reports a smoke-test failure even when it captured no outp
     expect(thrown).toMatchObject({ oclif: { exit: 1 } })
   })
 
-  describe('a failure the generated smoke tests own', () => {
-    /**
-     * `src/__tests__/routes.test.ts` and `server.test.ts` assert the STARTER's
-     * resources — every app that replaces its API surface fails them by
-     * existing. The run still fails the command (an injection whose wiring
-     * broke IS a failed injection), but the summary has to say WHICH failure
-     * this is: told only "Smoke tests failed", an executor hand-repairs
-     * thousands of lines of starter expectations instead of deleting the file
-     * it outgrew (X1 flash-m53, +02:11 → +04:42).
-     */
-    it('names the generated file and says it may be rewritten or deleted', async () => {
-      const project = await writeApiProjectWithTests()
-      execaMock.mockRejectedValue(
-        Object.assign(new Error('tests failed'), {
-          stdout:
-            'FAIL  src/__tests__/routes.test.ts > Resource: User > requestHandlerMap\n' +
-            'Error: Cannot find module ../App/Resource/User/index.js',
-        }),
-      )
+  describe('a project with no unit tests yet', () => {
+    it.each([
+      ['the current config, which exits 0', { stdout: 'No test files found, exiting with code 0' }],
+      ['an older config, which exits 1', null],
+    ] as const)(
+      'says it has none, neither passed nor failed, under %s (OLD MUSTFAIL)',
+      async (_label, resolved) => {
+        const project = await writeApiProject()
+        if (resolved) execaMock.mockResolvedValue(resolved as never)
+        else
+          execaMock.mockRejectedValue(
+            Object.assign(new Error('Command failed with exit code 1'), {
+              stdout: 'No test files found, exiting with code 1',
+            }),
+          )
+        const { cmd, logs } = await makeCmd(project)
+
+        const thrown = await runToSettlement(cmd)
+
+        expect(thrown, 'no tests is not a failed injection').toBeNull()
+        const joined = logs.join('\n')
+        expect(joined).not.toContain('Unit tests failed')
+        expect(joined).not.toContain('Unit tests passed')
+      },
+    )
+
+    it('counterexample: a run whose every case is skipped fails the command', async () => {
+      const project = await writeApiProject()
+      execaMock.mockResolvedValue({ stdout: ' Tests  3 skipped (3)' } as never)
       const { cmd, logs } = await makeCmd(project)
 
       const thrown = await runToSettlement(cmd)
 
-      const joined = logs.join('\n')
-      expect(joined).toContain('src/__tests__/routes.test.ts')
-      expect(joined).toMatch(/GENERATED smoke test/)
-      expect(joined).toMatch(/rewrite it for your own routes or delete it/)
-      expect(joined).toMatch(/not an injection failure/)
-      expect(thrown, 'the exit status still reports the failed run').toMatchObject({
-        oclif: { exit: 1 },
-      })
+      expect(logs.join('\n')).toContain('No unit test ran: Tests 3 skipped (3)')
+      expect(thrown).toMatchObject({ oclif: { exit: 1 } })
     })
 
-    it('says nothing of the sort for a failure in a test the app wrote', async () => {
-      const project = await writeApiProjectWithTests()
-      execaMock.mockRejectedValue(
-        Object.assign(new Error('tests failed'), {
-          stdout: 'FAIL  src/handlers/articles.test.ts > lists articles',
-        }),
-      )
-      const { cmd, logs } = await makeCmd(project)
+    it('runs no test command in a project that does not declare vitest', async () => {
+      const project = await writeApiProject({ vitest: false })
+      const { cmd } = await makeCmd(project)
 
-      await runToSettlement(cmd)
-
-      expect(logs.join('\n')).not.toContain('GENERATED smoke test')
+      expect(await runToSettlement(cmd)).toBeNull()
+      expect(execaMock.mock.calls.some(([file]) => file === 'npx')).toBe(false)
     })
   })
 })

@@ -1,4 +1,9 @@
 import { configDefaults, defineConfig } from 'vitest/config'
+import { parseCLI } from 'vitest/node'
+
+// A plain `vitest run` passes while the project has no tests yet, printing "No test files found".
+// A run that names files still fails when none match, so a mistyped path is never a green run.
+const { filter } = parseCLI(['vitest', ...process.argv.slice(2)])
 
 /**
  * Handler/unit tests import cold module graphs (bond + provider boot) that
@@ -19,6 +24,7 @@ export default defineConfig({
     exclude: [...configDefaults.exclude, '**/dist/**'],
     testTimeout: 30_000,
     hookTimeout: 30_000,
+    passWithNoTests: filter.length === 0,
     server: {
       deps: {
         inline: [/@molecule\//],

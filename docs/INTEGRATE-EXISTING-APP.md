@@ -102,7 +102,7 @@ mlcl inject --dry-run                    # preview the plan, change nothing
 
 `inject` generates the bond setup files, registers them in `src/bonds/index`,
 adds any required peer dependencies, migrations, and routes, then validates the
-result (and, in a project `mlcl create` made, runs its smoke tests). It scans the
+result (and, in a project `mlcl create` made, runs its unit tests). It scans the
 **installed** package, so the package must be present in `node_modules` (that's
 why `--inject` on `add` installs first).
 

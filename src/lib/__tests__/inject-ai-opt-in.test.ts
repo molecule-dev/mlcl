@@ -3,9 +3,9 @@
  *
  * AI code generation used to switch on whenever ANTHROPIC_API_KEY was in the environment. Coding
  * agents such as Claude Code run with that key for their own use, so every `mlcl add --inject` they
- * ran made a request billed to it, for the smoke tests' `vi.mock()` block: 5 to 11 s of a 7 to 13 s
- * add in the harness eval, for test files a project Molecule did not create never keeps. The
- * heuristics write the same files, and every scaffold already uses them.
+ * ran made a request billed to it, then for the generated smoke tests' `vi.mock()` block: 5 to 11 s
+ * of a 7 to 13 s add in the harness eval. The heuristics write the same files, and every scaffold
+ * already uses them.
  *
  * The real `ai.ts` runs here; only the SDK is replaced, so the test sees each request it would send.
  *
@@ -51,7 +51,10 @@ afterEach(() => {
 async function synthesize(): Promise<void> {
   const plan = await planInjection(PACKAGE, project)
   expect(plan.moleculePackage, 'the plan must resolve for this test').toBeTruthy()
-  await synthesizeProjectFiles([plan], [PACKAGE], project)
+  // The device routes are the part of this synthesis an `--ai` run asks the model to write.
+  await synthesizeProjectFiles([plan], [PACKAGE], project, undefined, undefined, {
+    optionalFeatures: new Set(['devices']),
+  })
 }
 
 describe('AI code generation is opt-in', () => {
@@ -79,26 +82,21 @@ describe('AI code generation is opt-in', () => {
     expect(isAIAvailable()).toBe(false)
   })
 
-  it('builds no smoke tests (and asks for no vi.mock block) for a project that keeps its own (OLD MUSTFAIL)', async () => {
+  it('asks for no vi.mock block and writes no test files with --ai (OLD MUSTFAIL)', async () => {
     process.env.ANTHROPIC_API_KEY = 'sk-test'
     sdk.create.mockResolvedValue({
       content: [{ type: 'text', text: '```ts\nexport const generated = true\n```' }],
     })
     enableAI()
     const plan = await planInjection(PACKAGE, project)
-    const files = await synthesizeProjectFiles([plan], [PACKAGE], project, undefined, undefined, {
-      smokeTests: false,
-    })
+    const files = await synthesizeProjectFiles([plan], [PACKAGE], project)
     expect(
       files.filter((file) => file.targetPath.includes('__tests__')).map((f) => f.targetPath),
     ).toEqual([])
     const mockRequests = sdk.create.mock.calls.filter(([request]) =>
-      JSON.stringify(request).includes('Generate vi.mock()'),
+      JSON.stringify(request).includes('vi.mock()'),
     )
     expect(mockRequests).toHaveLength(0)
-    // Counterexample: a Molecule project still gets them.
-    const own = await synthesizeProjectFiles([plan], [PACKAGE], project)
-    expect(own.some((file) => file.targetPath.includes('__tests__'))).toBe(true)
   })
 
   it('the inject command leaves it off unless --ai is passed (OLD MUSTFAIL)', () => {
