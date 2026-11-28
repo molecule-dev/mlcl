@@ -49,6 +49,23 @@ jobs:
       matrix:
         framework: ${{ fromJSON(needs.frameworks.outputs.names) }}
     name: scaffold with features (${{ matrix.framework }})
+    # The project's API uses the PostgreSQL bond and connects when it starts, so the boot check
+    # needs a server, as a developer running `npm start` does. DATABASE_URL in the environment
+    # wins over the scaffold's .env (`node --env-file-if-exists` keeps a variable already set).
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 2s
+          --health-timeout 5s
+          --health-retries 30
+    env:
+      DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/postgres
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
