@@ -17,7 +17,7 @@ import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
 import { resourceRecordName } from '../lib/app-resource-modules.js'
-import { sharedHintAllowed } from '../lib/intent-hints.js'
+import { intentHintReport } from '../lib/intent-hints.js'
 import {
   getMoleculeVersion,
   getRawRegistry,
@@ -43,7 +43,6 @@ import {
   scanSetupSqlBundle,
   scanSqlCapabilities,
 } from '../lib/scanner.js'
-import { INTENT_HINT_PATTERN } from '../lib/schema.js'
 import { readPackageVersion } from '../lib/setup-sql.js'
 import { planSetupSqlEntrySync } from '../lib/setup-sql-version.js'
 import { createSpinner } from '../lib/spinner.js'
@@ -1370,25 +1369,12 @@ export default class SyncRegistry extends Command {
   }
 
   /**
-   * Validate intentHints across the registry:
-   * - Each hint must be lowercase (letters, digits, spaces, hyphens, slashes).
-   * - No package may declare more than 8 hints.
-   * - A hint may not appear on more than one package unless ALL owning packages
-   *   share the same multi-select category (legitimate multi-provider case) or
-   *   are the framework counterparts of one feature (`sharedHintAllowed`).
-   * - COVERAGE IS BLOCKING for matcher-eligible packages: every core, provider,
-   *   feature, resource, and middleware package must have at least one hint. A
-   *   package with zero hints is INVISIBLE to molecule-dev's intent matcher
-   *   (matchIntents skips it), so the executor is never told it exists — this is
-   *   how a live 2FA build hand-rolled an express+db bootstrap while api-database
-   *   and 116 other CORE packages had no hints at all. Exempt: locale bonds
-   *   (auto-included companions), ui.hidden, and the framework/infrastructure
-   *   types (selected by framework config / auto-wiring, never by intent).
-   *
-   * A declaration awaiting its first release (`pendingPackages`) is held to the same
-   * rules: the release moves it into `packages` once npm serves it, so a hint it
-   * breaks would first be reported in the middle of that release (2026-11-19: four
-   * tag-input ports kept 11 hints after the React package was trimmed to 8).
+   * Validate intentHints across the registry with {@link intentHintReport}, the rules mlcl's
+   * pre-commit also applies to the staged registry. Coverage is blocking: a package with no hints
+   * is invisible to molecule-dev's intent matcher (a live 2FA build hand-rolled an express+db
+   * bootstrap while api-database and 116 other core packages had no hints), and a pending
+   * declaration is held to the same rules (2026-11-19: four tag-input ports kept 11 hints after
+   * the React package was trimmed to 8).
    *
    * @returns Number of blocking violations (0 = pass).
    */
@@ -1396,62 +1382,11 @@ export default class SyncRegistry extends Command {
     const spinner = createSpinner()
     spinner.start('Validating intent hints...')
 
-    const registry = getRawRegistry()
-    // A name is in one section or the other, never both (the registry schema refuses that).
-    const packages = { ...registry.packages, ...registry.pendingPackages }
-
-    const violations: string[] = []
-    const hintOwners = new Map<string, string[]>()
-
-    let hintedCount = 0
-    let totalHints = 0
-    const uncovered: string[] = []
-    // Types never surfaced by intent: framework bindings, wiring infrastructure,
-    // and locale bonds (auto-included companions).
-    const exemptTypes = new Set(['framework', 'infrastructure', 'locales'])
-
-    for (const [name, entry] of Object.entries(packages)) {
-      const hints = entry.intentHints ?? []
-
-      if (hints.length === 0) {
-        const isHidden = entry.ui?.hidden === true
-        if (!isHidden && !exemptTypes.has(entry.type)) {
-          uncovered.push(name)
-          violations.push(
-            `${chalk.red('✗')} ${chalk.cyan(name)}: no intentHints — matcher-invisible ` +
-              `(type ${entry.type}); author hints or mark ui.hidden`,
-          )
-        }
-        continue
-      }
-
-      hintedCount++
-      totalHints += hints.length
-
-      if (hints.length > 8) {
-        violations.push(`${chalk.red('✗')} ${chalk.cyan(name)}: ${hints.length} hints (cap is 8)`)
-      }
-
-      for (const hint of hints) {
-        if (!INTENT_HINT_PATTERN.test(hint)) {
-          violations.push(
-            `${chalk.red('✗')} ${chalk.cyan(name)}: invalid hint ${chalk.dim(JSON.stringify(hint))} ` +
-              `(lowercase letters/digits/spaces/-//only)`,
-          )
-        }
-        const owners = hintOwners.get(hint) ?? []
-        owners.push(name)
-        hintOwners.set(hint, owners)
-      }
-    }
-
-    for (const [hint, owners] of hintOwners) {
-      if (owners.length < 2 || sharedHintAllowed(owners, packages, registry.appFrameworks ?? {}))
-        continue
-      violations.push(
-        `${chalk.red('✗')} duplicate hint ${chalk.dim(JSON.stringify(hint))} on: ${owners.join(', ')}`,
-      )
-    }
+    const report = intentHintReport(getRawRegistry())
+    const { hintedCount, totalHints, uncovered } = report
+    const violations = report.violations.map(
+      ({ subject, message }) => `${chalk.red('✗')} ${chalk.cyan(subject)}: ${message}`,
+    )
 
     spinner.stop(
       violations.length > 0
