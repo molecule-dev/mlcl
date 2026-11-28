@@ -114,6 +114,11 @@ jobs:
   framework-scaffolds:
     uses: ./.github/workflows/framework-scaffolds.yml
 
+  # Each showcase framework's component showcase renders what React's does, its packages
+  # installed from npm at the registry's pins (visual-parity.yml).
+  visual-parity:
+    uses: ./.github/workflows/visual-parity.yml
+
   lint:
     runs-on: ubuntu-latest
     steps:
