@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config'
+import { configDefaults, defineConfig } from 'vitest/config'
 
 /**
  * Handler/unit tests import cold module graphs (bond + provider boot) that
@@ -8,6 +8,9 @@ import { defineConfig } from 'vitest/config'
  */
 export default defineConfig({
   test: {
+    // `tsc` compiles src/__tests__ into dist/, and vitest 4 no longer leaves dist out by
+    // default: without this line every test runs twice after a build.
+    exclude: [...configDefaults.exclude, '**/dist/**'],
     testTimeout: 30_000,
     hookTimeout: 30_000,
     server: {

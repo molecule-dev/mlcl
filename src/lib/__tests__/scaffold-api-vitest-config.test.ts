@@ -57,26 +57,45 @@ describe('scaffolded API vitest config', () => {
   // vitest's 10 s default, so an agent's server hook timed out under `mlcl check`'s parallel steps
   // (harness smoke run 4, 2026-11-28) while the same tests passed once fewer steps ran.
   it('gives hooks the time it gives tests, in the skeleton and every flagship API', async () => {
-    dir = await mkdtemp(join(tmpdir(), 'mlcl-api-vitest-'))
-    await createApiProject(dir, 'demo-api')
-    const configs: [string, string][] = [
-      ['the api skeleton', await readFile(join(dir, 'vitest.config.ts'), 'utf-8')],
-    ]
-    for (const name of readdirSync(TEMPLATES_DIR)) {
-      try {
-        configs.push([
-          name,
-          readFileSync(join(TEMPLATES_DIR, name, 'api', 'vitest.config.ts'), 'utf-8'),
-        ])
-      } catch (_error) {
-        continue // A template without an API.
-      }
-    }
-    expect(configs.length).toBeGreaterThan(100)
-    for (const [name, config] of configs) {
+    for (const [name, config] of await apiVitestConfigs()) {
       const test = /testTimeout:\s*([\d_]+)/.exec(config)?.[1]
       expect(test, `${name} sets a test timeout`).toBeDefined()
       expect(/hookTimeout:\s*([\d_]+)/.exec(config)?.[1], `${name} hook timeout`).toBe(test)
     }
   })
+
+  // The API's `tsc` build compiles src/__tests__ into dist/, and vitest 4's default exclude is only
+  // node_modules and .git, so after a build `npm test` ran every test twice, once compiled (harness
+  // smoke run 4, 2026-11-28: "Test Files 6 passed (6)" for an API with three).
+  it('leaves the build output out of the test run, in the skeleton and every flagship API', async () => {
+    for (const [name, config] of await apiVitestConfigs())
+      expect(config, `${name} excludes dist`).toContain(
+        "exclude: [...configDefaults.exclude, '**/dist/**']",
+      )
+  })
 })
+
+/**
+ * Read the API vitest config a custom scaffold writes and every flagship API's.
+ *
+ * @returns Each config with the name of what carries it.
+ */
+async function apiVitestConfigs(): Promise<[string, string][]> {
+  dir = await mkdtemp(join(tmpdir(), 'mlcl-api-vitest-'))
+  await createApiProject(dir, 'demo-api')
+  const configs: [string, string][] = [
+    ['the api skeleton', await readFile(join(dir, 'vitest.config.ts'), 'utf-8')],
+  ]
+  for (const name of readdirSync(TEMPLATES_DIR)) {
+    try {
+      configs.push([
+        name,
+        readFileSync(join(TEMPLATES_DIR, name, 'api', 'vitest.config.ts'), 'utf-8'),
+      ])
+    } catch (_error) {
+      continue // A template without an API.
+    }
+  }
+  expect(configs.length).toBeGreaterThan(100)
+  return configs
+}
