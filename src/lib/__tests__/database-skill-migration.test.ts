@@ -70,11 +70,11 @@ function crudColumns(): string[] {
 describe('the database skill migration example', () => {
   it('sorts after the migrations a scaffold already has', () => {
     // The scaffold names its own migrations with the time it ran (mlcl's injector, Date.now()).
+    // One name, read once: each read stamps the current time, and two reads a millisecond apart
+    // differ.
     const scaffolded = `${Date.now() - 60_000}_create_users_table.sql`
-    expect([exampleMigration().name, scaffolded].sort()).toEqual([
-      scaffolded,
-      exampleMigration().name,
-    ])
+    const example = exampleMigration().name
+    expect([example, scaffolded].sort()).toEqual([scaffolded, example])
   })
 
   it('creates the columns the CRUD example writes, and enforces its foreign key and CHECK', async () => {
