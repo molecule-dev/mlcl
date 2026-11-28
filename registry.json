@@ -112746,7 +112746,8 @@
         "@tailwindcss/vite",
         "@vitejs/plugin-react",
         "vite",
-        "vite-plugin-pwa"
+        "vite-plugin-pwa",
+        "vitest"
       ],
       "moleculePeers": [
         "@molecule/app-version"
