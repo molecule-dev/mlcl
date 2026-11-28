@@ -6931,6 +6931,30 @@ export function readmeEnvStep(envToSet: EnvLeftToSet): string {
 }
 
 /**
+ * The `.env.example` lines for the declared secrets: each key with no value, under the registry's
+ * one-line guidance for it (its instructions, else its label, then the page that issues it) when
+ * the package gives any. A clone has this file and no `.env`, and a bare `JWT_PRIVATE_KEY=` read
+ * as a key nothing explained, though `@molecule/api-jwt` generates a pair on first boot.
+ *
+ * @param secrets - Secrets aggregated from package metadata (registry).
+ * @returns The lines, without a trailing blank line.
+ */
+export function envExampleLines(secrets: MoleculeSecret[]): string[] {
+  const lines: string[] = []
+  for (const secret of secrets) {
+    const notes = [secret.instructions ?? secret.label, secret.setupUrl]
+      .map((note) => note?.replace(/\s+/g, ' ').trim())
+      .filter((note): note is string => Boolean(note))
+      .map((note) => `# ${note}`)
+    if (notes.length > 0 && lines.length > 0 && lines.at(-1) !== '') lines.push('')
+    lines.push(...notes, `${secret.name}=`)
+    if (notes.length > 0) lines.push('')
+  }
+  while (lines.at(-1) === '') lines.pop()
+  return lines
+}
+
+/**
  * Generate a .env file from package-declared secrets.
  *
  * @param projectPath - Directory the .env file is written into.
@@ -6967,7 +6991,7 @@ export async function generateEnvFile(
   // never-clobber policy as ensureRootNpmrc / ensureAgentsMd: the generated
   // key-name example only fills an absence.
   if (!existsSync(examplePath)) {
-    const exampleContent = lines.concat(secrets.map((s) => `${s.name}=`)).join('\n')
+    const exampleContent = `${lines.concat(envExampleLines(secrets)).join('\n')}\n`
     try {
       await writeFile(examplePath, exampleContent)
     } catch (_error) {

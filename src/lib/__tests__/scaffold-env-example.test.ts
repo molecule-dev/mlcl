@@ -17,6 +17,7 @@ import { join } from 'node:path'
 
 import { afterEach, describe, expect, it } from 'vitest'
 
+import { getRawRegistry } from '../registry.js'
 import { generateEnvFile } from '../scaffold.js'
 
 let dir: string | null = null
@@ -72,5 +73,47 @@ describe('generateEnvFile .env.example', () => {
       expect(example).toMatch(new RegExp(`^${secret}=$`, 'm'))
       expect(example).not.toMatch(new RegExp(`^${secret}=.+`, 'm'))
     }
+  })
+
+  // A clone has `.env.example` and no `.env`. Its bare `JWT_PRIVATE_KEY=` and `JWT_PUBLIC_KEY=` read
+  // as keys nothing explains, and two blind reviews in a row (harness smoke runs 3 and 4) said a
+  // clone needs RSA keys before it starts, while `@molecule/api-jwt` generates a pair on first boot.
+  it("writes each key under the registry's guidance for it", async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-env-example-'))
+    const jwt = getRawRegistry().packages['@molecule/api-jwt-jsonwebtoken']?.secrets ?? []
+    expect(jwt.map((secret) => secret.name)).toEqual(['JWT_PRIVATE_KEY', 'JWT_PUBLIC_KEY'])
+
+    await generateEnvFile(
+      dir,
+      [
+        ...jwt,
+        {
+          name: 'STRIPE_SECRET_KEY',
+          required: true,
+          label: 'Stripe secret key',
+          setupUrl: 'https://dashboard.stripe.com/apikeys',
+        },
+        { name: 'PLAIN_KEY', required: false },
+      ],
+      'api',
+    )
+
+    const lines = (await readFile(join(dir, '.env.example'), 'utf-8')).split('\n')
+    const above = (name: string): string[] =>
+      lines
+        .slice(0, lines.indexOf(`${name}=`))
+        .reverse()
+        .slice(0, 2)
+        .reverse()
+    expect(above('JWT_PRIVATE_KEY').at(-1)).toBe(`# ${jwt[0]!.instructions}`)
+    expect(above('JWT_PRIVATE_KEY').at(-1)).toContain('self-generates key files on first boot')
+    expect(above('JWT_PUBLIC_KEY').at(-1)).toBe(`# ${jwt[1]!.instructions}`)
+    // With no instructions, the label names it, and the page to get it from follows.
+    expect(above('STRIPE_SECRET_KEY')).toEqual([
+      '# Stripe secret key',
+      '# https://dashboard.stripe.com/apikeys',
+    ])
+    expect(lines).toContain('PLAIN_KEY=')
+    expect(lines.at(-1)).toBe('')
   })
 })
