@@ -1,6 +1,6 @@
 {
   "name": "mlcl",
-  "version": "2.2.14",
+  "version": "2.2.15",
   "description": "The Molecule.dev CLI — find, add, wire and swap composable @molecule/* packages in any JavaScript or TypeScript project, and manage its env, database and deploys",
   "author": "Molecule Dev, Inc. (https://molecule.dev)",
   "license": "Apache-2.0",
