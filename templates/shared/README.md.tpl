@@ -1,8 +1,6 @@
 # {{PROJECT_NAME}}
 
-{{PROJECT_DESCRIPTION}}
-
-Built with **[Molecule.dev](https://molecule.dev)** — a composable `@molecule/*` package ecosystem for production TypeScript apps. Every capability sits behind a swappable **bond**: change PostgreSQL → MySQL, Mailgun → SES, or one OAuth provider for another by changing one wiring file, not rewriting your app.
+Built from [Molecule.dev](https://molecule.dev) packages: each capability (database, auth, email, …) is a `@molecule/*` package, and `api/src/bonds/` chooses the provider behind it, so a provider can change without touching the code that uses it.
 
 Use a Node.js version accepted by `engines.node` in the root `package.json`.
 
@@ -40,17 +38,13 @@ Read any installed package's docs with `{{CLI_COMMAND}} docs @molecule/<name>` (
 
 ## AI agents
 
-This project is agent-optimized — see `AGENTS.md` for the full conventions (bonds, ClassMap styling, handler patterns, migrations). To set up your coding agents for Molecule (MCP tools, skills and these conventions) on this machine or in this project: `{{CLI_COMMAND}} setup`.
+`AGENTS.md` holds the conventions coding agents follow here (bonds, ClassMap styling, handler patterns, migrations). `{{CLI_COMMAND}} setup` gives your agents Molecule's MCP tools, skills and these conventions, on this machine or in this project.
 
 ## Deploy
 
-Deploy to production with the same pipeline as the molecule.dev IDE:
+To deploy on molecule.dev:
 
 ```bash
 {{CLI_COMMAND}} login
 {{CLI_COMMAND}} deploy --project <id> --follow
 ```
-
----
-
-*Built with [molecule.dev](https://molecule.dev) — scaffolded by [mlcl](https://www.npmjs.com/package/mlcl)*

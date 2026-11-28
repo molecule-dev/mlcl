@@ -2199,7 +2199,6 @@ export async function ensureReadmeMd(
   if (existsSync(target)) return
   const vars = {
     PROJECT_NAME: projectName,
-    PROJECT_DESCRIPTION: `${projectName} — built with Molecule.dev`,
     FRAMEWORK: framework ?? 'React',
     ENV_STEP: readmeEnvStep(envToSet),
   }
