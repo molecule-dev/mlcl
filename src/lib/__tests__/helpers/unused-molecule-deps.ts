@@ -2,9 +2,12 @@
  * The `@molecule/*` dependencies a project half declares and never uses.
  *
  * A dependency is used when a file of the half (or of the project's shared `e2e/`) names it, in an
- * import, a CSS `@import` or `@source`, a Vite option or a JSON config, or when it is a required
- * peer or runtime dependency (registry `moleculePeers`, `runtimeDependencies`) of a used one,
- * transitively. The registry is the peer source, so the check needs no molecule checkout.
+ * import, a CSS `@import` or `@source`, a Vite option or a JSON config; when the flagship's
+ * `template.json` lists it (a scaffold of the template declares it and copies its setup SQL at
+ * the pinned version, so a resource package no file imports still creates the app's tables); or
+ * when it is a required peer or runtime dependency (registry `moleculePeers`,
+ * `runtimeDependencies`) of a used one, transitively. The registry is the peer source, so the
+ * check needs no molecule checkout.
  *
  * @module
  */
@@ -60,7 +63,12 @@ export function unusedMoleculeDependencies(
   const shared = join(halfDir, '..', 'e2e')
   if (existsSync(shared)) namedIn(shared, named)
 
-  const used = new Set(declared.filter((name) => named.has(name)))
+  const template = join(halfDir, '..', 'template.json')
+  const listed = existsSync(template)
+    ? ((JSON.parse(readFileSync(template, 'utf8')) as { packages?: string[] }).packages ?? [])
+    : []
+
+  const used = new Set(declared.filter((name) => named.has(name) || listed.includes(name)))
   const queue = [...used]
   while (queue.length > 0) {
     const entry = registry[queue.pop() as string]

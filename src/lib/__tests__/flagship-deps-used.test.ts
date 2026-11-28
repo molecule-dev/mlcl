@@ -85,6 +85,22 @@ describe('the check (known-bad copies of crm)', () => {
     expect(unusedMoleculeDependencies(join(copy, 'app'), registry)).toEqual([])
   })
 
+  it('counterexample: a package template.json lists is used though no file names it', () => {
+    // A scaffold of the template declares it and copies its setup SQL at the pinned version.
+    declare('@molecule/app-timeline')
+    expect(unusedMoleculeDependencies(join(copy, 'app'), registry)).toContain(
+      '@molecule/app-timeline',
+    )
+    writeFileSync(
+      join(copy, 'template.json'),
+      JSON.stringify({ packages: ['@molecule/app-timeline'] }),
+    )
+    expect(unusedMoleculeDependencies(join(copy, 'app'), registry)).not.toContain(
+      '@molecule/app-timeline',
+    )
+    rmSync(join(copy, 'template.json'))
+  })
+
   it('counterexample: a peer of a used package is used though no file names it', () => {
     // crm declares @molecule/app-clipboard-web for @molecule/app-bonds-default-react, which wires it.
     const peer = '@molecule/app-clipboard-web'

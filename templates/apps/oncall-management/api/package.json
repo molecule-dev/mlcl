@@ -61,7 +61,6 @@
     "@molecule/api-middleware-cors": "1.0.3",
     "@molecule/api-middleware-cors-express": "1.0.3",
     "@molecule/api-middleware-validation": "1.1.2",
-    "@molecule/api-notification-center": "1.0.4",
     "@molecule/api-notifications": "1.0.3",
     "@molecule/api-notifications-webhook": "1.0.3",
     "@molecule/api-password": "1.0.4",
