@@ -269,6 +269,12 @@ describe('npm install as mlcl runs it', () => {
       const run = async (level: string): Promise<string> => {
         // The fixture models an already installed package. Rebuild its failing script with npm.
         installAdds(root)
+        // A dependency of the project, as an install leaves it: npm 12 runs no script of an
+        // installed package that no dependency names, whatever allowScripts says.
+        writeFileSync(
+          join(root, 'package.json'),
+          JSON.stringify({ name: 'proj', dependencies: { puppeteer: '1.0.0' } }),
+        )
         const install = execaMock.getMockImplementation()
         execaMock.mockImplementation(async (file, args, options) => {
           if (args[0] === 'rebuild') return execa('bash', npmPipeArgs(file, args), options)
