@@ -1,6 +1,6 @@
 /** Compiler work shared by the independent package programs in one docs generation. */
-import { readFileSync } from 'node:fs'
-import { join, resolve, sep } from 'node:path'
+import { existsSync, readFileSync } from 'node:fs'
+import { dirname, join, resolve, sep } from 'node:path'
 
 import { createWrappedNode, Project, type SourceFile, ts } from 'ts-morph'
 
@@ -43,6 +43,9 @@ export function createApiExtractionSession(
   const files = new Map<string, ts.SourceFile>()
   let cachedSourceBytes = 0
   const pathsByPackage = new Map<string, Record<string, string[]>>()
+  const importsByPackage = new Map<string, Record<string, string[]>>()
+  // Only a documented package's own `#` imports are mapped; a dependency's stay its own business.
+  const documentedDirs = new Set([...(sourcePackages?.values() ?? [])].map((dir) => resolve(dir)))
   const resolutions = new Map<string, ts.ResolvedModuleFull | undefined>()
   const reads = new Map<string, string | undefined>()
   const host = ts.createCompilerHost(compilerOptions, true)
@@ -95,9 +98,21 @@ export function createApiExtractionSession(
       const packageName = name.startsWith('@molecule/')
         ? name.split('/').slice(0, 2).join('/')
         : undefined
-      const siblingDir = packageName && sourcePackages?.get(packageName)
+      // A package's own `#` specifier (its manifest's `imports`) names files in its `dist/`, which
+      // an index or archive export does not have, and which in a live tree is build output rather than
+      // the source being documented: map it to `src/` the way sibling `exports` are (2026-11-28: the
+      // React kit's `#kit` re-exports lost their API sections in every README the hook generated).
+      const importer = name.startsWith('#') ? packageDirOf(from) : undefined
+      const ownDir = importer && documentedDirs.has(resolve(importer)) ? importer : undefined
+      const siblingDir = ownDir ?? (packageName && sourcePackages?.get(packageName))
       let paths: Record<string, string[]> | undefined
-      if (siblingDir && packageName) {
+      if (ownDir) {
+        paths = importsByPackage.get(ownDir)
+        if (!paths) {
+          paths = packageImportPaths(ownDir)
+          importsByPackage.set(ownDir, paths)
+        }
+      } else if (siblingDir && packageName) {
         paths = pathsByPackage.get(packageName)
         if (!paths) {
           paths = packageSourcePaths(packageName, siblingDir)
@@ -142,6 +157,40 @@ export function createApiExtractionSession(
   }
 }
 
+/** The directory of the nearest `package.json` above a file. */
+function packageDirOf(file: string): string | undefined {
+  for (let dir = dirname(file); dirname(dir) !== dir; dir = dirname(dir)) {
+    if (existsSync(join(dir, 'package.json'))) return dir
+  }
+  return undefined
+}
+
+/**
+ * The `src/` files a manifest target names: `./dist/x.js` and `./dist/x.d.ts` become `src/x.js`,
+ * which TypeScript reads as `src/x.ts`; a conditional target gives each condition's file in order.
+ */
+function sourceTargets(packageDir: string, value: unknown): string[] {
+  if (typeof value === 'string') {
+    if (!/^(?:\.\/)?(?:dist|src)\//.test(value)) return []
+    return [join(packageDir, value.replace(/^(?:\.\/)?dist\//, 'src/').replace(/\.d\.ts$/, '.js'))]
+  }
+  if (!value || typeof value !== 'object') return []
+  return [...new Set(Object.values(value).flatMap((target) => sourceTargets(packageDir, target)))]
+}
+
+/** Map a package's own `#` specifiers (its manifest's `imports`) to its `src/` files. */
+function packageImportPaths(packageDir: string): Record<string, string[]> {
+  const pkg = JSON.parse(readFileSync(join(packageDir, 'package.json'), 'utf8')) as {
+    imports?: Record<string, unknown>
+  }
+  const paths: Record<string, string[]> = {}
+  for (const [key, value] of Object.entries(pkg.imports ?? {})) {
+    const mapped = sourceTargets(packageDir, value)
+    if (key.startsWith('#') && mapped.length) paths[key] = mapped
+  }
+  return paths
+}
+
 /** Resolve public sibling entry points from the documented tree's own manifest. */
 function packageSourcePaths(name: string, packageDir: string): Record<string, string[]> {
   const pkg = JSON.parse(readFileSync(join(packageDir, 'package.json'), 'utf8')) as {
@@ -149,16 +198,7 @@ function packageSourcePaths(name: string, packageDir: string): Record<string, st
     main?: string
     exports?: unknown
   }
-  const targets = (value: unknown): string[] => {
-    if (typeof value === 'string') {
-      if (!/^(?:\.\/)?(?:dist|src)\//.test(value)) return []
-      return [
-        join(packageDir, value.replace(/^(?:\.\/)?dist\//, 'src/').replace(/\.d\.ts$/, '.js')),
-      ]
-    }
-    if (!value || typeof value !== 'object') return []
-    return [...new Set(Object.values(value).flatMap(targets))]
-  }
+  const targets = (value: unknown): string[] => sourceTargets(packageDir, value)
   const paths: Record<string, string[]> = {
     [name]: [join(packageDir, 'src/index.js')],
     [`${name}/*`]: [join(packageDir, 'src/*')],

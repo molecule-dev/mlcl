@@ -250,4 +250,44 @@ describe('independent package programs with shared compiler work', () => {
     expect(md).toContain('importOnly: true')
     expect(md).toContain('requireOnly: true')
   })
+
+  it("documents a package's own # imports from its sources, without its dist or a dependency's imports", async () => {
+    const { root, registry, dir } = await fixture()
+    // The React kit re-exports its components through #kit, which names dist files a fresh
+    // export does not have (2026-11-28: those API sections vanished from hook-generated READMEs).
+    await put(
+      join(dir(second), 'package.json'),
+      JSON.stringify({
+        name: second,
+        version: '1.0.0',
+        type: 'module',
+        exports: { '.': { types: './dist/index.d.ts' } },
+        imports: { '#kit': { browser: './dist/kit.web.js', default: './dist/kit.web.js' } },
+      }),
+    )
+    await put(
+      join(dir(second), 'src/kit.web.ts'),
+      "/** The kit's documented gadget. */\nexport const gadget = (size: number): string => String(size)\n",
+    )
+    // A dependency's own # import resolves inside node_modules and is not a documented source.
+    const dependency = join(root, 'node_modules/session-hashed')
+    await put(
+      join(dependency, 'package.json'),
+      JSON.stringify({
+        name: 'session-hashed',
+        types: './index.d.ts',
+        imports: { '#inner': './inner.d.ts' },
+      }),
+    )
+    await put(join(dependency, 'index.d.ts'), "export type { Inner } from '#inner'\n")
+    await put(join(dependency, 'inner.d.ts'), 'export interface Inner { hashed: true }\n')
+    await put(
+      join(dir(second), 'src/index.ts'),
+      "export { gadget } from '#kit'\nexport type { Inner } from 'session-hashed'\n",
+    )
+    const md = (await generateDocs(registry, root, [second]))[0].md
+    expect(md).toContain("The kit's documented gadget.")
+    expect(md).toContain('gadget(size: number): string')
+    expect(md).toContain('hashed: true')
+  })
 })
