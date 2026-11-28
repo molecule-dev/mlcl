@@ -83,29 +83,16 @@ const keep = args.includes('--keep')
 const withFeatures = args.includes('--with-features')
 
 /**
- * One package for each optional feature this framework's templates gate, the first by name: a
- * feature an API provider brings (any stack) or this framework's own package (the settings panel).
+ * The packages that turn on every optional feature this framework's templates gate (a feature an
+ * API provider brings, this framework's own package such as the settings panel, or the package
+ * `features.json` says selects it), as `mlcl create` derives them.
  *
  * @returns {Promise<string[]>} The package names.
  */
 async function featurePackages() {
-  const { frameworkTemplateFeatures } = await import('../dist/lib/optional-features.js')
+  const { templateFeaturePackages } = await import('../dist/lib/optional-features.js')
   const { loadRegistry } = await import('../dist/lib/registry.js')
-  const gated = frameworkTemplateFeatures(join(MLCL, 'templates', 'app'), framework)
-  const names = []
-  for (const feature of [...gated].sort()) {
-    const provider = loadRegistry()
-      .filter(
-        (pkg) =>
-          pkg.molecule?.optionalFeature === feature &&
-          (!pkg.molecule.framework || pkg.molecule.framework === framework),
-      )
-      .map((pkg) => pkg.name)
-      .sort()[0]
-    if (!provider) throw new Error(`no package brings the ${feature} feature for ${framework}`)
-    names.push(provider)
-  }
-  return names
+  return templateFeaturePackages(join(MLCL, 'templates', 'app'), framework, loadRegistry())
 }
 
 /**

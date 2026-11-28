@@ -27,6 +27,7 @@ import {
   FEATURE_TEMPLATES_DIR,
   featureSectionNames,
   selectOptionalFeatures,
+  templateFeaturePackages,
 } from '../optional-features.js'
 import { loadAppFrameworks, loadRegistry } from '../registry.js'
 import { copyTemplateFiles } from '../scaffold.js'
@@ -462,6 +463,44 @@ describe.each([
     expect(names.includes('@molecule/app-auth-ui-react')).toBe(features.includes('oauth'))
     expect(names.includes('@molecule/app-plan-updated-page-react')).toBe(
       features.includes('payments'),
+    )
+  })
+})
+
+describe('packages for a scaffold with every feature', () => {
+  const registry = loadRegistry()
+
+  it('adds the package that selects device management for React Native Web', () => {
+    // Its settings panel gates `devices`, which no package brings as an `optionalFeature`:
+    // features.json selects it by @molecule/api-resource-device (2026-11-28, the scaffold check
+    // threw "no package brings the devices feature" for every React Native Web run with features).
+    const names = templateFeaturePackages(APP_TEMPLATES, 'react-native-web', registry)
+    expect(names).toContain('@molecule/api-resource-device')
+    expect(deriveOptionalFeatures(names, registry, selectOptionalFeatures(names))).toContain(
+      'devices',
+    )
+  })
+
+  it.each(FRAMEWORKS)('turns on every feature the %s templates gate', (framework) => {
+    const names = templateFeaturePackages(APP_TEMPLATES, framework, registry)
+    const enabled = deriveOptionalFeatures(names, registry, selectOptionalFeatures(names))
+    const dir = join(APP_TEMPLATES, framework)
+    const gated = new Set<string>()
+    const walk = (path: string): void => {
+      for (const entry of readdirSync(path, { withFileTypes: true })) {
+        const child = join(path, entry.name)
+        if (entry.isDirectory()) walk(child)
+        else if (entry.name.endsWith('.tpl'))
+          for (const name of featureSectionNames(readFileSync(child, 'utf8'))) gated.add(name)
+      }
+    }
+    walk(dir)
+    for (const feature of gated) expect(enabled, `${framework} ${feature}`).toContain(feature)
+  })
+
+  it('names a gated feature that no package turns on', () => {
+    expect(() => templateFeaturePackages(APP_TEMPLATES, 'react-native-web', [])).toThrow(
+      /no package brings the .*feature for react-native-web/,
     )
   })
 })

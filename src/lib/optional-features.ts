@@ -222,6 +222,50 @@ export function frameworkTemplateFeatures(appTemplatesDir: string, framework: st
 }
 
 /**
+ * Packages that turn on every optional feature a framework's templates gate, for a scaffold that
+ * renders all of its sections.
+ *
+ * For each gated feature it takes the first package by name whose `optionalFeature` names it (for
+ * this framework, or for any), else the package `features.json` says selects it (`selectedBy`).
+ * A feature that neither names must come from a feature that includes it. The chosen packages are
+ * then read back through {@link deriveOptionalFeatures}, the derivation `mlcl create` uses, so a
+ * feature only `selectedBy` brings (device management, 2026-11-28) is never left off.
+ *
+ * @param appTemplatesDir - The `templates/app` directory.
+ * @param framework - The registry app-framework key.
+ * @param registryPackages - Registry entries to read `optionalFeature` from.
+ * @returns The package names, sorted.
+ * @throws When a gated feature stays off with every chosen package installed, naming it.
+ */
+export function templateFeaturePackages(
+  appTemplatesDir: string,
+  framework: string,
+  registryPackages: readonly InferredPackage[],
+): string[] {
+  const gated = frameworkTemplateFeatures(appTemplatesDir, framework)
+  const specs = featureDefinitions()
+  const names = new Set<string>()
+  for (const feature of [...gated].sort()) {
+    const provider =
+      registryPackages
+        .filter(
+          (pkg) =>
+            pkg.molecule?.optionalFeature === feature &&
+            (!pkg.molecule.framework || pkg.molecule.framework === framework),
+        )
+        .map((pkg) => pkg.name)
+        .sort()[0] ?? specs[feature]?.selectedBy
+    if (provider) names.add(provider)
+  }
+  const chosen = [...names].sort()
+  const enabled = deriveOptionalFeatures(chosen, registryPackages, selectOptionalFeatures(chosen))
+  const missing = [...gated].filter((feature) => !enabled.has(feature)).sort()
+  if (missing.length)
+    throw new Error(`no package brings the ${missing.join(', ')} feature for ${framework}`)
+  return chosen
+}
+
+/**
  * The `@molecule/*` packages the whole files of these features import, for a framework.
  *
  * Read from `<appTemplatesDir>/<framework>/features/<feature>/`, so a package only a feature uses
