@@ -27,6 +27,7 @@ import { extname, join } from 'node:path'
 
 import { ts } from 'ts-morph'
 
+import { NPM_DIAGNOSTICS } from './npm-diagnostics.js'
 import { npmInstallArgs } from './npm-install.js'
 import { closeMoleculePeers, type MoleculePeerManifest } from './peer-closure.js'
 import { getMoleculeVersion, getRawRegistry, loadAppFrameworks, loadToolchain } from './registry.js'
@@ -386,12 +387,16 @@ export async function startShowcaseServer(
   // while the comparisons go to the showcase ports, and each fails on a refused connection
   // (2026-11-27, the day `--no` was added; visual-test-server.test.ts runs this launch, and
   // npx-no-download.test.ts checks every such call).
-  const viteProcess = spawn('npx', ['--no', '--', 'vite', '--port', String(port), '--strictPort'], {
-    cwd: dir,
-    detached: true,
-    stdio: ['ignore', 'pipe', 'pipe'],
-    env: { ...process.env, NODE_ENV: 'development' },
-  })
+  const viteProcess = spawn(
+    'npx',
+    ['--no', NPM_DIAGNOSTICS, '--', 'vite', '--port', String(port), '--strictPort'],
+    {
+      cwd: dir,
+      detached: true,
+      stdio: ['ignore', 'pipe', 'pipe'],
+      env: { ...process.env, NODE_ENV: 'development' },
+    },
+  )
 
   const url = `http://localhost:${port}`
 

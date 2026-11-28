@@ -42,7 +42,7 @@ function sources(dir: string): string[] {
 function npxCalls(files: readonly string[]): {
   file: string
   first: string
-  /** Whether `--` is the second argument. */
+  /** Whether `--` follows the npm options. */
   separated: boolean
   /** The argument after the tool's name, when the call has one. */
   afterTool: string | undefined
@@ -53,11 +53,13 @@ function npxCalls(files: readonly string[]): {
     [...readFileSync(file, 'utf8').matchAll(call)].map((m) => {
       const literal = (argument: string): string => argument.trim().replace(/^['"]|['"]$/g, '')
       const arguments_ = m[1]!.split(',').map(literal)
+      const separatorIndex = arguments_[1] === 'NPM_DIAGNOSTICS' ? 2 : 1
+      const separated = arguments_[separatorIndex] === '--'
       return {
         file: relative(SRC, file),
         first: arguments_[0] ?? '',
-        separated: arguments_[1] === '--',
-        afterTool: arguments_[arguments_[1] === '--' ? 3 : 2],
+        separated,
+        afterTool: arguments_[separatorIndex + (separated ? 2 : 1)],
       }
     }),
   )

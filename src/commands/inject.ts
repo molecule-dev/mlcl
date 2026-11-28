@@ -51,6 +51,7 @@ import {
   migrationDialectHeader,
   projectDatabasePackage,
 } from '../lib/migration-dialect.js'
+import { NPM_DIAGNOSTICS } from '../lib/npm-diagnostics.js'
 import { npmInstall } from '../lib/npm-install.js'
 import { npmInstallRoot, siblingWorkspace } from '../lib/npm-install-root.js'
 import { deriveOptionalFeatures, recordedOptionalFeatures } from '../lib/optional-features.js'
@@ -1303,20 +1304,24 @@ export default class Inject extends Command {
     try {
       // `--no`: a project without vitest installed (its install failed) gets npm's "missing
       // packages" error, never a download of the newest vitest in place of the project's pin.
-      const result = await execa('npx', ['--no', 'vitest', 'run', '--reporter=verbose'], {
-        cwd: projectPath,
-        stdio: 'pipe',
-        timeout: 60_000,
-        // The timeout must take the whole TREE, not just `npx`. execa's default
-        // kill signals the direct child only, and `npx` is a wrapper: the vitest
-        // runner and its workers are its children, so a suite that hangs and is
-        // killed at the timeout above left them running — reparented to init,
-        // holding the project's ports and CPU — while this command reported the
-        // failure and moved on. `killDescendants` spawns the child as its own
-        // process-group leader and signals the GROUP, so the workers die with
-        // the wrapper (execa 10; a no-op on Windows, which has no groups).
-        killDescendants: true,
-      })
+      const result = await execa(
+        'npx',
+        ['--no', NPM_DIAGNOSTICS, 'vitest', 'run', '--reporter=verbose'],
+        {
+          cwd: projectPath,
+          stdio: 'pipe',
+          timeout: 60_000,
+          // The timeout must take the whole TREE, not just `npx`. execa's default
+          // kill signals the direct child only, and `npx` is a wrapper: the vitest
+          // runner and its workers are its children, so a suite that hangs and is
+          // killed at the timeout above left them running — reparented to init,
+          // holding the project's ports and CPU — while this command reported the
+          // failure and moved on. `killDescendants` spawns the child as its own
+          // process-group leader and signals the GROUP, so the workers die with
+          // the wrapper (execa 10; a no-op on Windows, which has no groups).
+          killDescendants: true,
+        },
+      )
 
       // Extract summary from vitest output (e.g. "Tests  3 passed (3)")
       const summaryMatch = result.stdout.match(/Tests\s+(\d+\s+passed[^)]*\))/)

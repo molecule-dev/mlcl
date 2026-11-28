@@ -24,6 +24,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { Config } from '@oclif/core'
+import type * as Execa from 'execa'
 import { execa } from 'execa'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
@@ -45,6 +46,7 @@ let dir: string | null = null
 
 afterEach(async () => {
   execaMock.mockReset()
+  vi.unstubAllEnvs()
   if (dir) await rm(dir, { recursive: true, force: true })
   dir = null
 })
@@ -120,7 +122,7 @@ describe('mlcl inject reports a unit-test failure even when it captured no outpu
 
     expect(execaMock).toHaveBeenCalledWith(
       'npx',
-      ['--no', 'vitest', 'run', '--reporter=verbose'],
+      ['--no', '--loglevel=notice', 'vitest', 'run', '--reporter=verbose'],
       expect.objectContaining({ cwd: project }),
     )
     // The failure must be REPORTED (it is the printed errors that tell the
@@ -149,7 +151,7 @@ describe('mlcl inject reports a unit-test failure even when it captured no outpu
 
     expect(execaMock).toHaveBeenCalledWith(
       'npx',
-      ['--no', 'vitest', 'run', '--reporter=verbose'],
+      ['--no', '--loglevel=notice', 'vitest', 'run', '--reporter=verbose'],
       expect.objectContaining({
         cwd: project,
         timeout: expect.any(Number),
@@ -171,6 +173,27 @@ describe('mlcl inject reports a unit-test failure even when it captured no outpu
 
     expect(logs.join('\n')).toContain('Tests  2 failed (2)')
     expect(thrown).toMatchObject({ oclif: { exit: 1 } })
+  })
+
+  it('reports the same npx failure under a silent npm parent', async () => {
+    const actual = await vi.importActual<typeof Execa>('execa')
+    execaMock.mockImplementation((file, args, options) =>
+      actual.execa('bash', ['-c', '"$@" > >(cat) 2> >(cat >&2)', '--', file, ...args], options),
+    )
+    vi.stubEnv('npm_config_offline', 'true')
+    vi.stubEnv('npm_config_logs_max', '0')
+    const run = async (level: string): Promise<string | undefined> => {
+      const project = await writeApiProject()
+      vi.stubEnv('npm_config_cache', join(project, 'npm-cache'))
+      vi.stubEnv('npm_config_loglevel', level)
+      const { cmd, logs } = await makeCmd(project)
+      expect(await runToSettlement(cmd)).toMatchObject({ oclif: { exit: 1 } })
+      await rm(project, { recursive: true, force: true })
+      return logs.join('\n').match(/npm error code .+/)?.[0]
+    }
+    const normal = await run('notice')
+    expect(normal).toBe('npm error code ENOTCACHED')
+    expect(await run('silent')).toBe(normal)
   })
 
   describe('a project with no unit tests yet', () => {

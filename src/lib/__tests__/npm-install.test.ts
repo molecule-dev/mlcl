@@ -15,12 +15,22 @@ import {
 import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 
+import type * as Execa from 'execa'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 const { execaMock } = vi.hoisted(() => ({ execaMock: vi.fn() }))
 vi.mock('execa', () => ({ execa: execaMock }))
 
 const { npmFailureDetail, npmInstall, npmInstallArgs } = await import('../npm-install.js')
+
+/** Relay the real npm streams through ordinary shell pipes in restricted test runners. */
+const npmPipeArgs = (file: string, args: string[]): string[] => [
+  '-c',
+  '"$@" > >(cat) 2> >(cat >&2)',
+  '--',
+  file,
+  ...args,
+]
 
 /** npm 11's stderr for the failed SQLite build of harness eval scaffold, 2026-11-25. */
 const GYP_FAILURE = [
@@ -56,15 +66,19 @@ function sources(dir: string): string[] {
 const DIRECT_INSTALL =
   /\b(?:execa|spawn|execFile|execFileSync|spawnSync)\(\s*'npm',\s*\[\s*'install'|\bexec(?:Async|Sync)?\(\s*['`]npm install/
 
-afterEach(() => execaMock.mockReset())
+afterEach(() => {
+  execaMock.mockReset()
+  vi.unstubAllEnvs()
+})
 
 describe('npm install as mlcl runs it', () => {
   it('skips the audit and the funding notice, and reuses the cache when asked', () => {
-    expect(npmInstallArgs()).toEqual(['install', '--no-audit', '--no-fund'])
+    expect(npmInstallArgs()).toEqual(['install', '--no-audit', '--no-fund', '--loglevel=notice'])
     expect(npmInstallArgs({ preferOffline: true })).toEqual([
       'install',
       '--no-audit',
       '--no-fund',
+      '--loglevel=notice',
       '--prefer-offline',
     ])
   })
@@ -74,7 +88,7 @@ describe('npm install as mlcl runs it', () => {
     await npmInstall('/work/app', { preferOffline: true })
     expect(execaMock).toHaveBeenCalledWith(
       'npm',
-      ['install', '--no-audit', '--no-fund', '--prefer-offline'],
+      ['install', '--no-audit', '--no-fund', '--loglevel=notice', '--prefer-offline'],
       { cwd: '/work/app', stdio: 'pipe' },
     )
   })
@@ -178,10 +192,14 @@ describe('npm install as mlcl runs it', () => {
       writeFileSync(join(root, 'node_modules', 'puppeteer', 'package.json'), '{}')
       await npmInstall(root, { wholeTree: true })
       expect(seen.map(([command]) => command)).toEqual(['install', 'rebuild'])
-      expect(execaMock).toHaveBeenLastCalledWith('npm', ['rebuild', 'puppeteer'], {
-        cwd: root,
-        stdio: 'pipe',
-      })
+      expect(execaMock).toHaveBeenLastCalledWith(
+        'npm',
+        ['rebuild', 'puppeteer', '--loglevel=notice'],
+        {
+          cwd: root,
+          stdio: 'pipe',
+        },
+      )
     } finally {
       rmSync(root, { recursive: true, force: true })
     }
@@ -208,6 +226,65 @@ describe('npm install as mlcl runs it', () => {
       }),
     ).toBe('Command failed with exit code 1: npm install')
     expect(npmFailureDetail(new Error('spawn npm ENOENT\nmore'))).toBe('spawn npm ENOENT')
+  })
+
+  it('reports the same real npm install error under a silent parent', async () => {
+    const { execa } = await vi.importActual<typeof Execa>('execa')
+    execaMock.mockImplementation((file, args, options) =>
+      execa('bash', npmPipeArgs(file, args), options),
+    )
+    const root = mkdtempSync(join(tmpdir(), 'mlcl-npm-diagnostic-'))
+    try {
+      writeFileSync(
+        join(root, 'package.json'),
+        JSON.stringify({ name: 'proj', dependencies: { 'invalid name': '1.0.0' } }),
+      )
+      vi.stubEnv('npm_config_cache', join(root, 'cache'))
+      vi.stubEnv('npm_config_offline', 'true')
+      vi.stubEnv('npm_config_loglevel', 'notice')
+      const normal = await npmInstall(root).then(() => '', npmFailureDetail)
+      expect(normal).toContain('EINVALIDPACKAGENAME')
+      vi.stubEnv('npm_config_loglevel', 'silent')
+      await expect(npmInstall(root).then(() => '', npmFailureDetail)).resolves.toBe(normal)
+    } finally {
+      rmSync(root, { recursive: true, force: true })
+    }
+  })
+
+  it('reports the same real npm rebuild error under a silent parent', async () => {
+    const { execa } = await vi.importActual<typeof Execa>('execa')
+    const root = mkdtempSync(join(tmpdir(), 'mlcl-npm-rebuild-'))
+    try {
+      const installed = join(root, 'node_modules', 'puppeteer')
+      mkdirSync(installed, { recursive: true })
+      const manifest = JSON.stringify({
+        name: 'puppeteer',
+        version: '1.0.0',
+        scripts: { install: 'exit 27' },
+      })
+      writeFileSync(join(installed, 'package.json'), manifest)
+      vi.stubEnv('npm_config_cache', join(root, 'cache'))
+      vi.stubEnv('npm_config_offline', 'true')
+      vi.stubEnv('npm_config_logs_max', '0')
+      const run = async (level: string): Promise<string> => {
+        // The fixture models an already installed package. Rebuild its failing script with npm.
+        installAdds(root)
+        const install = execaMock.getMockImplementation()
+        execaMock.mockImplementation(async (file, args, options) => {
+          if (args[0] === 'rebuild') return execa('bash', npmPipeArgs(file, args), options)
+          const result = await install?.(file, args, options)
+          writeFileSync(join(installed, 'package.json'), manifest)
+          return result
+        })
+        vi.stubEnv('npm_config_loglevel', level)
+        return npmInstall(root, { wholeTree: true }).then(() => '', npmFailureDetail)
+      }
+      const normal = await run('notice')
+      expect(normal).toContain('npm error code 27')
+      expect(await run('silent')).toBe(normal)
+    } finally {
+      rmSync(root, { recursive: true, force: true })
+    }
   })
 
   it('is the only way mlcl source runs npm install', () => {

@@ -139,10 +139,14 @@ describe('mlcl inject runs the deferred npm install', () => {
     await runInject(project, [])
 
     expect(execaMock).toHaveBeenCalledTimes(1)
-    expect(execaMock).toHaveBeenCalledWith('npm', ['install', '--no-audit', '--no-fund'], {
-      cwd: project,
-      stdio: 'pipe',
-    })
+    expect(execaMock).toHaveBeenCalledWith(
+      'npm',
+      ['install', '--no-audit', '--no-fund', '--loglevel=notice'],
+      {
+        cwd: project,
+        stdio: 'pipe',
+      },
+    )
     // The ORDER is the claim: the install event comes after every PLAN and
     // SYNTHESIZED file write — an install hoisted before the writes
     // reintroduced installs over a half-written manifest and still passed a

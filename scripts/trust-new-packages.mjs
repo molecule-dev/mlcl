@@ -100,7 +100,7 @@ async function publishFirst(pkg) {
       // staged copy has no node_modules for a prepare/prepublish hook to use.
       const r = spawnSync(
         'npm',
-        ['publish', '--access', 'public', '--ignore-scripts', '--otp', otp],
+        ['publish', '--access', 'public', '--ignore-scripts', '--otp', otp, '--loglevel=notice'],
         { cwd: stage, encoding: 'utf8' },
       )
       const out = `${r.stdout ?? ''}${r.stderr ?? ''}`

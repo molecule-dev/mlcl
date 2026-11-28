@@ -30,6 +30,7 @@ type CheckResult = Awaited<ReturnType<typeof runCheckLocal>>
 const state = vi.hoisted(() => ({
   spawned: [] as { file: string; args: string[] }[],
   smoke: 'passes' as 'passes' | 'fails' | 'empty' | 'empty-old-config' | 'all-skipped',
+  realSmoke: false,
   smokePending: false,
   checkStarted: null as (() => void) | null,
   // Whether the smoke run was still going when the check started.
@@ -43,9 +44,23 @@ vi.mock('../../lib/npm-install.js', async (importOriginal) => ({
 }))
 vi.mock('execa', async (importOriginal) => ({
   ...(await importOriginal<typeof Execa>()),
-  execa: vi.fn(async (file: string, args: string[] = []) => {
+  execa: vi.fn(async (file: string, args: string[] = [], options: Execa.Options = {}) => {
     state.spawned.push({ file, args })
     if (file !== 'npx' || !args.includes('vitest')) return { stdout: '', stderr: '' }
+    if (state.realSmoke)
+      return (await importOriginal<typeof Execa>()).execa(
+        'bash',
+        ['-c', '"$@" > >(cat) 2> >(cat >&2)', '--', file, ...args],
+        {
+          ...options,
+          env: {
+            ...options.env,
+            npm_config_offline: 'true',
+            npm_config_cache: join(process.cwd(), 'npm-cache'),
+            npm_config_logs_max: '0',
+          },
+        },
+      )
     // The smoke run ends when the check starts, or after a second when nothing starts it.
     state.smokePending = true
     await new Promise<void>((resolve) => {
@@ -104,6 +119,7 @@ beforeEach(async () => {
   process.chdir(dir)
   state.spawned = []
   state.smoke = 'passes'
+  state.realSmoke = false
   state.smokePending = false
   state.checkStarted = null
   state.overlapped = null
@@ -113,6 +129,7 @@ beforeEach(async () => {
 afterEach(async () => {
   process.chdir(prevCwd)
   vi.restoreAllMocks()
+  vi.unstubAllEnvs()
   await rm(dir, { recursive: true, force: true })
 })
 
@@ -198,5 +215,19 @@ describe('mlcl create runs the unit tests once, beside its check', () => {
     expect(
       out.some((line) => line.startsWith('Unit tests passed') && line.includes('6 passed')),
     ).toBe(true)
+  }, 120_000)
+
+  it('warns with the same npx failure under a silent npm parent', async () => {
+    state.realSmoke = true
+    const run = async (level: string): Promise<string | undefined> => {
+      vi.stubEnv('npm_config_loglevel', level)
+      const { json, warnings } = await create()
+      expect(json.verified).toEqual({ typecheck: 'passed', lint: 'passed', build: 'passed' })
+      return warnings.find((warning) => warning.startsWith('Unit tests failed'))
+    }
+    const normal = await run('notice')
+    expect(normal).toContain('npm error code ENOTCACHED')
+    await rm(join(dir, 'proj'), { recursive: true, force: true })
+    expect(await run('silent')).toBe(normal)
   }, 120_000)
 })

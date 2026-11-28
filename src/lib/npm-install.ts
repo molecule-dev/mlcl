@@ -13,6 +13,7 @@
 import { execa } from 'execa'
 
 import { decideBeforeInstall, pruneUnusedEntries } from './install-scripts.js'
+import { NPM_DIAGNOSTICS } from './npm-diagnostics.js'
 
 /** How one install runs. */
 export interface NpmInstallOptions {
@@ -35,7 +36,13 @@ export interface NpmInstallOptions {
  * @returns `install` and its flags.
  */
 export function npmInstallArgs({ preferOffline = false }: NpmInstallOptions = {}): string[] {
-  return ['install', '--no-audit', '--no-fund', ...(preferOffline ? ['--prefer-offline'] : [])]
+  return [
+    'install',
+    '--no-audit',
+    '--no-fund',
+    NPM_DIAGNOSTICS,
+    ...(preferOffline ? ['--prefer-offline'] : []),
+  ]
 }
 
 /**
@@ -117,5 +124,6 @@ async function npmInstallWithDecisions(
     removed = pruneUnusedEntries(cwd, written)
   }
   const rebuild = skipped.filter((name) => !removed.includes(name))
-  if (rebuild.length) await execa('npm', ['rebuild', ...rebuild], { cwd, stdio: 'pipe' })
+  if (rebuild.length)
+    await execa('npm', ['rebuild', ...rebuild, NPM_DIAGNOSTICS], { cwd, stdio: 'pipe' })
 }

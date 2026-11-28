@@ -42,6 +42,7 @@ import {
 import { t } from '../lib/i18n.js'
 import { writeInstallScriptEntries } from '../lib/install-scripts.js'
 import { declaredDependencies, newDeclarations } from '../lib/manifest-declarations.js'
+import { NPM_DIAGNOSTICS } from '../lib/npm-diagnostics.js'
 import { npmFailureDetail, npmInstall } from '../lib/npm-install.js'
 import {
   deriveOptionalFeatures,
@@ -1867,7 +1868,7 @@ export default class Create extends Command {
         : projectPath
     const smoke = installNeeded
       ? null
-      : execa('npx', ['--no', 'vitest', 'run', '--reporter=verbose'], {
+      : execa('npx', ['--no', NPM_DIAGNOSTICS, 'vitest', 'run', '--reporter=verbose'], {
           cwd: testCwd,
           stdio: 'pipe',
           timeout: 60_000,

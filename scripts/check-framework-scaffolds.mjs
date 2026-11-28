@@ -120,7 +120,7 @@ function run(cmd, argv, cwd) {
  * @returns {string[]} Paths relative to the app, empty when eslint read every one.
  */
 function unlintedSources(dir) {
-  const result = spawnSync('npx', ['eslint', 'src', '--format', 'json'], {
+  const result = spawnSync('npx', ['--loglevel=notice', 'eslint', 'src', '--format', 'json'], {
     cwd: dir,
     encoding: 'utf8',
     maxBuffer: 1 << 28,
@@ -250,7 +250,7 @@ try {
   if (!created.ok) failures.push({ step: 'create', output: created.output })
   else {
     if (packs) console.log(`packs in place of their pins: ${usePacks(dir, packs).join(', ')}`)
-    const installed = run('npm', ['install', '--no-audit', '--no-fund'], dir)
+    const installed = run('npm', ['install', '--no-audit', '--no-fund', '--loglevel=notice'], dir)
     const inject = (workspace) =>
       run(
         process.execPath,
@@ -284,7 +284,7 @@ try {
           // A fresh scaffold lints with no warning: the platform's build check runs ESLint with
           // --max-warnings 0, so a warning there fails the user's first build.
           const extra = step === 'lint' ? ['--', '--max-warnings', '0'] : []
-          const result = run('npm', ['run', step, ...extra], workspace)
+          const result = run('npm', ['run', step, '--loglevel=notice', ...extra], workspace)
           // A fresh scaffold has no unit tests yet. Vitest says so and exits 0, or 1 under a
           // config that predates passWithNoTests; either is "0 unit tests", never a pass or a
           // failure.

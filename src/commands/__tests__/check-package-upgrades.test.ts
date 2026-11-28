@@ -20,10 +20,12 @@
  * network or the real registry.json.
  */
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { createServer } from 'node:http'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { Config } from '@oclif/core'
+import type * as Execa from 'execa'
 import { execa } from 'execa'
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -188,7 +190,11 @@ describe('check-package-upgrades command — --apply writes framework + toolchai
 })
 
 describe('npmViewFetcher — failure classification', () => {
-  beforeEach(() => execaMock.mockReset())
+  // A function a hook returns is its teardown: returning the mock would call it after each test.
+  beforeEach(() => {
+    execaMock.mockReset()
+  })
+  afterEach(() => vi.unstubAllEnvs())
 
   it('returns ok with the parsed version on success', async () => {
     // Test-only: shape just the `stdout` field npmViewFetcher reads.
@@ -205,6 +211,36 @@ describe('npmViewFetcher — failure classification', () => {
       }),
     )
     expect(await npmViewFetcher()('@molecule/api-x')).toEqual({ ok: false, reason: 'unpublished' })
+  })
+
+  it('classifies a real npm E404 the same way under a silent parent', async () => {
+    const server = createServer((_request, response) => {
+      response.writeHead(404, { 'content-type': 'application/json' })
+      response.end('{"error":"not_found"}')
+    })
+    const cache = await mkdtemp(join(tmpdir(), 'mlcl-view-cache-'))
+    try {
+      await new Promise<void>((resolve, reject) => {
+        server.once('error', reject)
+        server.listen(0, '127.0.0.1', resolve)
+      })
+      const address = server.address()
+      if (!address || typeof address === 'string') throw new Error('missing registry port')
+      const actual = await vi.importActual<typeof Execa>('execa')
+      execaMock.mockImplementation(actual.execa)
+      vi.stubEnv('npm_config_registry', `http://127.0.0.1:${address.port}`)
+      vi.stubEnv('npm_config_cache', cache)
+      vi.stubEnv('npm_config_offline', 'false')
+      vi.stubEnv('npm_config_loglevel', 'notice')
+      const read = npmViewFetcher()
+      const normal = await read('@fixture/unpublished')
+      expect(normal).toEqual({ ok: false, reason: 'unpublished' })
+      vi.stubEnv('npm_config_loglevel', 'silent')
+      await expect(read('@fixture/unpublished')).resolves.toEqual(normal)
+    } finally {
+      await new Promise<void>((resolve) => server.close(() => resolve()))
+      await rm(cache, { recursive: true, force: true })
+    }
   })
 
   it('maps a timeout (no E404) to unreachable', async () => {

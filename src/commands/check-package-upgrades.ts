@@ -6,6 +6,7 @@ import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { NPM_DIAGNOSTICS } from '../lib/npm-diagnostics.js'
 import {
   applyUpgrades,
   applyUpgradesToProjectPackageJson,
@@ -29,7 +30,7 @@ import { createSpinner } from '../lib/spinner.js'
 export function npmViewFetcher(): VersionFetcher {
   return async (name: string): Promise<FetchResult> => {
     try {
-      const { stdout } = await execa('npm', ['view', name, 'version'], {
+      const { stdout } = await execa('npm', ['view', name, 'version', NPM_DIAGNOSTICS], {
         timeout: 20_000,
         reject: true,
       })

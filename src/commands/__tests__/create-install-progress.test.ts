@@ -95,10 +95,14 @@ describe('mlcl create — progress while npm install runs', () => {
   it('under --json: the install is announced and reported on stderr; stdout is only the result', async () => {
     const { stdout, stderr } = await create(['--json'])
 
-    expect(execaMock).toHaveBeenCalledWith('npm', ['install', '--no-audit', '--no-fund'], {
-      cwd: join(dir, 'proj'),
-      stdio: 'pipe',
-    })
+    expect(execaMock).toHaveBeenCalledWith(
+      'npm',
+      ['install', '--no-audit', '--no-fund', '--loglevel=notice'],
+      {
+        cwd: join(dir, 'proj'),
+        stdio: 'pipe',
+      },
+    )
     expect(stderr).toContain(
       'Installing dependencies (a first install takes a few minutes, and npm prints nothing until it is done)...',
     )

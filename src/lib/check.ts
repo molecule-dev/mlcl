@@ -42,6 +42,7 @@ import { CLI_COMMAND } from '#cli-command'
 import { acquireCheckLock } from './check-lock.js'
 import { spawnCheckCommand } from './check-process.js'
 import { runServeCheck } from './check-serve.js'
+import { NPM_DIAGNOSTICS } from './npm-diagnostics.js'
 
 const SCRIPT_CHECK_STEPS = ['typecheck', 'lint', 'build', 'unit', 'e2e'] as const
 type ScriptCheckStepKind = (typeof SCRIPT_CHECK_STEPS)[number]
@@ -958,7 +959,7 @@ async function runStep(
   const browsers = install.filter((a) => !a.startsWith('-')).join(', ')
   note(`has no Playwright browser: installing ${browsers}, then running it again`)
   const progress = playwrightInstallProgress()
-  const command = `npx --no-install playwright install ${install.join(' ')}`
+  const command = `npx --no-install ${NPM_DIAGNOSTICS} playwright install ${install.join(' ')}`
   // Until the next run replaces it, the log says only what the check is doing, then how far the
   // download got.
   writeLogs(

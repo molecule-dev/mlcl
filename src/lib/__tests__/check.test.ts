@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process'
 import {
+  chmodSync,
   existsSync,
   mkdirSync,
   mkdtempSync,
@@ -12,7 +13,7 @@ import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import {
   type CheckPackage,
@@ -376,6 +377,7 @@ describe('runCheckLocal', () => {
     failure: string,
     installFailure?: string,
     installDir?: string,
+    removeAfterDryRun = false,
   ): string {
     const dir =
       installDir ??
@@ -392,7 +394,13 @@ describe('runCheckLocal', () => {
         : '',
       'node_modules/.bin/playwright': [
         '#!/bin/sh',
-        'if [ "$1" = install ] && [ "$2" = --dry-run ]; then cat dry-run-output.txt; exit 0; fi',
+        ...(removeAfterDryRun
+          ? [
+              'if [ "$1" = install ] && [ "$2" = --dry-run ]; then cat dry-run-output.txt; rm node_modules/.bin/playwright; exit 0; fi',
+            ]
+          : [
+              'if [ "$1" = install ] && [ "$2" = --dry-run ]; then cat dry-run-output.txt; exit 0; fi',
+            ]),
         ...(installFailure
           ? [`if [ "$1" = install ]; then echo '${installFailure}' >&2; exit 1; fi`]
           : []),
@@ -408,7 +416,7 @@ describe('runCheckLocal', () => {
         '',
       ].join('\n'),
     })
-    execFileSync('chmod', ['+x', join(root, 'node_modules', '.bin', 'playwright')])
+    chmodSync(join(root, 'node_modules', '.bin', 'playwright'), 0o755)
     return root
   }
 
@@ -453,7 +461,7 @@ describe('runCheckLocal', () => {
     // eval `check`, 2026-11-25; OLD MUSTFAIL). The next run replaces it.
     const during = readFileSync(join(root, 'log-during-install.txt'), 'utf8')
     expect(during).toBe(
-      'npx mlcl check: the Playwright browser (chromium) is not installed, so the first e2e run could not launch it. The check is installing it now (`npx --no-install playwright install --only-shell chromium`) and will run this step again; nothing needs doing meanwhile. This log is replaced when that run ends.\n',
+      'npx mlcl check: the Playwright browser (chromium) is not installed, so the first e2e run could not launch it. The check is installing it now (`npx --no-install --loglevel=notice playwright install --only-shell chromium`) and will run this step again; nothing needs doing meanwhile. This log is replaced when that run ends.\n',
     )
     // Without the first run's failure under it: with that output kept below the note, Codex searched
     // the log for errors, found only "Executable doesn't exist" and looked for the browser itself
@@ -479,7 +487,7 @@ describe('runCheckLocal', () => {
     const [e2e] = result.results
     expect(e2e.status).toBe('failed')
     expect(e2e.errors[0]).toBe(
-      'Playwright browser install failed. Run `npx --no-install playwright install --only-shell chromium` from the check root. The install reported Error: getaddrinfo EAI_AGAIN cdn.playwright.dev',
+      'Playwright browser install failed. Run `npx --no-install --loglevel=notice playwright install --only-shell chromium` from the check root. The install reported Error: getaddrinfo EAI_AGAIN cdn.playwright.dev',
     )
     expect(e2e.errors.slice(1).join('\n')).toContain("Executable doesn't exist")
     expect(e2e.errorTotal).toBe(e2e.errors.length)
@@ -498,6 +506,48 @@ describe('runCheckLocal', () => {
     expect(e2e.errors[0]).toContain('Error: unable to verify the first certificate')
     expect(e2e.errors[0]).not.toContain('Socket.onConnect')
     expect(readFileSync(e2e.logPath, 'utf8')).toContain('Socket.onConnect')
+  })
+
+  it('keeps the npm recovery failure and its diagnostic under a silent npm parent', async () => {
+    const path = process.env.PATH
+    const npx = execFileSync('which', ['npx'], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    }).trim()
+    try {
+      const run = async (level: string): Promise<{ status: string; errors: string[] }> => {
+        const root = playwrightProject(
+          "Error: browserType.launch: Executable doesn't exist at /cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell",
+          undefined,
+          undefined,
+          true,
+        )
+        const bin = join(root, 'bin')
+        mkdirSync(bin)
+        writeFileSync(
+          join(bin, 'npx'),
+          '#!/bin/bash\nexec "$MOL_FIXTURE_NPX" "$@" > >(cat) 2> >(cat >&2)\n',
+          { mode: 0o755 },
+        )
+        vi.stubEnv('MOL_FIXTURE_NPX', npx)
+        vi.stubEnv('PATH', `${bin}:${path}`)
+        vi.stubEnv('npm_config_cache', join(root, 'npm-cache'))
+        vi.stubEnv('npm_config_offline', 'true')
+        vi.stubEnv('npm_config_logs_max', '0')
+        vi.stubEnv('npm_config_loglevel', level)
+        const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+        if ('error' in result) throw new Error(result.error)
+        const [e2e] = result.results
+        expect(readFileSync(e2e.logPath, 'utf8')).toContain('npm error code ENOTCACHED')
+        return { status: e2e.status, errors: e2e.errors }
+      }
+      const normal = await run('notice')
+      expect(normal.status).toBe('failed')
+      expect(normal.errors[0]).toContain('Playwright browser install failed')
+      expect(await run('silent')).toEqual(normal)
+    } finally {
+      vi.unstubAllEnvs()
+    }
   })
 
   it('reports the suite browser setup failure first without invoking recovery', async () => {
@@ -598,7 +648,7 @@ describe('runCheckLocal', () => {
         '',
       ].join('\n'),
     })
-    execFileSync('chmod', ['+x', join(root, 'node_modules', '.bin', 'playwright')])
+    chmodSync(join(root, 'node_modules', '.bin', 'playwright'), 0o755)
     return root
   }
 

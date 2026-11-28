@@ -31,7 +31,15 @@ const implementation = (await import(
 
 const PORT = 5899
 /** What npx is given, and what Vite then receives. */
-const NPX_ARGUMENTS = ['--no', '--', 'vite', '--port', String(PORT), '--strictPort']
+const NPX_ARGUMENTS = [
+  '--no',
+  '--loglevel=notice',
+  '--',
+  'vite',
+  '--port',
+  String(PORT),
+  '--strictPort',
+]
 const VITE_ARGUMENTS = ['--port', String(PORT), '--strictPort']
 
 /** A stand-in on PATH that writes its arguments to `RECORD_FILE` and then does what is asked of it. */
@@ -75,6 +83,39 @@ async function recorded(): Promise<string[][]> {
 }
 
 describe('showcase dev server', () => {
+  it.each(['npm', 'npx'])(
+    'preserves a %s diagnostic when launched under silent npm',
+    async (file) => {
+      const bin = join(scratch, 'bin')
+      vi.stubEnv('PATH', `${bin}${delimiter}${process.env.PATH}`)
+      vi.stubEnv('RECORD_FILE', join(scratch, 'arguments'))
+      vi.stubEnv('MOLECULE_SHOWCASE_PACKAGES', 'npm')
+      const reason = `npm error code ${file === 'npm' ? 'ETARGET' : 'E404'}`
+      await standIn(bin, 'npm', 'process.exit(0)\n')
+      await standIn(
+        bin,
+        file,
+        `
+const flag = process.argv.find((arg) => arg.startsWith('--loglevel='))
+if ((flag?.split('=')[1] ?? process.env.npm_config_loglevel) !== 'silent') {
+  require('node:fs').writeSync(2, ${JSON.stringify(`${reason}\n`)})
+}
+process.exitCode = 1
+`,
+      )
+      vi.stubEnv('npm_config_loglevel', 'notice')
+      const describeFailure = (error: Error): string => error.message
+      const normal = await implementation
+        .startShowcaseServer(scratch, 'react', PORT)
+        .then(() => '', describeFailure)
+      expect(normal).toContain(reason)
+      vi.stubEnv('npm_config_loglevel', 'silent')
+      await expect(
+        implementation.startShowcaseServer(scratch, 'react', PORT).then(() => '', describeFailure),
+      ).resolves.toBe(normal)
+    },
+  )
+
   it('is started through npx on its port, with -- between npx and Vite', async () => {
     const path = process.env.PATH
     const bin = join(scratch, 'bin')
@@ -83,7 +124,7 @@ describe('showcase dev server', () => {
     await standIn(
       bin,
       'npx',
-      "console.log('  VITE v8.3.5  ready in 40 ms')\nsetInterval(() => {}, 1000)\n",
+      "require('node:fs').writeSync(1, '  VITE v8.3.5  ready in 40 ms\\n')\nsetInterval(() => {}, 1000)\n",
     )
     vi.stubEnv('PATH', `${bin}${delimiter}${path}`)
     vi.stubEnv('RECORD_FILE', join(scratch, 'arguments'))

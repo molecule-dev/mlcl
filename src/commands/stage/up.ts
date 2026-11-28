@@ -6,6 +6,7 @@ import { Command, Flags } from '@oclif/core'
 import { CLI_COMMAND } from '#cli-command'
 import chalk from 'chalk'
 
+import { NPM_DIAGNOSTICS } from '../../lib/npm-diagnostics.js'
 import { createSpinner } from '../../lib/spinner.js'
 import { addEnvironment, allocatePort, branchToSlug, loadDriver } from '../../lib/staging.js'
 
@@ -96,8 +97,14 @@ export default class StageUp extends Command {
       try {
         const apiPath = join(projectPath, 'api')
         const appPath = join(projectPath, 'app')
-        execSync('npm run build', { cwd: apiPath, stdio: 'pipe' })
-        execSync('npm run build', { cwd: appPath, stdio: 'pipe' })
+        execSync(`npm run build ${NPM_DIAGNOSTICS}`, {
+          cwd: apiPath,
+          stdio: ['ignore', 'pipe', 'pipe'],
+        })
+        execSync(`npm run build ${NPM_DIAGNOSTICS}`, {
+          cwd: appPath,
+          stdio: ['ignore', 'pipe', 'pipe'],
+        })
         spinner.stop('Build complete')
       } catch (error) {
         spinner.stop('Build failed')
