@@ -27,7 +27,9 @@
  * --with-features scaffolds a full-stack project instead, with one package for each optional
  * feature the framework's templates gate (registry `optionalFeature`: password reset, two-factor,
  * payments, OAuth, push, the settings page, the footer), and checks its app: without them a
- * scaffold writes none of their pages, so the plain app check never compiles that code.
+ * scaffold writes none of their pages, so the plain app check never compiles that code. Its API
+ * runs the same scripts first (`api typecheck` … `api build`), then starts with its own `start`
+ * script and must answer `GET /health` with 200 (`api serve`, scripts/scaffold-api-serve.mjs).
  * MLCL_SCAFFOLD_TMP names the parent directory for the scaffold (default: the OS temp dir).
  * --packs <dir> installs each `npm pack` tarball in <dir> in place of its registry pin (a direct
  * dependency and an `overrides` entry), to check a scaffold change against packages that are not
@@ -40,6 +42,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import { checkApiServes } from './scaffold-api-serve.mjs'
 import { checkScaffoldClasses } from './scaffold-classes.mjs'
 
 const MLCL = join(dirname(fileURLToPath(import.meta.url)), '..')
@@ -272,27 +275,38 @@ try {
     if (!installed.ok) failures.push({ step: 'install', output: installed.output })
     else if (!injected?.ok) failures.push({ step: 'inject', output: injected?.output ?? '' })
     else {
-      const scripts = JSON.parse(readFileSync(join(appDir, 'package.json'), 'utf8')).scripts ?? {}
-      const steps = ['typecheck', 'lint', 'format:check', ...(noTest ? [] : ['test']), 'build']
-      for (const step of steps.filter((name) => scripts[name])) {
-        // A fresh scaffold lints with no warning: the platform's build check runs ESLint with
-        // --max-warnings 0, so a warning there fails the user's first build.
-        const extra = step === 'lint' ? ['--', '--max-warnings', '0'] : []
-        const result = run('npm', ['run', step, ...extra], appDir)
-        // A fresh scaffold has no unit tests yet. Vitest says so and exits 0, or 1 under a config
-        // that predates passWithNoTests; either is "0 unit tests", never a pass or a failure.
-        if (
-          step === 'test' &&
-          /^\s*No test files found, exiting with code [01]\s*$/m.test(result.output)
-        ) {
-          ran.push('test (0 unit tests)')
-          continue
+      // A full-stack project's API runs the same scripts first, then starts and answers /health.
+      for (const workspace of withFeatures ? [join(dir, 'api'), appDir] : [appDir]) {
+        const label = (step) => (workspace === appDir ? step : `api ${step}`)
+        const ws = JSON.parse(readFileSync(join(workspace, 'package.json'), 'utf8')).scripts ?? {}
+        const steps = ['typecheck', 'lint', 'format:check', ...(noTest ? [] : ['test']), 'build']
+        for (const step of steps.filter((name) => ws[name])) {
+          // A fresh scaffold lints with no warning: the platform's build check runs ESLint with
+          // --max-warnings 0, so a warning there fails the user's first build.
+          const extra = step === 'lint' ? ['--', '--max-warnings', '0'] : []
+          const result = run('npm', ['run', step, ...extra], workspace)
+          // A fresh scaffold has no unit tests yet. Vitest says so and exits 0, or 1 under a
+          // config that predates passWithNoTests; either is "0 unit tests", never a pass or a
+          // failure.
+          if (
+            step === 'test' &&
+            /^\s*No test files found, exiting with code [01]\s*$/m.test(result.output)
+          ) {
+            ran.push(label('test (0 unit tests)'))
+            continue
+          }
+          ran.push(label(step))
+          if (!result.ok) failures.push({ step: label(step), output: result.output })
         }
-        ran.push(step)
-        if (!result.ok) failures.push({ step, output: result.output })
+        if (!ws.build)
+          failures.push({ step: label('build'), output: 'the scaffold has no build script' })
+        if (workspace !== appDir && !failures.some((failure) => failure.step === label('build'))) {
+          const served = await checkApiServes(workspace)
+          ran.push(label('serve'))
+          if (!served.ok) failures.push({ step: label('serve'), output: served.output })
+        }
       }
-      if (!scripts.build)
-        failures.push({ step: 'build', output: 'the scaffold has no build script' })
+      const scripts = JSON.parse(readFileSync(join(appDir, 'package.json'), 'utf8')).scripts ?? {}
       // A web app is judged on the CSS its build wrote, so a failed build has nothing to judge.
       if (!failures.some((failure) => failure.step === 'build')) {
         const classes = await checkScaffoldClasses(appDir)

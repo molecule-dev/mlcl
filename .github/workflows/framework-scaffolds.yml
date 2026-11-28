@@ -2,7 +2,8 @@ name: Framework scaffolds
 
 # Every app framework's fresh scaffold, installed from npm at the pins registry.json writes, passes
 # its own typecheck, lint, format, test and build (scripts/check-framework-scaffolds.mjs; one job per
-# registry.json appFrameworks key). CI runs it on every push, and Release runs it before it
+# registry.json appFrameworks key). The job with features also checks the project's API the same
+# way, then starts it and asks GET /health. CI runs it on every push, and Release runs it before it
 # publishes, so a template or pin change that breaks one framework's scaffold cannot ship in the CLI.
 on:
   workflow_call:
